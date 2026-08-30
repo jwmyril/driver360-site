@@ -83,6 +83,28 @@ TX = {
         "ht": "Pòs chofè bis lekòl yo te afiche ant 27 ak 32 dola lè a nan Massachusetts nan mwa out 2026, epi wout CDL yo souvan vini ak yon prim lè ou siyen. Se chif nou li sou sit travay, se pa yon pwomès: sèl chif ki angaje yon anplwayè se sa ki sou paj pa l. Anpil nan pòs sa yo se orè koupe — maten ak apremidi — sa bon pou moun ki bezwen mitan jounen an lib.",
         "es": "Los puestos de conductor de autobús escolar se anunciaban entre 27 y 32 dólares la hora en Massachusetts en agosto de 2026, y las rutas con CDL suelen incluir un bono de contratación. Son cifras leídas en portales de empleo, no una promesa: el único número que compromete a un empleador es el de su propia página. Muchos de estos puestos son de jornada partida — mañana y tarde — lo que le conviene a quien necesita libre el mediodía.",
     },
+    "pub_t": {
+        "en": "Hiring? We publish your opening here — free",
+        "fr": "Vous recrutez ? Nous publions votre offre ici — gratuitement",
+        "ht": "W ap chèche moun ? N ap pibliye òf ou a isit la — gratis",
+        "es": "¿Estás contratando? Publicamos tu oferta aquí — gratis",
+    },
+    "pub_d": {
+        "en": "If your company, your district or your agency has a driver post open, send it to us and it appears on this page. There is no charge for this, and there will not be one: the page is only worth reading if it is complete. We check the posting, publish it, and tell the drivers who asked to hear about openings in that area. You keep your own application process — we link straight to it.",
+        "fr": "Si votre entreprise, votre district ou votre régie a un poste de chauffeur ouvert, envoyez-le-nous et il paraît sur cette page. C'est gratuit, et cela le restera : la page ne vaut d'être lue que si elle est complète. Nous vérifions l'offre, nous la publions, et nous prévenons les chauffeurs qui ont demandé à être avertis dans ce secteur. Vous gardez votre propre procédure de candidature — nous y renvoyons directement.",
+        "ht": "Si konpayi w, distri w oswa ajans ou gen yon pòs chofè ki louvri, voye l ban nou epi l ap parèt sou paj sa a. Se gratis, epi l ap rete gratis : paj la vo lapèn li li sèlman si li konplè. Nou verifye òf la, nou pibliye l, epi nou avèti chofè ki te mande pou yo konnen lè gen travay nan zòn sa a. Ou kenbe pwòp fason w pou moun aplike — nou voye moun dirèk sou li.",
+        "es": "Si tu empresa, tu distrito o tu agencia tiene una vacante de conductor, envíanosla y aparecerá en esta página. Es gratis, y lo seguirá siendo: la página solo vale la pena si está completa. Verificamos la oferta, la publicamos y avisamos a los conductores que pidieron enterarse de las vacantes de esa zona. Conservas tu propio proceso de solicitud — enlazamos directamente a él.",
+    },
+    "pub_b": {
+        "en": "Send us an opening", "fr": "Nous envoyer une offre",
+        "ht": "Voye yon òf ban nou", "es": "Enviarnos una oferta",
+    },
+    "pub_n": {
+        "en": "No fee, no commission, and no cut of a hire. If you would rather browse drivers yourself, that is what Driver Employer is for.",
+        "fr": "Sans frais, sans commission, et sans pourcentage sur une embauche. Si vous préférez parcourir vous-même les chauffeurs, c'est à cela que sert Driver Employer.",
+        "ht": "Pa gen frè, pa gen komisyon, epi nou pa pran anyen sou yon anbochaj. Si w pito gade chofè yo ou menm, se pou sa Driver Employer la ye.",
+        "es": "Sin costo, sin comisión y sin porcentaje sobre una contratación. Si prefieres revisar tú mismo a los conductores, para eso está Driver Employer.",
+    },
     "alerte_t": {
         "en": "Get told when a new one opens", "fr": "Être prévenu quand une offre s'ouvre",
         "ht": "Konnen lè yon nouvo òf louvri", "es": "Que te avisen cuando se abra una",
@@ -136,6 +158,11 @@ TX = {
                "ht": "Tout dwa rezève.", "es": "Todos los derechos reservados."},
 }
 
+MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20offre%20d%27emploi%20a%20publier"
+              "&amp;body=Employeur%20%3A%0AVille%20ou%20zone%20%3A%0APoste%20%3A%0APermis%20demande%20"
+              "(Class%20D%20%2F%207D%20%2F%20CDL)%20%3A%0ATemps%20plein%20ou%20partiel%20%3A%0ASalaire%20"
+              "annonce%20%3A%0AAdresse%20de%20votre%20page%20de%20candidature%20%3A%0A%0AMerci.")
+
 MAILTO = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20un%20employeur%20qui%20recrute"
           "%20des%20chauffeurs&amp;body=Nom%20de%20l%27employeur%20%3A%0AVille%20%3A%0A"
           "Adresse%20de%20leur%20page%20d%27emploi%20%3A%0A%0AMerci.")
@@ -160,6 +187,7 @@ CSS = """
     .jb-note h2{margin:0 0 .5rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.14rem}
     .jb-note p{margin:0;font-size:.92rem;line-height:1.7;color:#c9d8e6}
     .jb-wa{background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.4)}
+    .jb-emp{background:rgba(93,156,236,.08);border-color:rgba(93,156,236,.4)}
     .d3-lang{display:flex;gap:.4rem;flex-wrap:wrap}
     .d3-lang button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
       color:#c9d8e6;border-radius:99px;padding:.3rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit}
@@ -270,6 +298,15 @@ d.lang=l||"en";})();
       <p style="margin-top:.7rem;font-size:.84rem;color:#9db2c7" data-t="gratuit">%(gratuit)s</p>
     </div>
 
+    <div class="jb-note jb-emp">
+      <h2 data-t="pub_t">%(pub_t)s</h2>
+      <p data-t="pub_d">%(pub_d)s</p>
+      <p style="margin-top:1.1rem">
+        <a class="btn btn-primary" href="%(mailto_pub)s" data-t="pub_b">%(pub_b)s</a>
+      </p>
+      <p style="margin-top:.7rem;font-size:.84rem;color:#9db2c7" data-t="pub_n">%(pub_n)s</p>
+    </div>
+
     <div class="jb-note">
       <h2 data-t="permis_t">%(permis_t)s</h2>
       <p data-t="permis_d">%(permis_d)s</p>
@@ -292,34 +329,26 @@ d.lang=l||"en";})();
 
 <script>
 var T = %(dico)s;
-var LANGUES = {en:"English", ht:"Kreyòl", fr:"Français", es:"Español"};
 var TITRE0 = document.title;   /* le titre anglais, ecrit dans le <title> */
-function appliquer(l){
+function appliquer(){
+  var l = document.documentElement.lang;
   var d = T[l];                      /* en = ce qui est ecrit dans le HTML */
   document.title = (d && d.ti) ? d.ti : TITRE0;
   document.querySelectorAll("[data-t]").forEach(function(e){
     if(!e.dataset.original) e.dataset.original = e.innerHTML;
     e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
   });
-  document.documentElement.lang = l;
-  try{localStorage.setItem("atmart_lang", l)}catch(e){}
-  document.querySelectorAll("#lang button").forEach(function(b){
-    b.classList.toggle("actif", b.dataset.l === l);
-  });
 }
-(function(){
-  var bar = document.getElementById("lang");
-  if(!bar) return;
-  Object.keys(LANGUES).forEach(function(code){
-    var b = document.createElement("button");
-    b.type = "button"; b.dataset.l = code; b.textContent = LANGUES[code];
-    b.addEventListener("click", function(){ appliquer(code); });
-    bar.appendChild(b);
-  });
-  appliquer(document.documentElement.lang || "en");
-})();
+appliquer();
+/* Le menu de langue vit dans assets/suite.js et se contente de poser `lang`
+   sur <html> : c'est ce changement qu'on observe. Cette page construisait
+   autrefois sa propre rangee de boutons ; le jour ou elle a disparu, le script
+   sortait avant meme de traduire (il cherchait un element absent) et la page
+   restait en anglais sous un pied traduit. */
+new MutationObserver(appliquer).observe(document.documentElement,
+  {attributes:true, attributeFilter:["lang"]});
 </script>
-<script src="assets/suite.js?v=1"></script>
+<script src="assets/suite.js?v=2"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>
@@ -329,7 +358,7 @@ function appliquer(l){
 def ecrire():
     import json
     champs = {k: t(k) for k in TX}
-    champs.update(css=CSS, entete=entete("jobs.html", "chauffeur", selecteur=True), pied=PIED,
+    champs.update(mailto_pub=MAILTO_PUB, css=CSS, entete=entete("jobs.html"), pied=PIED,
                   corps=construire(), mailto=MAILTO,
                   dico=json.dumps(dictionnaire(), ensure_ascii=False, indent=1))
     html = PAGE % champs

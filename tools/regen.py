@@ -30,6 +30,7 @@ les redirections y sont posées à la main.
 import io, os, re, sys
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+NL = chr(10)
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCE = os.path.join(os.path.dirname(RACINE), "Atmart_website")
 
@@ -96,18 +97,27 @@ APPEL_EMPLOYEUR = """
 # POURQUOI « JOBS » EN PREMIER. C'est ce que le visiteur est venu chercher.
 # Le vivier, le coach et le portail employeur sont les moyens ; l'emploi est
 # la fin. La navigation doit lire dans cet ordre-la.
-# Chaque entree : (page, libelle en anglais, cle de traduction).
-# Une cle vide = un NOM DE PRODUIT, qui ne se traduit pas. Driver Pool reste
+# LA NAVIGATION EST UNIQUE ET LA MEME SUR LES SIX PAGES (decide le 30/08/2026).
+#
+# Elle etait auparavant SEPAREE par cote du marche : un chauffeur ne voyait pas
+# le portail employeur, et reciproquement. L'idee se defendait, mais elle avait
+# un cout : Driver Employer n'apparaissait nulle part pour qui n'etait pas deja
+# du bon cote, et le produit qui RAPPORTE restait invisible. L'utilisateur a
+# tranche : les trois portes se voient depuis n'importe quelle page.
+#
+# Chaque entree : (page, libelle anglais, cle de traduction).
+# Une cle VIDE = un NOM DE PRODUIT, qui ne se traduit pas. Driver Pool reste
 # Driver Pool dans les quatre langues : traduire un nom propre ferait croire a
-# quatre produits differents. Les libelles generiques, eux, se traduisent —
-# assets/suite.js tient le dictionnaire.
-NAV_CHAUFFEUR = [
-    ("index.html", "Home", "n_home"), ("jobs.html", "Jobs", "n_jobs"),
-    ("vivye.html", "Driver Pool", ""), ("wout.html", "Driver Coach", ""),
-    ("setdi.html", "7D Coach", ""),
-]
-NAV_EMPLOYEUR = [
-    ("index.html", "Home", "n_home"), ("anplwaye.html", "Driver Employer", ""),
+# des produits differents selon la langue.
+#
+# Driver Coach ferme la marche : l'utilisateur a nomme les trois premieres, et
+# on garde la quatrieme parce qu'un produit PAYANT qui n'est dans aucun menu ne
+# se vend pas. Le coach 7D reste accessible depuis la page du coach.
+NAV = [
+    ("vivye.html",    "Driver Pool",     ""),
+    ("anplwaye.html", "Driver Employer", ""),
+    ("jobs.html",     "Job Postings",    "n_jobs"),
+    ("wout.html",     "Driver Coach",    ""),
 ]
 
 # Les pages qui appartiennent a CETTE suite : leurs liens restent relatifs.
@@ -117,31 +127,28 @@ NAV_EMPLOYEUR = [
 PAGES_SUITE = {b for _, b, _, _, _ in PAGES} | {"index.html", "jobs.html"}
 
 
-def entete(actif, cote, selecteur=False):
+def entete(actif, cote=None):
     """L'en-tete de la suite.
 
-    `selecteur` pose la barre de langues DANS la navigation. Elle n'est utile
-    que pour les pages qui portent leur propre dictionnaire (l'accueil, jobs) :
-    les pages derivees d'atmart.ltd chargent assets/i18n.js, qui injecte deja
-    son propre selecteur dans `.nav-links` — en poser un second en donnerait
-    deux cote a cote, dont un seul marcherait.
+    `cote` ne sert plus a rien depuis que la navigation est unique ; il reste
+    accepte pour ne pas casser les appels existants.
+
+    Le MENU DE LANGUE n'est pas construit ici : assets/suite.js l'ajoute dans
+    cette meme <ul>. Une seule mecanique, un seul menu, sur les six pages.
     """
-    liens = NAV_CHAUFFEUR if cote == "chauffeur" else NAV_EMPLOYEUR
     lis = []
-    for href, libelle, cle in liens:
+    for href, libelle, cle in NAV:
         style = ("color:var(--accent);font-weight:600" if href == actif else "color:var(--ink)")
-        d3 = f' data-d3="{cle}"' if cle else ""
-        lis.append(f'        <li><a href="{href}"{d3} style="{style};text-decoration:none;font-size:.9rem">{libelle}</a></li>')
-    autre = ('<a href="anplwaye.html" data-d3="x_hiring" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a>'
-             if cote == "chauffeur" else
-             '<a href="index.html" data-d3="x_drive" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a>')
-    return ('<header>\n  <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">\n'
-            '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />'
-            'Driver<span>360</span><small>by Atmart</small></a>\n'
-            '    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">\n'
-            + "\n".join(lis) + f'\n        <li>{autre}</li>\n'
-            + ('        <li><div class="d3-lang" id="lang"></div></li>\n' if selecteur else "")
-            + '    </ul>\n  </nav>\n</header>')
+        d3 = ' data-d3="%s"' % cle if cle else ""
+        lis.append('        <li><a href="%s"%s style="%s;text-decoration:none;font-size:.9rem">%s</a></li>'
+                   % (href, d3, style, libelle))
+    return ('<header>' + NL + '  <nav class="nav" style="display:flex;align-items:center;'
+            'justify-content:space-between;flex-wrap:wrap;gap:.6rem">' + NL
+            + '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" '
+              'alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>' + NL
+            + '    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;'
+              'margin:0;padding:0;align-items:center">' + NL
+            + NL.join(lis) + NL + '    </ul>' + NL + '  </nav>' + NL + '</header>')
 
 
 PIED = """<footer>
@@ -158,6 +165,12 @@ A_RETIRER = [
     re.compile(r'<script src="assets/launcher\.js[^"]*"></script>\s*'),
     re.compile(r'<script src="assets/share\.js[^"]*"></script>\s*'),
     re.compile(r'<script>if\("serviceWorker" in navigator\)\{navigator\.serviceWorker\.register\("/sw\.js"\);\}</script>\s*'),
+    # i18n.js ne traduit RIEN ici : ses attributs `data-i18n` etaient TOUS dans
+    # la navigation et le pied d'atmart.ltd, que cette moulinette remplace. Il
+    # ne posait donc plus qu'un SECOND selecteur de langue, different de celui
+    # de l'accueil — d'ou deux menus de langue selon la page. Verifie le
+    # 30/08/2026 : zero `data-i18n` survit dans les quatre pages derivees.
+    re.compile(r'<script src="assets/i18n\.js[^"]*"></script>\s*'),
 ]
 
 
@@ -176,7 +189,7 @@ def transformer(src_nom, dst_nom, cote):
     # etre charge sur TOUTES les pages, sinon la page reste dans la langue
     # ecrite en dur pendant que son corps change — le melange exact que
     # l'utilisateur a signale le 30/08/2026.
-    s = s.replace("</body>", '<script src="assets/suite.js?v=1"></script>\n'
+    s = s.replace("</body>", '<script src="assets/suite.js?v=2"></script>\n'
                   '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres

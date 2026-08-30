@@ -86,7 +86,23 @@ def main():
             for cle in sorted(posees - dispo):
                 defauts.append("%s : « %s » n'est pas traduit en %s" % (page, cle, lg))
 
-    # --- 4 : le titre de l'onglet ----------------------------------------
+    # --- 4 : plus aucun `data-i18n` ne doit subsister --------------------
+    # assets/i18n.js n'est plus charge sur la suite : un attribut `data-i18n`
+    # qui reapparaitrait ne serait traduit par PERSONNE, et resterait
+    # silencieusement dans la langue du HTML.
+    for page in PAGES:
+        n = lire(page).count('data-i18n')
+        if n:
+            defauts.append("%s : %d attribut(s) data-i18n, que plus rien ne traduit" % (page, n))
+
+    # --- 5 : un seul menu de langue, et il existe ------------------------
+    # Il est construit par suite.js dans `.nav-links` : sans cette liste, la
+    # page n'offre aucun moyen de contredire la detection automatique.
+    for page in PAGES:
+        if 'class="nav-links"' not in lire(page):
+            defauts.append("%s : pas de .nav-links, donc pas de menu de langue" % page)
+
+    # --- 6 : le titre de l'onglet ----------------------------------------
     # Une page dont le titre n'est jamais reecrit garde celui du HTML : l'onglet
     # reste alors en anglais (ou en francais) quelle que soit la langue lue.
     for page in PAGES:

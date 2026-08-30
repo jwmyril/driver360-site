@@ -1,35 +1,38 @@
-// ===== Driver360 — l'enveloppe parle la langue de la page =====
+// ===== Driver360 — l'enveloppe et le choix de la langue =====
 //
-// LE PROBLEME QU'IL RESOUT (constate le 30/08/2026, signale par l'utilisateur).
-// Chaque page de la suite superposait TROIS couches de langue independantes :
+// CE FICHIER EST LA SEULE MECANIQUE DE LANGUE DE LA SUITE.
 //
-//   1. le CORPS de la page — traduit par son propre mecanisme (dictionnaire
-//      inline pour l'accueil et jobs, assets/i18n.js pour les pages derivees
-//      d'atmart.ltd) ;
-//   2. la NAVIGATION, ecrite en dur en anglais par tools/regen.py ;
-//   3. le PIED et le BANDEAU employeur, ecrits en dur en francais.
+// Historique, pour qu'on ne refasse pas le chemin a l'envers :
 //
-// Resultat : la page anglaise affichait un pied francais, la page francaise une
-// navigation anglaise, et ainsi de suite sur les six pages. Aucune page n'etait
-// entierement dans une seule langue.
+//  · 30/08/2026 — l'utilisateur signale que les pages melangent les langues.
+//    La cause n'etait pas la traduction : TROIS couches se superposaient sans
+//    se connaitre (le corps de la page, la navigation ecrite en dur en
+//    anglais, le pied ecrit en dur en francais). Chaque couche etait juste ;
+//    leur somme ne l'etait pas. Ce fichier a d'abord regle l'enveloppe.
 //
-// LA SOLUTION : une seule source pour l'enveloppe, branchee sur `<html lang>`.
-// On ne se branche PAS sur un mecanisme de traduction particulier — il y en a
-// deux dans la suite, et ils ne se connaissent pas. On observe l'attribut
-// `lang` de <html>, que les deux posent. C'est le seul signal commun, et c'est
-// deja celui qu'utilise l'applier de rejistre.html.
+//  · Le meme jour — en verifiant, on constate qu'il ne reste AUCUN attribut
+//    `data-i18n` dans les pages de la suite : `tools/regen.py` remplace la
+//    navigation et le pied d'atmart.ltd, qui les portaient tous. `i18n.js` ne
+//    servait donc plus qu'a poser un SECOND selecteur de langue, different de
+//    celui de l'accueil. Il n'est plus charge ici, et ce fichier prend aussi
+//    en charge le menu de langue — un seul menu, partout le meme.
 //
-// AJOUTER UNE PHRASE A L'ENVELOPPE : la mettre ici DANS LES QUATRE LANGUES, et
-// poser `data-d3="cle"` sur l'element. Une cle absente d'une langue laisse le
-// texte du HTML — c'est-a-dire l'anglais — et donc un melange. Les quatre
-// langues, ou rien.
+// LE POINT D'ACCROCHE EST `document.documentElement.lang`. Chaque page a son
+// propre dictionnaire (l'accueil et jobs en ligne, les pages derivees dans
+// leur `applyLang`), et TOUTES observent cet attribut. Changer la langue se
+// resume donc a le poser : le reste suit.
+//
+// AJOUTER UNE PHRASE A L'ENVELOPPE : la mettre ici DANS LES QUATRE LANGUES et
+// poser `data-d3="cle"` sur l'element. Une cle absente d'une langue laisse
+// l'anglais du HTML — donc un melange. `tools/verif_langue.py` le refuse.
 (function () {
   "use strict";
 
+  var LANGUES = { en: "English", ht: "Kreyòl", fr: "Français", es: "Español" };
+
   var D = {
     en: {
-      n_home: "Home", n_jobs: "Jobs",
-      x_hiring: "I&rsquo;m hiring &rarr;", x_drive: "&larr; I drive",
+      n_jobs: "Job Postings",
       f_service: 'Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.',
       f_question: "A question",
       f_rights: "All rights reserved.",
@@ -39,8 +42,7 @@
       b_note: "No commitment, and we never pass on a driver's name without their agreement."
     },
     fr: {
-      n_home: "Accueil", n_jobs: "Emplois",
-      x_hiring: "Je recrute &rarr;", x_drive: "&larr; Je conduis",
+      n_jobs: "Offres d'emploi",
       f_service: 'Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.',
       f_question: "Une question",
       f_rights: "Tous droits réservés.",
@@ -50,8 +52,7 @@
       b_note: "Aucun engagement, et nous ne diffusons le nom d'aucun chauffeur sans son accord."
     },
     ht: {
-      n_home: "Akèy", n_jobs: "Travay",
-      x_hiring: "M ap anboche &rarr;", x_drive: "&larr; M ap kondi",
+      n_jobs: "Òf travay",
       f_service: 'Driver360 — yon sèvis <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.',
       f_question: "Yon kesyon",
       f_rights: "Tout dwa rezève.",
@@ -61,8 +62,7 @@
       b_note: "Pa gen okenn angajman, epi nou pa bay non okenn chofè san li pa dakò."
     },
     es: {
-      n_home: "Inicio", n_jobs: "Empleos",
-      x_hiring: "Estoy contratando &rarr;", x_drive: "&larr; Conduzco",
+      n_jobs: "Ofertas de empleo",
       f_service: 'Driver360 — un servicio de <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.',
       f_question: "Una pregunta",
       f_rights: "Todos los derechos reservados.",
@@ -73,27 +73,92 @@
     }
   };
 
-  // Les NOMS DE PRODUIT ne se traduisent pas — Driver Pool, Driver Coach,
-  // 7D Coach, Driver Employer. Ce sont des noms propres : les traduire ferait
-  // croire a quatre produits differents selon la langue. Ils n'ont donc pas de
-  // `data-d3` et restent tels quels dans le HTML.
+  // Les NOMS DE PRODUIT ne se traduisent pas — Driver Pool, Driver Employer,
+  // Driver Coach. Ce sont des noms propres : les traduire ferait croire a des
+  // produits differents selon la langue. Ils n'ont donc pas de `data-d3`.
+
+  function courante() {
+    var l = document.documentElement.lang;
+    return D[l] ? l : "en";
+  }
 
   function poser() {
-    var l = document.documentElement.lang;
-    var d = D[l] || D.en;
-    var noeuds = document.querySelectorAll("[data-d3]");
-    for (var i = 0; i < noeuds.length; i++) {
-      var t = d[noeuds[i].getAttribute("data-d3")];
-      if (t != null) noeuds[i].innerHTML = t;
+    var d = D[courante()];
+    var n = document.querySelectorAll("[data-d3]");
+    for (var i = 0; i < n.length; i++) {
+      var t = d[n[i].getAttribute("data-d3")];
+      if (t != null) n[i].innerHTML = t;
+    }
+    var cur = document.querySelector(".lang-current");
+    if (cur) cur.textContent = "🌐 " + courante().toUpperCase();
+    var opts = document.querySelectorAll(".lang-opt");
+    for (var j = 0; j < opts.length; j++) {
+      opts[j].classList.toggle("active", opts[j].getAttribute("data-lang") === courante());
     }
   }
 
+  // --- le menu de langue -------------------------------------------------
+  // UNE LISTE DEROULANTE, pas une rangee de boutons : a quatre langues la
+  // rangee mangeait la barre de navigation, et sur telephone elle passait a la
+  // ligne. Les classes sont celles que style.css connait deja.
+  //
+  // LA LANGUE RESTE AUTOMATIQUE : le petit script en tete de chaque page lit
+  // `navigator.languages` et pose `lang` AVANT le premier affichage. Ce menu
+  // ne sert qu'a contredire la detection, et ce choix-la est memorise.
+  function menu() {
+    var nav = document.querySelector(".nav-links");
+    if (!nav || document.querySelector(".lang-select")) return;
+
+    var li = document.createElement("li");
+    li.className = "lang-select";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "lang-current";
+    btn.setAttribute("aria-label", "Language");
+    btn.textContent = "🌐 " + courante().toUpperCase();
+    var boite = document.createElement("div");
+    boite.className = "lang-menu";
+
+    Object.keys(LANGUES).forEach(function (code) {
+      var o = document.createElement("button");
+      o.type = "button";
+      o.className = "lang-opt";
+      o.setAttribute("data-lang", code);
+      o.textContent = LANGUES[code];
+      o.addEventListener("click", function (e) {
+        e.stopPropagation();
+        try { localStorage.setItem("atmart_lang", code); } catch (err) {}
+        // Poser l'attribut SUFFIT : l'enveloppe et le corps de la page
+        // l'observent tous les deux.
+        document.documentElement.lang = code;
+        boite.classList.remove("open");
+      });
+      boite.appendChild(o);
+    });
+
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      boite.classList.toggle("open");
+    });
+    document.addEventListener("click", function () { boite.classList.remove("open"); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") boite.classList.remove("open");
+    });
+
+    li.appendChild(btn);
+    li.appendChild(boite);
+    nav.appendChild(li);
+    poser();
+  }
+
+  function demarrer() { menu(); poser(); }
+
   poser();
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", poser);
+    document.addEventListener("DOMContentLoaded", demarrer);
+  } else {
+    demarrer();
   }
-  // Les deux mecanismes de traduction de la suite posent `lang` sur <html> :
-  // c'est le seul signal qu'ils ont en commun.
   new MutationObserver(poser).observe(document.documentElement, {
     attributes: true, attributeFilter: ["lang"]
   });

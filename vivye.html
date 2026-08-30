@@ -49,12 +49,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" data-d3="n_home" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
-        <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Jobs</a></li>
         <li><a href="vivye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Pool</a></li>
+        <li><a href="anplwaye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Employer</a></li>
+        <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Job Postings</a></li>
         <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Coach</a></li>
-        <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">7D Coach</a></li>
-        <li><a href="anplwaye.html" data-d3="x_hiring" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
     </ul>
   </nav>
 </header>
@@ -136,6 +134,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <option value="both">L'un ou l'autre</option>
         </select>
 
+        <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.05rem" id="rj-t5">4. Votre CV (optionnel)</h3>
+        <label for="rj-cv" id="L-cv">Lien vers votre CV</label>
+        <input type="url" id="rj-cv" maxlength="300" placeholder="https://..." />
+        <label for="rj-resume" id="L-resume">Ou résumez votre parcours en quelques lignes</label>
+        <textarea id="rj-resume" maxlength="1200" style="min-height:80px"></textarea>
+
         <label class="rj-consent" id="L-consent">
           <input type="checkbox" id="rj-consent" />
           <span id="rj-consent-txt">J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.</span>
@@ -187,7 +191,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 </footer>
 
 <script src="assets/script.js?v=2"></script>
-<script src="assets/i18n.js?v=15"></script>
 <script>
 (function () {
   "use strict";
@@ -215,6 +218,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       s_rideshare:"🚕 Taxi / VTC",
       s_other:"➕ Autre",
       ti:"Driver360 — Inscrivez-vous au pool de chauffeurs (gratuit) | Atmart",
+      t5:"4. Votre CV (optionnel)",
+      cv:"Lien vers votre CV",
+      cvs:"Un lien Google Drive, LinkedIn, Indeed… Un employeur ne le voit qu'après vous avoir sélectionné. Pas de CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Créez-en un gratuitement avec Entèvyou360</a>.",
+      resume:"Ou résumez votre parcours en quelques lignes",
+      resumes:"Ce que vous avez conduit, où, et combien de temps. Utile si vous n'avez pas encore de document.",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -246,6 +254,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       s_rideshare:"🚕 Taksi / VTC",
       s_other:"➕ Lòt",
       ti:"Driver360 — Enskri nan vivye chofè yo (gratis) | Atmart",
+      t5:"4. CV ou (si w vle)",
+      cv:"Lyen CV ou",
+      cvs:"Yon lyen Google Drive, LinkedIn, Indeed… Yon anplwayè wè l sèlman aprè li chwazi w. Ou pa gen CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Fè youn gratis ak Entèvyou360</a>.",
+      resume:"Oswa rakonte pakou w an de twa liy",
+      resumes:"Ki machin ou te kondi, ki kote, epi konbyen tan. Sa itil si w poko gen yon dokiman.",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -277,6 +290,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       s_rideshare:"🚕 Taxi / rideshare",
       s_other:"➕ Other",
       ti:"Driver360 — Join the driver pool (free) | Atmart",
+      t5:"4. Your CV (optional)",
+      cv:"Link to your CV",
+      cvs:"A Google Drive, LinkedIn or Indeed link… An employer sees it only after selecting you. No CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Make one free with Entèvyou360</a>.",
+      resume:"Or sum up your experience in a few lines",
+      resumes:"What you have driven, where, and for how long. Useful if you have no document yet.",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -308,6 +326,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       s_rideshare:"🚕 Taxi / VTC",
       s_other:"➕ Otro",
       ti:"Driver360 — Inscríbete en el registro de conductores (gratis) | Atmart",
+      t5:"4. Tu CV (opcional)",
+      cv:"Enlace a tu CV",
+      cvs:"Un enlace de Google Drive, LinkedIn o Indeed… Un empleador solo lo ve después de seleccionarte. ¿No tienes CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Crea uno gratis con Entèvyou360</a>.",
+      resume:"O resume tu trayectoria en unas líneas",
+      resumes:"Qué has conducido, dónde y durante cuánto tiempo. Útil si aún no tienes un documento.",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -343,6 +366,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     ["school","delivery","senior","transit","rideshare","other"].forEach(function(v){
       setT("S-"+v, t["s_"+v]);});
     if(t.ti) document.title=t.ti;
+    setT("rj-t5",t.t5); setL("L-cv",t.cv,t.cvs); setL("L-resume",t.resume,t.resumes);
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
@@ -372,7 +396,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       licenses:checked("#rj-lic"), years:document.getElementById("rj-years").value,
       flex:(document.querySelector('input[name=flex]:checked')||{}).value||"prefer",
       seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value,
-      wa:document.getElementById("rj-wa").checked};
+      wa:document.getElementById("rj-wa").checked,
+      cv:document.getElementById("rj-cv").value,
+      resume:document.getElementById("rj-resume").value};
   }
   function fill(p){
     document.getElementById("rj-name").value=p.name||"";
@@ -389,6 +415,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
     document.getElementById("rj-consent").checked=true;
     document.getElementById("rj-wa").checked=(p.wa===true);
+    document.getElementById("rj-cv").value=p.cv||"";
+    document.getElementById("rj-resume").value=p.resume||"";
     var fx=p.flex||"prefer";
     var r=document.querySelector('input[name=flex][value="'+fx+'"]'); if(r)r.checked=true;
     document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
@@ -482,7 +510,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   });
 })();
 </script>
-<script src="assets/suite.js?v=1"></script>
+<script src="assets/suite.js?v=2"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

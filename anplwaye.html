@@ -51,9 +51,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" data-d3="n_home" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
+        <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="anplwaye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Employer</a></li>
-        <li><a href="index.html" data-d3="x_drive" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a></li>
+        <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Job Postings</a></li>
+        <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Coach</a></li>
     </ul>
   </nav>
 </header>
@@ -170,7 +171,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 </footer>
 
 <script src="assets/script.js?v=2"></script>
-<script src="assets/i18n.js?v=15"></script>
 <script>
 (function () {
   "use strict";
@@ -258,6 +258,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       if (s.langs) extra.push("🗣 " + s.langs);
       if (s.nat) extra.push("🌍 " + s.nat);
       if (s.licenses && s.licenses.length) extra.push("🪪 " + licNames(s.licenses));
+      // Le CV n'arrive qu'ici : il fait partie de ce que la selection achete,
+      // au meme titre que le nom et le telephone.
+      if (s.cv) extra.push('📄 <a href="' + s.cv + '" target="_blank" rel="noopener" '
+        + 'style="color:#2ec4b6">' + EPT("cvLink") + "</a>");
+      if (s.resume) extra.push('📝 <span title="' + String(s.resume).replace(/"/g, "&quot;")
+        + '" style="cursor:help;border-bottom:1px dotted #9db2c7">' + EPT("cvResume") + "</span>");
       return "<tr><td><strong>" + (s.name || "") + "</strong>" +
         (extra.length ? '<br><small style="color:#9db2c7">' + extra.join(" · ") + "</small>" : "") +
         "</td><td>" + waLink(s.phone) + "</td><td>" + (s.city || "—") + "</td><td>" + kind + "</td><td>" + outcomeCell(s) + "</td></tr>";
@@ -273,8 +279,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     tl.innerHTML = (data.licensed || []).map(function (e) {
       var lic = (e.licenses || []).map(function (l) { return '<span class="ep-b pass" style="margin-right:0.2rem">' + (LICLBL[l] || l) + "</span>"; }).join("");
       var seek = (e.seeking || []).map(function (x) { return SEEKLBL[x] || ""; }).join(" ");
-      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td><td>" + (lic || "—") + "</td>" +
-        "<td>" + (e.years !== null && e.years !== undefined ? e.years + " ans" : "—") + "</td>" +
+      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + (e.hasCv ? ' <span class="ep-b" style="color:#2ec4b6" title="' + EPT("cvHas") + '">📄</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
+        "<td>" + (e.years !== null && e.years !== undefined ? e.years + " " + EPT("yrs") : "—") + "</td>" +
         "<td>" + (e.langs || "—") + "</td><td>" + (seek || "—") + "</td>" +
         "<td>" + (AVLBL[e.avail] || "—") + "</td><td>" + (AUTHLBL[e.auth] || "—") + "</td>" +
         "<td>" + (e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
@@ -296,7 +302,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       var res = [];
       if (e.written) res.push("Écrit : " + (e.written === "pass" ? "✅" : "❌"));
       if (e.road) res.push("Route : " + (e.road === "pass" ? "✅" : "❌"));
-      return "<tr><td>" + ref(e.id) + (e.testDate ? '<br><small style="color:#9db2c7">test : ' + e.testDate + "</small>" : "") + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td>" +
+      return "<tr><td>" + ref(e.id) + (e.testDate ? '<br><small style="color:#9db2c7">' + EPT("testOn") + " : " + e.testDate + "</small>" : "") + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td>" +
         '<td><span class="ep-b ' + (e.readiness >= 70 ? "pass" : e.readiness >= 40 ? "mid" : "fail") + '">' + e.readiness + " %</span></td>" +
         "<td>" + (e.quizBest !== null && e.quizBest !== undefined ? e.quizBest + " %" : "—") + "</td>" +
         "<td>" + (res.join(" · ") || "—") + "</td>" +
@@ -423,7 +429,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Plus de crédits — écrivez à sales@atmart.ltd pour recharger.",
       eDeclare: "Déclarez d'abord le résultat de vos sélections précédentes.",
       eTech: "Petit souci technique. Réessayez.",
-      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner",
+      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner", yrs: "ans", cvLink: "CV", cvResume: "parcours résumé", cvHas: "Ce chauffeur a joint un CV — visible après sélection", testOn: "test",
       qNote: "sélectionner un candidat est définitif et révèle son contact.",
       cHired: "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste).",
       cRejected: "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.",
@@ -470,7 +476,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "No credits left — write to sales@atmart.ltd to top up.",
       eDeclare: "First declare the outcome of your previous selections.",
       eTech: "Small technical problem. Please try again.",
-      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select",
+      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select", yrs: "yrs", cvLink: "CV", cvResume: "summary", cvHas: "This driver attached a CV — visible after selection", testOn: "test",
       qNote: "selecting a candidate is final and reveals their contact details.",
       cHired: "Confirm you HIRED this candidate? They will leave the pool for every employer (they can put themselves back if they leave the job).",
       cRejected: "Confirm this candidate was NOT selected? They stay available to other employers.",
@@ -517,7 +523,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Pa gen kredi ankò — ekri sales@atmart.ltd pou w chaje.",
       eDeclare: "Di dabò ki rezilta seleksyon w te fè anvan yo bay.",
       eTech: "Gen yon ti pwoblèm teknik. Eseye ankò.",
-      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi",
+      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi", yrs: "lane", cvLink: "CV", cvResume: "rezime pakou", cvHas: "Chofè sa a mete yon CV — w ap wè l aprè ou chwazi l", testOn: "tès",
       qNote: "lè w chwazi yon kandida se final epi kontak li parèt.",
       cHired: "Konfime ou ANBOCHE kandida sa a ? L ap sòti nan vivye a pou tout anplwayè (li ka retounen li menm si li kite travay la).",
       cRejected: "Konfime ou PA chwazi kandida sa a ? Li rete disponib pou lòt anplwayè yo.",
@@ -564,7 +570,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Sin créditos — escribe a sales@atmart.ltd para recargar.",
       eDeclare: "Declara primero el resultado de tus selecciones anteriores.",
       eTech: "Pequeño problema técnico. Inténtalo de nuevo.",
-      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar",
+      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar", yrs: "años", cvLink: "CV", cvResume: "trayectoria", cvHas: "Este conductor adjuntó un CV — visible tras la selección", testOn: "examen",
       qNote: "seleccionar a un candidato es definitivo y revela su contacto.",
       cHired: "¿Confirmas que CONTRATASTE a este candidato? Saldrá del registro para todos los empleadores (podrá volver él mismo si deja el puesto).",
       cRejected: "¿Confirmas que este candidato NO fue seleccionado? Sigue disponible para otros empleadores.",
@@ -627,7 +633,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   });
 })();
 </script>
-<script src="assets/suite.js?v=1"></script>
+<script src="assets/suite.js?v=2"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>
