@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Road Test MA — Driver360 : réussir le test de conduite du Massachusetts en kreyòl, español, français | Atmart</title>
+  <meta name="description" content="Driver360 : le coach de préparation au test routier Class D du Massachusetts pour les communautés créole et hispanophone. Les commandes réelles de l'examinateur, les pièges avant/pendant/retour, le sponsor guidé pas à pas. Non affilié à la RMV." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="stylesheet" href="assets/style.css?v=32" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .cf-app{max-width:860px;margin:0 auto}
+    .cf-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.4rem;margin-bottom:1rem}
+    .cf-card label{display:block;font-weight:600;font-size:0.88rem;margin:0.9rem 0 0.3rem}
+    .cf-card label:first-of-type{margin-top:0}
+    .cf-card label small{display:block;font-weight:400;color:#9db2c7;margin-top:0.15rem;line-height:1.4}
+    .cf-card input,.cf-card textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.93rem}
+    .cf-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .cf-hide{display:none}
+    .cf-gauge{display:flex;align-items:center;gap:1rem;margin-bottom:0.6rem}
+    .cf-gauge .pct{font-family:"Space Grotesk",sans-serif;font-size:2.4rem;font-weight:700;color:#2ec4b6}
+    .cf-bar{flex:1;height:12px;background:rgba(255,255,255,0.1);border-radius:99px;overflow:hidden}
+    .cf-bar span{display:block;height:100%;background:linear-gradient(90deg,#e63946,#f4a261,#2ec4b6);border-radius:99px;transition:width 0.6s}
+    .cf-actions{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.8rem}
+    .cf-phase{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.7rem;border-radius:99px;background:rgba(46,196,182,0.15);color:#2ec4b6;text-transform:uppercase}
+    .cf-cmd{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin:0.7rem 0 0.2rem;line-height:1.3}
+    .cf-tr{color:#2ec4b6;font-size:1rem;margin-bottom:0.9rem}
+    .cf-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.8rem 0}
+    .cf-chip{background:#0e2240;border:1px solid rgba(230,57,70,0.5);color:#eaf2fb;border-radius:99px;padding:0.5rem 0.9rem;font:inherit;font-size:0.85rem;cursor:pointer}
+    .cf-chip.on{background:#5c1a22;border-color:#e63946}
+    .cf-chip .sev{font-weight:700}
+    .cf-chip .sev.F{color:#e63946}
+    .cf-chip .sev.m{color:#f4a261}
+    .cf-ok{background:#123f2c;border:1px solid #2ec4b6;color:#eaf2fb;border-radius:10px;padding:0.7rem 1.4rem;font:inherit;font-size:1rem;font-weight:600;cursor:pointer}
+    .cf-fb{border-radius:10px;padding:0.8rem 1rem;margin-top:0.8rem;font-size:0.92rem;line-height:1.55;display:none}
+    .cf-fb.good{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.4)}
+    .cf-fb.bad{background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.4)}
+    .cf-prog{color:#9db2c7;font-size:0.82rem}
+    .cf-msgs{max-height:45vh;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;padding:0.3rem 0.1rem}
+    .cf-m{max-width:88%;padding:0.65rem 0.9rem;border-radius:13px;font-size:0.93rem;line-height:1.55;white-space:pre-wrap}
+    .cf-m.user{align-self:flex-end;background:#12406b}
+    .cf-m.coach{align-self:flex-start;background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35)}
+    .cf-row{display:flex;gap:0.6rem;margin-top:0.8rem}
+    .cf-row textarea{flex:1;min-height:48px;resize:vertical}
+    .cf-out{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:0.5rem 0}
+    .cf-small{font-size:0.8rem;color:#9db2c7}
+    .cf-badge-note{font-size:0.78rem;color:#9db2c7;border-top:1px dashed rgba(255,255,255,0.15);margin-top:1rem;padding-top:0.7rem}
+    @media print{ header,footer,.no-print{display:none!important} body{background:#fff;color:#000} .print-only{display:block!important;color:#000} }
+    .print-only{display:none}
+    .cf-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .cf-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
+    .cf-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:0 0 1.6rem}
+    .cf-feat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
+    .cf-feat:hover{border-color:rgba(46,196,182,0.45)}
+    .cf-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
+    .cf-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .cf-feat p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
+    .cf-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:#fff;margin:0 0 0.3rem}
+    .cf-formsub{font-size:0.85rem;color:#9db2c7;margin:0 0 1.2rem;line-height:1.5}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>pa Atmart</small></a>
+    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
+        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Accueil</a></li>
+        <li><a href="wout.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Test de route</a></li>
+        <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Permis 7D</a></li>
+        <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Le vivier</a></li>
+        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">Je recrute →</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="cf-kicker">Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.</p>
+    <h1>Driver<em>360</em></h1>
+    <div class="aka"><b id="cf-aka">Road Test MA</b><small id="cf-aka-s">le nom que tout le monde utilise</small></div>
+    <p class="lead" id="cf-lead">Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas, séance après séance.</p>
+    <div class="cf-badges">
+      <span class="cf-badge" id="cf-bg1">🗣 4 langues</span>
+      <span class="cf-badge" id="cf-bg2">🎯 12 manœuvres du test</span>
+      <span class="cf-badge" id="cf-bg3">📝 Test écrit inclus</span>
+      <span class="cf-badge" id="cf-bg4">🕒 90 jours d'accès</span>
+    </div>
+    <p style="color:#9db2c7;font-size:0.88rem;margin-top:1.1rem" id="cf-note">Dossier anonyme par code. Non affilié à la RMV du Massachusetts — préparation indépendante, aucune garantie de réussite. Le téléphone reste dans les mains de l'accompagnateur, véhicule à l'arrêt.</p>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="cf-app">
+
+      <div class="cf-feats">
+        <div class="cf-feat"><span class="ic">🚗</span>
+          <h4 id="cf-f1t">Mode Séance</h4>
+          <p id="cf-f1d">Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.</p></div>
+        <div class="cf-feat"><span class="ic">💬</span>
+          <h4 id="cf-f2t">Coach personnel</h4>
+          <p id="cf-f2d">Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.</p></div>
+        <div class="cf-feat"><span class="ic">🖨</span>
+          <h4 id="cf-f3t">Guide de l'accompagnateur</h4>
+          <p id="cf-f3d">Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.</p></div>
+      </div>
+
+      <!-- ecran 1 : onboarding -->
+      <form class="cf-card" id="cf-start">
+        <p class="cf-formhead" id="cf-fh">Commencer</p>
+        <p class="cf-formsub" id="cf-fs">Entrez votre code d'accès, ou essayez d'abord 5 questions du test écrit — gratuitement.</p>
+        <label for="cf-code" id="L-code">🔑 Votre code Driver360<small>Gratuit (WOUT-XXXX-XXXX). Pas encore de code ? <a href="mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit" style="color:#2ec4b6">Demandez-le — gratuit</a></small></label>
+        <input type="text" id="cf-code" maxlength="24" autocomplete="off" placeholder="WOUT-XXXX-XXXX" />
+        <label for="cf-date" id="L-date">📅 Date de votre test routier (si déjà fixée)</label>
+        <input type="date" id="cf-date" />
+        <label id="L-pool" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;cursor:pointer">
+          <input type="checkbox" id="cf-pool" style="width:auto;margin-top:0.2rem" />
+          <span id="L-poolTxt">Quand j'aurai réussi, je veux entrer dans le <strong>Driver Pool</strong> : des employeurs du Massachusetts pourront me contacter pour un emploi. (Optionnel — nom et téléphone partagés seulement si vous cochez.)</span>
+        </label>
+        <div id="cf-poolfields" class="cf-hide">
+          <label for="cf-name" id="L-name">Votre nom</label>
+          <input type="text" id="cf-name" maxlength="80" />
+          <label for="cf-phone" id="L-phone">Votre téléphone (WhatsApp)</label>
+          <input type="text" id="cf-phone" maxlength="30" />
+          <label for="cf-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.</small></label>
+          <input type="text" id="cf-city" maxlength="60" />
+          <label for="cf-langs" id="L-langs">Langues que vous parlez <small>Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.</small></label>
+          <input type="text" id="cf-langs" maxlength="80" />
+          <label for="cf-nat" id="L-nat">Nationalité (optionnel) <small>Visible seulement par un employeur qui vous sélectionne.</small></label>
+          <input type="text" id="cf-nat" maxlength="60" />
+        </div>
+        <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Essayer 5 questions gratuites</button></div>
+        <p class="cf-status" id="cf-st1"></p>
+      </form>
+
+      <!-- ecran 2 : tableau de bord -->
+      <div class="cf-card cf-hide" id="cf-dash">
+        <div class="cf-gauge">
+          <span class="pct" id="cf-pct">0%</span>
+          <div class="cf-bar"><span id="cf-barfill" style="width:0%"></span></div>
+        </div>
+        <p class="cf-small" id="cf-ready-label">Préparation au test — basée sur vos séances notées par votre accompagnateur.</p>
+        <div class="cf-actions">
+          <button class="btn btn-primary" id="cf-session-btn">🚗 Séance avec sponsor</button>
+          <button class="btn btn-outline" id="cf-coach-btn">💬 Parler au coach</button>
+          <button class="btn btn-outline" id="cf-guide-btn">🖨 Guide du sponsor</button>
+          <button class="btn btn-outline" id="cf-quiz-btn">📝 Test écrit (Pèmi)</button>
+          <button class="btn btn-outline" id="cf-result-btn">🏁 Résultat du test</button>
+        </div>
+        <p class="cf-badge-note" id="cf-erase-zone"><span id="cf-privacy">🔒 Dossier anonyme lié à votre code.</span> <button type="button" id="cf-erase" style="background:none;border:none;color:#9db2c7;text-decoration:underline;cursor:pointer;font:inherit">Effacer mon dossier</button></p>
+      </div>
+
+      <!-- ecran 3 : mode seance -->
+      <div class="cf-card cf-hide" id="cf-session">
+        <p class="cf-prog"><span id="cf-phase-badge" class="cf-phase"></span> <span id="cf-prog-txt"></span></p>
+        <p class="cf-cmd" id="cf-cmd"></p>
+        <p class="cf-tr" id="cf-tr"></p>
+        <div class="cf-actions no-print">
+          <button class="btn btn-outline" id="cf-speak">🔊 Voix de l'examinateur</button>
+        </div>
+        <p class="cf-small" id="cf-sponsor-hint">Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.</p>
+        <div class="cf-chips" id="cf-chips"></div>
+        <div class="cf-actions">
+          <button class="cf-ok" id="cf-okbtn">✅ Byen fèt</button>
+          <button class="btn btn-outline" id="cf-nextbtn">Suivant ⏭</button>
+        </div>
+        <div class="cf-fb" id="cf-fb"></div>
+        <p class="cf-status" id="cf-st3"></p>
+      </div>
+
+      <!-- ecran 4 : chat coach -->
+      <div class="cf-card cf-hide" id="cf-chat">
+        <div class="cf-msgs" id="cf-msgs"></div>
+        <div class="cf-row">
+          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <button class="btn btn-primary" id="cf-send">Envoyer</button>
+        </div>
+        <p class="cf-status" id="cf-st4"></p>
+      </div>
+
+      <!-- ecran 5 : resultats officiels -->
+      <div class="cf-card cf-hide" id="cf-outcome">
+        <h3 id="L-out-title" style="margin-top:0">🏁 Vos résultats officiels RMV</h3>
+        <p class="cf-small" id="L-out-sub">Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.</p>
+        <div class="cf-out"><strong id="L-out-w">Test écrit :</strong>
+          <button class="btn btn-outline" data-k="written" data-r="pass">✅ Réussi</button>
+          <button class="btn btn-outline" data-k="written" data-r="fail">❌ Échoué</button>
+          <span class="cf-small" id="cf-out-w-state"></span></div>
+        <div class="cf-out"><strong id="L-out-r">Test routier :</strong>
+          <button class="btn btn-outline" data-k="road" data-r="pass">✅ Réussi</button>
+          <button class="btn btn-outline" data-k="road" data-r="fail">❌ Échoué</button>
+          <span class="cf-small" id="cf-out-r-state"></span></div>
+        <p class="cf-status" id="cf-st5"></p>
+        <p id="cf-bridge" class="cf-hide" style="background:rgba(46,196,182,0.1);border:1px solid rgba(46,196,182,0.4);border-radius:10px;padding:0.8rem 1rem;font-size:0.9rem;line-height:1.6">🎉 <span id="cf-bridge-txt">Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.</span> <a href="https://atmart.ltd/karye360.html" style="color:#2ec4b6;font-weight:600">Career360 →</a></p>
+      </div>
+
+      <!-- ecran quiz Pemi -->
+      <div class="cf-card cf-hide" id="cf-quiz">
+        <p class="cf-prog"><span class="cf-phase" id="qz-badge">PÈMI</span> <span id="qz-prog"></span></p>
+        <p class="cf-cmd" id="qz-q" style="font-size:1.15rem"></p>
+        <div class="cf-chips" id="qz-opts" style="flex-direction:column;align-items:stretch"></div>
+        <div class="cf-fb" id="qz-fb"></div>
+        <div class="cf-actions">
+          <button class="btn btn-primary cf-hide" id="qz-next">Suivant ⏭</button>
+        </div>
+        <p class="cf-status" id="qz-st"></p>
+      </div>
+
+      <!-- guide sponsor imprimable -->
+      <div class="cf-card cf-hide" id="cf-guide">
+        <h3 style="margin-top:0" id="g-title">🖨 Guide de l'accompagnateur (sponsor)</h3>
+        <div id="g-body" style="font-size:0.92rem;line-height:1.65;color:#d7e3f0"></div>
+        <div class="cf-actions no-print"><button class="btn btn-primary" onclick="window.print()" id="g-print">Imprimer</button></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODULE : LES COMMANDES DE L'EXAMINATEUR EN ANGLAIS -->
+<section id="komand" style="padding-top:0">
+  <div class="container">
+    <div class="km-head">
+      <h2 id="km-title" style="margin:0 0 0.3rem">🗣 Les commandes de l'examinateur — en anglais</h2>
+      <p id="km-sub" style="color:#9db2c7;margin:0;max-width:760px;font-size:0.93rem">L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.</p>
+    </div>
+    <div class="km-tabs" id="km-tabs"></div>
+    <div class="km-bar">
+      <button type="button" class="km-toggle" id="km-hide">👁 <span id="km-hide-t">Masquer les traductions</span></button>
+      <button type="button" class="km-toggle km-drillbtn" id="km-drill">🎯 <span id="km-drill-t">M'interroger</span></button>
+      <span class="km-count" id="km-count"></span>
+    </div>
+    <div class="km-list" id="km-list"></div>
+    <div class="km-drill" id="km-drillbox" hidden>
+      <p class="km-dprog" id="km-dprog"></p>
+      <p class="km-dcmd" id="km-dcmd"></p>
+      <button type="button" class="km-say km-dsay" id="km-dsay">🔈</button>
+      <p class="km-dask" id="km-dask"></p>
+      <div class="km-dreveal" id="km-dreveal" hidden>
+        <p class="km-tr" id="km-dtr"></p>
+        <p class="km-do" id="km-ddo"></p>
+      </div>
+      <div class="km-dacts">
+        <button type="button" class="btn btn-outline" id="km-dshow">Voir la réponse</button>
+        <button type="button" class="btn btn-primary km-hide2" id="km-dok">✅ Je savais</button>
+        <button type="button" class="btn btn-outline km-hide2" id="km-dko">❌ Je ne savais pas</button>
+      </div>
+      <p class="km-dend" id="km-dend" hidden></p>
+    </div>
+    <p class="km-foot" id="km-foot">Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts.</p>
+  </div>
+</section>
+
+<!-- B2B : entreprises & ecoles -->
+<section>
+  <div class="container">
+    <div class="cta-band" style="background:rgba(244,162,97,0.07);border:1px solid rgba(244,162,97,0.3);border-radius:14px;padding:1.5rem;text-align:center">
+      <h2 style="margin-top:0;font-size:1.2rem" id="cf-b2b-t">🚌 Vous êtes une compagnie de transport ?</h2>
+      <p style="color:#d7e3f0;max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="cf-b2b-d">Recrutez dans le Driver Pool : des candidats préparés, avec résultats de tests vérifiables — et équipez vos recrues (préparation 7D bientôt disponible).</p>
+      <a href="anplwaye.html" class="btn btn-outline" id="cf-b2b-c">Ouvrir le portail employeurs</a>
+      <p id="cf-b2b-lic" style="font-size:0.82rem;color:#9db2c7;margin-top:0.8rem">Déjà licencié (Class D, 7D, CDL) ? <a href="vivye.html" style="color:#2ec4b6">Inscrivez-vous gratuitement au pool →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
+    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=15"></script>
+<script>
+(function () {
+  "use strict";
+  var EP = "https://atmart-chat.atmartllc.workers.dev/wout";
+
+  // ---------- manoeuvres : 3 phases, commandes reelles, grilles d'erreurs ----------
+  // sev "F" = echec automatique au vrai test · "m" = erreur mineure (points)
+  var M = [
+    { id:"a1", ph:"A", en:"Get ready to drive.",
+      t:{ht:"Prepare w pou kondwi.",fr:"Préparez-vous à conduire.",es:"Prepárate para conducir.",en:"Get ready to drive."},
+      errs:[{id:"belt",sev:"F",t:{ht:"Pa mete senti AVAN tout bagay",fr:"Ceinture non mise en premier",es:"Sin cinturón primero",en:"No seatbelt first"}},
+            {id:"mir",sev:"m",t:{ht:"Pa regle sèj/retrovizè yo",fr:"Siège/rétros non réglés",es:"Asiento/espejos sin ajustar",en:"Seat/mirrors not adjusted"}},
+            {id:"ctl",sev:"m",t:{ht:"Pa konn ekipman yo (limyè, klaksòn…)",fr:"Commandes inconnues",es:"No conoce los controles",en:"Doesn't know controls"}}] },
+    { id:"a2", ph:"A", en:"Show me the hand signals: stop, left turn, right turn.",
+      t:{ht:"Montre m siyal men yo : kanpe, vire agoch, vire adwat.",fr:"Montrez-moi les signaux de la main : stop, gauche, droite.",es:"Muéstrame las señales de mano: alto, izquierda, derecha.",en:"Show me the hand signals."},
+      errs:[{id:"sig",sev:"F",t:{ht:"Siyal la pa kòrèk",fr:"Signal incorrect",es:"Señal incorrecta",en:"Wrong signal"}},
+            {id:"hes",sev:"m",t:{ht:"Twòp ezitasyon",fr:"Trop d'hésitation",es:"Demasiada duda",en:"Hesitation"}}] },
+    { id:"a3", ph:"A", en:"Pull away from the curb when it's safe.",
+      t:{ht:"Kite twotwa a lè li san danje.",fr:"Quittez le trottoir quand c'est sûr.",es:"Sal de la acera cuando sea seguro.",en:"Pull away from the curb."},
+      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (head check)",fr:"Pas de head check",es:"Sin girar la cabeza",en:"No head check"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}},
+            {id:"jerk",sev:"m",t:{ht:"Demaraj brital",fr:"Départ brusque",es:"Arranque brusco",en:"Jerky start"}}] },
+    { id:"b1", ph:"B", en:"Come to a complete stop at the stop sign.",
+      t:{ht:"Kanpe NÈT devan siy STOP la.",fr:"Arrêt COMPLET au stop.",es:"Alto COMPLETO en el stop.",en:"Complete stop."},
+      errs:[{id:"roll",sev:"F",t:{ht:"Rolling stop (wou yo pa janm kanpe nèt)",fr:"Rolling stop",es:"Alto incompleto",en:"Rolling stop"}},
+            {id:"line",sev:"m",t:{ht:"Kanpe APRE liy lan",fr:"Arrêt après la ligne",es:"Parado tras la línea",en:"Stopped past line"}},
+            {id:"look",sev:"m",t:{ht:"Pa gade de bò yo",fr:"Pas regardé des deux côtés",es:"No miró ambos lados",en:"Didn't look both ways"}}] },
+    { id:"b2", ph:"B", en:"Pull over and back up in a straight line.",
+      t:{ht:"Rete sou kote a epi fè bak an liy dwat.",fr:"Arrêtez-vous et reculez en ligne droite.",es:"Detente y retrocede en línea recta.",en:"Back up straight."},
+      errs:[{id:"look",sev:"F",t:{ht:"Pa gade DÈYÈ nan vit la",fr:"Pas regardé derrière (vitre)",es:"No miró atrás",en:"Didn't look back"}},
+            {id:"line",sev:"m",t:{ht:"Kite liy dwat la",fr:"Sorti de la ligne",es:"Salió de la línea",en:"Left the line"}},
+            {id:"fast",sev:"m",t:{ht:"Twò vit",fr:"Trop vite",es:"Muy rápido",en:"Too fast"}}] },
+    { id:"b3", ph:"B", en:"Make a 3-point turn.",
+      t:{ht:"Fè yon 3-point turn.",fr:"Faites un demi-tour en 3 temps.",es:"Haz un giro de 3 puntos.",en:"3-point turn."},
+      errs:[{id:"curb",sev:"F",t:{ht:"Monte/frape twotwa a",fr:"Trottoir touché",es:"Golpeó la acera",en:"Hit the curb"}},
+            {id:"look",sev:"F",t:{ht:"Pa gade anvan CHAK manèv",fr:"Pas regardé avant chaque manœuvre",es:"No miró antes de cada movimiento",en:"No look each move"}},
+            {id:"many",sev:"m",t:{ht:"Plis pase 3 manèv",fr:"Plus de 3 manœuvres",es:"Más de 3 movimientos",en:"Too many moves"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
+    { id:"b4", ph:"B", en:"Parallel park behind that vehicle.",
+      t:{ht:"Fè parallel parking dèyè machin sa a.",fr:"Stationnement parallèle derrière ce véhicule.",es:"Estaciona en paralelo detrás de ese vehículo.",en:"Parallel park."},
+      errs:[{id:"hit",sev:"F",t:{ht:"Frape kòn/twotwa/machin",fr:"Cône/trottoir touché",es:"Golpeó cono/acera",en:"Hit cone/curb"}},
+            {id:"far",sev:"m",t:{ht:"Twò lwen twotwa a (plis pase 12 pous)",fr:"Trop loin du trottoir (>12 po)",es:"Muy lejos de la acera",en:">12 in from curb"}},
+            {id:"many",sev:"m",t:{ht:"Twòp manèv",fr:"Trop de manœuvres",es:"Demasiados movimientos",en:"Too many moves"}}] },
+    { id:"b5", ph:"B", en:"Turn left at the next intersection.",
+      t:{ht:"Vire agoch nan pwochen entèseksyon an.",fr:"Tournez à gauche à la prochaine intersection.",es:"Gira a la izquierda en la próxima intersección.",en:"Turn at intersection."},
+      errs:[{id:"yield",sev:"F",t:{ht:"Pa sede pasaj",fr:"Priorité non cédée",es:"No cedió el paso",en:"Didn't yield"}},
+            {id:"lane",sev:"m",t:{ht:"Vire nan move liy",fr:"Mauvaise voie",es:"Carril equivocado",en:"Wrong lane"}},
+            {id:"sig",sev:"m",t:{ht:"Siyal twò ta",fr:"Clignotant tardif",es:"Señal tardía",en:"Late signal"}}] },
+    { id:"b6", ph:"B", en:"Continue straight and watch your speed.",
+      t:{ht:"Kontinye tou dwat, veye vitès ou (zòn 20/30 mph).",fr:"Continuez tout droit, surveillez la vitesse (zones 20/30 mph).",es:"Sigue recto, cuida tu velocidad.",en:"Watch your speed."},
+      errs:[{id:"speed",sev:"F",t:{ht:"Depase limit vitès la",fr:"Excès de vitesse",es:"Exceso de velocidad",en:"Over the limit"}},
+            {id:"slow",sev:"m",t:{ht:"Twò dousman",fr:"Trop lent",es:"Muy lento",en:"Too slow"}},
+            {id:"close",sev:"m",t:{ht:"Twò pre machin devan an",fr:"Distance trop courte",es:"Muy pegado",en:"Following too close"}}] },
+    { id:"b7", ph:"B", en:"Change lanes when it's safe.",
+      t:{ht:"Chanje liy lè li san danje.",fr:"Changez de voie quand c'est sûr.",es:"Cambia de carril cuando sea seguro.",en:"Change lanes."},
+      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (angle mò)",fr:"Angle mort non vérifié",es:"Punto ciego sin revisar",en:"No head check"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
+    { id:"c1", ph:"C", en:"Head back to the lot.",
+      t:{ht:"Retounen nan pakin lan — tès la POKO fini !",fr:"Retour au parking — le test n'est PAS fini !",es:"Regresa al estacionamiento — ¡el examen NO terminó!",en:"Head back — test not over!"},
+      errs:[{id:"relax",sev:"F",t:{ht:"Vijilans tonbe (stop rate, vitès…)",fr:"Relâchement (stop raté, vitesse…)",es:"Se relajó (alto/velocidad)",en:"Vigilance dropped"}},
+            {id:"lot",sev:"m",t:{ht:"Twò vit nan pakin lan",fr:"Trop vite dans le parking",es:"Rápido en el lote",en:"Fast in lot"}}] },
+    { id:"c2", ph:"C", en:"Park in that spot and secure the vehicle.",
+      t:{ht:"Pakin nan plas sa a epi sekirize machin nan.",fr:"Garez-vous et sécurisez le véhicule.",es:"Estaciona y asegura el vehículo.",en:"Park and secure."},
+      errs:[{id:"belt",sev:"F",t:{ht:"Retire senti pandan machin nan ap woule",fr:"Ceinture détachée en roulant",es:"Cinturón quitado en marcha",en:"Unbuckled while moving"}},
+            {id:"brake",sev:"m",t:{ht:"Pa mete fren pakin lan",fr:"Frein de stationnement oublié",es:"Sin freno de mano",en:"No parking brake"}},
+            {id:"eng",sev:"m",t:{ht:"Motè a rete limen",fr:"Moteur laissé allumé",es:"Motor encendido",en:"Engine left on"}}] }
+  ];
+  var PHASES = {
+    A:{ht:"ANVAN W DEMARE",fr:"AVANT DE DÉMARRER",es:"ANTES DE ARRANCAR",en:"BEFORE YOU DRIVE"},
+    B:{ht:"SOU WOUT LA",fr:"SUR LA ROUTE",es:"EN LA RUTA",en:"ON THE ROAD"},
+    C:{ht:"CHEMEN RETOU",fr:"LE RETOUR",es:"EL REGRESO",en:"THE WAY BACK"}
+  };
+
+  // ---------- interface 4 lang ----------
+  var L = {
+    fr:{kicker:"L'école vous montre à conduire. Nous, on vous fait PASSER le test — dans votre langue.",
+        lead:"Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas.",
+        note:"Dossier anonyme par code. Non affilié à la RMV — préparation indépendante, aucune garantie de réussite. Le téléphone reste dans les mains de l'accompagnateur, véhicule à l'arrêt.",
+        ready:"Préparation au test — basée sur vos séances notées par votre accompagnateur.",
+        sess:"🚗 Séance avec sponsor",coach:"💬 Parler au coach",guide:"🖨 Guide du sponsor",res:"🏁 Résultat du test",
+        ok:"✅ Bien fait",next:"Suivant ⏭",speak:"🔊 Voix de l'examinateur",
+        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",
+        good:"Parfait ! Manœuvre propre — on la refixera pour la stabilité.",
+        badF:"⛔ ÉLIMINATOIRE au vrai test : ",badm:"⚠️ Erreur mineure (points perdus) : ",
+        redo:"Corrigez et refaites-la maintenant, puis passez à la suite.",
+        fin:"Séance terminée — envoi au coach…",invalid:"Code invalide. Vérifiez-le, ou écrivez-nous.",
+        expired:"Accès expiré. Écrivez-nous pour un nouveau code gratuit — sales@atmart.ltd.",limit:"Limite du jour atteinte — le coach revient demain.",
+        err:"Petit souci technique. Réessayez.",hello:"Bonjou ! 👋 Je suis votre coach Wout. Dites-moi où vous en êtes, ou lancez une séance avec votre accompagnateur.",
+        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code.",qzTitle:"Test écrit (Pèmi) — 20 questions, 15 pour réussir",qzRight:"✅ Correct ! ",qzWrong:"❌ Incorrect. ",qzScore:"Votre score : ",qzPass:"RÉUSSI 🎉 — vous êtes prêt pour le vrai test écrit.",qzFail:"Pas encore — révisez et recommencez demain.",qzFree:"Essai gratuit terminé (5 questions/jour). Le code Driver360 débloque les 20 questions + le coach.",qzNext:"Suivant ⏭",bg1:"🗣 4 langues",bg2:"🎯 12 manœuvres du test",bg3:"📝 Test écrit inclus",bg4:"🕒 90 jours d'accès",f1t:"Mode Séance",f1d:"Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.",f2t:"Coach personnel",f2d:"Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.",f3t:"Guide de l'accompagnateur",f3d:"Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.",fh:"Commencer",fs:"Entrez votre code d'accès, ou essayez d'abord 5 questions du test écrit — gratuitement.",code:"🔑 Votre code Driver360",codeS:"Gratuit (WOUT-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Écrivez-nous</a>",date:"📅 Date de votre test routier (si déjà fixée)",poolTxt:"Quand j'aurai réussi, je veux entrer dans le <strong>Driver Pool</strong> : des employeurs du Massachusetts pourront me contacter. (Optionnel — nom et téléphone partagés seulement si vous cochez.)",name:"Votre nom",phone:"Votre téléphone (WhatsApp)",city:"Votre ville / zone",cityS:"Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.",langs:"Langues que vous parlez",langsS:"Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.",nat:"Nationalité (optionnel)",natS:"Visible seulement par un employeur qui vous sélectionne.",go:"Ouvrir mon coach",tryb:"📝 Essayer 5 questions gratuites",quizBtn:"📝 Test écrit (Pèmi)",privacy:"🔒 Dossier anonyme lié à votre code.",erase:"Effacer mon dossier",send:"Envoyer",inputP:"Écrivez à votre coach…",outTitle:"🏁 Vos résultats officiels RMV",outSub:"Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.",outW:"Test écrit :",outR:"Test routier :",bpass:"✅ Réussi",bfail:"❌ Échoué",guideT:"🖨 Guide de l'accompagnateur (sponsor)",guideP:"Imprimer",b2bT:"🚌 Vous êtes une compagnie de transport ?",b2bD:"Recrutez dans le Driver Pool : des candidats préparés, avec résultats vérifiables — et équipez vos recrues dans leur langue.",b2bC:"Ouvrir le portail employeurs",b2bLic:"Déjà licencié (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Inscrivez-vous gratuitement au pool →</a>",bridge:"Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.",aka:"Road Test MA",akaS:"le nom que tout le monde utilise"},
+    ht:{kicker:"Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.",
+        lead:"Coach preparasyon pou tès kondwi Class D Massachusetts la : vrè kòmand egzaminatè a an angle, pèlen yo anvan w demare, sou wout la ak sou chemen retou a — epi moun k ap akonpaye w la gide etap pa etap.",
+        note:"Dosye anonim ak kòd. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Telefòn nan rete nan men akonpayatè a, machin nan kanpe.",
+        ready:"Nivo preparasyon ou — baze sou seyans akonpayatè ou note yo.",
+        sess:"🚗 Seyans ak sponsor",coach:"💬 Pale ak coach la",guide:"🖨 Gid sponsor a",res:"🏁 Rezilta tès la",
+        ok:"✅ Byen fèt",next:"Pwochen ⏭",speak:"🔊 Vwa egzaminatè a",
+        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",
+        good:"Bravo ! Manèv la pwòp — n ap refè l pou li vin solid.",
+        badF:"⛔ ECHÈK OTOMATIK nan vrè tès la : ",badm:"⚠️ Erè minè (pwen pèdi) : ",
+        redo:"Korije epi refè l kounye a, apre sa pase sou pwochen an.",
+        fin:"Seyans fini — n ap voye bay coach la…",invalid:"Kòd la pa bon. Verifye l, oswa ekri nou.",
+        expired:"Aksè a fini. Ekri nou pou yon nouvo kòd gratis — sales@atmart.ltd.",limit:"Limit jou a rive — coach la ap tounen demen.",
+        err:"Yon ti pwoblèm teknik. Eseye ankò.",hello:"Bonjou ! 👋 Mwen se coach Wout ou. Di m kote ou ye, oswa kòmanse yon seyans ak akonpayatè ou.",
+        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou.",qzTitle:"Tès ekri (Pèmi) — 20 kesyon, 15 pou pase",qzRight:"✅ Kòrèk ! ",qzWrong:"❌ Pa sa. ",qzScore:"Nòt ou : ",qzPass:"OU PASE 🎉 — ou pare pou vrè tès ekri a.",qzFail:"Poko — revize epi rekòmanse demen.",qzFree:"Esè gratis la fini (5 kesyon pa jou). Kòd gratis Driver360 a debloke tout 20 kesyon yo + coach la.",qzNext:"Pwochen ⏭",bg1:"🗣 4 lang",bg2:"🎯 12 manèv tès la",bg3:"📝 Tès ekri enkli",bg4:"🕒 90 jou aksè",f1t:"Mòd Seyans",f1d:"Vrè kòmand egzaminatè a, an angle ak nan lang ou. Akonpayatè ou note, coach la korije menm kote a.",f2t:"Coach pèsonèl",f2d:"Li sonje seyans ou yo, vize pwen fèb ou yo epi ba ou yon ti egzèsis chak jou.",f3t:"Gid akonpayatè a",f3d:"Sis seyans byen ranje pou enprime : sponsò w vin yon vrè enstriktè, san li pa t bezwen konnen anyen davans.",fh:"Kòmanse",fs:"Mete kòd aksè ou, oswa eseye 5 kesyon tès ekri a anvan — gratis.",code:"🔑 Kòd Driver360 ou",codeS:"Gratis (WOUT-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Ekri nou</a>",date:"📅 Dat tès wout ou (si li fikse deja)",poolTxt:"Lè m pase tès la, mwen vle antre nan <strong>pool chofè Driver360 la</strong> : anplwayè nan Massachusetts ap ka kontakte m. (Opsyonèl — non ak telefòn pataje sèlman si w tcheke.)",name:"Non ou",phone:"Telefòn ou (WhatsApp)",city:"Vil / zòn ou",cityS:"Egz. : Fitchburg, Worcester — sa ede anplwayè yo vize sektè yo.",langs:"Lang ou pale",langsS:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou jwenn travay.",nat:"Nasyonalite (opsyonèl)",natS:"Sèlman yon anplwayè ki chwazi w ki wè l.",go:"Ouvri coach mwen",tryb:"📝 Eseye 5 kesyon gratis",quizBtn:"📝 Tès ekri (Pèmi)",privacy:"🔒 Dosye anonim ki mare ak kòd ou.",erase:"Efase dosye m",send:"Voye",inputP:"Ekri coach ou a…",outTitle:"🏁 Rezilta ofisyèl RMV ou yo",outSub:"Anrejistre rezilta ou yo — yo nouri dosye w, epi si w te dakò, pool anbochaj la.",outW:"Tès ekri :",outR:"Tès wout :",bpass:"✅ Pase",bfail:"❌ Echwe",guideT:"🖨 Gid akonpayatè a (sponsor)",guideP:"Enprime",b2bT:"🚌 Ou se yon konpayi transpò ?",b2bD:"Rekrite nan Driver Pool la : kandida ki prepare, ak rezilta ou ka verifye — epi ekipe nouvo anplwaye w yo nan lang yo.",b2bC:"Ouvri pòtay anplwayè a",b2bLic:"Ou gen lisans deja (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Enskri gratis nan pool la →</a>",bridge:"Felisitasyon ! Pwochen etap : 90 premye jou ou nan yon nouvo travay.",aka:"Road Test MA",akaS:"non tout moun itilize a"},
+    en:{kicker:"Driving school teaches you to drive. We get you to PASS the test — in your language.",
+        lead:"The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.",
+        note:"Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.",
+        ready:"Test readiness — based on sessions scored by your sponsor.",
+        sess:"🚗 Session with sponsor",coach:"💬 Talk to the coach",guide:"🖨 Sponsor guide",res:"🏁 Test result",
+        ok:"✅ Well done",next:"Next ⏭",speak:"🔊 Examiner's voice",
+        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",
+        good:"Great! Clean maneuver — we'll repeat it for stability.",
+        badF:"⛔ AUTOMATIC FAIL on the real test: ",badm:"⚠️ Minor error (points lost): ",
+        redo:"Correct it and redo it now, then move on.",
+        fin:"Session finished — sending to the coach…",invalid:"Invalid code. Check it, or write to us.",
+        expired:"Access expired. Write to us for a new free code — sales@atmart.ltd.",limit:"Daily limit reached — the coach returns tomorrow.",
+        err:"Small technical issue. Try again.",hello:"Hello! 👋 I'm your Wout coach. Tell me where you are, or start a session with your sponsor.",
+        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code.",qzTitle:"Written test (Pèmi) — 20 questions, 15 to pass",qzRight:"✅ Correct! ",qzWrong:"❌ Not quite. ",qzScore:"Your score: ",qzPass:"PASSED 🎉 — you are ready for the real written test.",qzFail:"Not yet — review and try again tomorrow.",qzFree:"Free trial done (5 questions/day). The Driver360 code unlocks all 20 + the coach.",qzNext:"Next ⏭",bg1:"🗣 4 languages",bg2:"🎯 12 test maneuvers",bg3:"📝 Written test included",bg4:"🕒 90 days of access",f1t:"Session Mode",f1d:"The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.",f2t:"Personal coach",f2d:"It remembers your sessions, targets your weak points and gives you one short drill every day.",f3t:"Sponsor's guide",f3d:"Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.",fh:"Get started",fs:"Enter your access code, or try 5 written-test questions first — free.",code:"🔑 Your Driver360 code",codeS:"Free (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Write to us</a>",date:"📅 Your road test date (if already booked)",poolTxt:"Once I pass, I want to join the <strong>Driver Pool</strong>: Massachusetts employers may contact me. (Optional — name and phone shared only if you check this.)",name:"Your name",phone:"Your phone (WhatsApp)",city:"Your city / area",cityS:"E.g.: Fitchburg, Worcester — helps employers target their area.",langs:"Languages you speak",langsS:"E.g.: Kreyòl, English, Spanish — a real hiring advantage.",nat:"Nationality (optional)",natS:"Visible only to an employer who selects you.",go:"Open my coach",tryb:"📝 Try 5 free questions",quizBtn:"📝 Written test (Pèmi)",privacy:"🔒 Anonymous file tied to your code.",erase:"Erase my file",send:"Send",inputP:"Write to your coach…",outTitle:"🏁 Your official RMV results",outSub:"Record your results — they feed your file and, if you agreed, the hiring pool.",outW:"Written test:",outR:"Road test:",bpass:"✅ Passed",bfail:"❌ Failed",guideT:"🖨 Sponsor's guide",guideP:"Print",b2bT:"🚌 Are you a transport company?",b2bD:"Recruit from the Driver360 pool: prepared candidates with verifiable results — and equip your new hires in their language.",b2bC:"Open the employer portal",b2bLic:"Already licensed (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Join the pool for free →</a>",bridge:"Congratulations! Next step: your first 90 days on the job.",aka:"Road Test MA",akaS:"the name everyone uses"},
+    es:{kicker:"La escuela te enseña a conducir. Nosotros te hacemos PASAR el examen — en tu idioma.",
+        lead:"El coach de preparación para el examen de manejo Class D de Massachusetts: las órdenes reales del examinador en inglés, las trampas antes de arrancar, en la ruta y al regreso — con tu acompañante guiado paso a paso.",
+        note:"Expediente anónimo por código. No afiliado al RMV — preparación independiente, sin garantía. El teléfono queda en manos del acompañante, vehículo detenido.",
+        ready:"Preparación para el examen — según las sesiones calificadas por tu acompañante.",
+        sess:"🚗 Sesión con sponsor",coach:"💬 Hablar con el coach",guide:"🖨 Guía del sponsor",res:"🏁 Resultado del examen",
+        ok:"✅ Bien hecho",next:"Siguiente ⏭",speak:"🔊 Voz del examinador",
+        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",
+        good:"¡Perfecto! Maniobra limpia — la repetiremos para afianzarla.",
+        badF:"⛔ FALLO AUTOMÁTICO en el examen real: ",badm:"⚠️ Error menor (puntos perdidos): ",
+        redo:"Corrígelo y repítelo ahora, luego sigue.",
+        fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
+        expired:"Acceso vencido. Escríbenos para un nuevo código gratis — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
+        err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu coach Wout. Dime dónde estás, o inicia una sesión con tu acompañante.",
+        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 20 preguntas, 15 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Driver360 desbloquea las 20 + el coach.",qzNext:"Siguiente ⏭",bg1:"🗣 4 idiomas",bg2:"🎯 12 maniobras del examen",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Driver360",codeS:"Gratis (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",poolTxt:"Cuando apruebe, quiero entrar al <strong>pool de choferes Driver360</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del Driver Pool: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo.",aka:"Road Test MA",akaS:"el nombre que todos usan"}
+  };
+
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  function T(){return L[lang()];}
+  var applied="";
+  function applyLang(){
+    var l=lang(); if(l===applied) return; applied=l; var t=L[l];
+    document.getElementById("cf-kicker").textContent=t.kicker;
+    document.getElementById("cf-lead").textContent=t.lead;
+    document.getElementById("cf-note").textContent=t.note;
+    document.getElementById("cf-ready-label").textContent=t.ready;
+    document.getElementById("cf-session-btn").textContent=t.sess;
+    document.getElementById("cf-coach-btn").textContent=t.coach;
+    document.getElementById("cf-guide-btn").textContent=t.guide;
+    document.getElementById("cf-result-btn").textContent=t.res;
+    document.getElementById("cf-okbtn").textContent=t.ok;
+    document.getElementById("cf-nextbtn").textContent=t.next;
+    document.getElementById("cf-speak").textContent=t.speak;
+    document.getElementById("cf-sponsor-hint").textContent=t.hint;
+    // --- traduction complete (formulaire, boutons, sections) ---
+    function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    function setH(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+    function setLabel(id,m,sub){var e=document.getElementById(id);if(e)e.innerHTML=m+(sub?"<small>"+sub+"</small>":"");}
+    ["bg1","bg2","bg3","bg4","f1t","f1d","f2t","f2d","f3t","f3d","fh","fs"].forEach(function(k){
+      setTxt("cf-"+k,t[k]);});
+    setLabel("L-code",t.code,t.codeS); setLabel("L-date",t.date);
+    setH("L-poolTxt",t.poolTxt);
+    setLabel("L-name",t.name); setLabel("L-phone",t.phone);
+    setLabel("L-city",t.city,t.cityS); setLabel("L-langs",t.langs,t.langsS);
+    setLabel("L-nat",t.nat,t.natS);
+    setTxt("cf-go",t.go); setTxt("cf-try",t.tryb); setTxt("cf-quiz-btn",t.quizBtn);
+    setTxt("cf-privacy",t.privacy); setTxt("cf-erase",t.erase); setTxt("cf-send",t.send);
+    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP;
+    setTxt("L-out-title",t.outTitle); setTxt("L-out-sub",t.outSub);
+    setTxt("L-out-w",t.outW); setTxt("L-out-r",t.outR);
+    document.querySelectorAll("#cf-outcome button[data-r=pass]").forEach(function(b){b.textContent=t.bpass;});
+    document.querySelectorAll("#cf-outcome button[data-r=fail]").forEach(function(b){b.textContent=t.bfail;});
+    setTxt("g-title",t.guideT); setTxt("g-print",t.guideP);
+    setTxt("cf-aka",t.aka); setTxt("cf-aka-s",t.akaS);
+    setTxt("cf-b2b-t",t.b2bT); setTxt("cf-b2b-d",t.b2bD); setTxt("cf-b2b-c",t.b2bC);
+    setH("cf-b2b-lic",t.b2bLic); setTxt("cf-bridge-txt",t.bridge);
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
+  // ---------- etat ----------
+  var codeEl=document.getElementById("cf-code");
+  codeEl.value=localStorage.getItem("chofe360_code")||"";
+  var busy=false, results=[], idx=0, feedbacks=0;
+
+  function post(body){
+    body.language=lang(); body.code=codeEl.value.trim().toUpperCase();
+    return fetch(EP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(b){return {ok:r.ok,body:b};});});
+  }
+  function emsg(c){var t=T();return c==="wout_invalid"?t.invalid:c==="wout_expired"?t.expired:c==="rate_limited"?t.limit:t.err;}
+  function show(id){["cf-dash","cf-session","cf-chat","cf-outcome","cf-guide","cf-quiz"].forEach(function(x){
+    document.getElementById(x).classList.toggle("cf-hide",x!==id&&x!=="cf-dash");});
+    if(id!=="cf-dash")document.getElementById(id).classList.remove("cf-hide");}
+  function setReadiness(p){document.getElementById("cf-pct").textContent=p+"%";
+    document.getElementById("cf-barfill").style.width=p+"%";}
+
+  // ---------- onboarding ----------
+  document.getElementById("cf-pool").addEventListener("change",function(){
+    document.getElementById("cf-poolfields").classList.toggle("cf-hide",!this.checked);});
+  document.getElementById("cf-start").addEventListener("submit",function(e){
+    e.preventDefault(); if(busy)return; var t=T();
+    if(!codeEl.value.trim()){document.getElementById("cf-st1").textContent=t.needCode;return;}
+    busy=true; document.getElementById("cf-st1").textContent=t.think;
+    post({action:"start",profile:{testDate:document.getElementById("cf-date").value,
+      pool:{optin:document.getElementById("cf-pool").checked,
+            name:document.getElementById("cf-name").value,
+            phone:document.getElementById("cf-phone").value,
+            city:document.getElementById("cf-city").value,
+            langs:document.getElementById("cf-langs").value,
+            nat:document.getElementById("cf-nat").value}}})
+    .then(function(res){busy=false;
+      if(!res.ok){document.getElementById("cf-st1").textContent=emsg(res.body&&res.body.error);return;}
+      document.getElementById("cf-st1").textContent="";
+      localStorage.setItem("chofe360_code",codeEl.value.trim().toUpperCase());
+      document.getElementById("cf-start").classList.add("cf-hide");
+      document.getElementById("cf-dash").classList.remove("cf-hide");
+      setReadiness(res.body.readiness||0);
+    }).catch(function(){busy=false;document.getElementById("cf-st1").textContent=t.err;});
+  });
+
+  // ---------- mode seance ----------
+  function chipHTML(er){var l=lang();
+    return '<button type="button" class="cf-chip" data-e="'+er.id+'" data-s="'+er.sev+'">'+
+      '<span class="sev '+er.sev+'">'+(er.sev==="F"?"⛔":"⚠️")+'</span> '+er.t[l]+'</button>';}
+  function renderStep(){
+    var m=M[idx], l=lang(), t=T();
+    document.getElementById("cf-phase-badge").textContent=PHASES[m.ph][l];
+    document.getElementById("cf-prog-txt").textContent=(idx+1)+" / "+M.length;
+    document.getElementById("cf-cmd").textContent="“"+m.en+"”";
+    document.getElementById("cf-tr").textContent=m.t[l];
+    document.getElementById("cf-chips").innerHTML=m.errs.map(chipHTML).join("");
+    var fb=document.getElementById("cf-fb"); fb.style.display="none"; fb.textContent="";
+  }
+  document.getElementById("cf-session-btn").addEventListener("click",function(){
+    results=[]; idx=0; show("cf-session"); renderStep();});
+  document.getElementById("cf-chips").addEventListener("click",function(e){
+    var b=e.target.closest(".cf-chip"); if(!b)return;
+    b.classList.toggle("on");
+    var t=T(), m=M[idx];
+    var er=m.errs.filter(function(x){return x.id===b.dataset.e;})[0];
+    var fb=document.getElementById("cf-fb");
+    if(b.classList.contains("on")){
+      fb.className="cf-fb bad"; fb.style.display="block";
+      fb.textContent=(er.sev==="F"?t.badF:t.badm)+er.t[lang()]+". "+t.redo;
+    }
+  });
+  document.getElementById("cf-speak").addEventListener("click",function(){
+    try{var u=new SpeechSynthesisUtterance(M[idx].en);u.lang="en-US";u.rate=0.95;
+      speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}
+  });
+  function record(okOnly){
+    var m=M[idx];
+    var on=[].slice.call(document.querySelectorAll("#cf-chips .cf-chip.on"));
+    var errs=on.map(function(b){return b.dataset.e;});
+    var fail=on.some(function(b){return b.dataset.s==="F";});
+    if(okOnly){errs=[];fail=false;
+      var t=T(),fb=document.getElementById("cf-fb");
+      fb.className="cf-fb good";fb.style.display="block";fb.textContent=t.good;}
+    results.push({m:m.id,errs:errs,fail:fail});
+  }
+  function advance(){
+    idx++;
+    if(idx>=M.length){finishSession();return;}
+    renderStep();
+  }
+  document.getElementById("cf-okbtn").addEventListener("click",function(){record(true);setTimeout(advance,700);});
+  document.getElementById("cf-nextbtn").addEventListener("click",function(){record(false);advance();});
+  function finishSession(){
+    var t=T(); document.getElementById("cf-st3").textContent=t.fin;
+    post({action:"log",results:results}).then(function(res){
+      document.getElementById("cf-st3").textContent="";
+      if(res.ok){setReadiness(res.body.readiness||0);}
+      show("cf-dash");
+      openChatWith(t.hello);
+    }).catch(function(){document.getElementById("cf-st3").textContent=t.err;});
+  }
+
+  // ---------- chat coach ----------
+  function addMsg(role,text){var d=document.createElement("div");
+    d.className="cf-m "+(role==="user"?"user":"coach");d.textContent=text;
+    var ms=document.getElementById("cf-msgs");ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
+  function openChatWith(greet){show("cf-chat");
+    if(!document.querySelector("#cf-msgs .cf-m"))addMsg("coach",greet);}
+  document.getElementById("cf-coach-btn").addEventListener("click",function(){openChatWith(T().hello);});
+  function send(){
+    if(busy)return;var inp=document.getElementById("cf-input");var v=inp.value.trim();if(!v)return;
+    var t=T();busy=true;addMsg("user",v);inp.value="";
+    document.getElementById("cf-st4").textContent=t.think;
+    post({message:v}).then(function(res){busy=false;
+      document.getElementById("cf-st4").textContent="";
+      if(!res.ok){document.getElementById("cf-st4").textContent=emsg(res.body&&res.body.error);return;}
+      addMsg("coach",res.body.reply);
+    }).catch(function(){busy=false;document.getElementById("cf-st4").textContent=t.err;});
+  }
+  document.getElementById("cf-send").addEventListener("click",send);
+  document.getElementById("cf-input").addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}});
+
+  // ---------- resultats officiels ----------
+  document.getElementById("cf-result-btn").addEventListener("click",function(){show("cf-outcome");});
+  document.getElementById("cf-outcome").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-k]");if(!b)return;var t=T();
+    post({action:"outcome",kind:b.dataset.k,result:b.dataset.r}).then(function(res){
+      if(res.ok){document.getElementById("cf-out-"+(b.dataset.k==="written"?"w":"r")+"-state").textContent=t.saved;
+        if(b.dataset.k==="road"&&b.dataset.r==="pass"){document.getElementById("cf-bridge").classList.remove("cf-hide");}}
+      else{document.getElementById("cf-st5").textContent=emsg(res.body&&res.body.error);}
+    });
+  });
+
+  // ---------- guide sponsor ----------
+  var GUIDE = {
+    fr:'<p><strong>Votre rôle :</strong> vous êtes les yeux ; l\'app est le cerveau. Vous lisez les commandes en anglais (comme l\'examinateur), vous observez, vous notez — téléphone en main SEULEMENT véhicule à l\'arrêt. Loi MA : accompagnateur 21 ans+, permis valide depuis 1 an+.</p><p><strong>Les 6 séances :</strong> 1) Parking vide — installation, arrêts, marche arrière droite. 2) 3-point turn + marche arrière. 3) Parallel parking avec cônes. 4) Rues résidentielles — stops complets, head checks, zones 20/30 mph. 5) Parcours type autour du centre RMV. 6) Examen blanc complet, chronométré, sans aide.</p><p><strong>La règle des 3 phases :</strong> avant de démarrer (ceinture, rétros, signaux de la main), sur la route (commandes), et LE RETOUR — le test finit au frein de stationnement, pas avant.</p><p><strong>Le jour J :</strong> le candidat a droit à un interprète — demandez-le à la prise de rendez-vous si besoin.</p>',
+    ht:'<p><strong>Wòl ou :</strong> ou se je yo ; app la se sèvo a. Ou li kòmand yo an angle (menm jan ak egzaminatè a), ou gade, ou note — telefòn nan men w SÈLMAN lè machin nan kanpe. Lwa MA : akonpayatè 21 an+, lisans valid depi 1 an+.</p><p><strong>6 seyans yo :</strong> 1) Pakin vid — enstalasyon, kanpe, bak an liy dwat. 2) 3-point turn + bak. 3) Parallel parking ak kòn. 4) Ri rezidansyèl — stop konplè, head checks, zòn 20/30 mph. 5) Parkou tip bò sant RMV la. 6) Egzamen blan konplè, san èd.</p><p><strong>Règ 3 faz yo :</strong> anvan w demare (senti, retrovizè, siyal men), sou wout la (kòmand yo), ak RETOU A — tès la fini lè fren pakin lan mete, pa anvan.</p><p><strong>Jou tès la :</strong> kandida a gen dwa ak yon entèprèt — mande l lè w ap pran randevou a si w bezwen.</p>',
+    en:'<p><strong>Your role:</strong> you are the eyes; the app is the brain. You read the commands in English (like the examiner), watch, and score — phone in hand ONLY when the vehicle is stopped. MA law: sponsor 21+, licensed 1+ year.</p><p><strong>The 6 sessions:</strong> 1) Empty lot — setup ritual, stops, straight backing. 2) 3-point turn + backing. 3) Parallel parking with cones. 4) Residential streets — full stops, head checks, 20/30 mph zones. 5) Typical route near the RMV site. 6) Full mock test, timed, no help.</p><p><strong>The 3-phase rule:</strong> before driving (seatbelt, mirrors, hand signals), on the road (commands), and THE RETURN — the test ends at the parking brake, not before.</p><p><strong>Test day:</strong> the candidate has the right to an interpreter — request it when booking if needed.</p>',
+    es:'<p><strong>Tu papel:</strong> tú eres los ojos; la app es el cerebro. Lees las órdenes en inglés (como el examinador), observas y calificas — teléfono en mano SOLO con el vehículo detenido. Ley de MA: acompañante 21+, con licencia 1+ año.</p><p><strong>Las 6 sesiones:</strong> 1) Lote vacío — ritual de instalación, altos, retroceso recto. 2) Giro de 3 puntos + retroceso. 3) Estacionamiento paralelo con conos. 4) Calles residenciales — altos completos, head checks, zonas 20/30 mph. 5) Ruta típica cerca del RMV. 6) Examen simulado completo, sin ayuda.</p><p><strong>La regla de las 3 fases:</strong> antes de arrancar (cinturón, espejos, señales de mano), en la ruta (órdenes), y EL REGRESO — el examen termina con el freno de mano, no antes.</p><p><strong>El día del examen:</strong> el candidato tiene derecho a un intérprete — pídelo al reservar si lo necesita.</p>'
+  };
+  document.getElementById("cf-guide-btn").addEventListener("click",function(){
+    document.getElementById("g-body").innerHTML=GUIDE[lang()];show("cf-guide");});
+
+  // ---------- quiz Pemi ----------
+  var QZ=null,qzIdx=0,qzScore=0,qzOrder=[],qzFreeMode=false;
+  function qzFreeLeft(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+    return Math.max(0,5-parseInt(localStorage.getItem(k)||"0",10));}
+  function qzUseFree(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+    localStorage.setItem(k,String(parseInt(localStorage.getItem(k)||"0",10)+1));}
+  function qzHasCode(){return !!localStorage.getItem("chofe360_code");}
+  function startQuiz(free){
+    qzFreeMode=free;
+    fetch("assets/pemi-questions.json").then(function(r){return r.json();}).then(function(data){
+      QZ=data.questions.slice();
+      qzOrder=QZ.map(function(_,i){return i;});
+      for(var i=qzOrder.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=qzOrder[i];qzOrder[i]=qzOrder[j];qzOrder[j]=tmp;}
+      if(free)qzOrder=qzOrder.slice(0,Math.min(5,qzFreeLeft()||0));
+      qzIdx=0;qzScore=0;
+      document.getElementById("cf-start").classList.add("cf-hide");
+      document.getElementById("cf-dash").classList.toggle("cf-hide",free);
+      show("cf-quiz");
+      if(free)document.getElementById("cf-dash").classList.add("cf-hide");
+      qzRender();
+    });
+  }
+  function qzRender(){
+    var t=T(),l=lang();
+    if(qzIdx>=qzOrder.length){qzFinish();return;}
+    var q=QZ[qzOrder[qzIdx]];
+    document.getElementById("qz-prog").textContent=(qzIdx+1)+" / "+qzOrder.length+" · "+t.qzTitle;
+    document.getElementById("qz-q").textContent=q.q[l]||q.q.fr;
+    var letters=["A","B","C","D"];
+    // melanger les options en gardant la bonne reponse tracee
+    var order=[0,1,2,3];
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tm=order[i];order[i]=order[j];order[j]=tm;}
+    document.getElementById("qz-opts").innerHTML=order.map(function(oi,k){
+      var o=q.opts[oi];
+      return '<button type="button" class="cf-chip" style="text-align:left" data-oi="'+oi+'"><strong>'+letters[k]+'.</strong> '+(o[l]||o.fr)+'</button>';
+    }).join("");
+    var fb=document.getElementById("qz-fb");fb.style.display="none";fb.textContent="";
+    document.getElementById("qz-next").classList.add("cf-hide");
+  }
+  document.getElementById("qz-opts").addEventListener("click",function(e){
+    var b=e.target.closest(".cf-chip");if(!b||document.getElementById("qz-next").classList.contains("cf-hide")===false)return;
+    var t=T(),l=lang(),q=QZ[qzOrder[qzIdx]];
+    var good=parseInt(b.dataset.oi,10)===q.a;
+    if(good)qzScore++;
+    if(qzFreeMode)qzUseFree();
+    var fb=document.getElementById("qz-fb");
+    fb.className="cf-fb "+(good?"good":"bad");fb.style.display="block";
+    fb.textContent=(good?t.qzRight:t.qzWrong)+(q.ex[l]||q.ex.fr);
+    document.getElementById("qz-next").classList.remove("cf-hide");
+  });
+  document.getElementById("qz-next").addEventListener("click",function(){qzIdx++;qzRender();});
+  function qzFinish(){
+    var t=T();
+    var fb=document.getElementById("qz-fb");
+    var passed=!qzFreeMode&&qzScore>=15;
+    fb.className="cf-fb "+(qzScore>=Math.ceil(qzOrder.length*0.75)?"good":"bad");
+    fb.style.display="block";
+    fb.textContent=t.qzScore+qzScore+" / "+qzOrder.length+". "+(qzFreeMode?t.qzFree:(passed?t.qzPass:t.qzFail));
+    document.getElementById("qz-q").textContent="";
+    document.getElementById("qz-opts").innerHTML="";
+    document.getElementById("qz-next").classList.add("cf-hide");
+    if(!qzFreeMode&&qzHasCode()){post({action:"quiz",score:qzScore,total:qzOrder.length});}
+    if(qzFreeMode){setTimeout(function(){document.getElementById("cf-start").classList.remove("cf-hide");},400);}
+  }
+  document.getElementById("cf-try").addEventListener("click",function(){
+    var t=T();
+    if(qzFreeLeft()<=0){document.getElementById("cf-st1").textContent=t.qzFree;return;}
+    startQuiz(true);
+  });
+  document.getElementById("cf-quiz-btn").addEventListener("click",function(){startQuiz(false);});
+
+  // ---------- efase ----------
+  document.getElementById("cf-erase").addEventListener("click",function(){
+    if(!window.confirm("Efase dosye a ? / Effacer le dossier ?"))return;
+    post({action:"delete"}).then(function(){location.reload();});
+  });
+})();
+</script>
+<script>
+/* ---- Driver360 : commandes de l'examinateur en anglais ---- */
+(function(){
+  "use strict";
+  var T={
+    fr:{title:"🗣 Les commandes de l'examinateur — en anglais",
+      sub:"L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.",
+      hide:"Masquer les traductions",show:"Afficher les traductions",
+      count:function(n){return n+" commandes";},todo:"À faire :",
+      say:"Écouter en anglais",noVoice:"Voix anglaise indisponible sur cet appareil",
+      foot:"Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts."},
+    ht:{title:"🗣 Kòmandman egzaminatè a — an angle",
+      sub:"Egzaminatè a pale angle. Menm ak yon entèprèt, se ou menm k ap kondwi : tande fraz la, konprann li nan lang ou, konnen sa pou w fè. Gratis, san kòd.",
+      hide:"Kache tradiksyon yo",show:"Montre tradiksyon yo",
+      count:function(n){return n+" kòmandman";},todo:"Sa pou w fè :",
+      say:"Koute an angle",noVoice:"Vwa angle a pa disponib sou aparèy sa a",
+      foot:"Se fason yo konn pale, Atmart rekri yo — se pa kopi yon tès ofisyèl. Nou pa afilye ak RMV Massachusetts la."},
+    en:{title:"🗣 The examiner's commands — in English",
+      sub:"The examiner speaks English. Even with an interpreter, you are the one driving: hear the sentence, understand it in your language, know what to do. Free, no code needed.",
+      hide:"Hide translations",show:"Show translations",
+      count:function(n){return n+" commands";},todo:"What to do:",
+      say:"Listen in English",noVoice:"English voice not available on this device",
+      foot:"Common phrasings, rewritten by Atmart — not a reproduction of an official test. Not affiliated with the Massachusetts RMV."},
+    es:{title:"🗣 Las órdenes del examinador — en inglés",
+      sub:"El examinador habla inglés. Incluso con intérprete, usted es quien conduce: escuche la frase, entiéndala en su idioma, sepa qué hacer. Gratis, sin código.",
+      hide:"Ocultar las traducciones",show:"Mostrar las traducciones",
+      count:function(n){return n+" órdenes";},todo:"Qué hacer:",
+      say:"Escuchar en inglés",noVoice:"Voz en inglés no disponible en este dispositivo",
+      foot:"Formulaciones habituales, reescritas por Atmart — no es la reproducción de un examen oficial. No afiliado al RMV de Massachusetts."}
+  };
+  function lg(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return T[l]?l:"fr";}
+  var DATA=null, phase=null, hidden=false;
+  var elList=document.getElementById("km-list"), elTabs=document.getElementById("km-tabs");
+  if(!elList) return;
+
+  var canSpeak = "speechSynthesis" in window;
+  function say(txt,btn){
+    if(!canSpeak) return;
+    try{
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(txt);
+      u.lang="en-US"; u.rate=0.85;
+      var vs=window.speechSynthesis.getVoices()||[];
+      for(var i=0;i<vs.length;i++){ if(/^en[-_]US/i.test(vs[i].lang)){u.voice=vs[i];break;} }
+      if(!u.voice){ for(var j=0;j<vs.length;j++){ if(/^en/i.test(vs[j].lang)){u.voice=vs[j];break;} } }
+      if(btn){ btn.textContent="🔊"; u.onend=u.onerror=function(){btn.textContent="🔈";}; }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  }
+
+  function paint(){
+    if(!DATA) return;
+    var l=lg(), t=T[l];
+    document.getElementById("km-title").textContent=t.title;
+    document.getElementById("km-sub").textContent=t.sub;
+    document.getElementById("km-foot").textContent=t.foot;
+    document.getElementById("km-hide-t").textContent=hidden?t.show:t.hide;
+    if(typeof paintDrillChrome==="function") paintDrillChrome();
+    if(drilling && queue.length && qi<queue.length) showQ();
+    elTabs.innerHTML="";
+    DATA.phases.forEach(function(p){
+      var b=document.createElement("button");
+      b.type="button"; b.className="km-tab"+(p.id===phase?" on":"");
+      b.textContent=p[l]||p.fr;
+      b.addEventListener("click",function(){phase=p.id;paint();});
+      elTabs.appendChild(b);
+    });
+    var list=DATA.commands.filter(function(c){return c.p===phase;});
+    document.getElementById("km-count").textContent=t.count(list.length);
+    elList.innerHTML="";
+    elList.className="km-list"+(hidden?" km-hidden":"");
+    list.forEach(function(c){
+      var d=document.createElement("div"); d.className="km-item";
+      var row=document.createElement("div"); row.className="km-en";
+      var btn=document.createElement("button");
+      btn.type="button"; btn.className="km-say"; btn.textContent="🔈";
+      btn.setAttribute("aria-label",t.say); btn.title=canSpeak?t.say:t.noVoice;
+      if(!canSpeak) btn.disabled=true;
+      btn.addEventListener("click",function(){say(c.en,btn);});
+      var b=document.createElement("b"); b.textContent=c.en;
+      row.appendChild(btn); row.appendChild(b); d.appendChild(row);
+      if(l!=="en"){ // en anglais la traduction repeterait la commande
+        var tr=document.createElement("p"); tr.className="km-tr"; tr.textContent=c[l]||c.fr; d.appendChild(tr);
+      }
+      var doo=document.createElement("p"); doo.className="km-do";
+      doo.innerHTML="<b>"+t.todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
+      d.appendChild(doo);
+      elList.appendChild(d);
+    });
+  }
+
+  document.getElementById("km-hide").addEventListener("click",function(){hidden=!hidden;paint();});
+
+  // ---------- mode drill ----------
+  var D={fr:{btn:"M'interroger",stop:"Arrêter",ask:"Que faites-vous ? Répondez à voix haute, puis vérifiez.",
+      show:"Voir la réponse",ok:"✅ Je savais",ko:"❌ Je ne savais pas",prog:function(a,b){return "Commande "+a+" sur "+b;},
+      end:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Votre coach reprendra celles que vous avez ratées.";},
+      endFree:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Avec un code Driver360, votre coach garde la liste et vous réinterroge.";}},
+    ht:{btn:"Poze m kesyon",stop:"Kanpe",ask:"Kisa w ap fè ? Reponn awotvwa, apre sa tcheke.",
+      show:"Wè repons lan",ok:"✅ Mwen te konnen",ko:"❌ Mwen pa t konnen",prog:function(a,b){return "Kòmandman "+a+" sou "+b;},
+      end:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Coach ou a ap repran sa w rate yo.";},
+      endFree:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Ak yon kòd Driver360, coach ou a kenbe lis la epi li poze w kesyon ankò.";}},
+    en:{btn:"Quiz me",stop:"Stop",ask:"What do you do? Say it out loud, then check.",
+      show:"Show the answer",ok:"✅ I knew it",ko:"❌ I didn't know",prog:function(a,b){return "Command "+a+" of "+b;},
+      end:function(n,t){return "Done: "+n+" of "+t+" mastered. Your coach will drill the ones you missed.";},
+      endFree:function(n,t){return "Done: "+n+" of "+t+" mastered. With a Driver360 code, your coach keeps the list and re-drills you.";}},
+    es:{btn:"Pregúntame",stop:"Parar",ask:"¿Qué hace usted? Dígalo en voz alta, luego verifique.",
+      show:"Ver la respuesta",ok:"✅ Lo sabía",ko:"❌ No lo sabía",prog:function(a,b){return "Orden "+a+" de "+b;},
+      end:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Su coach repasará las que falló.";},
+      endFree:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Con un código Driver360, su coach guarda la lista y le vuelve a preguntar.";}}};
+  var drilling=false, queue=[], qi=0, answers=[], score=0;
+  var box=document.getElementById("km-drillbox");
+
+  function dT(){return D[lg()];}
+  function paintDrillChrome(){
+    var t=dT();
+    document.getElementById("km-drill-t").textContent=drilling?t.stop:t.btn;
+    document.getElementById("km-dshow").textContent=t.show;
+    document.getElementById("km-dok").textContent=t.ok;
+    document.getElementById("km-dko").textContent=t.ko;
+    document.getElementById("km-dask").textContent=t.ask;
+  }
+  function startDrill(){
+    if(!DATA) return;
+    queue=DATA.commands.slice();
+    // priorite aux commandes deja ratees (memorisees par le coach)
+    var weak=null;
+    try{ weak=JSON.parse(localStorage.getItem("chofe360_weakcmds")||"null"); }catch(e){}
+    if(weak && weak.length) queue.sort(function(a,b){return (weak.indexOf(b.id)>-1?1:0)-(weak.indexOf(a.id)>-1?1:0);});
+    qi=0; answers=[]; score=0; drilling=true;
+    document.getElementById("km-list").hidden=true;
+    document.getElementById("km-dend").hidden=true;
+    box.hidden=false; paintDrillChrome(); showQ();
+  }
+  function stopDrill(){
+    drilling=false; box.hidden=true;
+    document.getElementById("km-list").hidden=false;
+    paintDrillChrome();
+  }
+  function showQ(){
+    var t=dT(), c=queue[qi], l=lg();
+    document.getElementById("km-dprog").textContent=t.prog(qi+1,queue.length);
+    document.getElementById("km-dcmd").textContent=c.en;
+    document.getElementById("km-dtr").textContent=(l==="en"?"":(c[l]||c.fr));
+    document.getElementById("km-ddo").innerHTML="<b>"+T[l].todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
+    document.getElementById("km-dreveal").hidden=true;
+    document.getElementById("km-dshow").hidden=false;
+    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=true;});
+  }
+  function reveal(){
+    document.getElementById("km-dreveal").hidden=false;
+    document.getElementById("km-dshow").hidden=true;
+    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=false;});
+  }
+  function answer(good){
+    var c=queue[qi];
+    answers.push({k:c.id,m:c.m||"",ok:good});
+    if(good) score++;
+    qi++;
+    if(qi<queue.length){ showQ(); return; }
+    finish();
+  }
+  function finish(){
+    var t=dT(), total=queue.length;
+    document.getElementById("km-dcmd").textContent="";
+    document.getElementById("km-dask").textContent="";
+    document.getElementById("km-dsay").hidden=true;
+    document.getElementById("km-dprog").textContent="";
+    document.getElementById("km-dreveal").hidden=true;
+    document.querySelectorAll(".km-dacts button").forEach(function(b){b.hidden=true;});
+    var end=document.getElementById("km-dend");
+    end.hidden=false;
+    // memorise localement les ratees (sert a prioriser le prochain drill)
+    var weak=answers.filter(function(a){return !a.ok;}).map(function(a){return a.k;});
+    try{ localStorage.setItem("chofe360_weakcmds",JSON.stringify(weak)); }catch(e){}
+    var code=(localStorage.getItem("chofe360_code")||"").trim();
+    if(code){
+      end.textContent=t.end(score,total);
+      fetch("https://atmart-chat.atmartllc.workers.dev/wout",
+        {method:"POST",headers:{"Content-Type":"application/json"},
+         body:JSON.stringify({code:code,language:lg(),action:"komand",results:answers})}).catch(function(){});
+    } else {
+      end.textContent=t.endFree(score,total);
+    }
+  }
+  document.getElementById("km-drill").addEventListener("click",function(){drilling?stopDrill():startDrill();});
+  document.getElementById("km-dshow").addEventListener("click",reveal);
+  document.getElementById("km-dok").addEventListener("click",function(){answer(true);});
+  document.getElementById("km-dko").addEventListener("click",function(){answer(false);});
+  document.getElementById("km-dsay").addEventListener("click",function(){
+    if(queue[qi]) say(queue[qi].en,document.getElementById("km-dsay"));});
+
+  if(canSpeak && window.speechSynthesis.onvoiceschanged!==undefined)
+    window.speechSynthesis.onvoiceschanged=function(){};
+
+  document.getElementById("km-drill").disabled=true; // reactive une fois les donnees chargees
+  fetch("assets/komand.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(j){
+    DATA=j; phase=j.phases[0].id; paint();
+    document.getElementById("km-drill").disabled=false;
+    new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+  }).catch(function(){
+    elList.innerHTML='<p style="color:#9db2c7">—</p>';
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+</body>
+</html>

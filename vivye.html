@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Driver360 — Inscrivez-vous au pool de chauffeurs (gratuit) | Atmart</title>
+  <meta name="description" content="Vous avez déjà votre licence Class D, 7D ou CDL ? Inscrivez-vous gratuitement au Driver Pool : transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) — des employeurs du Massachusetts vous contactent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=32" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .rj-app{max-width:760px;margin:0 auto}
+    .rj-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.4rem;margin-bottom:1rem}
+    .rj-card label{display:block;font-weight:600;font-size:0.88rem;margin:1rem 0 0.3rem}
+    .rj-card label:first-of-type{margin-top:0}
+    .rj-card label small{display:block;font-weight:400;color:#9db2c7;margin-top:0.15rem;line-height:1.4}
+    .rj-card input[type=text],.rj-card input[type=number],.rj-card select,.rj-card textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.93rem}
+    .rj-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .rj-hide{display:none}
+    .rj-checks{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.4rem}
+    .rj-chk{display:flex;align-items:center;gap:0.4rem;background:#0e2240;border:1px solid rgba(255,255,255,0.15);border-radius:99px;padding:0.45rem 0.9rem;cursor:pointer;font-size:0.88rem}
+    .rj-chk input{width:auto;margin:0}
+    .rj-chk.on{border-color:#2ec4b6;background:rgba(46,196,182,0.12)}
+    .rj-consent{display:flex;gap:0.6rem;align-items:flex-start;background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.3);border-radius:10px;padding:0.9rem 1rem;margin-top:1.2rem;font-size:0.88rem;line-height:1.5;cursor:pointer}
+    .rj-consent input{width:auto;margin-top:0.2rem}
+    .rj-code{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.45);border-radius:12px;padding:1.3rem;text-align:center;margin-bottom:1rem}
+    .rj-code .big{font-family:"Space Grotesk",sans-serif;font-size:1.8rem;font-weight:700;color:#2ec4b6;letter-spacing:0.06em;margin:0.5rem 0}
+    .rj-note{font-size:0.8rem;color:#9db2c7;line-height:1.5}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>pa Atmart</small></a>
+    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
+        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Accueil</a></li>
+        <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Test de route</a></li>
+        <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Permis 7D</a></li>
+        <li><a href="vivye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Le vivier</a></li>
+        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">Je recrute →</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="rj-kicker">Ou gen lisans ou deja ? Antre nan pool la — se gratis.</p>
+    <h1 id="rj-h1">Driver <em>Pool</em></h1>
+    <p class="lead" id="rj-lead">Vous avez déjà votre licence Class D, votre certificat 7D ou votre CDL ? Inscrivez-vous gratuitement : des employeurs du Massachusetts cherchent des chauffeurs — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) et plus.</p>
+    <p style="color:#9db2c7;font-size:0.88rem" id="rj-note">Gratuit et sans engagement. Votre nom et votre téléphone restent masqués : un employeur ne les voit qu'au moment où il vous sélectionne, et son nombre de sélections est limité. Vous pouvez vous retirer à tout moment.</p>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="rj-app">
+
+      <!-- code affiche apres inscription -->
+      <div class="rj-code rj-hide" id="rj-codebox">
+        <p style="margin:0" id="rj-code-lbl">✅ Vous êtes dans le pool ! Voici votre code personnel :</p>
+        <p class="big" id="rj-code-val"></p>
+        <p class="rj-note" id="rj-code-note">Notez-le et gardez-le (capture d'écran ou WhatsApp à vous-même). Il sert à modifier ou retirer votre inscription. Nous ne pouvons pas le retrouver à votre place.</p>
+      </div>
+
+      <form class="rj-card" id="rj-form">
+        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t1">1. Qui êtes-vous</h3>
+        <label for="rj-name" id="L-name">Votre nom complet</label>
+        <input type="text" id="rj-name" maxlength="80" />
+        <label for="rj-phone" id="L-phone">Téléphone (WhatsApp)</label>
+        <input type="text" id="rj-phone" maxlength="30" placeholder="508-555-0100" />
+        <label for="rj-city" id="L-city">Ville / zone<small>Ex. : Fitchburg, Worcester, Boston — pour que l'employeur cible son secteur.</small></label>
+        <input type="text" id="rj-city" maxlength="60" />
+        <label for="rj-langs" id="L-langs">Langues que vous parlez<small>Ex. : kreyòl, anglais, español — un atout réel pour le transport scolaire et les personnes âgées.</small></label>
+        <input type="text" id="rj-langs" maxlength="80" />
+        <label for="rj-nat" id="L-nat">Nationalité (optionnel)<small>Visible par l'employeur seulement s'il vous sélectionne — jamais dans la liste publique.</small></label>
+        <input type="text" id="rj-nat" maxlength="60" />
+        <label for="rj-auth" id="L-auth">Autorisation de travail aux États-Unis</label>
+        <select id="rj-auth">
+          <option value="">— choisir —</option>
+          <option value="yes">✅ Oui, je suis autorisé(e) à travailler</option>
+          <option value="pending">⏳ En cours / demande déposée</option>
+          <option value="no">❌ Pas encore</option>
+        </select>
+
+        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t2">2. Vos licences</h3>
+        <label id="L-lic">Cochez ce que vous avez déjà<small>Au moins une est nécessaire pour entrer dans le pool.</small></label>
+        <div class="rj-checks" id="rj-lic">
+          <label class="rj-chk"><input type="checkbox" value="classd" /> <span>🚗 Class D</span></label>
+          <label class="rj-chk"><input type="checkbox" value="7d" /> <span>🚌 7D</span></label>
+          <label class="rj-chk"><input type="checkbox" value="cdl_a" /> <span>🚛 CDL-A</span></label>
+          <label class="rj-chk"><input type="checkbox" value="cdl_b" /> <span>🚚 CDL-B</span></label>
+          <label class="rj-chk"><input type="checkbox" value="cdl_c" /> <span>🚐 CDL-C</span></label>
+        </div>
+        <label for="rj-years" id="L-years">Années d'expérience au volant (professionnelle)</label>
+        <input type="number" id="rj-years" min="0" max="60" />
+
+        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t3">3. Ce que vous cherchez</h3>
+        <label id="L-seek">Types de transport qui vous intéressent</label>
+        <div class="rj-checks" id="rj-seek">
+          <label class="rj-chk"><input type="checkbox" value="school" /> <span>🏫 Transport scolaire</span></label>
+          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span>📦 Livraison de colis</span></label>
+          <label class="rj-chk"><input type="checkbox" value="senior" /> <span>🧓 Personnes âgées / médical</span></label>
+          <label class="rj-chk"><input type="checkbox" value="transit" /> <span>🚍 Transport régional (MART, RTA)</span></label>
+          <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span>🚕 Taxi / VTC</span></label>
+          <label class="rj-chk"><input type="checkbox" value="other" /> <span>➕ Autre</span></label>
+        </div>
+        <label id="L-flex">Jusqu'où êtes-vous ouvert ?<small>C'est vous qui décidez qui peut vous voir.</small></label>
+        <div id="rj-flex" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="any" /> <span id="F-any">⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="prefer" checked /> <span id="F-prefer">↔️ J'ai des préférences, mais je reste ouvert aux autres offres</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="only" /> <span id="F-only">🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas</span></label>
+        </div>
+
+        <label for="rj-avail" id="L-avail">Disponibilité</label>
+        <select id="rj-avail">
+          <option value="">— choisir —</option>
+          <option value="fulltime">Temps plein</option>
+          <option value="parttime">Temps partiel</option>
+          <option value="both">L'un ou l'autre</option>
+        </select>
+
+        <label class="rj-consent" id="L-consent">
+          <input type="checkbox" id="rj-consent" />
+          <span id="rj-consent-txt">J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.</span>
+        </label>
+
+        <div style="margin-top:1.2rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary" id="rj-go">M'inscrire au pool (gratuit)</button>
+          <button type="button" class="btn btn-outline" id="rj-have">J'ai déjà un code</button>
+        </div>
+        <p class="rj-status" id="rj-st"></p>
+      </form>
+
+      <!-- retrouver / modifier / retirer -->
+      <form class="rj-card rj-hide" id="rj-manage">
+        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t4">Modifier ou retirer mon inscription</h3>
+        <label for="rj-code" id="L-code2">Votre code personnel</label>
+        <input type="text" id="rj-code" maxlength="24" placeholder="DRV-XXXX-XXXX" />
+        <div id="rj-statusbox" class="rj-hide" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.3);border-radius:10px;padding:1rem;margin-top:1rem">
+          <p style="margin:0 0 0.6rem;font-size:0.9rem" id="rj-status-now"></p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+            <button type="button" class="btn btn-primary" data-st="available" id="B-available">✅ Je suis disponible</button>
+            <button type="button" class="btn btn-outline" data-st="hired" id="B-hired">💼 J'ai trouvé un emploi</button>
+            <button type="button" class="btn btn-outline" data-st="paused" id="B-paused">⏸ Mettre en pause</button>
+          </div>
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary" id="rj-load">Charger mon inscription</button>
+          <button type="button" class="btn btn-outline" id="rj-del" style="border-color:rgba(230,57,70,0.6)">🗑 Me retirer du pool</button>
+          <button type="button" class="btn btn-outline" id="rj-back">← Retour</button>
+        </div>
+        <p class="rj-status" id="rj-st2"></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
+    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=15"></script>
+<script>
+(function () {
+  "use strict";
+  var EP = "https://atmart-chat.atmartllc.workers.dev/rejistre";
+
+  var L = {
+    fr: { kicker:"Vous avez déjà votre licence ? Entrez dans le pool — c'est gratuit.",
+      lead:"Vous avez déjà votre licence Class D, votre certificat 7D ou votre CDL ? Inscrivez-vous gratuitement : des employeurs du Massachusetts cherchent des chauffeurs — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) et plus.",
+      note:"Gratuit et sans engagement. Votre nom et votre téléphone restent masqués : un employeur ne les voit qu'au moment où il vous sélectionne, et son nombre de sélections est limité. Vous pouvez vous retirer à tout moment.",
+      t1:"1. Qui êtes-vous", t2:"2. Vos licences", t3:"3. Ce que vous cherchez", t4:"Modifier ou retirer mon inscription",
+      name:"Votre nom complet", phone:"Téléphone (WhatsApp)",
+      city:"Ville / zone", citys:"Ex. : Fitchburg, Worcester, Boston — pour que l'employeur cible son secteur.",
+      langs:"Langues que vous parlez", langss:"Ex. : kreyòl, anglais, español — un atout réel pour le transport scolaire et les personnes âgées.",
+      nat:"Nationalité (optionnel)", nats:"Visible par l'employeur seulement s'il vous sélectionne — jamais dans la liste publique.",
+      auth:"Autorisation de travail aux États-Unis",
+      a0:"— choisir —", a1:"✅ Oui, je suis autorisé(e) à travailler", a2:"⏳ En cours / demande déposée", a3:"❌ Pas encore",
+      lic:"Cochez ce que vous avez déjà", lics:"Au moins une est nécessaire pour entrer dans le pool.",
+      years:"Années d'expérience au volant (professionnelle)", seek:"Types de transport qui vous intéressent",
+      avail:"Disponibilité", v1:"Temps plein", v2:"Temps partiel", v3:"L'un ou l'autre",
+      consent:"J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.",
+      go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
+      load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
+      codeLbl:"✅ Vous êtes dans le pool ! Voici votre code personnel :",
+      codeNote:"Notez-le et gardez-le (capture d'écran ou WhatsApp à vous-même). Il sert à modifier ou retirer votre inscription. Nous ne pouvons pas le retrouver à votre place.",
+      needName:"Indiquez au moins votre nom, votre téléphone et une licence.", needConsent:"Cochez la case d'accord pour continuer.",
+      saving:"Enregistrement…", loaded:"Inscription chargée — modifiez puis enregistrez.", updated:"Modifications enregistrées ✔",
+      deleted:"Vous êtes retiré(e) du pool. Merci et bonne route !", confirmDel:"Vous retirer du pool ? Les employeurs ne vous verront plus.",
+      invalid:"Code introuvable. Vérifiez-le.", limit:"Trop d'inscriptions depuis cet appareil aujourd'hui. Réessayez demain.",
+      err:"Petit souci technique. Réessayez.", save:"Enregistrer les modifications", flexT:"Jusqu'où êtes-vous ouvert ?", flexS:"C'est vous qui décidez qui peut vous voir.", fAny:"⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir", fPrefer:"↔️ J'ai des préférences, mais je reste ouvert aux autres offres", fOnly:"🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas", bAvail:"✅ Je suis disponible", bHired:"💼 J'ai trouvé un emploi", bPaused:"⏸ Mettre en pause", stNow:"Statut actuel : ", stA:"disponible — les employeurs vous voient", stH:"en emploi — vous êtes hors du pool", stP:"en pause — vous êtes hors du pool", stOk:"Statut mis à jour ✔" },
+    ht: { kicker:"Ou gen lisans ou deja ? Antre nan pool la — se gratis.",
+      lead:"Ou gen lisans Class D ou, sètifika 7D ou, oswa CDL ou deja ? Enskri gratis : gen anplwayè nan Massachusetts k ap chèche chofè — transpò lekòl, livrezon pake, transpò granmoun, transpò rejyonal (MART) ak plis toujou.",
+      note:"Gratis, san angajman. Non ou ak telefòn ou rete kache : yon anplwayè wè yo sèlman lè li chwazi w, epi li gen yon limit chwa. Ou ka retire w nenpòt lè.",
+      t1:"1. Kilès ou ye", t2:"2. Lisans ou yo", t3:"3. Sa w ap chèche", t4:"Chanje oswa retire enskripsyon m",
+      name:"Non konplè ou", phone:"Telefòn (WhatsApp)",
+      city:"Vil / zòn ou", citys:"Egz. : Fitchburg, Worcester, Boston — pou anplwayè a vize sektè l.",
+      langs:"Lang ou pale", langss:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou transpò lekòl ak granmoun.",
+      nat:"Nasyonalite (opsyonèl)", nats:"Anplwayè a wè l sèlman si li chwazi w — pa janm nan lis piblik la.",
+      auth:"Otorizasyon travay Ozetazini",
+      a0:"— chwazi —", a1:"✅ Wi, mwen otorize travay", a2:"⏳ Nan pwosesis / demann depoze", a3:"❌ Poko",
+      lic:"Tcheke sa ou genyen deja", lics:"Fòk gen omwen youn pou antre nan pool la.",
+      years:"Konbyen ane eksperyans kondwi (pwofesyonèl)", seek:"Ki kalite transpò ki enterese w",
+      avail:"Disponibilite", v1:"Tan konplè", v2:"Tan pasyèl", v3:"Youn oswa lòt",
+      consent:"Mwen dakò pou anplwayè nan Massachusetts kontakte m pou yon travay chofè. Mwen konprann non m ak telefòn mwen parèt sèlman pou yon anplwayè ki chwazi m, epi mwen ka retire m nan pool la nenpòt lè ak kòd mwen.",
+      go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
+      load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
+      codeLbl:"✅ Ou nan pool la ! Men kòd pèsonèl ou :",
+      codeNote:"Note l epi kenbe l (foto ekran oswa voye l ba tèt ou sou WhatsApp). Li sèvi pou chanje oswa retire enskripsyon w. Nou pa ka jwenn li pou ou.",
+      needName:"Mete omwen non ou, telefòn ou ak yon lisans.", needConsent:"Tcheke kaz dakò a pou kontinye.",
+      saving:"N ap anrejistre…", loaded:"Enskripsyon chaje — chanje sa w vle epi anrejistre.", updated:"Chanjman anrejistre ✔",
+      deleted:"Ou retire nan pool la. Mèsi epi bon wout !", confirmDel:"Retire w nan pool la ? Anplwayè yo p ap wè w ankò.",
+      invalid:"Nou pa jwenn kòd la. Verifye l.", limit:"Twòp enskripsyon depi aparèy sa a jodi a. Eseye demen.",
+      err:"Yon ti pwoblèm teknik. Eseye ankò.", save:"Anrejistre chanjman yo", flexT:"Jiskaki pwen ou louvri ?", flexS:"Se ou menm ki deside kilès ki ka wè w.", fAny:"⚡ M ap pran nenpòt travay chofè — tout anplwayè ka wè m", fPrefer:"↔️ Mwen gen preferans, men mwen rete louvri pou lòt òf", fOnly:"🎯 Sèlman sektè mwen tcheke yo — lòt anplwayè yo pa wè m", bAvail:"✅ Mwen disponib", bHired:"💼 Mwen jwenn yon travay", bPaused:"⏸ Mete an pòz", stNow:"Estati aktyèl : ", stA:"disponib — anplwayè yo wè w", stH:"nan travay — ou pa nan pool la", stP:"an pòz — ou pa nan pool la", stOk:"Estati chanje ✔" },
+    en: { kicker:"Already licensed? Join the pool — it's free.",
+      lead:"Do you already have your Class D license, 7D certificate or CDL? Register for free: Massachusetts employers are looking for drivers — school transport, package delivery, senior transport, regional transit (MART) and more.",
+      note:"Free, no commitment. Your name and phone stay hidden: an employer sees them only when they select you, and their number of selections is limited. You can withdraw anytime.",
+      t1:"1. About you", t2:"2. Your licenses", t3:"3. What you are looking for", t4:"Edit or withdraw my registration",
+      name:"Your full name", phone:"Phone (WhatsApp)",
+      city:"City / area", citys:"E.g.: Fitchburg, Worcester, Boston — so employers can target their area.",
+      langs:"Languages you speak", langss:"E.g.: Kreyòl, English, Spanish — a real asset for school and senior transport.",
+      nat:"Nationality (optional)", nats:"Visible to an employer only if they select you — never in the public list.",
+      auth:"US work authorization",
+      a0:"— choose —", a1:"✅ Yes, I am authorized to work", a2:"⏳ In process / applied", a3:"❌ Not yet",
+      lic:"Check what you already hold", lics:"At least one is required to join the pool.",
+      years:"Years of professional driving experience", seek:"Types of transport that interest you",
+      avail:"Availability", v1:"Full time", v2:"Part time", v3:"Either",
+      consent:"I agree that Massachusetts employers may contact me for a driving job. I understand my name and phone are revealed only to an employer who selects me, and that I can withdraw from the pool anytime with my code.",
+      go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
+      load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
+      codeLbl:"✅ You are in the pool! Here is your personal code:",
+      codeNote:"Write it down and keep it (screenshot or WhatsApp it to yourself). It lets you edit or withdraw your registration. We cannot recover it for you.",
+      needName:"Enter at least your name, phone and one license.", needConsent:"Check the agreement box to continue.",
+      saving:"Saving…", loaded:"Registration loaded — edit then save.", updated:"Changes saved ✔",
+      deleted:"You have been withdrawn from the pool. Thank you and safe travels!", confirmDel:"Withdraw from the pool? Employers will no longer see you.",
+      invalid:"Code not found. Please check it.", limit:"Too many registrations from this device today. Try tomorrow.",
+      err:"Small technical issue. Try again.", save:"Save changes", flexT:"How open are you?", flexS:"You decide who can see you.", fAny:"⚡ I'll take any driving job — every employer can see me", fPrefer:"↔️ I have preferences, but I stay open to other offers", fOnly:"🎯 Only the sectors I checked — other employers cannot see me", bAvail:"✅ I'm available", bHired:"💼 I found a job", bPaused:"⏸ Pause", stNow:"Current status: ", stA:"available — employers can see you", stH:"employed — you are out of the pool", stP:"paused — you are out of the pool", stOk:"Status updated ✔" },
+    es: { kicker:"¿Ya tienes tu licencia? Entra al pool — es gratis.",
+      lead:"¿Ya tienes tu licencia Class D, tu certificado 7D o tu CDL? Regístrate gratis: empleadores de Massachusetts buscan choferes — transporte escolar, entrega de paquetes, transporte de personas mayores, transporte regional (MART) y más.",
+      note:"Gratis y sin compromiso. Tu nombre y teléfono quedan ocultos: un empleador los ve solo cuando te selecciona, y su número de selecciones es limitado. Puedes retirarte cuando quieras.",
+      t1:"1. Quién eres", t2:"2. Tus licencias", t3:"3. Lo que buscas", t4:"Editar o retirar mi registro",
+      name:"Tu nombre completo", phone:"Teléfono (WhatsApp)",
+      city:"Ciudad / zona", citys:"Ej.: Fitchburg, Worcester, Boston — para que el empleador enfoque su zona.",
+      langs:"Idiomas que hablas", langss:"Ej.: kreyòl, inglés, español — una gran ventaja para transporte escolar y de mayores.",
+      nat:"Nacionalidad (opcional)", nats:"Visible para el empleador solo si te selecciona — nunca en la lista pública.",
+      auth:"Autorización de trabajo en EE. UU.",
+      a0:"— elegir —", a1:"✅ Sí, estoy autorizado(a) a trabajar", a2:"⏳ En trámite / solicitado", a3:"❌ Todavía no",
+      lic:"Marca lo que ya tienes", lics:"Se necesita al menos una para entrar al pool.",
+      years:"Años de experiencia profesional al volante", seek:"Tipos de transporte que te interesan",
+      avail:"Disponibilidad", v1:"Tiempo completo", v2:"Medio tiempo", v3:"Cualquiera",
+      consent:"Acepto que empleadores de Massachusetts puedan contactarme para un empleo de chofer. Entiendo que mi nombre y teléfono solo se revelan a un empleador que me selecciona, y que puedo retirarme del pool cuando quiera con mi código.",
+      go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
+      load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
+      codeLbl:"✅ ¡Estás en el pool! Este es tu código personal:",
+      codeNote:"Anótalo y guárdalo (captura de pantalla o envíatelo por WhatsApp). Sirve para editar o retirar tu registro. No podemos recuperarlo por ti.",
+      needName:"Escribe al menos tu nombre, teléfono y una licencia.", needConsent:"Marca la casilla de acuerdo para continuar.",
+      saving:"Guardando…", loaded:"Registro cargado — edita y guarda.", updated:"Cambios guardados ✔",
+      deleted:"Te has retirado del pool. ¡Gracias y buen camino!", confirmDel:"¿Retirarte del pool? Los empleadores ya no te verán.",
+      invalid:"Código no encontrado. Verifícalo.", limit:"Demasiados registros desde este dispositivo hoy. Inténtalo mañana.",
+      err:"Pequeño problema técnico. Inténtalo de nuevo.", save:"Guardar cambios", flexT:"¿Hasta dónde estás abierto?", flexS:"Tú decides quién puede verte.", fAny:"⚡ Acepto cualquier empleo de chofer — todos los empleadores pueden verme", fPrefer:"↔️ Tengo preferencias, pero sigo abierto a otras ofertas", fOnly:"🎯 Solo los sectores que marqué — otros empleadores no me ven", bAvail:"✅ Estoy disponible", bHired:"💼 Encontré empleo", bPaused:"⏸ Pausar", stNow:"Estado actual: ", stA:"disponible — los empleadores te ven", stH:"empleado — estás fuera del pool", stP:"en pausa — estás fuera del pool", stOk:"Estado actualizado ✔" }
+  };
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  function T(){return L[lang()];}
+  function setL(id,main,sub){var e=document.getElementById(id);if(e)e.innerHTML=main+(sub?"<small>"+sub+"</small>":"");}
+  function setT(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}
+  var applied="";
+  function applyLang(){
+    var l=lang(); if(l===applied)return; applied=l; var t=L[l];
+    setT("rj-kicker",t.kicker); setT("rj-lead",t.lead); setT("rj-note",t.note);
+    setT("rj-t1",t.t1); setT("rj-t2",t.t2); setT("rj-t3",t.t3); setT("rj-t4",t.t4);
+    setL("L-name",t.name); setL("L-phone",t.phone); setL("L-city",t.city,t.citys);
+    setL("L-langs",t.langs,t.langss); setL("L-nat",t.nat,t.nats); setL("L-auth",t.auth);
+    setL("L-lic",t.lic,t.lics); setL("L-years",t.years); setL("L-seek",t.seek); setL("L-avail",t.avail);
+    setL("L-code2",t.code2); setL("L-flex",t.flexT,t.flexS);
+    setT("F-any",t.fAny); setT("F-prefer",t.fPrefer); setT("F-only",t.fOnly);
+    setT("B-available",t.bAvail); setT("B-hired",t.bHired); setT("B-paused",t.bPaused);
+    var au=document.getElementById("rj-auth").options;
+    au[0].text=t.a0; au[1].text=t.a1; au[2].text=t.a2; au[3].text=t.a3;
+    var av=document.getElementById("rj-avail").options;
+    av[0].text=t.a0; av[1].text=t.v1; av[2].text=t.v2; av[3].text=t.v3;
+    setT("rj-consent-txt",t.consent); setT("rj-go",t.go); setT("rj-have",t.have);
+    setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
+    setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
+  // pastilles cochees
+  document.querySelectorAll(".rj-chk input").forEach(function(cb){
+    cb.addEventListener("change",function(){
+      if(cb.type==="radio"){document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
+        l.classList.toggle("on",l.querySelector("input").checked);});}
+      else cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+  });
+
+  var busy=false, editCode="";
+  function post(b){return fetch(EP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)})
+    .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});});}
+  function emsg(c){var t=T();return c==="drv_invalid"?t.invalid:c==="rate_limited"?t.limit:t.err;}
+  function checked(sel){return [].slice.call(document.querySelectorAll(sel+" input:checked")).map(function(c){return c.value;});}
+  function profile(){
+    return {name:document.getElementById("rj-name").value,
+      phone:document.getElementById("rj-phone").value,
+      city:document.getElementById("rj-city").value,
+      langs:document.getElementById("rj-langs").value,
+      nat:document.getElementById("rj-nat").value,
+      auth:document.getElementById("rj-auth").value,
+      licenses:checked("#rj-lic"), years:document.getElementById("rj-years").value,
+      flex:(document.querySelector('input[name=flex]:checked')||{}).value||"prefer",
+      seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value};
+  }
+  function fill(p){
+    document.getElementById("rj-name").value=p.name||"";
+    document.getElementById("rj-phone").value=p.phone||"";
+    document.getElementById("rj-city").value=p.city||"";
+    document.getElementById("rj-langs").value=p.langs||"";
+    document.getElementById("rj-nat").value=p.nat||"";
+    document.getElementById("rj-auth").value=p.auth||"";
+    document.getElementById("rj-years").value=(p.years===null||p.years===undefined)?"":p.years;
+    document.getElementById("rj-avail").value=p.avail||"";
+    document.querySelectorAll("#rj-lic input").forEach(function(cb){
+      cb.checked=(p.licenses||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+    document.querySelectorAll("#rj-seek input").forEach(function(cb){
+      cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+    document.getElementById("rj-consent").checked=true;
+    var fx=p.flex||"prefer";
+    var r=document.querySelector('input[name=flex][value="'+fx+'"]'); if(r)r.checked=true;
+    document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
+      l.classList.toggle("on",l.querySelector("input").checked);});
+    showStatus(p.status||"available");
+  }
+  function showStatus(st){
+    var t=T();
+    var lbl=st==="hired"?t.stH:st==="paused"?t.stP:t.stA;
+    document.getElementById("rj-status-now").innerHTML=t.stNow+"<strong>"+lbl+"</strong>";
+    document.getElementById("rj-statusbox").classList.remove("rj-hide");
+  }
+
+  document.getElementById("rj-form").addEventListener("submit",function(e){
+    e.preventDefault(); if(busy)return; var t=T(), st=document.getElementById("rj-st");
+    var pr=profile();
+    if(!pr.name.trim()||!pr.phone.trim()||!pr.licenses.length){st.textContent=t.needName;return;}
+    if(!document.getElementById("rj-consent").checked){st.textContent=t.needConsent;return;}
+    busy=true; st.textContent=t.saving;
+    var body = editCode ? {action:"update",code:editCode,profile:pr} : {action:"register",profile:pr};
+    post(body).then(function(res){
+      busy=false;
+      if(!res.ok){st.textContent=emsg(res.body&&res.body.error);return;}
+      st.textContent="";
+      if(editCode){st.textContent=t.updated;return;}
+      document.getElementById("rj-code-val").textContent=res.body.code;
+      document.getElementById("rj-codebox").classList.remove("rj-hide");
+      document.getElementById("rj-form").classList.add("rj-hide");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }).catch(function(){busy=false;st.textContent=t.err;});
+  });
+
+  document.getElementById("rj-have").addEventListener("click",function(){
+    document.getElementById("rj-form").classList.add("rj-hide");
+    document.getElementById("rj-manage").classList.remove("rj-hide");
+  });
+  document.getElementById("rj-back").addEventListener("click",function(){
+    document.getElementById("rj-manage").classList.add("rj-hide");
+    document.getElementById("rj-form").classList.remove("rj-hide");
+  });
+  document.getElementById("rj-manage").addEventListener("submit",function(e){
+    e.preventDefault(); if(busy)return; var t=T(), st2=document.getElementById("rj-st2");
+    var c=document.getElementById("rj-code").value.trim().toUpperCase();
+    if(!c){st2.textContent=t.invalid;return;}
+    busy=true; st2.textContent=t.saving;
+    post({action:"get",code:c}).then(function(res){
+      busy=false;
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      st2.textContent="";
+      editCode=c; fill(res.body.profile||{});
+      document.getElementById("rj-manage").classList.add("rj-hide");
+      document.getElementById("rj-form").classList.remove("rj-hide");
+      document.getElementById("rj-go").textContent=T().save;
+      document.getElementById("rj-st").textContent=t.loaded;
+    }).catch(function(){busy=false;st2.textContent=t.err;});
+  });
+  document.getElementById("rj-statusbox").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-st]"); if(!b)return;
+    var t=T(), st2=document.getElementById("rj-st2");
+    var c=(editCode||document.getElementById("rj-code").value.trim().toUpperCase());
+    if(!c){st2.textContent=t.invalid;return;}
+    post({action:"status",code:c,status:b.dataset.st}).then(function(res){
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      showStatus(res.body.status); st2.textContent=t.stOk;
+    }).catch(function(){st2.textContent=t.err;});
+  });
+
+  // lien de reconfirmation en un clic : rejistre.html?c=DRV-XXXX-XXXX
+  var urlCode=(new URLSearchParams(location.search)).get("c");
+  if(urlCode){
+    var cIn=document.getElementById("rj-code"); cIn.value=urlCode.toUpperCase();
+    document.getElementById("rj-form").classList.add("rj-hide");
+    document.getElementById("rj-manage").classList.remove("rj-hide");
+    post({action:"avail",code:cIn.value}).then(function(res){
+      var t=T(), st2=document.getElementById("rj-st2");
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      editCode=cIn.value; showStatus(res.body.status); st2.textContent=t.stOk;
+    });
+  }
+
+  document.getElementById("rj-del").addEventListener("click",function(){
+    var t=T(), st2=document.getElementById("rj-st2");
+    var c=document.getElementById("rj-code").value.trim().toUpperCase();
+    if(!c){st2.textContent=t.invalid;return;}
+    if(!window.confirm(t.confirmDel))return;
+    post({action:"delete",code:c}).then(function(res){
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      st2.textContent=t.deleted;
+      document.getElementById("rj-code").value="";
+    }).catch(function(){st2.textContent=t.err;});
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+</body>
+</html>
