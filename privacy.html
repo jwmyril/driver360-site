@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
@@ -14,6 +16,15 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/theme.css?v=3" />
+<script>/* fond clair/sombre — avant le premier affichage */
+(function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
+var clair = c==="clair" || (c!=="sombre" && window.matchMedia
+  && window.matchMedia("(prefers-color-scheme: light)").matches);
+if(clair) document.documentElement.className += " clair";
+var m=document.querySelector('meta[name="theme-color"]');
+if(m) m.setAttribute("content", clair ? "#f4f8fb" : "#0e2240");})();
+</script>
 <script>/* langue automatique, avant le premier affichage */
 (function(){var S={ht:1,fr:1,en:1,es:1},d=document.documentElement,s=null;
 try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -25,11 +36,11 @@ d.lang=l||"en";})();
 </script>
   <style>
     .lg{max-width:74ch}
-    .lg h2{font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.2rem;margin:2.1rem 0 .6rem}
-    .lg p{font-size:.95rem;line-height:1.72;color:#c9d8e6;margin:0 0 .9rem}
-    .lg .maj{font-size:.82rem;color:#7f93a7;margin-top:.4rem}
-    .lg .manque{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.42);
-      border-radius:12px;padding:1rem 1.2rem;margin-top:2.4rem;font-size:.88rem;color:#e4dbcf;line-height:1.65}
+    .lg h2{font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.2rem;margin:2.1rem 0 .6rem}
+    .lg p{font-size:.95rem;line-height:1.72;color:var(--d-texte);margin:0 0 .9rem}
+    .lg .maj{font-size:.82rem;color:var(--d-faible);margin-top:.4rem}
+    .lg .manque{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);
+      border-radius:12px;padding:1rem 1.2rem;margin-top:2.4rem;font-size:.88rem;color:var(--d-alerte-texte);line-height:1.65}
 </style>
 </head>
 <body>
@@ -37,7 +48,8 @@ d.lang=l||"en";})();
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
-    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
+    <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
+    <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="anplwaye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Employer</a></li>
         <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Job Postings</a></li>
@@ -80,8 +92,8 @@ d.lang=l||"en";})();
       <p data-t="s5_0">With your code you can see everything we hold about you, correct it, pause it so no employer sees you, or delete it. Deletion is immediate and cannot be undone.</p>
       <p data-t="s5_1">You can withdraw the WhatsApp consent by unticking the box, or by replying STOP.</p>
       <p data-t="s5_2">If an employer claims to have hired you and that is not true, you can put yourself back in the pool yourself: the driver always has the last word on their own status.</p>
-      <p data-t="s5_3">For anything else, write to <a href="mailto:sales@atmart.ltd" style="color:#2ec4b6">sales@atmart.ltd</a>.</p>
-      <div class="manque" data-t="manque">Atmart LLC — <a href="mailto:sales@atmart.ltd" style="color:#2ec4b6">sales@atmart.ltd</a>. A postal address and the state of incorporation, which decides the governing law, are still to be added here.</div>
+      <p data-t="s5_3">For anything else, write to <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a>.</p>
+      <div class="manque" data-t="manque">Atmart LLC — <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a>. A postal address and the state of incorporation, which decides the governing law, are still to be added here.</div>
     </div>
   </div>
 </section>
@@ -101,7 +113,7 @@ var T = {
   "titre": "Confidentialité",
   "intro": "Cette page dit ce que nous collectons, qui peut le voir, et comment vous vous en débarrassez. Tout ce qui est écrit ici correspond à ce que l'application fait réellement.",
   "majl": "Dernière mise à jour",
-  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Une adresse postale et l'État d'immatriculation, qui décide du droit applicable, restent à ajouter ici.",
+  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>. Une adresse postale et l'État d'immatriculation, qui décide du droit applicable, restent à ajouter ici.",
   "s0_t": "Ce que nous collectons",
   "s0_0": "<strong>D'un chauffeur :</strong> nom, téléphone, ville ou secteur, langues parlées, nationalité (facultative), autorisation de travail aux États-Unis, permis détenus, années d'expérience, types de transport recherchés, disponibilité, la façon dont vous voulez être joint, et — si vous les donnez — un lien vers votre CV ou quelques lignes sur votre parcours.",
   "s0_1": "<strong>D'un employeur :</strong> organisation, type d'activité, personne de contact, téléphone, et ce qu'il recherche.",
@@ -125,14 +137,14 @@ var T = {
   "s5_0": "Avec votre code, vous pouvez voir tout ce que nous détenons sur vous, le corriger, le mettre en pause pour qu'aucun employeur ne vous voie, ou l'effacer. L'effacement est immédiat et irréversible.",
   "s5_1": "Vous pouvez retirer le consentement WhatsApp en décochant la case, ou en répondant STOP.",
   "s5_2": "Si un employeur déclare vous avoir embauché et que c'est faux, vous pouvez vous remettre vous-même dans le vivier : le chauffeur a toujours le dernier mot sur son propre statut.",
-  "s5_3": "Pour tout le reste, écrivez à <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>."
+  "s5_3": "Pour tout le reste, écrivez à <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>."
  },
  "ht": {
   "ti": "Konfidansyalite — Driver360",
   "titre": "Konfidansyalite",
   "intro": "Paj sa a di sa nou ranmase, ki moun ki ka wè l, epi kijan ou debarase w de li. Tou sa ki ekri isit la kòrèk ak sa aplikasyon an fè tout bon.",
   "majl": "Dènye mizajou",
-  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Yon adrès postal ak Eta kote sosyete a anrejistre, ki deside ki lwa ki aplike, rete pou ajoute isit la.",
+  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>. Yon adrès postal ak Eta kote sosyete a anrejistre, ki deside ki lwa ki aplike, rete pou ajoute isit la.",
   "s0_t": "Sa nou ranmase",
   "s0_0": "<strong>Nan men yon chofè :</strong> non, telefòn, vil oswa zòn, lang ou pale, nasyonalite (si w vle), otorizasyon travay Ozetazini, pèmi ou genyen, ane eksperyans, ki kalite transpò w ap chèche, disponiblite, kijan ou vle yo jwenn ou, epi — si w bay yo — yon lyen sou CV ou oswa de twa liy sou pakou w.",
   "s0_1": "<strong>Nan men yon anplwayè :</strong> òganizasyon, kalite aktivite, moun pou kontakte, telefòn, ak sa l ap chèche.",
@@ -156,14 +168,14 @@ var T = {
   "s5_0": "Ak kòd ou, ou ka wè tout sa nou genyen sou ou, korije l, mete l an poz pou okenn anplwayè pa wè w, oswa efase l. Efasman an fèt lapoula epi ou pa ka retounen sou li.",
   "s5_1": "Ou ka retire otorizasyon WhatsApp la lè w dekoche kaz la, oswa lè w reponn STOP.",
   "s5_2": "Si yon anplwayè di li anboche w epi se pa vre, ou ka remete tèt ou nan vivye a : se chofè a ki toujou gen dènye mo a sou pwòp estati l.",
-  "s5_3": "Pou tout lòt bagay, ekri <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>."
+  "s5_3": "Pou tout lòt bagay, ekri <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>."
  },
  "es": {
   "ti": "Privacidad — Driver360",
   "titre": "Privacidad",
   "intro": "Esta página dice qué recogemos, quién puede verlo y cómo te deshaces de ello. Todo lo escrito aquí corresponde a lo que la aplicación hace realmente.",
   "majl": "Última actualización",
-  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Falta añadir aquí una dirección postal y el estado de constitución, que decide la ley aplicable.",
+  "manque": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>. Falta añadir aquí una dirección postal y el estado de constitución, que decide la ley aplicable.",
   "s0_t": "Qué recogemos",
   "s0_0": "<strong>De un conductor:</strong> nombre, teléfono, ciudad o zona, idiomas que hablas, nacionalidad (opcional), autorización de trabajo en EE. UU., licencias que tienes, años de experiencia, tipos de transporte que buscas, disponibilidad, cómo quieres que te contacten, y — si los das — un enlace a tu CV o unas líneas sobre tu trayectoria.",
   "s0_1": "<strong>De un empleador:</strong> organización, tipo de actividad, persona de contacto, teléfono y lo que busca.",
@@ -187,7 +199,7 @@ var T = {
   "s5_0": "Con tu código puedes ver todo lo que tenemos sobre ti, corregirlo, pausarlo para que ningún empleador te vea, o borrarlo. El borrado es inmediato e irreversible.",
   "s5_1": "Puedes retirar el consentimiento de WhatsApp desmarcando la casilla o respondiendo STOP.",
   "s5_2": "Si un empleador declara haberte contratado y no es cierto, puedes volver a ponerte en el registro tú mismo: el conductor siempre tiene la última palabra sobre su propio estado.",
-  "s5_3": "Para todo lo demás, escribe a <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>."
+  "s5_3": "Para todo lo demás, escribe a <a href=\"mailto:sales@atmart.ltd\" style=\"color:var(--d-accent)\">sales@atmart.ltd</a>."
  }
 };
 var TITRE0 = document.title;
@@ -204,7 +216,7 @@ appliquer();
 new MutationObserver(appliquer).observe(document.documentElement,
   {attributes:true, attributeFilter:["lang"]});
 </script>
-<script src="assets/suite.js?v=2"></script>
+<script src="assets/suite.js?v=4"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

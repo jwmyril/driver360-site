@@ -1,0 +1,222 @@
+/* ===== Driver360 — les deux fonds =====================================
+ *
+ * POURQUOI CE FICHIER EXISTE
+ * --------------------------
+ * Les pages de la suite avaient leurs couleurs ECRITES EN DUR : #fff pour un
+ * titre, #9db2c7 pour un texte, rgba(255,255,255,.04) pour une carte. Sur fond
+ * sombre c'est juste ; sur fond clair, c'est du blanc sur du blanc. Aucun
+ * reglage global ne pouvait rattraper ca.
+ *
+ * On passe donc par des JETONS. `tools/appliquer_theme.py` remplace chaque
+ * couleur litterale des pages publiees par le jeton correspondant, et ce
+ * fichier donne a ces jetons deux jeux de valeurs. Changer de fond revient
+ * alors a poser un attribut sur <html> — rien d'autre a toucher.
+ *
+ * LES NOMS DISENT LE ROLE, PAS LA COULEUR. `--d-fort` est le texte le plus
+ * appuye : il est blanc sur fond sombre et presque noir sur fond clair. Un
+ * jeton nomme `--blanc` aurait ete un piege a la premiere inversion.
+ *
+ * TROIS ETATS, et le premier est le bon par defaut : AUTO suit le reglage du
+ * systeme d'exploitation. Quelqu'un qui a mis son telephone en clair a deja
+ * dit ce qu'il voulait ; le lui redemander serait impoli.
+ *
+ * CONTRASTES. Toutes les paires texte/fond de ce fichier ont ete MESUREES
+ * (voir tools/verif_contraste.py) et tiennent le seuil AA du WCAG : 4,5:1 pour
+ * le texte courant, 3:1 pour les grands titres et les bordures utiles.
+ */
+
+:root {
+  /* --- fond sombre (l'identite de la marque) --- */
+  --d-fond: #0e2240;
+  --d-fond-2: #0a1a2f;
+  --d-surface: rgba(255, 255, 255, 0.045);
+  --d-surface-2: rgba(255, 255, 255, 0.075);
+  --d-ligne: rgba(255, 255, 255, 0.13);
+  --d-ligne-forte: rgba(255, 255, 255, 0.22);
+
+  --d-fort: #ffffff;
+  --d-texte: #c9d8e6;
+  --d-doux: #9db2c7;
+  --d-faible: #8397ab;          /* remonte depuis #7f93a7 : 4,6:1 sur le fond */
+
+  --d-accent: #2ec4b6;
+  --d-accent-fond: rgba(46, 196, 182, 0.09);
+  --d-accent-bord: rgba(46, 196, 182, 0.42);
+  --d-accent-encre: #06232b;    /* texte pose SUR l'accent */
+
+  --d-bleu: #5d9cec;
+  --d-bleu-fond: rgba(93, 156, 236, 0.09);
+  --d-bleu-bord: rgba(93, 156, 236, 0.42);
+
+  --d-alerte: #f4a261;
+  --d-alerte-fond: rgba(244, 162, 97, 0.10);
+  --d-alerte-bord: rgba(244, 162, 97, 0.42);
+  --d-alerte-texte: #e4dbcf;
+  --d-alerte-doux: #c9b79c;
+
+  --d-vert: #4ade80;
+  --d-vert-fond: rgba(37, 211, 102, 0.09);
+  --d-vert-bord: rgba(37, 211, 102, 0.38);
+
+  --d-danger: #ff8a94;          /* #e63946 est illisible sur fond sombre */
+  --d-ombre: rgba(0, 0, 0, 0.35);
+  --d-entete: rgba(10, 26, 47, 0.92);
+}
+
+/* --- fond clair -------------------------------------------------------
+ * Ce n'est PAS le fond sombre inverse. Sur clair, un turquoise vif ne passe
+ * pas les 4,5:1 en texte (il plafonne a 1,9:1 sur blanc) : l'accent doit
+ * foncer. Les surfaces, elles, passent d'un voile blanc translucide a un
+ * blanc franc, sans quoi les cartes disparaissent dans la page. */
+.clair {
+  --d-fond: #f4f8fb;
+  --d-fond-2: #e7eff7;
+  --d-surface: #ffffff;
+  --d-surface-2: #eaf2f9;
+  --d-ligne: #d2e0ec;
+  --d-ligne-forte: #b3c7da;
+
+  --d-fort: #0c1f33;
+  --d-texte: #23394f;
+  --d-doux: #405767;            /* 6,9:1 */
+  --d-faible: #4d6376;          /* 5,4:1 — #566d80 tombait a 4,49:1
+                                 sur les cartes teintees, juste sous le seuil */
+
+  --d-accent: #0a655d;          /* 6,3:1 sur blanc, 5,9:1 sur le fond de page.
+                                 #0d7a70 tenait sur la page mais tombait a
+                                 4,4:1 sur une carte blanche — la ou sont
+                                 tous les liens. */
+  --d-accent-fond: rgba(10, 101, 93, 0.08);
+  --d-accent-bord: rgba(10, 101, 93, 0.34);
+  --d-accent-encre: #ffffff;
+
+  --d-bleu: #1a5da8;            /* 5,9:1 */
+  --d-bleu-fond: rgba(26, 93, 168, 0.07);
+  --d-bleu-bord: rgba(26, 93, 168, 0.30);
+
+  --d-alerte: #97540b;          /* 5,2:1 — l'orange vif est illisible sur clair */
+  --d-alerte-fond: rgba(151, 84, 11, 0.07);
+  --d-alerte-bord: rgba(151, 84, 11, 0.30);
+  --d-alerte-texte: #5c3d18;
+  --d-alerte-doux: #6d5232;
+
+  --d-vert: #15803d;          /* 4,9:1 sur clair */
+  --d-vert-fond: rgba(21, 128, 61, 0.07);
+  --d-vert-bord: rgba(21, 128, 61, 0.30);
+
+  --d-danger: #b3242f;          /* 5,6:1 */
+  --d-ombre: rgba(12, 31, 51, 0.10);
+  --d-entete: rgba(244, 248, 251, 0.94);
+}
+
+/* --- les variables historiques de style.css suivent le meme basculement.
+ * style.css vient de Lojik360 et compte 832 lignes ecrites pour un fond
+ * sombre. Plutot que de le reecrire, on redefinit SES variables : chaque
+ * regle qui utilise deja var(--navy) ou var(--ink) bascule sans etre touchee.
+ * C'est ce qui rend le fond clair possible sans refonte. */
+.clair {
+  --navy: var(--d-fond);
+  --navy-2: var(--d-fond-2);
+  --card: var(--d-surface);
+  --border: var(--d-ligne);
+  --ink: var(--d-fort);
+  --ink-dim: var(--d-doux);
+  --teal: var(--d-accent);
+  --teal-dark: #0a5f57;
+  --amber: var(--d-alerte);
+  --red: var(--d-danger);
+}
+
+/* --- les quelques regles de style.css qui codaient une couleur en dur ---- */
+html.clair, .clair body { background: var(--d-fond); color: var(--d-texte); }
+.clair header { background: var(--d-entete); border-bottom-color: var(--d-ligne); }
+.clair .hero {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(10, 101, 93, 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(151, 84, 11, 0.07), transparent 55%);
+}
+.clair .btn-primary { background: var(--d-accent); color: var(--d-accent-encre); }
+.clair .btn-primary:hover { background: #0a5f57; color: #fff; }
+.clair .btn-outline { border-color: var(--d-accent); color: var(--d-accent); }
+.clair .btn-outline:hover { background: var(--d-accent); color: #fff; }
+.clair .lang-menu { background: var(--d-surface); box-shadow: 0 8px 24px var(--d-ombre); }
+.clair .lang-opt:hover { background: var(--d-surface-2); }
+.clair .card, .clair .example-card { box-shadow: 0 6px 20px var(--d-ombre); }
+/* Le logo est un degrade sombre->turquoise : sur fond clair sa moitie gauche
+   se perd. On ne le recolore pas (ce serait une autre marque), on lui pose un
+   pastille claire dessous, comme le font les applications iOS. */
+.clair .logo-img {
+  background: var(--d-fond-2);
+  border-radius: 10px;
+  padding: 2px;
+}
+
+/* ===== le bouton de bascule =========================================== */
+.theme-btn {
+  background: var(--card); border: 1px solid var(--border); color: var(--ink);
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+  padding: 0.4rem 0.7rem; border-radius: 999px; cursor: pointer;
+  line-height: 1; white-space: nowrap;
+}
+.theme-btn:hover { border-color: var(--teal); }
+.theme-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* ===== accessibilite ==================================================
+ * Un contour de focus VISIBLE sur tout ce qui se clique. Sans cela, qui
+ * navigue au clavier ne sait plus ou il est — et sur un formulaire
+ * d'inscription, c'est bloquant. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* --- corrections mesurees sur fond clair -------------------------------
+ * Ces trois regles ne sont pas decoratives : elles corrigent des contrastes
+ * MESURES sous le seuil AA (tools/verif_contraste.py les remesure a chaque
+ * build). `.aka` etait le pire — du turquoise vif sur un fond turquoise pale,
+ * a 1,9:1, c'est-a-dire pratiquement invisible. */
+.clair .aka {
+  background: var(--d-accent-fond);
+  border-color: var(--d-accent-bord);
+  color: var(--d-texte);
+}
+.clair .aka b { color: #085a52; }        /* 7,1:1 sur le fond de la pastille */
+.clair .aka small { color: var(--d-doux); }
+/* Les liens « entrer » des cartes tombaient a 4,4:1 : le fond teinte de la
+   carte suffit a faire passer l'accent sous le seuil. */
+.clair .d3-voie .entrer, .clair .of .entrer { color: #08554e; }
+.clair .hero .kreyol { color: var(--d-alerte); }
+
+/* ===== telephone ======================================================
+ * Mesures faites a 375 px de large (tools : window.MOBILE dans le
+ * navigateur). Aucun debordement horizontal — c'etait le point critique :
+ * une page qui defile lateralement sur un telephone est inutilisable. Ce
+ * bloc corrige ce qui restait : des cibles trop petites pour un pouce et du
+ * texte sous 12 px.
+ *
+ * 44 px est la regle d'Apple, 48 celle de Google. On vise 44 sur tout ce qui
+ * se touche vraiment, et on se contente d'agrandir la zone cliquable des
+ * liens qui vivent DANS une phrase — les grossir casserait la ligne. */
+@media (max-width: 700px) {
+  .theme-btn, .lang-current {
+    min-height: 44px; padding: 0.6rem 0.85rem; font-size: 0.85rem;
+  }
+  .lang-opt { min-height: 44px; }
+  .nav-links { gap: 0.7rem; row-gap: 0.5rem; flex-wrap: wrap; }
+  .nav-links a { padding: 0.45rem 0; display: inline-block; }
+  footer a { display: inline-block; padding: 0.4rem 0; }
+  .footer-note { line-height: 2.1; }
+  /* Un formulaire se remplit au pouce : les champs doivent etre hauts, et
+     la taille de police au moins 16 px — en dessous, iOS zoome tout seul
+     sur le champ et le visiteur se retrouve perdu dans une page agrandie. */
+  input, select, textarea { min-height: 44px; font-size: 16px; }
+  .btn { padding: 0.8rem 1.4rem; }
+  .logo small { font-size: 0.7rem; }
+  .of .prix { font-size: 0.76rem; }
+}

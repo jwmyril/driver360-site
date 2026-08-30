@@ -146,8 +146,9 @@ def entete(actif, cote=None):
             'justify-content:space-between;flex-wrap:wrap;gap:.6rem">' + NL
             + '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" '
               'alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>' + NL
-            + '    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;'
-              'margin:0;padding:0;align-items:center">' + NL
+            + '    <button type="button" class="nav-toggle" id="d3-menu" '
+              'aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">\u2630</button>' + NL
+            + '    <ul class="nav-links" id="d3-nav">' + NL
             + NL.join(lis) + NL + '    </ul>' + NL + '  </nav>' + NL + '</header>')
 
 
@@ -189,7 +190,7 @@ def transformer(src_nom, dst_nom, cote):
     # etre charge sur TOUTES les pages, sinon la page reste dans la langue
     # ecrite en dur pendant que son corps change — le melange exact que
     # l'utilisateur a signale le 30/08/2026.
-    s = s.replace("</body>", '<script src="assets/suite.js?v=2"></script>\n'
+    s = s.replace("</body>", '<script src="assets/suite.js?v=4"></script>\n'
                   '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres

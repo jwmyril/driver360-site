@@ -1,66 +1,1191 @@
 {
-  "note": "Driver360 Pèmi — banque originale basée sur les règles établies du Massachusetts Driver's Manual. Jamais copiée du vrai examen RMV. Étendre chaque semaine.",
-  "pass": 15,
-  "questions": [
-    {"id":"q01","q":{"ht":"Nan yon zòn lekòl, ki limit vitès la ?","fr":"Dans une zone scolaire, quelle est la limite de vitesse ?","en":"In a school zone, what is the speed limit?","es":"En una zona escolar, ¿cuál es el límite de velocidad?"},
-     "opts":[{"ht":"20 mph","fr":"20 mph","en":"20 mph","es":"20 mph"},{"ht":"25 mph","fr":"25 mph","en":"25 mph","es":"25 mph"},{"ht":"30 mph","fr":"30 mph","en":"30 mph","es":"30 mph"},{"ht":"15 mph","fr":"15 mph","en":"15 mph","es":"15 mph"}],
-     "a":0,"ex":{"ht":"Zòn lekòl = 20 mph. Depase l se yon erè ki ka fè w echwe tès la tou.","fr":"Zone scolaire = 20 mph. La dépasser est aussi éliminatoire au test routier.","en":"School zone = 20 mph. Exceeding it is also an automatic fail on the road test.","es":"Zona escolar = 20 mph. Excederlo también es fallo automático en el examen práctico."}},
-    {"id":"q02","q":{"ht":"Nan yon zòn rezidansyèl dans (thickly settled), ki limit vitès si pa gen pano ?","fr":"En zone résidentielle dense (thickly settled), quelle limite sans panneau ?","en":"In a thickly settled district with no posted limit, what is the speed limit?","es":"En zona residencial densa (thickly settled) sin señal, ¿cuál es el límite?"},
-     "opts":[{"ht":"30 mph","fr":"30 mph","en":"30 mph","es":"30 mph"},{"ht":"40 mph","fr":"40 mph","en":"40 mph","es":"40 mph"},{"ht":"25 mph","fr":"25 mph","en":"25 mph","es":"25 mph"},{"ht":"35 mph","fr":"35 mph","en":"35 mph","es":"35 mph"}],
-     "a":0,"ex":{"ht":"San pano : 30 mph nan zòn dans yo (kay chak 200 pye).","fr":"Sans panneau : 30 mph en zone dense.","en":"Unposted thickly settled district: 30 mph.","es":"Sin señal: 30 mph en zona densa."}},
-    {"id":"q03","q":{"ht":"Pou yon chofè 21 an oswa plis, ki limit alkòl nan san an ?","fr":"Pour un conducteur de 21 ans ou plus, quelle est la limite d'alcoolémie ?","en":"For a driver 21 or older, what is the legal blood alcohol limit?","es":"Para un conductor de 21 años o más, ¿cuál es el límite de alcohol en sangre?"},
-     "opts":[{"ht":"0.08 %","fr":"0,08 %","en":"0.08%","es":"0.08%"},{"ht":"0.10 %","fr":"0,10 %","en":"0.10%","es":"0.10%"},{"ht":"0.05 %","fr":"0,05 %","en":"0.05%","es":"0.05%"},{"ht":"0.02 %","fr":"0,02 %","en":"0.02%","es":"0.02%"}],
-     "a":0,"ex":{"ht":"21+ : 0.08 %. Anba 21 an : 0.02 % sèlman.","fr":"21+ : 0,08 %. Moins de 21 ans : 0,02 %.","en":"21+: 0.08%. Under 21: only 0.02%.","es":"21+: 0.08%. Menores de 21: solo 0.02%."}},
-    {"id":"q04","q":{"ht":"Yon otobis lekòl kanpe ak limyè wouj k ap flache. Kisa w dwe fè ?","fr":"Un bus scolaire est arrêté, feux rouges clignotants. Que devez-vous faire ?","en":"A school bus is stopped with flashing red lights. What must you do?","es":"Un autobús escolar está detenido con luces rojas intermitentes. ¿Qué debe hacer?"},
-     "opts":[{"ht":"Kanpe — nan tou de direksyon yo","fr":"S'arrêter — dans les deux sens","en":"Stop — in both directions","es":"Detenerse — en ambos sentidos"},{"ht":"Ralanti epi pase dousman","fr":"Ralentir et passer doucement","en":"Slow down and pass carefully","es":"Reducir y pasar con cuidado"},{"ht":"Klaksonnen epi pase","fr":"Klaxonner et passer","en":"Honk and pass","es":"Tocar bocina y pasar"},{"ht":"Kanpe sèlman si w dèyè l","fr":"S'arrêter seulement derrière lui","en":"Stop only if behind it","es":"Detenerse solo si va detrás"}],
-     "a":0,"ex":{"ht":"Tout machin nan TOU DE direksyon dwe kanpe (sof si yon baryè separe wout la).","fr":"Les deux sens doivent s'arrêter (sauf séparation par barrière).","en":"Traffic in BOTH directions must stop (unless a barrier divides the road).","es":"Ambos sentidos deben detenerse (salvo barrera divisoria)."}},
-    {"id":"q05","q":{"ht":"Èske w ka vire adwat sou limyè wouj ?","fr":"Peut-on tourner à droite au feu rouge ?","en":"May you turn right on a red light?","es":"¿Se puede girar a la derecha en luz roja?"},
-     "opts":[{"ht":"Wi — apre yon kanpe konplè, si pa gen pano ki entèdi l","fr":"Oui — après arrêt complet, sauf panneau d'interdiction","en":"Yes — after a complete stop, unless a sign prohibits it","es":"Sí — tras alto completo, salvo señal que lo prohíba"},{"ht":"Non, janm","fr":"Non, jamais","en":"No, never","es":"No, nunca"},{"ht":"Wi, san kanpe","fr":"Oui, sans s'arrêter","en":"Yes, without stopping","es":"Sí, sin detenerse"},{"ht":"Sèlman lannwit","fr":"Seulement la nuit","en":"Only at night","es":"Solo de noche"}],
-     "a":0,"ex":{"ht":"Kanpe NÈT anvan, sede pasaj, epi vire si pa gen pano « No Turn on Red ».","fr":"Arrêt complet, céder le passage, puis tourner sauf panneau contraire.","en":"Full stop first, yield, then turn unless posted otherwise.","es":"Alto completo, ceder el paso, y girar salvo señal contraria."}},
-    {"id":"q06","q":{"ht":"De liy jòn solid nan mitan wout la vle di :","fr":"Deux lignes jaunes continues au centre signifient :","en":"A double solid yellow center line means:","es":"Doble línea amarilla continua significa:"},
-     "opts":[{"ht":"Okenn depasman nan de sans yo","fr":"Dépassement interdit dans les deux sens","en":"No passing in either direction","es":"Prohibido rebasar en ambos sentidos"},{"ht":"Depasman pèmèt si wout la lib","fr":"Dépassement permis si la voie est libre","en":"Passing allowed if clear","es":"Rebasar permitido si está libre"},{"ht":"Zòn pakin","fr":"Zone de stationnement","en":"Parking zone","es":"Zona de estacionamiento"},{"ht":"Wout a yon sans","fr":"Sens unique","en":"One-way road","es":"Vía de un solo sentido"}],
-     "a":0,"ex":{"ht":"Liy doub solid = pa depase, ni yon bò ni lòt.","fr":"Double ligne continue = interdiction de doubler.","en":"Double solid = no passing either way.","es":"Doble continua = no rebasar."}},
-    {"id":"q07","q":{"ht":"Ki siyal men pou vire AGOCH ?","fr":"Quel signal de la main pour tourner à GAUCHE ?","en":"What is the hand signal for a LEFT turn?","es":"¿Cuál es la señal de mano para girar a la IZQUIERDA?"},
-     "opts":[{"ht":"Bra a lonje tou dwat deyò","fr":"Bras tendu à l'horizontale","en":"Arm straight out","es":"Brazo extendido recto"},{"ht":"Bra a leve anlè","fr":"Bras levé vers le haut","en":"Arm up","es":"Brazo hacia arriba"},{"ht":"Bra a desann anba","fr":"Bras vers le bas","en":"Arm down","es":"Brazo hacia abajo"},{"ht":"Men sou klaksòn nan","fr":"Main sur le klaxon","en":"Hand on the horn","es":"Mano en la bocina"}],
-     "a":0,"ex":{"ht":"Agoch = bra dwat lonje. Anlè = adwat. Anba = kanpe. Egzaminatè a mande sa souvan !","fr":"Gauche = bras tendu. Levé = droite. Baissé = stop. L'examinateur le demande souvent !","en":"Left = straight out. Up = right. Down = stop. Examiners ask this often!","es":"Izquierda = extendido. Arriba = derecha. Abajo = alto. ¡El examinador lo pide seguido!"}},
-    {"id":"q08","q":{"ht":"Ki siyal men pou KANPE ?","fr":"Quel signal de la main pour S'ARRÊTER ?","en":"What is the hand signal for STOPPING?","es":"¿Cuál es la señal de mano para DETENERSE?"},
-     "opts":[{"ht":"Bra a desann anba","fr":"Bras vers le bas","en":"Arm down","es":"Brazo hacia abajo"},{"ht":"Bra a leve anlè","fr":"Bras levé","en":"Arm up","es":"Brazo arriba"},{"ht":"Bra a lonje dwat","fr":"Bras tendu","en":"Arm straight out","es":"Brazo extendido"},{"ht":"De men deyò","fr":"Les deux mains dehors","en":"Both hands out","es":"Ambas manos fuera"}],
-     "a":0,"ex":{"ht":"Kanpe = bra a desann, pla men dèyè.","fr":"Stop = bras baissé.","en":"Stop = arm down.","es":"Alto = brazo abajo."}},
-    {"id":"q09","q":{"ht":"Nan yon wonpwen (rotary), ki moun ki gen priyorite ?","fr":"Dans un rond-point (rotary), qui a la priorité ?","en":"In a rotary (roundabout), who has the right of way?","es":"En una rotonda, ¿quién tiene la preferencia?"},
-     "opts":[{"ht":"Machin ki DEJA anndan wonpwen an","fr":"Les véhicules DÉJÀ dans le rond-point","en":"Vehicles ALREADY in the rotary","es":"Los vehículos que YA están dentro"},{"ht":"Machin k ap antre a","fr":"Celui qui entre","en":"Entering vehicles","es":"El que entra"},{"ht":"Machin ki pi vit la","fr":"Le plus rapide","en":"The fastest vehicle","es":"El más rápido"},{"ht":"Kamyon yo toujou","fr":"Toujours les camions","en":"Trucks always","es":"Siempre los camiones"}],
-     "a":0,"ex":{"ht":"W ap antre ? Sede pasaj bay sa ki deja anndan an.","fr":"À l'entrée, cédez à ceux qui y circulent déjà.","en":"Entering traffic yields to traffic in the circle.","es":"Al entrar, cede a los que ya circulan."}},
-    {"id":"q10","q":{"ht":"Yon pyeton nan yon pasaj pyeton san limyè. Kisa w fè ?","fr":"Un piéton est dans un passage piéton sans feu. Que faites-vous ?","en":"A pedestrian is in a crosswalk with no signal. What do you do?","es":"Un peatón está en un paso peatonal sin semáforo. ¿Qué hace?"},
-     "opts":[{"ht":"Kanpe epi kite l pase","fr":"S'arrêter et le laisser passer","en":"Stop and yield to them","es":"Detenerse y cederle el paso"},{"ht":"Klaksonnen pou l prese","fr":"Klaxonner pour qu'il se dépêche","en":"Honk so they hurry","es":"Tocar bocina para que se apure"},{"ht":"Kontoune l dousman","fr":"Le contourner lentement","en":"Go around slowly","es":"Rodearlo despacio"},{"ht":"Kontinye si w gen priyorite","fr":"Continuer si vous avez la priorité","en":"Continue if you have priority","es":"Seguir si tiene prioridad"}],
-     "a":0,"ex":{"ht":"Pyeton nan pasaj la toujou gen priyorite — kanpe.","fr":"Le piéton engagé a toujours la priorité.","en":"Yield to pedestrians in the crosswalk — always.","es":"El peatón en el paso siempre tiene preferencia."}},
-    {"id":"q11","q":{"ht":"Lè w ap itilize eswiglas yo (lapli), kisa lalwa MA egzije tou ?","fr":"Quand vos essuie-glaces fonctionnent (pluie), que exige aussi la loi du MA ?","en":"When your wipers are on (rain), what does MA law also require?","es":"Cuando usa los limpiaparabrisas (lluvia), ¿qué exige también la ley de MA?"},
-     "opts":[{"ht":"Limen limyè devan yo","fr":"Allumer les phares","en":"Headlights on","es":"Encender los faros"},{"ht":"Limen flache yo","fr":"Allumer les warnings","en":"Hazard lights on","es":"Luces de emergencia"},{"ht":"Ralanti a 20 mph","fr":"Rouler à 20 mph","en":"Drive at 20 mph","es":"Conducir a 20 mph"},{"ht":"Anyen anplis","fr":"Rien de plus","en":"Nothing else","es":"Nada más"}],
-     "a":0,"ex":{"ht":"Eswiglas limen = limyè limen. Se lalwa nan Massachusetts.","fr":"Essuie-glaces = phares allumés. C'est la loi au Massachusetts.","en":"Wipers on = headlights on. It's Massachusetts law.","es":"Limpiaparabrisas = faros encendidos. Es ley en Massachusetts."}},
-    {"id":"q12","q":{"ht":"Yon chofè jinyò (anba 18 an) pa gen dwa kondwi ant :","fr":"Un conducteur junior (moins de 18 ans) ne peut pas conduire entre :","en":"A junior operator (under 18) may not drive between:","es":"Un conductor junior (menor de 18) no puede conducir entre:"},
-     "opts":[{"ht":"12:30 AM ak 5:00 AM","fr":"0 h 30 et 5 h 00","en":"12:30 a.m. and 5:00 a.m.","es":"12:30 a.m. y 5:00 a.m."},{"ht":"10 PM ak 6 AM","fr":"22 h et 6 h","en":"10 p.m. and 6 a.m.","es":"10 p.m. y 6 a.m."},{"ht":"11 PM ak 7 AM","fr":"23 h et 7 h","en":"11 p.m. and 7 a.m.","es":"11 p.m. y 7 a.m."},{"ht":"Okenn limit","fr":"Aucune limite","en":"No restriction","es":"Sin restricción"}],
-     "a":0,"ex":{"ht":"JOL : entèdi 12:30 AM–5:00 AM (sof ak paran/gadyen).","fr":"JOL : interdit 0 h 30–5 h (sauf avec parent/tuteur).","en":"JOL: no driving 12:30–5:00 a.m. (unless with parent/guardian).","es":"JOL: prohibido 12:30–5:00 a.m. (salvo con padre/tutor)."}},
-    {"id":"q13","q":{"ht":"Pandan 6 premye mwa yo, yon chofè jinyò pa ka pote :","fr":"Pendant les 6 premiers mois, un conducteur junior ne peut transporter :","en":"For the first 6 months, a junior operator may not carry:","es":"En los primeros 6 meses, un conductor junior no puede llevar:"},
-     "opts":[{"ht":"Pasaje anba 18 an ki pa fanmi pwòch","fr":"Des passagers de moins de 18 ans hors famille proche","en":"Passengers under 18 who are not immediate family","es":"Pasajeros menores de 18 que no sean familia directa"},{"ht":"Okenn pasaje ditou","fr":"Aucun passager","en":"Any passenger at all","es":"Ningún pasajero"},{"ht":"Plis pase 3 pasaje","fr":"Plus de 3 passagers","en":"More than 3 passengers","es":"Más de 3 pasajeros"},{"ht":"Granmoun sèlman","fr":"Des adultes seulement","en":"Adults only","es":"Solo adultos"}],
-     "a":0,"ex":{"ht":"6 premye mwa : okenn pasaje anba 18 an (sof frè/sè), sof si yon moun 21+ ki gen lisans depi 1 an nan machin nan.","fr":"6 premiers mois : pas de passagers mineurs hors fratrie, sauf accompagnateur 21+.","en":"First 6 months: no under-18 passengers except siblings, unless a licensed 21+ adult is present.","es":"Primeros 6 meses: sin pasajeros menores salvo hermanos, o con adulto 21+ presente."}},
-    {"id":"q14","q":{"ht":"Yon machin ijans ap vini dèyè w ak sirèn. Kisa w fè ?","fr":"Un véhicule d'urgence arrive derrière vous, sirène allumée. Que faites-vous ?","en":"An emergency vehicle approaches from behind with sirens on. What do you do?","es":"Un vehículo de emergencia se acerca por detrás con sirena. ¿Qué hace?"},
-     "opts":[{"ht":"Rale adwat epi kanpe","fr":"Se ranger à droite et s'arrêter","en":"Pull to the right and stop","es":"Orillarse a la derecha y detenerse"},{"ht":"Akselere pou kite l pase","fr":"Accélérer pour le laisser passer","en":"Speed up to clear the way","es":"Acelerar para dejarlo pasar"},{"ht":"Kanpe kote w ye a","fr":"S'arrêter sur place","en":"Stop where you are","es":"Detenerse donde está"},{"ht":"Rale agoch","fr":"Se ranger à gauche","en":"Pull to the left","es":"Orillarse a la izquierda"}],
-     "a":0,"ex":{"ht":"Rale adwat, kanpe, tann li pase.","fr":"À droite, arrêt, attendre son passage.","en":"Right side, stop, wait for it to pass.","es":"A la derecha, alto, esperar a que pase."}},
-    {"id":"q15","q":{"ht":"Machin ou kòmanse patinen (skid). Kisa w fè ?","fr":"Votre voiture dérape (skid). Que faites-vous ?","en":"Your car begins to skid. What do you do?","es":"Su auto comienza a derrapar. ¿Qué hace?"},
-     "opts":[{"ht":"Vire volan an nan direksyon ou VLE ale a","fr":"Tourner le volant dans la direction où vous VOULEZ aller","en":"Steer in the direction you WANT to go","es":"Girar hacia donde QUIERE ir"},{"ht":"Frennen fò","fr":"Freiner fort","en":"Brake hard","es":"Frenar fuerte"},{"ht":"Akselere","fr":"Accélérer","en":"Accelerate","es":"Acelerar"},{"ht":"Lage volan an","fr":"Lâcher le volant","en":"Release the wheel","es":"Soltar el volante"}],
-     "a":0,"ex":{"ht":"Pa frennen brital ; gide machin nan kote w vle ale a.","fr":"Pas de freinage brutal ; guidez vers votre trajectoire.","en":"No hard braking; steer where you want to go.","es":"Sin frenado brusco; dirija hacia su trayectoria."}},
-    {"id":"q16","q":{"ht":"Yon lòt machin ap depase w. Kisa w dwe fè ?","fr":"Un autre véhicule vous dépasse. Que devez-vous faire ?","en":"Another vehicle is passing you. What should you do?","es":"Otro vehículo lo está rebasando. ¿Qué debe hacer?"},
-     "opts":[{"ht":"Kenbe vitès ou oswa ralanti — pa akselere","fr":"Garder sa vitesse ou ralentir — ne pas accélérer","en":"Keep your speed or slow down — do not speed up","es":"Mantener velocidad o reducir — no acelerar"},{"ht":"Akselere","fr":"Accélérer","en":"Speed up","es":"Acelerar"},{"ht":"Klaksonnen","fr":"Klaxonner","en":"Honk","es":"Tocar bocina"},{"ht":"Frennen brital","fr":"Freiner brutalement","en":"Brake hard","es":"Frenar bruscamente"}],
-     "a":0,"ex":{"ht":"Fasilite depasman an : pa monte vitès.","fr":"Facilitez le dépassement : ne pas accélérer.","en":"Make the pass easy: never accelerate.","es":"Facilite el rebase: nunca acelere."}},
-    {"id":"q17","q":{"ht":"Ou rate sòti w sou otowout la. Kisa w fè ?","fr":"Vous avez raté votre sortie d'autoroute. Que faites-vous ?","en":"You missed your highway exit. What do you do?","es":"Se pasó su salida de la autopista. ¿Qué hace?"},
-     "opts":[{"ht":"Kontinye jis nan pwochen sòti a","fr":"Continuer jusqu'à la prochaine sortie","en":"Continue to the next exit","es":"Seguir hasta la próxima salida"},{"ht":"Fè bak dousman","fr":"Reculer doucement","en":"Back up carefully","es":"Retroceder con cuidado"},{"ht":"Fè yon U-turn","fr":"Faire demi-tour","en":"Make a U-turn","es":"Dar vuelta en U"},{"ht":"Kanpe epi rele èd","fr":"S'arrêter et appeler à l'aide","en":"Stop and call for help","es":"Detenerse y pedir ayuda"}],
-     "a":0,"ex":{"ht":"JANM fè bak ni U-turn sou otowout — pwochen sòti a.","fr":"Jamais de marche arrière ni demi-tour sur autoroute.","en":"NEVER back up or U-turn on a highway — take the next exit.","es":"NUNCA retroceda ni gire en U en autopista."}},
-    {"id":"q18","q":{"ht":"Ki kote pou w PA pakin : a ki distans de yon bouch enkandi (hydrant) ?","fr":"À quelle distance d'une borne d'incendie est-il interdit de stationner ?","en":"Within what distance of a fire hydrant is parking prohibited?","es":"¿A qué distancia de un hidrante está prohibido estacionar?"},
-     "opts":[{"ht":"10 pye","fr":"10 pieds","en":"10 feet","es":"10 pies"},{"ht":"5 pye","fr":"5 pieds","en":"5 feet","es":"5 pies"},{"ht":"25 pye","fr":"25 pieds","en":"25 feet","es":"25 pies"},{"ht":"50 pye","fr":"50 pieds","en":"50 feet","es":"50 pies"}],
-     "a":0,"ex":{"ht":"Kite omwen 10 pye ant machin ou ak yon hydrant.","fr":"Au moins 10 pieds d'une borne d'incendie.","en":"Keep at least 10 feet from a hydrant.","es":"Al menos 10 pies de un hidrante."}},
-    {"id":"q19","q":{"ht":"Gwo kamyon yo gen « no-zones ». Kisa sa vle di ?","fr":"Les gros camions ont des « no-zones ». Qu'est-ce que c'est ?","en":"Large trucks have \"no-zones.\" What are they?","es":"Los camiones grandes tienen «no-zones». ¿Qué son?"},
-     "opts":[{"ht":"Gwo zòn kote chofè kamyon an PA ka wè w","fr":"De grandes zones où le camionneur ne peut PAS vous voir","en":"Large blind spots where the trucker CANNOT see you","es":"Grandes puntos ciegos donde el camionero NO puede verlo"},{"ht":"Zòn kote kamyon pa gen dwa pase","fr":"Des zones interdites aux camions","en":"Areas where trucks are banned","es":"Zonas prohibidas para camiones"},{"ht":"Pakin rezève pou kamyon","fr":"Des parkings pour camions","en":"Truck parking areas","es":"Estacionamientos de camiones"},{"ht":"Liy pou depase kamyon","fr":"Des voies de dépassement","en":"Passing lanes","es":"Carriles de rebase"}],
-     "a":0,"ex":{"ht":"Pa rete nan no-zone yo : si w pa wè figi chofè a nan retrovizè l, li pa wè w.","fr":"Si vous ne voyez pas le chauffeur dans son rétro, il ne vous voit pas.","en":"If you can't see the driver in his mirror, he can't see you.","es":"Si no ve al chofer en su espejo, él no lo ve."}},
-    {"id":"q20","q":{"ht":"Wout la mouye. Ki premye bagay pou w fè ?","fr":"La route est mouillée. Première chose à faire ?","en":"The road is wet. What is the first thing to do?","es":"La carretera está mojada. ¿Qué es lo primero que debe hacer?"},
-     "opts":[{"ht":"Ralanti epi kite plis distans devan w","fr":"Ralentir et augmenter la distance de sécurité","en":"Slow down and increase following distance","es":"Reducir velocidad y aumentar la distancia"},{"ht":"Limen flache yo","fr":"Allumer les warnings","en":"Turn on hazard lights","es":"Encender intermitentes de emergencia"},{"ht":"Kenbe menm vitès la","fr":"Garder la même vitesse","en":"Keep the same speed","es":"Mantener la velocidad"},{"ht":"Swiv machin devan an pi pre","fr":"Suivre de plus près","en":"Follow more closely","es":"Seguir más de cerca"}],
-     "a":0,"ex":{"ht":"Mouye = mwens adherans : ralanti, double distans ou, evite frennen brital (idroplanaj).","fr":"Chaussée mouillée : ralentir, doubler la distance, freinage doux (aquaplanage).","en":"Wet road: slow down, double your distance, brake gently (hydroplaning).","es":"Mojado: reduzca, duplique distancia, frene suave (hidroplaneo)."}}
-  ]
+ "note": "Driver360 Pèmi — banque originale basée sur les règles établies du Massachusetts Driver's Manual. Jamais copiée du vrai examen RMV. Étendre chaque semaine. Format aligne sur le vrai examen du RMV : 25 questions tirees au sort, 18 bonnes reponses pour reussir (72 %), 25 minutes.",
+ "pass": 18,
+ "questions": [
+  {
+   "id": "q01",
+   "q": {
+    "ht": "Nan yon zòn lekòl, ki limit vitès la ?",
+    "fr": "Dans une zone scolaire, quelle est la limite de vitesse ?",
+    "en": "In a school zone, what is the speed limit?",
+    "es": "En una zona escolar, ¿cuál es el límite de velocidad?"
+   },
+   "opts": [
+    {
+     "ht": "20 mph",
+     "fr": "20 mph",
+     "en": "20 mph",
+     "es": "20 mph"
+    },
+    {
+     "ht": "25 mph",
+     "fr": "25 mph",
+     "en": "25 mph",
+     "es": "25 mph"
+    },
+    {
+     "ht": "30 mph",
+     "fr": "30 mph",
+     "en": "30 mph",
+     "es": "30 mph"
+    },
+    {
+     "ht": "15 mph",
+     "fr": "15 mph",
+     "en": "15 mph",
+     "es": "15 mph"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Zòn lekòl = 20 mph. Depase l se yon erè ki ka fè w echwe tès la tou.",
+    "fr": "Zone scolaire = 20 mph. La dépasser est aussi éliminatoire au test routier.",
+    "en": "School zone = 20 mph. Exceeding it is also an automatic fail on the road test.",
+    "es": "Zona escolar = 20 mph. Excederlo también es fallo automático en el examen práctico."
+   }
+  },
+  {
+   "id": "q02",
+   "q": {
+    "ht": "Nan yon zòn rezidansyèl dans (thickly settled), ki limit vitès si pa gen pano ?",
+    "fr": "En zone résidentielle dense (thickly settled), quelle limite sans panneau ?",
+    "en": "In a thickly settled district with no posted limit, what is the speed limit?",
+    "es": "En zona residencial densa (thickly settled) sin señal, ¿cuál es el límite?"
+   },
+   "opts": [
+    {
+     "ht": "30 mph",
+     "fr": "30 mph",
+     "en": "30 mph",
+     "es": "30 mph"
+    },
+    {
+     "ht": "40 mph",
+     "fr": "40 mph",
+     "en": "40 mph",
+     "es": "40 mph"
+    },
+    {
+     "ht": "25 mph",
+     "fr": "25 mph",
+     "en": "25 mph",
+     "es": "25 mph"
+    },
+    {
+     "ht": "35 mph",
+     "fr": "35 mph",
+     "en": "35 mph",
+     "es": "35 mph"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "San pano : 30 mph nan zòn dans yo (kay chak 200 pye).",
+    "fr": "Sans panneau : 30 mph en zone dense.",
+    "en": "Unposted thickly settled district: 30 mph.",
+    "es": "Sin señal: 30 mph en zona densa."
+   }
+  },
+  {
+   "id": "q03",
+   "q": {
+    "ht": "Pou yon chofè 21 an oswa plis, ki limit alkòl nan san an ?",
+    "fr": "Pour un conducteur de 21 ans ou plus, quelle est la limite d'alcoolémie ?",
+    "en": "For a driver 21 or older, what is the legal blood alcohol limit?",
+    "es": "Para un conductor de 21 años o más, ¿cuál es el límite de alcohol en sangre?"
+   },
+   "opts": [
+    {
+     "ht": "0.08 %",
+     "fr": "0,08 %",
+     "en": "0.08%",
+     "es": "0.08%"
+    },
+    {
+     "ht": "0.10 %",
+     "fr": "0,10 %",
+     "en": "0.10%",
+     "es": "0.10%"
+    },
+    {
+     "ht": "0.05 %",
+     "fr": "0,05 %",
+     "en": "0.05%",
+     "es": "0.05%"
+    },
+    {
+     "ht": "0.02 %",
+     "fr": "0,02 %",
+     "en": "0.02%",
+     "es": "0.02%"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "21+ : 0.08 %. Anba 21 an : 0.02 % sèlman.",
+    "fr": "21+ : 0,08 %. Moins de 21 ans : 0,02 %.",
+    "en": "21+: 0.08%. Under 21: only 0.02%.",
+    "es": "21+: 0.08%. Menores de 21: solo 0.02%."
+   }
+  },
+  {
+   "id": "q04",
+   "q": {
+    "ht": "Yon otobis lekòl kanpe ak limyè wouj k ap flache. Kisa w dwe fè ?",
+    "fr": "Un bus scolaire est arrêté, feux rouges clignotants. Que devez-vous faire ?",
+    "en": "A school bus is stopped with flashing red lights. What must you do?",
+    "es": "Un autobús escolar está detenido con luces rojas intermitentes. ¿Qué debe hacer?"
+   },
+   "opts": [
+    {
+     "ht": "Kanpe — nan tou de direksyon yo",
+     "fr": "S'arrêter — dans les deux sens",
+     "en": "Stop — in both directions",
+     "es": "Detenerse — en ambos sentidos"
+    },
+    {
+     "ht": "Ralanti epi pase dousman",
+     "fr": "Ralentir et passer doucement",
+     "en": "Slow down and pass carefully",
+     "es": "Reducir y pasar con cuidado"
+    },
+    {
+     "ht": "Klaksonnen epi pase",
+     "fr": "Klaxonner et passer",
+     "en": "Honk and pass",
+     "es": "Tocar bocina y pasar"
+    },
+    {
+     "ht": "Kanpe sèlman si w dèyè l",
+     "fr": "S'arrêter seulement derrière lui",
+     "en": "Stop only if behind it",
+     "es": "Detenerse solo si va detrás"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Tout machin nan TOU DE direksyon dwe kanpe (sof si yon baryè separe wout la).",
+    "fr": "Les deux sens doivent s'arrêter (sauf séparation par barrière).",
+    "en": "Traffic in BOTH directions must stop (unless a barrier divides the road).",
+    "es": "Ambos sentidos deben detenerse (salvo barrera divisoria)."
+   }
+  },
+  {
+   "id": "q05",
+   "q": {
+    "ht": "Èske w ka vire adwat sou limyè wouj ?",
+    "fr": "Peut-on tourner à droite au feu rouge ?",
+    "en": "May you turn right on a red light?",
+    "es": "¿Se puede girar a la derecha en luz roja?"
+   },
+   "opts": [
+    {
+     "ht": "Wi — apre yon kanpe konplè, si pa gen pano ki entèdi l",
+     "fr": "Oui — après arrêt complet, sauf panneau d'interdiction",
+     "en": "Yes — after a complete stop, unless a sign prohibits it",
+     "es": "Sí — tras alto completo, salvo señal que lo prohíba"
+    },
+    {
+     "ht": "Non, janm",
+     "fr": "Non, jamais",
+     "en": "No, never",
+     "es": "No, nunca"
+    },
+    {
+     "ht": "Wi, san kanpe",
+     "fr": "Oui, sans s'arrêter",
+     "en": "Yes, without stopping",
+     "es": "Sí, sin detenerse"
+    },
+    {
+     "ht": "Sèlman lannwit",
+     "fr": "Seulement la nuit",
+     "en": "Only at night",
+     "es": "Solo de noche"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Kanpe NÈT anvan, sede pasaj, epi vire si pa gen pano « No Turn on Red ».",
+    "fr": "Arrêt complet, céder le passage, puis tourner sauf panneau contraire.",
+    "en": "Full stop first, yield, then turn unless posted otherwise.",
+    "es": "Alto completo, ceder el paso, y girar salvo señal contraria."
+   }
+  },
+  {
+   "id": "q06",
+   "q": {
+    "ht": "De liy jòn solid nan mitan wout la vle di :",
+    "fr": "Deux lignes jaunes continues au centre signifient :",
+    "en": "A double solid yellow center line means:",
+    "es": "Doble línea amarilla continua significa:"
+   },
+   "opts": [
+    {
+     "ht": "Okenn depasman nan de sans yo",
+     "fr": "Dépassement interdit dans les deux sens",
+     "en": "No passing in either direction",
+     "es": "Prohibido rebasar en ambos sentidos"
+    },
+    {
+     "ht": "Depasman pèmèt si wout la lib",
+     "fr": "Dépassement permis si la voie est libre",
+     "en": "Passing allowed if clear",
+     "es": "Rebasar permitido si está libre"
+    },
+    {
+     "ht": "Zòn pakin",
+     "fr": "Zone de stationnement",
+     "en": "Parking zone",
+     "es": "Zona de estacionamiento"
+    },
+    {
+     "ht": "Wout a yon sans",
+     "fr": "Sens unique",
+     "en": "One-way road",
+     "es": "Vía de un solo sentido"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Liy doub solid = pa depase, ni yon bò ni lòt.",
+    "fr": "Double ligne continue = interdiction de doubler.",
+    "en": "Double solid = no passing either way.",
+    "es": "Doble continua = no rebasar."
+   }
+  },
+  {
+   "id": "q07",
+   "q": {
+    "ht": "Ki siyal men pou vire AGOCH ?",
+    "fr": "Quel signal de la main pour tourner à GAUCHE ?",
+    "en": "What is the hand signal for a LEFT turn?",
+    "es": "¿Cuál es la señal de mano para girar a la IZQUIERDA?"
+   },
+   "opts": [
+    {
+     "ht": "Bra a lonje tou dwat deyò",
+     "fr": "Bras tendu à l'horizontale",
+     "en": "Arm straight out",
+     "es": "Brazo extendido recto"
+    },
+    {
+     "ht": "Bra a leve anlè",
+     "fr": "Bras levé vers le haut",
+     "en": "Arm up",
+     "es": "Brazo hacia arriba"
+    },
+    {
+     "ht": "Bra a desann anba",
+     "fr": "Bras vers le bas",
+     "en": "Arm down",
+     "es": "Brazo hacia abajo"
+    },
+    {
+     "ht": "Men sou klaksòn nan",
+     "fr": "Main sur le klaxon",
+     "en": "Hand on the horn",
+     "es": "Mano en la bocina"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Agoch = bra dwat lonje. Anlè = adwat. Anba = kanpe. Egzaminatè a mande sa souvan !",
+    "fr": "Gauche = bras tendu. Levé = droite. Baissé = stop. L'examinateur le demande souvent !",
+    "en": "Left = straight out. Up = right. Down = stop. Examiners ask this often!",
+    "es": "Izquierda = extendido. Arriba = derecha. Abajo = alto. ¡El examinador lo pide seguido!"
+   }
+  },
+  {
+   "id": "q08",
+   "q": {
+    "ht": "Ki siyal men pou KANPE ?",
+    "fr": "Quel signal de la main pour S'ARRÊTER ?",
+    "en": "What is the hand signal for STOPPING?",
+    "es": "¿Cuál es la señal de mano para DETENERSE?"
+   },
+   "opts": [
+    {
+     "ht": "Bra a desann anba",
+     "fr": "Bras vers le bas",
+     "en": "Arm down",
+     "es": "Brazo hacia abajo"
+    },
+    {
+     "ht": "Bra a leve anlè",
+     "fr": "Bras levé",
+     "en": "Arm up",
+     "es": "Brazo arriba"
+    },
+    {
+     "ht": "Bra a lonje dwat",
+     "fr": "Bras tendu",
+     "en": "Arm straight out",
+     "es": "Brazo extendido"
+    },
+    {
+     "ht": "De men deyò",
+     "fr": "Les deux mains dehors",
+     "en": "Both hands out",
+     "es": "Ambas manos fuera"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Kanpe = bra a desann, pla men dèyè.",
+    "fr": "Stop = bras baissé.",
+    "en": "Stop = arm down.",
+    "es": "Alto = brazo abajo."
+   }
+  },
+  {
+   "id": "q09",
+   "q": {
+    "ht": "Nan yon wonpwen (rotary), ki moun ki gen priyorite ?",
+    "fr": "Dans un rond-point (rotary), qui a la priorité ?",
+    "en": "In a rotary (roundabout), who has the right of way?",
+    "es": "En una rotonda, ¿quién tiene la preferencia?"
+   },
+   "opts": [
+    {
+     "ht": "Machin ki DEJA anndan wonpwen an",
+     "fr": "Les véhicules DÉJÀ dans le rond-point",
+     "en": "Vehicles ALREADY in the rotary",
+     "es": "Los vehículos que YA están dentro"
+    },
+    {
+     "ht": "Machin k ap antre a",
+     "fr": "Celui qui entre",
+     "en": "Entering vehicles",
+     "es": "El que entra"
+    },
+    {
+     "ht": "Machin ki pi vit la",
+     "fr": "Le plus rapide",
+     "en": "The fastest vehicle",
+     "es": "El más rápido"
+    },
+    {
+     "ht": "Kamyon yo toujou",
+     "fr": "Toujours les camions",
+     "en": "Trucks always",
+     "es": "Siempre los camiones"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "W ap antre ? Sede pasaj bay sa ki deja anndan an.",
+    "fr": "À l'entrée, cédez à ceux qui y circulent déjà.",
+    "en": "Entering traffic yields to traffic in the circle.",
+    "es": "Al entrar, cede a los que ya circulan."
+   }
+  },
+  {
+   "id": "q10",
+   "q": {
+    "ht": "Yon pyeton nan yon pasaj pyeton san limyè. Kisa w fè ?",
+    "fr": "Un piéton est dans un passage piéton sans feu. Que faites-vous ?",
+    "en": "A pedestrian is in a crosswalk with no signal. What do you do?",
+    "es": "Un peatón está en un paso peatonal sin semáforo. ¿Qué hace?"
+   },
+   "opts": [
+    {
+     "ht": "Kanpe epi kite l pase",
+     "fr": "S'arrêter et le laisser passer",
+     "en": "Stop and yield to them",
+     "es": "Detenerse y cederle el paso"
+    },
+    {
+     "ht": "Klaksonnen pou l prese",
+     "fr": "Klaxonner pour qu'il se dépêche",
+     "en": "Honk so they hurry",
+     "es": "Tocar bocina para que se apure"
+    },
+    {
+     "ht": "Kontoune l dousman",
+     "fr": "Le contourner lentement",
+     "en": "Go around slowly",
+     "es": "Rodearlo despacio"
+    },
+    {
+     "ht": "Kontinye si w gen priyorite",
+     "fr": "Continuer si vous avez la priorité",
+     "en": "Continue if you have priority",
+     "es": "Seguir si tiene prioridad"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Pyeton nan pasaj la toujou gen priyorite — kanpe.",
+    "fr": "Le piéton engagé a toujours la priorité.",
+    "en": "Yield to pedestrians in the crosswalk — always.",
+    "es": "El peatón en el paso siempre tiene preferencia."
+   }
+  },
+  {
+   "id": "q11",
+   "q": {
+    "ht": "Lè w ap itilize eswiglas yo (lapli), kisa lalwa MA egzije tou ?",
+    "fr": "Quand vos essuie-glaces fonctionnent (pluie), que exige aussi la loi du MA ?",
+    "en": "When your wipers are on (rain), what does MA law also require?",
+    "es": "Cuando usa los limpiaparabrisas (lluvia), ¿qué exige también la ley de MA?"
+   },
+   "opts": [
+    {
+     "ht": "Limen limyè devan yo",
+     "fr": "Allumer les phares",
+     "en": "Headlights on",
+     "es": "Encender los faros"
+    },
+    {
+     "ht": "Limen flache yo",
+     "fr": "Allumer les warnings",
+     "en": "Hazard lights on",
+     "es": "Luces de emergencia"
+    },
+    {
+     "ht": "Ralanti a 20 mph",
+     "fr": "Rouler à 20 mph",
+     "en": "Drive at 20 mph",
+     "es": "Conducir a 20 mph"
+    },
+    {
+     "ht": "Anyen anplis",
+     "fr": "Rien de plus",
+     "en": "Nothing else",
+     "es": "Nada más"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Eswiglas limen = limyè limen. Se lalwa nan Massachusetts.",
+    "fr": "Essuie-glaces = phares allumés. C'est la loi au Massachusetts.",
+    "en": "Wipers on = headlights on. It's Massachusetts law.",
+    "es": "Limpiaparabrisas = faros encendidos. Es ley en Massachusetts."
+   }
+  },
+  {
+   "id": "q12",
+   "q": {
+    "ht": "Yon chofè jinyò (anba 18 an) pa gen dwa kondwi ant :",
+    "fr": "Un conducteur junior (moins de 18 ans) ne peut pas conduire entre :",
+    "en": "A junior operator (under 18) may not drive between:",
+    "es": "Un conductor junior (menor de 18) no puede conducir entre:"
+   },
+   "opts": [
+    {
+     "ht": "12:30 AM ak 5:00 AM",
+     "fr": "0 h 30 et 5 h 00",
+     "en": "12:30 a.m. and 5:00 a.m.",
+     "es": "12:30 a.m. y 5:00 a.m."
+    },
+    {
+     "ht": "10 PM ak 6 AM",
+     "fr": "22 h et 6 h",
+     "en": "10 p.m. and 6 a.m.",
+     "es": "10 p.m. y 6 a.m."
+    },
+    {
+     "ht": "11 PM ak 7 AM",
+     "fr": "23 h et 7 h",
+     "en": "11 p.m. and 7 a.m.",
+     "es": "11 p.m. y 7 a.m."
+    },
+    {
+     "ht": "Okenn limit",
+     "fr": "Aucune limite",
+     "en": "No restriction",
+     "es": "Sin restricción"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "JOL : entèdi 12:30 AM–5:00 AM (sof ak paran/gadyen).",
+    "fr": "JOL : interdit 0 h 30–5 h (sauf avec parent/tuteur).",
+    "en": "JOL: no driving 12:30–5:00 a.m. (unless with parent/guardian).",
+    "es": "JOL: prohibido 12:30–5:00 a.m. (salvo con padre/tutor)."
+   }
+  },
+  {
+   "id": "q13",
+   "q": {
+    "ht": "Pandan 6 premye mwa yo, yon chofè jinyò pa ka pote :",
+    "fr": "Pendant les 6 premiers mois, un conducteur junior ne peut transporter :",
+    "en": "For the first 6 months, a junior operator may not carry:",
+    "es": "En los primeros 6 meses, un conductor junior no puede llevar:"
+   },
+   "opts": [
+    {
+     "ht": "Pasaje anba 18 an ki pa fanmi pwòch",
+     "fr": "Des passagers de moins de 18 ans hors famille proche",
+     "en": "Passengers under 18 who are not immediate family",
+     "es": "Pasajeros menores de 18 que no sean familia directa"
+    },
+    {
+     "ht": "Okenn pasaje ditou",
+     "fr": "Aucun passager",
+     "en": "Any passenger at all",
+     "es": "Ningún pasajero"
+    },
+    {
+     "ht": "Plis pase 3 pasaje",
+     "fr": "Plus de 3 passagers",
+     "en": "More than 3 passengers",
+     "es": "Más de 3 pasajeros"
+    },
+    {
+     "ht": "Granmoun sèlman",
+     "fr": "Des adultes seulement",
+     "en": "Adults only",
+     "es": "Solo adultos"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "6 premye mwa : okenn pasaje anba 18 an (sof frè/sè), sof si yon moun 21+ ki gen lisans depi 1 an nan machin nan.",
+    "fr": "6 premiers mois : pas de passagers mineurs hors fratrie, sauf accompagnateur 21+.",
+    "en": "First 6 months: no under-18 passengers except siblings, unless a licensed 21+ adult is present.",
+    "es": "Primeros 6 meses: sin pasajeros menores salvo hermanos, o con adulto 21+ presente."
+   }
+  },
+  {
+   "id": "q14",
+   "q": {
+    "ht": "Yon machin ijans ap vini dèyè w ak sirèn. Kisa w fè ?",
+    "fr": "Un véhicule d'urgence arrive derrière vous, sirène allumée. Que faites-vous ?",
+    "en": "An emergency vehicle approaches from behind with sirens on. What do you do?",
+    "es": "Un vehículo de emergencia se acerca por detrás con sirena. ¿Qué hace?"
+   },
+   "opts": [
+    {
+     "ht": "Rale adwat epi kanpe",
+     "fr": "Se ranger à droite et s'arrêter",
+     "en": "Pull to the right and stop",
+     "es": "Orillarse a la derecha y detenerse"
+    },
+    {
+     "ht": "Akselere pou kite l pase",
+     "fr": "Accélérer pour le laisser passer",
+     "en": "Speed up to clear the way",
+     "es": "Acelerar para dejarlo pasar"
+    },
+    {
+     "ht": "Kanpe kote w ye a",
+     "fr": "S'arrêter sur place",
+     "en": "Stop where you are",
+     "es": "Detenerse donde está"
+    },
+    {
+     "ht": "Rale agoch",
+     "fr": "Se ranger à gauche",
+     "en": "Pull to the left",
+     "es": "Orillarse a la izquierda"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Rale adwat, kanpe, tann li pase.",
+    "fr": "À droite, arrêt, attendre son passage.",
+    "en": "Right side, stop, wait for it to pass.",
+    "es": "A la derecha, alto, esperar a que pase."
+   }
+  },
+  {
+   "id": "q15",
+   "q": {
+    "ht": "Machin ou kòmanse patinen (skid). Kisa w fè ?",
+    "fr": "Votre voiture dérape (skid). Que faites-vous ?",
+    "en": "Your car begins to skid. What do you do?",
+    "es": "Su auto comienza a derrapar. ¿Qué hace?"
+   },
+   "opts": [
+    {
+     "ht": "Vire volan an nan direksyon ou VLE ale a",
+     "fr": "Tourner le volant dans la direction où vous VOULEZ aller",
+     "en": "Steer in the direction you WANT to go",
+     "es": "Girar hacia donde QUIERE ir"
+    },
+    {
+     "ht": "Frennen fò",
+     "fr": "Freiner fort",
+     "en": "Brake hard",
+     "es": "Frenar fuerte"
+    },
+    {
+     "ht": "Akselere",
+     "fr": "Accélérer",
+     "en": "Accelerate",
+     "es": "Acelerar"
+    },
+    {
+     "ht": "Lage volan an",
+     "fr": "Lâcher le volant",
+     "en": "Release the wheel",
+     "es": "Soltar el volante"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Pa frennen brital ; gide machin nan kote w vle ale a.",
+    "fr": "Pas de freinage brutal ; guidez vers votre trajectoire.",
+    "en": "No hard braking; steer where you want to go.",
+    "es": "Sin frenado brusco; dirija hacia su trayectoria."
+   }
+  },
+  {
+   "id": "q16",
+   "q": {
+    "ht": "Yon lòt machin ap depase w. Kisa w dwe fè ?",
+    "fr": "Un autre véhicule vous dépasse. Que devez-vous faire ?",
+    "en": "Another vehicle is passing you. What should you do?",
+    "es": "Otro vehículo lo está rebasando. ¿Qué debe hacer?"
+   },
+   "opts": [
+    {
+     "ht": "Kenbe vitès ou oswa ralanti — pa akselere",
+     "fr": "Garder sa vitesse ou ralentir — ne pas accélérer",
+     "en": "Keep your speed or slow down — do not speed up",
+     "es": "Mantener velocidad o reducir — no acelerar"
+    },
+    {
+     "ht": "Akselere",
+     "fr": "Accélérer",
+     "en": "Speed up",
+     "es": "Acelerar"
+    },
+    {
+     "ht": "Klaksonnen",
+     "fr": "Klaxonner",
+     "en": "Honk",
+     "es": "Tocar bocina"
+    },
+    {
+     "ht": "Frennen brital",
+     "fr": "Freiner brutalement",
+     "en": "Brake hard",
+     "es": "Frenar bruscamente"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Fasilite depasman an : pa monte vitès.",
+    "fr": "Facilitez le dépassement : ne pas accélérer.",
+    "en": "Make the pass easy: never accelerate.",
+    "es": "Facilite el rebase: nunca acelere."
+   }
+  },
+  {
+   "id": "q17",
+   "q": {
+    "ht": "Ou rate sòti w sou otowout la. Kisa w fè ?",
+    "fr": "Vous avez raté votre sortie d'autoroute. Que faites-vous ?",
+    "en": "You missed your highway exit. What do you do?",
+    "es": "Se pasó su salida de la autopista. ¿Qué hace?"
+   },
+   "opts": [
+    {
+     "ht": "Kontinye jis nan pwochen sòti a",
+     "fr": "Continuer jusqu'à la prochaine sortie",
+     "en": "Continue to the next exit",
+     "es": "Seguir hasta la próxima salida"
+    },
+    {
+     "ht": "Fè bak dousman",
+     "fr": "Reculer doucement",
+     "en": "Back up carefully",
+     "es": "Retroceder con cuidado"
+    },
+    {
+     "ht": "Fè yon U-turn",
+     "fr": "Faire demi-tour",
+     "en": "Make a U-turn",
+     "es": "Dar vuelta en U"
+    },
+    {
+     "ht": "Kanpe epi rele èd",
+     "fr": "S'arrêter et appeler à l'aide",
+     "en": "Stop and call for help",
+     "es": "Detenerse y pedir ayuda"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "JANM fè bak ni U-turn sou otowout — pwochen sòti a.",
+    "fr": "Jamais de marche arrière ni demi-tour sur autoroute.",
+    "en": "NEVER back up or U-turn on a highway — take the next exit.",
+    "es": "NUNCA retroceda ni gire en U en autopista."
+   }
+  },
+  {
+   "id": "q18",
+   "q": {
+    "ht": "Ki kote pou w PA pakin : a ki distans de yon bouch enkandi (hydrant) ?",
+    "fr": "À quelle distance d'une borne d'incendie est-il interdit de stationner ?",
+    "en": "Within what distance of a fire hydrant is parking prohibited?",
+    "es": "¿A qué distancia de un hidrante está prohibido estacionar?"
+   },
+   "opts": [
+    {
+     "ht": "10 pye",
+     "fr": "10 pieds",
+     "en": "10 feet",
+     "es": "10 pies"
+    },
+    {
+     "ht": "5 pye",
+     "fr": "5 pieds",
+     "en": "5 feet",
+     "es": "5 pies"
+    },
+    {
+     "ht": "25 pye",
+     "fr": "25 pieds",
+     "en": "25 feet",
+     "es": "25 pies"
+    },
+    {
+     "ht": "50 pye",
+     "fr": "50 pieds",
+     "en": "50 feet",
+     "es": "50 pies"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Kite omwen 10 pye ant machin ou ak yon hydrant.",
+    "fr": "Au moins 10 pieds d'une borne d'incendie.",
+    "en": "Keep at least 10 feet from a hydrant.",
+    "es": "Al menos 10 pies de un hidrante."
+   }
+  },
+  {
+   "id": "q19",
+   "q": {
+    "ht": "Gwo kamyon yo gen « no-zones ». Kisa sa vle di ?",
+    "fr": "Les gros camions ont des « no-zones ». Qu'est-ce que c'est ?",
+    "en": "Large trucks have \"no-zones.\" What are they?",
+    "es": "Los camiones grandes tienen «no-zones». ¿Qué son?"
+   },
+   "opts": [
+    {
+     "ht": "Gwo zòn kote chofè kamyon an PA ka wè w",
+     "fr": "De grandes zones où le camionneur ne peut PAS vous voir",
+     "en": "Large blind spots where the trucker CANNOT see you",
+     "es": "Grandes puntos ciegos donde el camionero NO puede verlo"
+    },
+    {
+     "ht": "Zòn kote kamyon pa gen dwa pase",
+     "fr": "Des zones interdites aux camions",
+     "en": "Areas where trucks are banned",
+     "es": "Zonas prohibidas para camiones"
+    },
+    {
+     "ht": "Pakin rezève pou kamyon",
+     "fr": "Des parkings pour camions",
+     "en": "Truck parking areas",
+     "es": "Estacionamientos de camiones"
+    },
+    {
+     "ht": "Liy pou depase kamyon",
+     "fr": "Des voies de dépassement",
+     "en": "Passing lanes",
+     "es": "Carriles de rebase"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Pa rete nan no-zone yo : si w pa wè figi chofè a nan retrovizè l, li pa wè w.",
+    "fr": "Si vous ne voyez pas le chauffeur dans son rétro, il ne vous voit pas.",
+    "en": "If you can't see the driver in his mirror, he can't see you.",
+    "es": "Si no ve al chofer en su espejo, él no lo ve."
+   }
+  },
+  {
+   "id": "q20",
+   "q": {
+    "ht": "Wout la mouye. Ki premye bagay pou w fè ?",
+    "fr": "La route est mouillée. Première chose à faire ?",
+    "en": "The road is wet. What is the first thing to do?",
+    "es": "La carretera está mojada. ¿Qué es lo primero que debe hacer?"
+   },
+   "opts": [
+    {
+     "ht": "Ralanti epi kite plis distans devan w",
+     "fr": "Ralentir et augmenter la distance de sécurité",
+     "en": "Slow down and increase following distance",
+     "es": "Reducir velocidad y aumentar la distancia"
+    },
+    {
+     "ht": "Limen flache yo",
+     "fr": "Allumer les warnings",
+     "en": "Turn on hazard lights",
+     "es": "Encender intermitentes de emergencia"
+    },
+    {
+     "ht": "Kenbe menm vitès la",
+     "fr": "Garder la même vitesse",
+     "en": "Keep the same speed",
+     "es": "Mantener la velocidad"
+    },
+    {
+     "ht": "Swiv machin devan an pi pre",
+     "fr": "Suivre de plus près",
+     "en": "Follow more closely",
+     "es": "Seguir más de cerca"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "ht": "Mouye = mwens adherans : ralanti, double distans ou, evite frennen brital (idroplanaj).",
+    "fr": "Chaussée mouillée : ralentir, doubler la distance, freinage doux (aquaplanage).",
+    "en": "Wet road: slow down, double your distance, brake gently (hydroplaning).",
+    "es": "Mojado: reduzca, duplique distancia, frene suave (hidroplaneo)."
+   }
+  },
+  {
+   "id": "q21",
+   "q": {
+    "en": "In Massachusetts, when may you use a mobile phone while driving?",
+    "fr": "Au Massachusetts, quand pouvez-vous utiliser un téléphone en conduisant ?",
+    "ht": "Nan Massachusetts, kilè ou ka sèvi ak yon telefòn pandan w ap kondi ?",
+    "es": "En Massachusetts, ¿cuándo puedes usar un teléfono mientras conduces?"
+   },
+   "opts": [
+    {
+     "en": "Only in hands-free mode",
+     "fr": "Uniquement en mode mains libres",
+     "ht": "Sèlman an mòd men lib",
+     "es": "Solo en modo manos libres"
+    },
+    {
+     "en": "Whenever traffic is light",
+     "fr": "Dès que la circulation est calme",
+     "ht": "Nenpòt lè trafik la pa chaje",
+     "es": "Cuando hay poco tráfico"
+    },
+    {
+     "en": "Only at a red light",
+     "fr": "Seulement à un feu rouge",
+     "ht": "Sèlman nan yon limyè wouj",
+     "es": "Solo en un semáforo en rojo"
+    },
+    {
+     "en": "Any time, if you are careful",
+     "fr": "N'importe quand, en faisant attention",
+     "ht": "Nenpòt kilè, si w fè atansyon",
+     "es": "En cualquier momento, con cuidado"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Massachusetts requires hands-free operation. Holding the phone is a violation even when stopped in traffic.",
+    "fr": "Le Massachusetts impose le mode mains libres. Tenir le téléphone est une infraction, même arrêté dans la circulation.",
+    "ht": "Massachusetts egzije mòd men lib. Kenbe telefòn nan se yon enfraksyon, menm lè machin nan kanpe nan trafik.",
+    "es": "Massachusetts exige el modo manos libres. Sostener el teléfono es una infracción, incluso detenido en el tráfico."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q22",
+   "q": {
+    "en": "At a red light, may you turn right?",
+    "fr": "À un feu rouge, pouvez-vous tourner à droite ?",
+    "ht": "Nan yon limyè wouj, èske ou ka vire adwat ?",
+    "es": "En un semáforo en rojo, ¿puedes girar a la derecha?"
+   },
+   "opts": [
+    {
+     "en": "Yes, after a complete stop, unless a sign forbids it",
+     "fr": "Oui, après un arrêt complet, sauf si un panneau l'interdit",
+     "ht": "Wi, apre yon arè konplè, sof si gen yon pano ki entèdi l",
+     "es": "Sí, tras una parada completa, salvo que una señal lo prohíba"
+    },
+    {
+     "en": "Yes, without stopping if the way is clear",
+     "fr": "Oui, sans s'arrêter si la voie est libre",
+     "ht": "Wi, san w pa kanpe si wout la lib",
+     "es": "Sí, sin detenerte si la vía está libre"
+    },
+    {
+     "en": "No, never",
+     "fr": "Non, jamais",
+     "ht": "Non, jamè",
+     "es": "No, nunca"
+    },
+    {
+     "en": "Only between 9 a.m. and 4 p.m.",
+     "fr": "Seulement entre 9 h et 16 h",
+     "ht": "Sèlman ant 9 è dimaten ak 4 è aprèmidi",
+     "es": "Solo entre las 9 y las 16"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "The full stop comes first, then you yield to pedestrians and cross traffic. Rolling through it is an automatic fail on the road test.",
+    "fr": "L'arrêt complet d'abord, puis on cède le passage aux piétons et à la circulation. Le franchir au ralenti est éliminatoire au test.",
+    "ht": "Arè konplè a anvan, apre sa ou bay pyeton yo ak machin yo pasaj. Pase l dousman san kanpe se yon erè ki fè w echwe tès la.",
+    "es": "Primero la parada completa, luego cedes el paso a peatones y vehículos. Pasar rodando es fallo automático en el examen."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q23",
+   "q": {
+    "en": "A school bus ahead of you turns on its flashing red lights. What must you do?",
+    "fr": "Un bus scolaire devant vous allume ses feux rouges clignotants. Que devez-vous faire ?",
+    "ht": "Yon bis lekòl devan w limen limyè wouj k ap bat. Kisa pou w fè ?",
+    "es": "Un autobús escolar delante enciende sus luces rojas intermitentes. ¿Qué debes hacer?"
+   },
+   "opts": [
+    {
+     "en": "Stop, and stay stopped until the lights go off",
+     "fr": "S'arrêter et rester arrêté jusqu'à l'extinction des feux",
+     "ht": "Kanpe, epi rete kanpe jiskaske limyè yo etenn",
+     "es": "Detenerte y permanecer detenido hasta que se apaguen las luces"
+    },
+    {
+     "en": "Slow to 20 mph and pass carefully",
+     "fr": "Ralentir à 20 mph et dépasser prudemment",
+     "ht": "Ralanti a 20 mph epi depase ak prekosyon",
+     "es": "Reducir a 20 mph y adelantar con cuidado"
+    },
+    {
+     "en": "Sound your horn and continue",
+     "fr": "Klaxonner et continuer",
+     "ht": "Klaksonnen epi kontinye",
+     "es": "Tocar la bocina y seguir"
+    },
+    {
+     "en": "Stop only if children are visible",
+     "fr": "S'arrêter seulement si on voit des enfants",
+     "ht": "Kanpe sèlman si w wè timoun",
+     "es": "Detenerte solo si ves niños"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Traffic stops in both directions, unless the roadway is separated by a divider. Children cross where you cannot see them.",
+    "fr": "La circulation s'arrête dans les deux sens, sauf si la chaussée est séparée par un terre-plein. Les enfants traversent là où vous ne les voyez pas.",
+    "ht": "Trafik la kanpe nan de sans yo, sof si wout la separe ak yon divizè. Timoun yo travèse kote ou pa wè yo.",
+    "es": "El tráfico se detiene en ambos sentidos, salvo que la calzada esté separada por una mediana. Los niños cruzan donde no los ves."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q24",
+   "q": {
+    "en": "For a driver aged 21 or over, what blood alcohol level makes driving illegal?",
+    "fr": "Pour un conducteur de 21 ans ou plus, à partir de quel taux d'alcoolémie conduire est-il illégal ?",
+    "ht": "Pou yon chofè ki gen 21 an oswa plis, ki nivo alkòl nan san ki fè kondi ilegal ?",
+    "es": "Para un conductor de 21 años o más, ¿con qué nivel de alcohol en sangre es ilegal conducir?"
+   },
+   "opts": [
+    {
+     "en": "0.08 %",
+     "fr": "0,08 %",
+     "ht": "0,08 %",
+     "es": "0,08 %"
+    },
+    {
+     "en": "0.05 %",
+     "fr": "0,05 %",
+     "ht": "0,05 %",
+     "es": "0,05 %"
+    },
+    {
+     "en": "0.10 %",
+     "fr": "0,10 %",
+     "ht": "0,10 %",
+     "es": "0,10 %"
+    },
+    {
+     "en": "0.02 %",
+     "fr": "0,02 %",
+     "ht": "0,02 %",
+     "es": "0,02 %"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "0.08 % or more is over the limit at 21 and above. You can still be charged below that if your driving is impaired.",
+    "fr": "0,08 % ou plus dépasse la limite à partir de 21 ans. On peut être poursuivi en dessous si la conduite est affectée.",
+    "ht": "0,08 % oswa plis depase limit la apati 21 an. Yo ka toujou akize w anba sa si w pa kondi byen.",
+    "es": "0,08 % o más supera el límite a partir de 21 años. Aun por debajo pueden acusarte si conduces afectado."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q25",
+   "q": {
+    "en": "For a driver under 21, what is the legal blood alcohol limit?",
+    "fr": "Pour un conducteur de moins de 21 ans, quelle est la limite légale d'alcoolémie ?",
+    "ht": "Pou yon chofè ki poko gen 21 an, ki limit legal alkòl nan san ?",
+    "es": "Para un conductor menor de 21 años, ¿cuál es el límite legal de alcohol en sangre?"
+   },
+   "opts": [
+    {
+     "en": "0.02 % — effectively zero tolerance",
+     "fr": "0,02 % — c'est-à-dire tolérance zéro",
+     "ht": "0,02 % — sa vle di zewo tolerans",
+     "es": "0,02 % — es decir, tolerancia cero"
+    },
+    {
+     "en": "0.08 %, same as adults",
+     "fr": "0,08 %, comme les adultes",
+     "ht": "0,08 %, menm bagay ak granmoun",
+     "es": "0,08 %, igual que los adultos"
+    },
+    {
+     "en": "0.05 %",
+     "fr": "0,05 %",
+     "ht": "0,05 %",
+     "es": "0,05 %"
+    },
+    {
+     "en": "There is no limit under 21",
+     "fr": "Il n'y a pas de limite avant 21 ans",
+     "ht": "Pa gen limit anvan 21 an",
+     "es": "No hay límite antes de los 21"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Massachusetts applies zero tolerance under 21: 0.02 % is enough to lose the licence.",
+    "fr": "Le Massachusetts applique la tolérance zéro avant 21 ans : 0,02 % suffit à perdre le permis.",
+    "ht": "Massachusetts aplike zewo tolerans anvan 21 an : 0,02 % ase pou w pèdi pèmi w.",
+    "es": "Massachusetts aplica tolerancia cero antes de los 21: 0,02 % basta para perder la licencia."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q26",
+   "q": {
+    "en": "When must your headlights be on?",
+    "fr": "Quand vos phares doivent-ils être allumés ?",
+    "ht": "Kilè limyè devan machin ou an dwe limen ?",
+    "es": "¿Cuándo deben estar encendidos tus faros?"
+   },
+   "opts": [
+    {
+     "en": "From half an hour after sunset to half an hour before sunrise, and whenever your wipers are running",
+     "fr": "D'une demi-heure après le coucher du soleil à une demi-heure avant le lever, et dès que les essuie-glaces fonctionnent",
+     "ht": "Depi yon demi èdtan apre solèy kouche jiska yon demi èdtan anvan li leve, epi chak fwa esui-glas ap mache",
+     "es": "Desde media hora tras la puesta del sol hasta media hora antes del amanecer, y siempre que uses los limpiaparabrisas"
+    },
+    {
+     "en": "Only at night",
+     "fr": "Seulement la nuit",
+     "ht": "Sèlman lannwit",
+     "es": "Solo de noche"
+    },
+    {
+     "en": "Only on the highway",
+     "fr": "Seulement sur autoroute",
+     "ht": "Sèlman sou otowout",
+     "es": "Solo en la autopista"
+    },
+    {
+     "en": "Whenever you feel it is useful",
+     "fr": "Quand vous le jugez utile",
+     "ht": "Lè ou santi sa itil",
+     "es": "Cuando lo consideres útil"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Wipers on means headlights on — it is the rule people forget most often, and it is what makes you visible in rain.",
+    "fr": "Essuie-glaces en marche = phares allumés — c'est la règle qu'on oublie le plus, et c'est elle qui vous rend visible sous la pluie.",
+    "ht": "Esui-glas ap mache = limyè limen — se règ moun bliye plis la, epi se li ki fè yo wè w anba lapli.",
+    "es": "Limpiaparabrisas en marcha = faros encendidos — es la regla que más se olvida, y la que te hace visible bajo la lluvia."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q27",
+   "q": {
+    "en": "You hold a learner's permit. Who may sit beside you?",
+    "fr": "Vous avez un permis d'apprenti. Qui peut s'asseoir à côté de vous ?",
+    "ht": "Ou gen yon pèmi aprantisaj. Kilès ki ka chita bò kote w ?",
+    "es": "Tienes un permiso de aprendiz. ¿Quién puede sentarse a tu lado?"
+   },
+   "opts": [
+    {
+     "en": "A licensed driver aged 21 or over, licensed for at least one year",
+     "fr": "Un conducteur titulaire du permis, âgé de 21 ans ou plus, titulaire depuis au moins un an",
+     "ht": "Yon chofè ki gen pèmi, 21 an oswa plis, ki gen pèmi a depi omwen yon ane",
+     "es": "Un conductor con licencia, de 21 años o más, con al menos un año de licencia"
+    },
+    {
+     "en": "Any adult",
+     "fr": "N'importe quel adulte",
+     "ht": "Nenpòt granmoun",
+     "es": "Cualquier adulto"
+    },
+    {
+     "en": "Anyone aged 18 or over",
+     "fr": "Toute personne de 18 ans ou plus",
+     "ht": "Nenpòt moun ki gen 18 an oswa plis",
+     "es": "Cualquier persona de 18 años o más"
+    },
+    {
+     "en": "Nobody — you drive alone",
+     "fr": "Personne — vous conduisez seul",
+     "ht": "Pèsonn — ou kondi pou kont ou",
+     "es": "Nadie — conduces solo"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Both conditions matter: 21 or over AND licensed for at least a year. It is also who must sit beside you during practice.",
+    "fr": "Les deux conditions comptent : 21 ans ou plus ET permis depuis au moins un an. C'est aussi la personne qui doit vous accompagner pendant l'entraînement.",
+    "ht": "De kondisyon yo enpòtan : 21 an oswa plis EPI pèmi depi omwen yon ane. Se moun sa a tou ki dwe akonpaye w pandan w ap pratike.",
+    "es": "Ambas condiciones importan: 21 años o más Y licencia desde hace al menos un año. Es también quien debe acompañarte al practicar."
+   },
+   "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q28",
+   "q": {
+    "en": "A police car is stopped on the shoulder with its lights flashing. What does the law require?",
+    "fr": "Une voiture de police est arrêtée sur le bas-côté, gyrophares allumés. Qu'exige la loi ?",
+    "ht": "Yon machin lapolis kanpe sou akotman an ak limyè l ap bat. Kisa lalwa mande ?",
+    "es": "Un coche de policía está detenido en el arcén con las luces encendidas. ¿Qué exige la ley?"
+   },
+   "opts": [
+    {
+     "en": "Slow down and, if it is safe, move over a lane",
+     "fr": "Ralentir et, si c'est sans danger, changer de voie pour s'écarter",
+     "ht": "Ralanti epi, si li san danje, chanje liy pou w bay espas",
+     "es": "Reducir la velocidad y, si es seguro, cambiar de carril"
+    },
+    {
+     "en": "Keep your speed and stay in your lane",
+     "fr": "Garder sa vitesse et rester dans sa voie",
+     "ht": "Kenbe vitès ou epi rete nan liy ou",
+     "es": "Mantener la velocidad y el carril"
+    },
+    {
+     "en": "Stop completely until it leaves",
+     "fr": "S'arrêter complètement jusqu'à son départ",
+     "ht": "Kanpe nèt jiskaske li ale",
+     "es": "Detenerte por completo hasta que se vaya"
+    },
+    {
+     "en": "Sound your horn as you pass",
+     "fr": "Klaxonner en passant",
+     "ht": "Klaksonnen lè w ap pase",
+     "es": "Tocar la bocina al pasar"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "The Move Over law covers police, fire, ambulances, tow trucks and highway crews. Slowing down is required even when you cannot change lanes.",
+    "fr": "La loi « Move Over » couvre police, pompiers, ambulances, dépanneuses et équipes de voirie. Ralentir est obligatoire même quand on ne peut pas changer de voie.",
+    "ht": "Lwa « Move Over » la kouvri lapolis, ponpye, anbilans, remòkè ak ekip wout. Ralanti obligatwa menm lè w pa ka chanje liy.",
+    "es": "La ley «Move Over» cubre policía, bomberos, ambulancias, grúas y equipos de carretera. Reducir la velocidad es obligatorio aunque no puedas cambiar de carril."
+   },
+   "verif": "a-relire-2026-08-30"
+  }
+ ],
+ "total": 25
 }

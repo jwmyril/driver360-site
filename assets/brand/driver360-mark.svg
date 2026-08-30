@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Driver360">
+  <!-- Marque Driver360 — derivee du logo actuel d'Atmart : la boucle-ruban qui
+       se deploie en filaments. Ici la boucle porte le sens du nom : 360 degres.
+       Le degrade aboutit au turquoise du site (#2ec4b6). -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#112d42"/>
+      <stop offset="0.55" stop-color="#1c8a93"/>
+      <stop offset="1" stop-color="#2ec4b6"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#g)" fill-rule="evenodd"
+        d="M35 30 A29 29 0 1 0 35 88 A29 29 0 1 0 35 30 Z
+           M33.5 40 A21.5 21.5 0 1 1 33.5 83 A21.5 21.5 0 1 1 33.5 40 Z"/>
+  <path fill="url(#g)" d="M17.1458 36.1477 C34 19 62 25 80 51 C74 51 69 53 63.8411 55.9687 Z"/>
+  <path d="M80 51 Q96 30 112 31" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="112" cy="31" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q98.5 38.5 117 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="117" cy="42" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q98 49 116 53" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="116" cy="53" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q96 58 112 63" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="112" cy="63" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q97.5 60.5 115 74" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="115" cy="74" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q92 67 104 73" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="104" cy="73" r="2.8" fill="url(#g)"/>
+  <path d="M80 51 Q90.5 74.5 101 84" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="101" cy="84" r="2.8" fill="url(#g)"/>
+</svg>

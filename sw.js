@@ -1,8 +1,8 @@
 // Driver360 — cache statique. Les appels au Worker passent toujours par le reseau.
-const CACHE = "driver360-v6";  // v6 : donnees du coach, offres elargies, telechargement
+const CACHE = "driver360-v8";  // v6 : donnees du coach, offres elargies, telechargement
 const CORE = [
   "/", "/index.html", "/jobs.html", "/terms.html", "/privacy.html", "/wout.html", "/setdi.html", "/vivye.html", "/anplwaye.html",
-  "/assets/style.css", "/assets/script.js",
+  "/assets/style.css", "/assets/theme.css", "/assets/script.js",
   // Les exercices du coach : sans ces deux fichiers la section ne se
   // traduit pas ET les exercices ne marchent pas (voir tools/verif_actifs.py).
   "/assets/komand.json", "/assets/pemi-questions.json", "/assets/suite.js",

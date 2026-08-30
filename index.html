@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
@@ -14,6 +16,15 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/theme.css?v=3" />
+<script>/* fond clair/sombre — avant le premier affichage */
+(function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
+var clair = c==="clair" || (c!=="sombre" && window.matchMedia
+  && window.matchMedia("(prefers-color-scheme: light)").matches);
+if(clair) document.documentElement.className += " clair";
+var m=document.querySelector('meta[name="theme-color"]');
+if(m) m.setAttribute("content", clair ? "#f4f8fb" : "var(--d-fond)");})();
+</script>
 <script>/* LA LANGUE EST AUTOMATIQUE, et decidee AVANT le premier affichage : on lit
    d abord un choix memorise, sinon la langue du navigateur. Sans ce script en
    tete, la page apparaitrait un instant en anglais avant de basculer. */
@@ -29,63 +40,63 @@ d.lang=l||"en";})();
     .d3-deux{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.8rem}
     @media(min-width:820px){.d3-deux{grid-template-columns:1fr 1fr;gap:1.2rem}}
     .d3-voie{display:block;text-decoration:none;border-radius:18px;padding:1.7rem 1.8rem;
-      border:1px solid rgba(255,255,255,.12);transition:border-color .25s,transform .25s}
+      border:1px solid var(--d-ligne);transition:border-color .25s,transform .25s}
     .d3-voie:hover{transform:translateY(-3px)}
-    .d3-voie.dr{background:rgba(46,196,182,.09);border-color:rgba(46,196,182,.4)}
-    .d3-voie.dr:hover{border-color:rgba(46,196,182,.8)}
-    .d3-voie.em{background:rgba(93,156,236,.09);border-color:rgba(93,156,236,.4)}
-    .d3-voie.em:hover{border-color:rgba(93,156,236,.8)}
+    .d3-voie.dr{background:var(--d-accent-fond);border-color:var(--d-accent-bord)}
+    .d3-voie.dr:hover{border-color:var(--d-accent-bord)}
+    .d3-voie.em{background:var(--d-bleu-fond);border-color:var(--d-bleu-bord)}
+    .d3-voie.em:hover{border-color:var(--d-bleu-bord)}
     .d3-voie .ic{font-size:2rem;display:block;margin-bottom:.6rem}
-    .d3-voie h2{margin:0 0 .5rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
-    .d3-voie>p{margin:0 0 1.1rem;font-size:.98rem;color:#c9d8e6;line-height:1.65}
+    .d3-voie h2{margin:0 0 .5rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.5rem}
+    .d3-voie>p{margin:0 0 1.1rem;font-size:.98rem;color:var(--d-texte);line-height:1.65}
     .d3-voie .entrer{font-weight:600;font-size:.95rem}
-    .d3-voie.dr .entrer{color:#2ec4b6}
-    .d3-voie.em .entrer{color:#5d9cec}
+    .d3-voie.dr .entrer{color:var(--d-accent)}
+    .d3-voie.em .entrer{color:var(--d-bleu)}
 
     /* --- les trois offres --------------------------------------------- */
     .d3-offres{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-top:1.5rem}
     @media(min-width:980px){.d3-offres{grid-template-columns:repeat(3,1fr);gap:1.2rem}}
     .of{display:flex;flex-direction:column;border-radius:18px;padding:1.6rem 1.6rem 1.5rem;
-      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);position:relative}
-    .of.free{border-color:rgba(46,196,182,.5);background:rgba(46,196,182,.07)}
-    .of.paid{border-color:rgba(93,156,236,.42)}
+      border:1px solid var(--d-ligne);background:var(--d-surface);position:relative}
+    .of.free{border-color:var(--d-accent-bord);background:var(--d-accent-fond)}
+    .of.paid{border-color:var(--d-bleu-bord)}
     .of .prix{display:inline-block;align-self:flex-start;font-size:.74rem;font-weight:700;
       letter-spacing:.06em;border-radius:99px;padding:.28rem .8rem;margin-bottom:.9rem}
-    .of.free .prix{background:#2ec4b6;color:#06232b}
-    .of.paid .prix{background:rgba(93,156,236,.18);color:#5d9cec;border:1px solid rgba(93,156,236,.5)}
-    .of h3{margin:0 0 .1rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.42rem}
-    .of .qui{font-size:.78rem;color:#7f93a7;margin:0 0 .8rem}
-    .of>p.d{margin:0 0 1rem;font-size:.93rem;color:#c9d8e6;line-height:1.62}
+    .of.free .prix{background:var(--d-accent);color:var(--d-accent-encre)}
+    .of.paid .prix{background:var(--d-bleu-fond);color:var(--d-bleu);border:1px solid var(--d-bleu-bord)}
+    .of h3{margin:0 0 .1rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.42rem}
+    .of .qui{font-size:.78rem;color:var(--d-faible);margin:0 0 .8rem}
+    .of>p.d{margin:0 0 1rem;font-size:.93rem;color:var(--d-texte);line-height:1.62}
     .of ul{list-style:none;margin:0 0 1.3rem;padding:0;flex:1}
-    .of li{font-size:.89rem;color:#9db2c7;line-height:1.55;margin-bottom:.6rem;
+    .of li{font-size:.89rem;color:var(--d-doux);line-height:1.55;margin-bottom:.6rem;
       padding-left:1.4rem;position:relative}
     .of li::before{content:"✓";position:absolute;left:0;font-weight:700}
-    .of.free li::before{color:#2ec4b6}
-    .of.paid li::before{color:#5d9cec}
+    .of.free li::before{color:var(--d-accent)}
+    .of.paid li::before{color:var(--d-bleu)}
     .of .btn{width:100%;text-align:center}
-    .of .apres{margin:.7rem 0 0;font-size:.78rem;color:#7f93a7;text-align:center}
+    .of .apres{margin:.7rem 0 0;font-size:.78rem;color:var(--d-faible);text-align:center}
 
     /* --- telecharger l'application ------------------------------------ */
     .dl{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap;margin-top:2rem;
-      background:linear-gradient(135deg,rgba(46,196,182,.13),rgba(93,156,236,.10));
-      border:1px solid rgba(46,196,182,.42);border-radius:20px;padding:1.7rem 1.9rem}
+      background:linear-gradient(135deg,var(--d-accent-fond),var(--d-bleu-fond));
+      border:1px solid var(--d-accent-bord);border-radius:20px;padding:1.7rem 1.9rem}
     .dl img{width:72px;height:72px;border-radius:16px;flex-shrink:0}
     .dl .txt{flex:1;min-width:260px}
-    .dl h2{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.45rem}
-    .dl p{margin:0 0 .3rem;font-size:.95rem;color:#c9d8e6;line-height:1.62;max-width:60ch}
-    .dl .note{font-size:.82rem;color:#7f93a7}
+    .dl h2{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.45rem}
+    .dl p{margin:0 0 .3rem;font-size:.95rem;color:var(--d-texte);line-height:1.62;max-width:60ch}
+    .dl .note{font-size:.82rem;color:var(--d-faible)}
     .dl .act{display:flex;flex-direction:column;gap:.5rem;align-items:stretch;min-width:210px}
-    .dl-mode{margin-top:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);
-      border-radius:12px;padding:1rem 1.2rem;font-size:.89rem;color:#9db2c7;line-height:1.6}
+    .dl-mode{margin-top:1rem;background:var(--d-surface);border:1px solid var(--d-ligne);
+      border-radius:12px;padding:1rem 1.2rem;font-size:.89rem;color:var(--d-doux);line-height:1.6}
     .dl-mode[hidden]{display:none}
-    .dl-mode b{color:#fff;display:block;margin-bottom:.2rem}
+    .dl-mode b{color:var(--d-fort);display:block;margin-bottom:.2rem}
     .dl-mode div+div{margin-top:.7rem}
-    .d3-franc{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.42);border-radius:14px;
-      padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:#e4dbcf;line-height:1.65;max-width:74ch}
+    .d3-franc{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:14px;
+      padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:var(--d-alerte-texte);line-height:1.65;max-width:74ch}
     .d3-pour{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.1rem}
-    .d3-pour div{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
-      border-radius:13px;padding:1.05rem 1.2rem;font-size:.88rem;color:#9db2c7;line-height:1.6}
-    .d3-pour b{color:#fff;display:block;margin-bottom:.25rem;font-size:.96rem}
+    .d3-pour div{background:var(--d-surface);border:1px solid var(--d-surface-2);
+      border-radius:13px;padding:1.05rem 1.2rem;font-size:.88rem;color:var(--d-doux);line-height:1.6}
+    .d3-pour b{color:var(--d-fort);display:block;margin-bottom:.25rem;font-size:.96rem}
   </style>
 </head>
 <body>
@@ -93,7 +104,8 @@ d.lang=l||"en";})();
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
-    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
+    <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
+    <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="anplwaye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Employer</a></li>
         <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Job Postings</a></li>
@@ -157,7 +169,7 @@ d.lang=l||"en";})();
 <section style="padding-top:1.6rem">
   <div class="container">
     <div class="section-head"><h2 data-t="s_t">Three products, one market</h2></div>
-    <p style="margin:0;font-size:.94rem;color:#9db2c7;max-width:72ch" data-t="s_d">The pool is free and stays free — it is the drivers who make everything else worth anything. The companies pay, because they are the ones who get a hire out of it.</p>
+    <p style="margin:0;font-size:.94rem;color:var(--d-doux);max-width:72ch" data-t="s_d">The pool is free and stays free — it is the drivers who make everything else worth anything. The companies pay, because they are the ones who get a hire out of it.</p>
 
     <div class="d3-offres">
 
@@ -528,7 +540,7 @@ new MutationObserver(appliquer).observe(document.documentElement,
   });
 })();
 </script>
-<script src="assets/suite.js?v=2"></script>
+<script src="assets/suite.js?v=4"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

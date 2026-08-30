@@ -35,6 +35,10 @@
 
   var D = {
     en: {
+      t_auto: "Auto",
+      t_clair: "Light",
+      t_sombre: "Dark",
+      t_titre: "Background: %s. Click to change.",
       n_jobs: "Job Postings",
       f_service: 'Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>.',
       f_question: "A question",
@@ -47,6 +51,10 @@
       b_note: "No commitment, and we never pass on a driver's name without their agreement."
     },
     fr: {
+      t_auto: "Auto",
+      t_clair: "Clair",
+      t_sombre: "Sombre",
+      t_titre: "Fond : %s. Cliquez pour changer.",
       n_jobs: "Offres d'emploi",
       f_service: 'Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>.',
       f_question: "Une question",
@@ -59,6 +67,10 @@
       b_note: "Aucun engagement, et nous ne diffusons le nom d'aucun chauffeur sans son accord."
     },
     ht: {
+      t_auto: "Otomatik",
+      t_clair: "Klè",
+      t_sombre: "Fonse",
+      t_titre: "Fon : %s. Klike pou chanje.",
       n_jobs: "Òf travay",
       f_service: 'Driver360 — yon sèvis <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>.',
       f_question: "Yon kesyon",
@@ -71,6 +83,10 @@
       b_note: "Pa gen okenn angajman, epi nou pa bay non okenn chofè san li pa dakò."
     },
     es: {
+      t_auto: "Auto",
+      t_clair: "Claro",
+      t_sombre: "Oscuro",
+      t_titre: "Fondo: %s. Haz clic para cambiar.",
       n_jobs: "Ofertas de empleo",
       f_service: 'Driver360 — un servicio de <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>.',
       f_question: "Una pregunta",
@@ -102,6 +118,7 @@
     }
     var cur = document.querySelector(".lang-current");
     if (cur) cur.textContent = "🌐 " + courante().toUpperCase();
+    if (document.querySelector(".theme-btn")) appliquerTheme(themeChoisi());
     var opts = document.querySelectorAll(".lang-opt");
     for (var j = 0; j < opts.length; j++) {
       opts[j].classList.toggle("active", opts[j].getAttribute("data-lang") === courante());
@@ -162,7 +179,103 @@
     poser();
   }
 
-  function demarrer() { menu(); poser(); }
+  // --- le fond clair ou sombre -------------------------------------------
+  // TROIS ÉTATS, et « auto » est le premier : quelqu'un qui a mis son
+  // téléphone en clair a déjà dit ce qu'il voulait. On le suit, et on lui
+  // laisse la possibilité de nous contredire.
+  //
+  // La CLASSE est posée par le petit script du <head>, avant le premier
+  // affichage — sinon la page apparaîtrait sombre puis basculerait sous les
+  // yeux du visiteur. Ici on ne fait que la changer quand il décide.
+  var ETATS = ["auto", "clair", "sombre"];
+
+  function themeChoisi() {
+    try {
+      var v = localStorage.getItem("atmart_theme");
+      return ETATS.indexOf(v) >= 0 ? v : "auto";
+    } catch (e) { return "auto"; }
+  }
+
+  function themeEffectif(choix) {
+    if (choix === "clair" || choix === "sombre") return choix;
+    try {
+      return (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)
+        ? "clair" : "sombre";
+    } catch (e) { return "sombre"; }
+  }
+
+  function appliquerTheme(choix) {
+    var clair = themeEffectif(choix) === "clair";
+    document.documentElement.classList.toggle("clair", clair);
+    // La barre du navigateur, sur telephone, prend cette couleur : sans cette
+    // ligne elle resterait bleu nuit au-dessus d'une page blanche.
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", clair ? "#f4f8fb" : "#0e2240");
+    var b = document.querySelector(".theme-btn");
+    if (b) {
+      var d = D[courante()];
+      var nom = choix === "clair" ? d.t_clair : choix === "sombre" ? d.t_sombre : d.t_auto;
+      b.textContent = (clair ? "\u2600\uFE0F " : "\uD83C\uDF19 ") + nom;
+      b.setAttribute("aria-label", d.t_titre.replace("%s", nom));
+      b.setAttribute("title", d.t_titre.replace("%s", nom));
+    }
+  }
+
+  function boutonTheme() {
+    var nav = document.querySelector(".nav-links");
+    if (!nav || document.querySelector(".theme-btn")) return;
+    var li = document.createElement("li");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "theme-btn";
+    b.addEventListener("click", function () {
+      var suivant = ETATS[(ETATS.indexOf(themeChoisi()) + 1) % ETATS.length];
+      try { localStorage.setItem("atmart_theme", suivant); } catch (e) {}
+      appliquerTheme(suivant);
+    });
+    li.appendChild(b);
+    nav.appendChild(li);
+    appliquerTheme(themeChoisi());
+  }
+
+  // Le systeme peut changer d'avis pendant la visite (coucher du soleil,
+  // bascule programmee). En mode « auto », on suit.
+  try {
+    var mq = window.matchMedia("(prefers-color-scheme: light)");
+    var suivre = function () { if (themeChoisi() === "auto") appliquerTheme("auto"); };
+    if (mq.addEventListener) mq.addEventListener("change", suivre);
+    else if (mq.addListener) mq.addListener(suivre);
+  } catch (e) {}
+
+  // --- le menu repliable du telephone ------------------------------------
+  // `aria-expanded` n'est pas un ornement : sans lui, un lecteur d'ecran
+  // annonce « bouton » sans dire si le menu est ouvert ou ferme.
+  function menuMobile() {
+    var b = document.getElementById("d3-menu");
+    var nav = document.getElementById("d3-nav");
+    if (!b || !nav) return;
+    b.addEventListener("click", function () {
+      var ouvert = nav.classList.toggle("open");
+      b.setAttribute("aria-expanded", ouvert ? "true" : "false");
+    });
+    // Choisir une destination referme le menu : le laisser ouvert par-dessus
+    // la nouvelle page donne l'impression que le clic n'a rien fait.
+    nav.addEventListener("click", function (e) {
+      if (e.target.closest("a")) {
+        nav.classList.remove("open");
+        b.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        b.setAttribute("aria-expanded", "false");
+        b.focus();
+      }
+    });
+  }
+
+  function demarrer() { menu(); boutonTheme(); menuMobile(); poser(); }
 
   poser();
   if (document.readyState === "loading") {
