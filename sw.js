@@ -1,5 +1,5 @@
 // Driver360 — cache statique. Les appels au Worker passent toujours par le reseau.
-const CACHE = "driver360-v4";  // v4 : navigation unique, menu de langue, offres (30/08/2026)
+const CACHE = "driver360-v5";  // v4 : navigation unique, menu de langue, offres (30/08/2026)
 const CORE = [
   "/", "/index.html", "/jobs.html", "/wout.html", "/setdi.html", "/vivye.html", "/anplwaye.html",
   "/assets/style.css", "/assets/script.js", "/assets/suite.js",

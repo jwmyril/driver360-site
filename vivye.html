@@ -134,11 +134,23 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <option value="both">L'un ou l'autre</option>
         </select>
 
+        <label id="L-ctc">Comment un employeur peut vous joindre<small>Trois façons, et c'est vous qui choisissez.</small></label>
+        <div id="rj-ctc" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="direct" checked /> <span id="C-direct">✅ Un employeur a l'autorisation de me contacter</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="approval" /> <span id="C-approval">🔒 Je dois donner mon autorisation pour qu'un employeur me contacte</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 Je veux envoyer mon dossier directement à des employeurs abonnés</span></label>
+        </div>
+
         <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.05rem" id="rj-t5">4. Votre CV (optionnel)</h3>
         <label for="rj-cv" id="L-cv">Lien vers votre CV</label>
         <input type="url" id="rj-cv" maxlength="300" placeholder="https://..." />
         <label for="rj-resume" id="L-resume">Ou résumez votre parcours en quelques lignes</label>
         <textarea id="rj-resume" maxlength="1200" style="min-height:80px"></textarea>
+
+        <div id="rj-pend" class="rj-hide" style="background:rgba(244,162,97,0.1);border:1px solid rgba(244,162,97,0.45);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem">
+          <p style="margin:0 0 0.7rem;font-size:0.95rem;color:#fff;font-weight:600" id="rj-pend-t">Un employeur demande votre accord</p>
+          <div id="rj-pend-list"></div>
+        </div>
 
         <label class="rj-consent" id="L-consent">
           <input type="checkbox" id="rj-consent" />
@@ -223,6 +235,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cvs:"Un lien Google Drive, LinkedIn, Indeed… Un employeur ne le voit qu'après vous avoir sélectionné. Pas de CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Créez-en un gratuitement avec Entèvyou360</a>.",
       resume:"Ou résumez votre parcours en quelques lignes",
       resumes:"Ce que vous avez conduit, où, et combien de temps. Utile si vous n'avez pas encore de document.",
+      ctc:"Comment un employeur peut vous joindre",
+      ctcs:"Trois façons, et c'est vous qui choisissez.",
+      cDirect:"✅ Un employeur a l'autorisation de me contacter",
+      cApproval:"🔒 Je dois donner mon autorisation pour qu'un employeur me contacte",
+      cPush:"📨 Je veux envoyer mon dossier directement à des employeurs abonnés",
+      pendT:"Un employeur demande votre accord pour vous contacter",
+      pendYes:"✅ J'accepte",
+      pendNo:"❌ Je refuse",
+      pendOkMsg:"Accord donné : cet employeur a maintenant votre contact.",
+      pendNoMsg:"Refusé. Cet employeur n'a pas votre contact, et son crédit lui est rendu.",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -259,6 +281,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cvs:"Yon lyen Google Drive, LinkedIn, Indeed… Yon anplwayè wè l sèlman aprè li chwazi w. Ou pa gen CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Fè youn gratis ak Entèvyou360</a>.",
       resume:"Oswa rakonte pakou w an de twa liy",
       resumes:"Ki machin ou te kondi, ki kote, epi konbyen tan. Sa itil si w poko gen yon dokiman.",
+      ctc:"Kijan yon anplwayè ka jwenn ou",
+      ctcs:"Twa fason, epi se ou ki chwazi.",
+      cDirect:"✅ Yon anplwayè gen dwa kontakte m",
+      cApproval:"🔒 Fok mwen bay otorizasyon m anvan yon anplwayè kontakte m",
+      cPush:"📨 Mwen vle voye dosye m dirèk bay anplwayè ki abone",
+      pendT:"Yon anplwayè mande otorizasyon w pou l kontakte w",
+      pendYes:"✅ Mwen dakò",
+      pendNo:"❌ Mwen refize",
+      pendOkMsg:"Ou bay otorizasyon an : anplwayè sa a gen kontak ou kounye a.",
+      pendNoMsg:"Ou refize. Anplwayè a pa gen kontak ou, epi yo remet li kredi l.",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -295,6 +327,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cvs:"A Google Drive, LinkedIn or Indeed link… An employer sees it only after selecting you. No CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Make one free with Entèvyou360</a>.",
       resume:"Or sum up your experience in a few lines",
       resumes:"What you have driven, where, and for how long. Useful if you have no document yet.",
+      ctc:"How an employer can reach you",
+      ctcs:"Three ways, and you choose.",
+      cDirect:"✅ An employer may contact me",
+      cApproval:"🔒 An employer must have my permission before contacting me",
+      cPush:"📨 I want my file sent straight to subscribed employers",
+      pendT:"An employer is asking your permission to contact you",
+      pendYes:"✅ I agree",
+      pendNo:"❌ I refuse",
+      pendOkMsg:"Granted: this employer now has your contact details.",
+      pendNoMsg:"Refused. This employer does not have your contact details, and their credit is given back.",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -331,6 +373,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cvs:"Un enlace de Google Drive, LinkedIn o Indeed… Un empleador solo lo ve después de seleccionarte. ¿No tienes CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#2ec4b6\">Crea uno gratis con Entèvyou360</a>.",
       resume:"O resume tu trayectoria en unas líneas",
       resumes:"Qué has conducido, dónde y durante cuánto tiempo. Útil si aún no tienes un documento.",
+      ctc:"Cómo puede contactarte un empleador",
+      ctcs:"Tres formas, y decides tú.",
+      cDirect:"✅ Un empleador puede contactarme",
+      cApproval:"🔒 Un empleador necesita mi permiso antes de contactarme",
+      cPush:"📨 Quiero enviar mi expediente directamente a empleadores suscritos",
+      pendT:"Un empleador pide tu permiso para contactarte",
+      pendYes:"✅ Acepto",
+      pendNo:"❌ Rechazo",
+      pendOkMsg:"Concedido: este empleador ya tiene tus datos de contacto.",
+      pendNoMsg:"Rechazado. Este empleador no tiene tus datos, y se le devuelve su crédito.",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -367,6 +419,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       setT("S-"+v, t["s_"+v]);});
     if(t.ti) document.title=t.ti;
     setT("rj-t5",t.t5); setL("L-cv",t.cv,t.cvs); setL("L-resume",t.resume,t.resumes);
+    setL("L-ctc",t.ctc,t.ctcs);
+    setT("C-direct",t.cDirect); setT("C-approval",t.cApproval); setT("C-push",t.cPush);
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
@@ -376,7 +430,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   // pastilles cochees
   document.querySelectorAll(".rj-chk input").forEach(function(cb){
     cb.addEventListener("change",function(){
-      if(cb.type==="radio"){document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
+      // On remonte au CONTENEUR du bouton radio au lieu de viser #rj-flex :
+      // avec un second groupe (#rj-ctc), la version codee en dur laissait ses
+      // pastilles eteintes.
+      if(cb.type==="radio"){cb.closest("div").querySelectorAll(".rj-chk").forEach(function(l){
         l.classList.toggle("on",l.querySelector("input").checked);});}
       else cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
   });
@@ -397,6 +454,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       flex:(document.querySelector('input[name=flex]:checked')||{}).value||"prefer",
       seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value,
       wa:document.getElementById("rj-wa").checked,
+      contact:(document.querySelector('input[name=ctc]:checked')||{}).value||"direct",
       cv:document.getElementById("rj-cv").value,
       resume:document.getElementById("rj-resume").value};
   }
@@ -415,6 +473,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
     document.getElementById("rj-consent").checked=true;
     document.getElementById("rj-wa").checked=(p.wa===true);
+    var ct=p.contact||"direct";
+    var rc=document.querySelector('input[name=ctc][value="'+ct+'"]'); if(rc)rc.checked=true;
+    document.querySelectorAll("#rj-ctc .rj-chk").forEach(function(l){
+      l.classList.toggle("on",l.querySelector("input").checked);});
     document.getElementById("rj-cv").value=p.cv||"";
     document.getElementById("rj-resume").value=p.resume||"";
     var fx=p.flex||"prefer";
@@ -466,13 +528,42 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       busy=false;
       if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
       st2.textContent="";
-      editCode=c; fill(res.body.profile||{});
+      editCode=c; fill(res.body.profile||{}); montrerDemandes(res.body.pend||[]);
       document.getElementById("rj-manage").classList.add("rj-hide");
       document.getElementById("rj-form").classList.remove("rj-hide");
       document.getElementById("rj-go").textContent=T().save;
       document.getElementById("rj-st").textContent=t.loaded;
     }).catch(function(){busy=false;st2.textContent=t.err;});
   });
+  // --- demandes d'employeurs en attente ---------------------------------
+  // Elles n'existent que pour la posture « je dois donner mon autorisation ».
+  // Tant que le chauffeur n'a pas repondu, l'employeur ne voit ni son nom ni
+  // son telephone : c'est ici que ca se decide.
+  function montrerDemandes(pend){
+    var t=T(), boite=document.getElementById("rj-pend"), liste=document.getElementById("rj-pend-list");
+    if(!pend||!pend.length){boite.classList.add("rj-hide");liste.innerHTML="";return;}
+    document.getElementById("rj-pend-t").textContent=t.pendT;
+    liste.innerHTML=pend.map(function(d){
+      return '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-bottom:0.6rem">'
+        +'<span style="flex:1;min-width:180px;font-size:0.9rem">'+(d.org||d.emp)+' <small style="color:#9db2c7">'+(d.at||"")+'</small></span>'
+        +'<button type="button" class="btn btn-primary" data-emp="'+d.emp+'" data-ok="1" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendYes+'</button>'
+        +'<button type="button" class="btn btn-outline" data-emp="'+d.emp+'" data-ok="0" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendNo+'</button>'
+        +'</div>';
+    }).join("");
+    boite.classList.remove("rj-hide");
+  }
+  document.getElementById("rj-pend-list").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-emp]"); if(!b||busy)return;
+    busy=true; b.disabled=true;
+    var stEl=document.getElementById("rj-st"), t=T();
+    post({action:"respond",code:editCode,emp:b.dataset.emp,ok:b.dataset.ok==="1"}).then(function(res){
+      busy=false;
+      if(!res.ok){stEl.textContent=emsg(res.body&&res.body.error);b.disabled=false;return;}
+      stEl.textContent=(b.dataset.ok==="1")?t.pendOkMsg:t.pendNoMsg;
+      montrerDemandes(res.body.pend||[]);
+    }).catch(function(){busy=false;b.disabled=false;stEl.textContent=t.err;});
+  });
+
   document.getElementById("rj-statusbox").addEventListener("click",function(e){
     var b=e.target.closest("button[data-st]"); if(!b)return;
     var t=T(), st2=document.getElementById("rj-st2");

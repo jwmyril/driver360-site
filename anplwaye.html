@@ -205,6 +205,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   }
   var LICLBL = { classd: "Class D", "7d": "7D", cdl_a: "CDL-A", cdl_b: "CDL-B", cdl_c: "CDL-C" };
   function licNames(a) { return (a || []).map(function (l) { return LICLBL[l] || l; }).join(", "); }
+  function enAttente(id) {
+    var tout = (dernier.licensed || []).concat(dernier.classd || [], dernier.setd || []);
+    var e = tout.filter(Boolean).find(function (x) { return x.id === id; });
+    return !!(e && e.contact === "approval");
+  }
+
   function ref(id) { return "#" + (id || "").toString().toUpperCase(); }
   var SECT = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
   function matchBadge(e) {
@@ -231,9 +237,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     return '<button type="button" class="btn btn-outline ep-sel" data-id="' + e.id + '" style="padding:0.3rem 0.8rem;font-size:0.8rem">🔓 ' + EPT("bSelect") + '</button>';
   }
 
+  // La derniere liste recue : on y relit la posture d'un chauffeur avant
+  // de promettre un contact immediat qui ne viendrait pas.
+  var dernier = {};
   function render(data) {
     var sel = data.selected || [];
     var credits = data.credits || 0;
+    dernier = data || {};
     var undeclared = data.undeclared || 0;
     var blocked = undeclared >= (data.undeclaredMax || 3);
     var atMax = credits <= 0 || blocked;
@@ -264,6 +274,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         + 'style="color:#2ec4b6">' + EPT("cvLink") + "</a>");
       if (s.resume) extra.push('📝 <span title="' + String(s.resume).replace(/"/g, "&quot;")
         + '" style="cursor:help;border-bottom:1px dotted #9db2c7">' + EPT("cvResume") + "</span>");
+      // EN ATTENTE : le chauffeur a demande a donner son accord d'abord. Le
+      // Worker n'a donc envoye ni nom ni telephone — il n'y a rien a masquer
+      // ici, il n'y a rien a montrer. On dit pourquoi.
+      if (s.pending) {
+        return '<tr><td colspan="2"><strong>' + EPT("pendWho") + "</strong>"
+          + '<br><small style="color:#c9b79c">' + EPT("pendNote") + "</small></td>"
+          + "<td>" + (s.city || "—") + "</td><td>" + kind + "</td>"
+          + '<td><span class="ep-b" style="color:#f4a261">⏳ ' + EPT("pendWait") + "</span></td></tr>";
+      }
       return "<tr><td><strong>" + (s.name || "") + "</strong>" +
         (extra.length ? '<br><small style="color:#9db2c7">' + extra.join(" · ") + "</small>" : "") +
         "</td><td>" + waLink(s.phone) + "</td><td>" + (s.city || "—") + "</td><td>" + kind + "</td><td>" + outcomeCell(s) + "</td></tr>";
@@ -279,7 +298,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     tl.innerHTML = (data.licensed || []).map(function (e) {
       var lic = (e.licenses || []).map(function (l) { return '<span class="ep-b pass" style="margin-right:0.2rem">' + (LICLBL[l] || l) + "</span>"; }).join("");
       var seek = (e.seeking || []).map(function (x) { return SEEKLBL[x] || ""; }).join(" ");
-      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + (e.hasCv ? ' <span class="ep-b" style="color:#2ec4b6" title="' + EPT("cvHas") + '">📄</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
+      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + (e.hasCv ? ' <span class="ep-b" style="color:#2ec4b6" title="' + EPT("cvHas") + '">📄</span>' : "") + (e.contact === "approval" ? ' <span class="ep-b" style="color:#f4a261" title="' + EPT("ctcApproval") + '">🔒</span>' : "") + (e.contact === "push" ? ' <span class="ep-b pass" title="' + EPT("ctcPush") + '">📨</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
         "<td>" + (e.years !== null && e.years !== undefined ? e.years + " " + EPT("yrs") : "—") + "</td>" +
         "<td>" + (e.langs || "—") + "</td><td>" + (seek || "—") + "</td>" +
         "<td>" + (AVLBL[e.avail] || "—") + "</td><td>" + (AUTHLBL[e.auth] || "—") + "</td>" +
@@ -326,7 +345,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   document.getElementById("ep-dash").addEventListener("click", function (e) {
     var b = e.target.closest(".ep-sel");
     if (!b || busy) return;
-    if (!window.confirm(EPT("confirm"))) return;
+    if (!window.confirm(enAttente(id) ? EPT("confirmPend") : EPT("confirm"))) return;
     busy = true;
     var st = document.getElementById("ep-st2");
     st.textContent = "Sélection…";
@@ -357,7 +376,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       localStorage.setItem("anplwaye_code", codeEl.value.trim().toUpperCase());
       document.getElementById("ep-start").classList.add("ep-hide");
       document.getElementById("ep-dash").classList.remove("ep-hide");
-      document.getElementById("ep-org-lbl").textContent = (res.body.org || "Votre organisation") + " · accès jusqu'au " + res.body.exp;
+      document.getElementById("ep-org-lbl").textContent = (res.body.org || EPT("Lorg")) + " · " + EPT("until") + " " + res.body.exp;
       loadPool();
     }).catch(function () { busy = false; document.getElementById("ep-st1").textContent = EPT("eTech"); });
   });
@@ -429,7 +448,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Plus de crédits — écrivez à sales@atmart.ltd pour recharger.",
       eDeclare: "Déclarez d'abord le résultat de vos sélections précédentes.",
       eTech: "Petit souci technique. Réessayez.",
-      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner", yrs: "ans", cvLink: "CV", cvResume: "parcours résumé", cvHas: "Ce chauffeur a joint un CV — visible après sélection", testOn: "test",
+      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner", pendWho: "En attente de l'accord du chauffeur", pendNote: "Il a demandé à autoriser chaque employeur. Nous lui avons transmis votre demande ; son nom et son téléphone n'apparaîtront qu'après son accord. S'il refuse, votre crédit vous est rendu.", pendWait: "En attente", until: "accès jusqu'au", ctcApproval: "Ce chauffeur donne son accord avant d'être contacté", ctcPush: "Ce chauffeur demande à être contacté", confirmPend: "Ce chauffeur a demandé à donner son accord avant d'être contacté. La sélection consomme 1 place de votre quota et lui transmet votre demande ; vous n'aurez son contact qu'après son accord, et votre crédit vous sera rendu s'il refuse. Continuer ?", yrs: "ans", cvLink: "CV", cvResume: "parcours résumé", cvHas: "Ce chauffeur a joint un CV — visible après sélection", testOn: "test",
       qNote: "sélectionner un candidat est définitif et révèle son contact.",
       cHired: "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste).",
       cRejected: "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.",
@@ -476,7 +495,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "No credits left — write to sales@atmart.ltd to top up.",
       eDeclare: "First declare the outcome of your previous selections.",
       eTech: "Small technical problem. Please try again.",
-      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select", yrs: "yrs", cvLink: "CV", cvResume: "summary", cvHas: "This driver attached a CV — visible after selection", testOn: "test",
+      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select", pendWho: "Waiting for the driver's agreement", pendNote: "They asked to approve each employer. We have passed on your request; their name and phone will appear only once they agree. If they refuse, your credit is given back.", pendWait: "Waiting", until: "access until", ctcApproval: "This driver approves each employer before being contacted", ctcPush: "This driver is asking to be contacted", confirmPend: "This driver asked to give their agreement before being contacted. Selecting uses 1 place of your quota and passes on your request; you get their contact details only once they agree, and your credit is given back if they refuse. Continue?", yrs: "yrs", cvLink: "CV", cvResume: "summary", cvHas: "This driver attached a CV — visible after selection", testOn: "test",
       qNote: "selecting a candidate is final and reveals their contact details.",
       cHired: "Confirm you HIRED this candidate? They will leave the pool for every employer (they can put themselves back if they leave the job).",
       cRejected: "Confirm this candidate was NOT selected? They stay available to other employers.",
@@ -523,7 +542,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Pa gen kredi ankò — ekri sales@atmart.ltd pou w chaje.",
       eDeclare: "Di dabò ki rezilta seleksyon w te fè anvan yo bay.",
       eTech: "Gen yon ti pwoblèm teknik. Eseye ankò.",
-      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi", yrs: "lane", cvLink: "CV", cvResume: "rezime pakou", cvHas: "Chofè sa a mete yon CV — w ap wè l aprè ou chwazi l", testOn: "tès",
+      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi", pendWho: "N ap tann chofè a dakò", pendNote: "Li mande pou l bay chak anplwayè otorizasyon. Nou voye demann ou an ba li ; non l ak telefòn li ap parèt sèlman aprè li dakò. Si li refize, yo remet ou kredi w.", pendWait: "N ap tann", until: "aksè jiska", ctcApproval: "Chofè sa a bay otorizasyon anvan yo kontakte l", ctcPush: "Chofè sa a mande pou yo kontakte l", confirmPend: "Chofè sa a mande pou l bay otorizasyon anvan yo kontakte l. Seleksyon an pran 1 plas nan kota w epi li voye demann ou an ba li ; ou p ap gen kontak li anvan li dakò, epi y ap remet ou kredi w si li refize. Kontinye ?", yrs: "lane", cvLink: "CV", cvResume: "rezime pakou", cvHas: "Chofè sa a mete yon CV — w ap wè l aprè ou chwazi l", testOn: "tès",
       qNote: "lè w chwazi yon kandida se final epi kontak li parèt.",
       cHired: "Konfime ou ANBOCHE kandida sa a ? L ap sòti nan vivye a pou tout anplwayè (li ka retounen li menm si li kite travay la).",
       cRejected: "Konfime ou PA chwazi kandida sa a ? Li rete disponib pou lòt anplwayè yo.",
@@ -570,7 +589,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       eQuota: "Sin créditos — escribe a sales@atmart.ltd para recargar.",
       eDeclare: "Declara primero el resultado de tus selecciones anteriores.",
       eTech: "Pequeño problema técnico. Inténtalo de nuevo.",
-      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar", yrs: "años", cvLink: "CV", cvResume: "trayectoria", cvHas: "Este conductor adjuntó un CV — visible tras la selección", testOn: "examen",
+      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar", pendWho: "Esperando el acuerdo del conductor", pendNote: "Pidió aprobar a cada empleador. Le hemos transmitido tu solicitud; su nombre y su teléfono aparecerán solo cuando acepte. Si rechaza, se te devuelve el crédito.", pendWait: "Esperando", until: "acceso hasta", ctcApproval: "Este conductor aprueba a cada empleador antes de ser contactado", ctcPush: "Este conductor pide que lo contacten", confirmPend: "Este conductor pidió dar su acuerdo antes de ser contactado. La selección consume 1 lugar de tu cuota y le transmite tu solicitud; solo tendrás su contacto cuando acepte, y se te devuelve el crédito si rechaza. ¿Continuar?", yrs: "años", cvLink: "CV", cvResume: "trayectoria", cvHas: "Este conductor adjuntó un CV — visible tras la selección", testOn: "examen",
       qNote: "seleccionar a un candidato es definitivo y revela su contacto.",
       cHired: "¿Confirmas que CONTRATASTE a este candidato? Saldrá del registro para todos los empleadores (podrá volver él mismo si deja el puesto).",
       cRejected: "¿Confirmas que este candidato NO fue seleccionado? Sigue disponible para otros empleadores.",
