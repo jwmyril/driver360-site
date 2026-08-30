@@ -450,6 +450,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     document.getElementById("cf-result-btn").textContent=t.res;
     document.getElementById("cf-okbtn").textContent=t.ok;
     document.getElementById("cf-nextbtn").textContent=t.next;
+    // Le bouton « Suivant » du TEST ECRIT. La cle qzNext existait dans les
+    // quatre dictionnaires depuis le debut, mais personne ne l'avait branchee :
+    // le code se contentait de montrer et cacher le bouton, qui gardait donc le
+    // francais ecrit dans le HTML, sur les quatre langues. Trouve le 30/08/2026
+    // en jouant vraiment le test — un defaut qui n'existe qu'APRES avoir
+    // repondu a une question, donc invisible pour un controle sur page a l'arret.
+    setTxt("qz-next", t.qzNext);
     document.getElementById("cf-speak").textContent=t.speak;
     document.getElementById("cf-sponsor-hint").textContent=t.hint;
     // --- traduction complete (formulaire, boutons, sections) ---
