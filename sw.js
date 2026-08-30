@@ -1,8 +1,8 @@
 // Driver360 — cache statique. Les appels au Worker passent toujours par le reseau.
-const CACHE = "driver360-v2";  // v2 : accueil anglais + page jobs (29/08/2026)
+const CACHE = "driver360-v3";  // v3 : une seule langue par page (30/08/2026)
 const CORE = [
   "/", "/index.html", "/jobs.html", "/wout.html", "/setdi.html", "/vivye.html", "/anplwaye.html",
-  "/assets/style.css", "/assets/script.js", "/assets/i18n.js",
+  "/assets/style.css", "/assets/script.js", "/assets/i18n.js", "/assets/suite.js",
   "/assets/brand/logo-dark-96.png", "/assets/brand/icon-192.png",
 ];
 self.addEventListener("install", (e) => {

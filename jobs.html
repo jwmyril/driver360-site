@@ -55,12 +55,12 @@ d.lang=l||"en";})();
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
-        <li><a href="jobs.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Jobs</a></li>
+        <li><a href="index.html" data-d3="n_home" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
+        <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Jobs</a></li>
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Coach</a></li>
         <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">7D Coach</a></li>
-        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
+        <li><a href="anplwaye.html" data-d3="x_hiring" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
         <li><div class="d3-lang" id="lang"></div></li>
     </ul>
   </nav>
@@ -167,15 +167,16 @@ d.lang=l||"en";})();
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
-    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
   </div>
 </footer>
 
 <script>
 var T = {
  "fr": {
+  "ti": "Emplois de chauffeur au Massachusetts — Driver360",
   "titre": "Emplois de chauffeur au Massachusetts",
   "fil": "Le Massachusetts manque de chauffeurs. Pour la plupart de ces postes, le permis est le seul obstacle.",
   "lead": "Nous n'hébergeons pas d'annonces et nous n'en recopions aucune. Voici la liste des employeurs qui recrutent réellement des chauffeurs ici, avec un lien direct vers leurs propres offres — vous postulez donc au bon endroit, et rien sur cette page ne périme.",
@@ -216,6 +217,7 @@ var T = {
   "s_transit": "Régies de transport public"
  },
  "ht": {
+  "ti": "Travay chofè nan Massachusetts — Driver360",
   "titre": "Travay chofè nan Massachusetts",
   "fil": "Massachusetts manke chofè. Pou pifò nan travay sa yo, se pèmi a ki sèl bagay k ap bare wout la.",
   "lead": "Nou pa gen anons lakay nou epi nou pa kopye okenn. Men lis anplwayè ki tout bon ap chèche chofè isit la, ak yon lyen dirèk sou òf pa yo — konsa ou aplike nan bon kote a, epi anyen sou paj sa a pa vin vye.",
@@ -256,6 +258,7 @@ var T = {
   "s_transit": "Konpayi transpò piblik"
  },
  "es": {
+  "ti": "Empleos de conductor en Massachusetts — Driver360",
   "titre": "Empleos de conductor en Massachusetts",
   "fil": "A Massachusetts le faltan conductores. Para la mayoría de estos puestos, la licencia es el único obstáculo.",
   "lead": "No alojamos anuncios ni los copiamos. Esta es la lista de empleadores que de verdad contratan conductores aquí, con un enlace directo a sus propias vacantes — así postulas en el sitio correcto y nada de esta página caduca.",
@@ -297,8 +300,10 @@ var T = {
  }
 };
 var LANGUES = {en:"English", ht:"Kreyòl", fr:"Français", es:"Español"};
+var TITRE0 = document.title;   /* le titre anglais, ecrit dans le <title> */
 function appliquer(l){
   var d = T[l];                      /* en = ce qui est ecrit dans le HTML */
+  document.title = (d && d.ti) ? d.ti : TITRE0;
   document.querySelectorAll("[data-t]").forEach(function(e){
     if(!e.dataset.original) e.dataset.original = e.innerHTML;
     e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
@@ -321,6 +326,7 @@ function appliquer(l){
   appliquer(document.documentElement.lang || "en");
 })();
 </script>
+<script src="assets/suite.js?v=1"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

@@ -51,9 +51,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
+        <li><a href="index.html" data-d3="n_home" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
         <li><a href="anplwaye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Employer</a></li>
-        <li><a href="index.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a></li>
+        <li><a href="index.html" data-d3="x_drive" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a></li>
     </ul>
   </nav>
 </header>
@@ -62,18 +62,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <div class="container">
     <div style="background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.45);
       border-radius:16px;padding:1.5rem 1.7rem;max-width:820px">
-      <h2 style="margin:0 0 .6rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.24rem">
-        Le vivier est en train de se constituer</h2>
-      <p style="margin:0 0 1rem;font-size:.96rem;line-height:1.68;color:#e4dbcf;max-width:64ch">
-        Nous n'avons pas encore de chauffeurs à vous montrer, et nous n'allons pas faire
-        semblant : les viviers ci-dessous sont vides aujourd'hui. Dites-nous plutôt
-        <strong>ce que vous cherchez</strong> — nous vous préviendrons dès qu'un profil
-        correspond, et cela nous dit où concentrer le recrutement.
+      <h2 data-d3="b_titre" style="margin:0 0 .6rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.24rem">The pool is still being built</h2>
+      <p data-d3="b_texte" style="margin:0 0 1rem;font-size:.96rem;line-height:1.68;color:#e4dbcf;max-width:64ch">
+        We have no drivers to show you yet, and we are not going to pretend otherwise: the pools
+        below are empty today. Tell us instead <strong>what you are looking for</strong> — we will
+        let you know as soon as a profile matches, and it tells us where to concentrate our recruiting.
       </p>
-      <a class="btn btn-primary" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">
-        Dire ce que je recherche</a>
-      <p style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
-        Aucun engagement, et nous ne diffusons le nom d'aucun chauffeur sans son accord.
+      <a class="btn btn-primary" data-d3="b_bouton" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">Tell us what we should look for</a>
+      <p data-d3="b_note" style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
+        No commitment, and we never pass on a driver's name without their agreement.
       </p>
     </div>
   </div>
@@ -121,7 +118,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
       <div class="ep-card ep-hide" id="ep-dash">
         <p style="margin:0 0 0.6rem;color:#9db2c7;font-size:0.85rem"><span id="ep-org-lbl"></span> · <button type="button" id="ep-refresh" style="background:none;border:none;color:#2ec4b6;text-decoration:underline;cursor:pointer;font:inherit">Actualiser</button></p>
-        <p id="ep-quota-bar" style="margin:0 0 0.5rem;font-size:0.95rem">Crédits de sélection restants : <strong id="ep-selcount" style="color:#2ec4b6">0</strong> · <span id="ep-quota-note" style="color:#9db2c7;font-size:0.82rem"></span></p>
+        <p id="ep-quota-bar" style="margin:0 0 0.5rem;font-size:0.95rem"><span id="ep-credits-lbl">Crédits de sélection restants :</span> <strong id="ep-selcount" style="color:#2ec4b6">0</strong> · <span id="ep-quota-note" style="color:#9db2c7;font-size:0.82rem"></span></p>
         <p id="ep-warn" class="ep-hide" style="margin:0 0 0.8rem;background:rgba(244,162,97,0.12);border:1px solid rgba(244,162,97,0.4);border-radius:8px;padding:0.6rem 0.9rem;font-size:0.85rem"></p>
         <label style="display:inline-flex;gap:0.45rem;align-items:center;font-size:0.85rem;color:#9db2c7;margin-bottom:1rem;cursor:pointer">
           <input type="checkbox" id="ep-showall" style="width:auto" />
@@ -130,34 +127,34 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
         <h3 class="ep-h" id="ep-h-sel">⭐ Mes candidats sélectionnés</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-sel">
-          <thead><tr><th>Candidat</th><th>Contact</th><th>Ville / zone</th><th>Type</th><th>Résultat</th></tr></thead>
+          <thead><tr><th id="ths1">Candidat</th><th id="ths2">Contact</th><th id="ths3">Ville / zone</th><th id="ths4">Type</th><th id="ths5">Résultat</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty" id="ep-empty-sel">Aucune sélection encore — parcourez les pools ci-dessous et sélectionnez vos candidats. Une sélection est définitive et révèle le contact.</p>
 
         <h3 class="ep-h" style="margin-top:1.8rem" id="ep-h-lic">🪪 Pool chauffeurs déjà licenciés</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-lic">
-          <thead><tr><th>Réf.</th><th>Licences</th><th>Expérience</th><th>Langues</th><th>Recherche</th><th>Dispo.</th><th>Autorisé</th><th>Ville / zone</th><th>Action</th></tr></thead>
+          <thead><tr><th id="thl1">Réf.</th><th id="thl2">Licences</th><th id="thl3">Expérience</th><th id="thl4">Langues</th><th id="thl5">Recherche</th><th id="thl6">Dispo.</th><th id="thl7">Autorisé</th><th id="thl8">Ville / zone</th><th id="thl9">Action</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty ep-hide" id="ep-empty-lic">Aucun chauffeur licencié inscrit pour l'instant — partagez le lien d'inscription gratuite.</p>
 
         <h3 class="ep-h" style="margin-top:1.8rem" id="ep-h-7d">🚌 Pool 7D — transport scolaire</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-7d">
-          <thead><tr><th id="th-n1">Réf.</th><th id="th-w1">Examen écrit 7D</th><th>Ville / zone</th><th id="th-c1">Action</th></tr></thead>
+          <thead><tr><th id="th-n1">Réf.</th><th id="th-w1">Examen écrit 7D</th><th id="th7v">Ville / zone</th><th id="th-c1">Action</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty ep-hide" id="ep-empty-7d">Aucun candidat 7D dans le pool pour l'instant — les premiers arrivent avec les ventes 7D Pro.</p>
 
         <h3 class="ep-h" style="margin-top:1.6rem" id="ep-h-cd">🚗 Pool Class D</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-cd">
-          <thead><tr><th id="th-n2">Réf.</th><th id="th-r2">Préparation route</th><th id="th-e2">Écrit (Pèmi)</th><th id="th-o2">Résultats RMV</th><th>Ville / zone</th><th id="th-c2">Action</th></tr></thead>
+          <thead><tr><th id="th-n2">Réf.</th><th id="th-r2">Préparation route</th><th id="th-e2">Écrit (Pèmi)</th><th id="th-o2">Résultats RMV</th><th id="thcv">Ville / zone</th><th id="th-c2">Action</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty ep-hide" id="ep-empty-cd">Aucun candidat Class D dans le pool pour l'instant.</p>
 
         <p class="ep-status" id="ep-st2"></p>
-        <p style="font-size:0.78rem;color:#9db2c7;border-top:1px dashed rgba(255,255,255,0.15);margin-top:1.2rem;padding-top:0.8rem" id="ep-foot">Vous voyez tout le pool, mais le nom et le contact d'un candidat n'apparaissent qu'au moment où vous le <strong>sélectionnez</strong> — et une sélection est <strong>définitive</strong>. Chaque personne a explicitement accepté d'être contactée. Merci de la traiter avec respect : ce pool vit de leur confiance. Pour équiper vos recrues dans leur langue : <a href="mailto:sales@atmart.ltd?subject=Pack%20recrues%20Chof%C3%A8360" style="color:#2ec4b6">packs de codes</a>. Vous connaissez des chauffeurs déjà licenciés ? Envoyez-leur le lien d'<a href="vivye.html" style="color:#2ec4b6">inscription gratuite au pool</a>.</p>
+        <p style="font-size:0.78rem;color:#9db2c7;border-top:1px dashed rgba(255,255,255,0.15);margin-top:1.2rem;padding-top:0.8rem" id="ep-foot">Vous voyez tout le pool, mais le nom et le contact d'un candidat n'apparaissent qu'au moment où vous le <strong>sélectionnez</strong> — et une sélection est <strong>définitive</strong>. Chaque personne a explicitement accepté d'être contactée. Merci de la traiter avec respect : ce pool vit de leur confiance. Pour équiper vos recrues dans leur langue : <a href="mailto:sales@atmart.ltd?subject=Pack%20recrues%20Chof%C3%A8360" style="color:#2ec4b6">packs de codes</a>. Pour équiper vos recrues dans leur langue : <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:#2ec4b6\">packs de codes</a>. Vous connaissez des chauffeurs déjà licenciés ? Envoyez-leur le lien d'<a href="vivye.html" style="color:#2ec4b6">inscription gratuite au pool</a>.</p>
       </div>
 
     </div>
@@ -166,9 +163,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
-    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
   </div>
 </footer>
 
@@ -189,12 +186,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, body: b }; }); });
   }
   function emsg(c) {
-    return c === "emp_invalid" ? "Code invalide — demandez un code fondateur à sales@atmart.ltd."
-      : c === "emp_expired" ? "Accès expiré — sales@atmart.ltd."
-      : c === "rate_limited" ? "Limite du jour atteinte — réessayez demain."
-      : c === "quota_reached" ? "Plus de crédits — écrivez à sales@atmart.ltd pour recharger."
-      : c === "declare_outcomes" ? "Déclarez d'abord le résultat de vos sélections précédentes."
-      : "Petit souci technique. Réessayez.";
+    return c === "emp_invalid" ? EPT("eInvalid")
+      : c === "emp_expired" ? EPT("eExpired")
+      : c === "rate_limited" ? EPT("eRate")
+      : c === "quota_reached" ? EPT("eQuota")
+      : c === "declare_outcomes" ? EPT("eDeclare")
+      : EPT("eTech");
   }
   function badge(v, goodTxt, badTxt) {
     if (v === "pass") return '<span class="ep-b pass">✅ ' + goodTxt + "</span>";
@@ -211,10 +208,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   function ref(id) { return "#" + (id || "").toString().toUpperCase(); }
   var SECT = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
   function matchBadge(e) {
-    if (e.match === "open") return '<span class="ep-b pass">⚡ Ouvert à tout</span>';
+    if (e.match === "open") return '<span class="ep-b pass">⚡ ' + EPT("bOpen") + "</span>";
     if (e.match === "sector") return '<span class="ep-b pass">✅ Cherche votre secteur</span>';
     var v = (e.seeking || []).map(function (x) { return SECT[x] || ""; }).join("");
-    return '<span class="ep-b mid">↔️ Vise plutôt ' + (v || "autre") + "</span>";
+    return '<span class="ep-b mid">↔️ ' + EPT("bAims") + " " + (v || EPT("bOther")) + "</span>";
   }
   function freshBadge(d) {
     if (d === null || d === undefined) return "";
@@ -223,15 +220,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     return '<span class="ep-b ' + cls + '">🕒 ' + txt + "</span>";
   }
   function outcomeCell(s) {
-    if (s.outcome === "hired") return '<span class="ep-b pass">✅ Embauché</span>';
-    if (s.outcome === "rejected") return '<span class="ep-b" style="color:#9db2c7">❌ Pas retenu</span>';
+    if (s.outcome === "hired") return '<span class="ep-b pass">✅ ' + EPT("oHired") + "</span>";
+    if (s.outcome === "rejected") return '<span class="ep-b" style="color:#9db2c7">❌ ' + EPT("oRejected") + "</span>";
     return '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="hired" style="padding:0.25rem 0.6rem;font-size:0.75rem">✅ Embauché</button> ' +
            '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="rejected" style="padding:0.25rem 0.6rem;font-size:0.75rem">❌ Pas retenu</button>';
   }
   function actionCell(e, atMax) {
     if (e.selected) return '<span class="ep-b pass">✓ Sélectionné</span>';
-    if (atMax) return '<span class="ep-b" style="color:#9db2c7">Plus de crédits</span>';
-    return '<button type="button" class="btn btn-outline ep-sel" data-id="' + e.id + '" style="padding:0.3rem 0.8rem;font-size:0.8rem">🔓 Sélectionner</button>';
+    if (atMax) return '<span class="ep-b" style="color:#9db2c7">' + EPT("bNoCredit") + "</span>";
+    return '<button type="button" class="btn btn-outline ep-sel" data-id="' + e.id + '" style="padding:0.3rem 0.8rem;font-size:0.8rem">🔓 ' + EPT("bSelect") + '</button>';
   }
 
   function render(data) {
@@ -241,22 +238,22 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     var blocked = undeclared >= (data.undeclaredMax || 3);
     var atMax = credits <= 0 || blocked;
     document.getElementById("ep-selcount").textContent = credits;
-    var note = "sélectionner un candidat est définitif et révèle son contact.";
+    var note = EPT("qNote");
     if (data.plan === "sub" && data.renewAt) note = "abonnement — prochaine recharge le " + data.renewAt + ". " + note;
     document.getElementById("ep-quota-note").textContent = note;
     var warn = document.getElementById("ep-warn");
     if (blocked) {
-      warn.textContent = "⚠️ " + undeclared + " sélections sans résultat déclaré. Déclarez « Embauché » ou « Pas retenu » ci-dessous pour pouvoir continuer.";
+      warn.textContent = "⚠️ " + undeclared + " " + EPT("wUndeclared");
       warn.classList.remove("ep-hide");
     } else if (credits <= 0) {
-      warn.textContent = "Plus de crédits de sélection. Écrivez à sales@atmart.ltd pour recharger (15 $ la sélection, ou abonnement 49 $/mois).";
+      warn.textContent = EPT("wNoCredit");
       warn.classList.remove("ep-hide");
     } else { warn.classList.add("ep-hide"); }
 
     // mes selections (durable, depuis les snapshots)
     var ts = document.querySelector("#ep-t-sel tbody");
     ts.innerHTML = sel.map(function (s) {
-      var kind = s.kind === "7d" ? "🚌 7D" : s.kind === "licensed" ? "🪪 Licencié" : "🚗 Class D";
+      var kind = s.kind === "7d" ? "🚌 7D" : s.kind === "licensed" ? EPT("kLicensed") : "🚗 Class D";
       var extra = [];
       if (s.langs) extra.push("🗣 " + s.langs);
       if (s.nat) extra.push("🌍 " + s.nat);
@@ -317,13 +314,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); return; }
       render(res.body);
-    }).catch(function () { st.textContent = "Petit souci technique. Réessayez."; });
+    }).catch(function () { st.textContent = EPT("eTech"); });
   }
 
   document.getElementById("ep-dash").addEventListener("click", function (e) {
     var b = e.target.closest(".ep-sel");
     if (!b || busy) return;
-    if (!window.confirm("Sélectionner ce candidat révèle son nom et son contact, et consomme 1 place de votre quota. C'est DÉFINITIF (on ne peut pas revenir en arrière). Continuer ?")) return;
+    if (!window.confirm(EPT("confirm"))) return;
     busy = true;
     var st = document.getElementById("ep-st2");
     st.textContent = "Sélection…";
@@ -332,7 +329,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); if (res.body && res.body.error === "quota_reached") loadPool(); return; }
       loadPool();
-    }).catch(function () { busy = false; st.textContent = "Petit souci technique. Réessayez."; });
+    }).catch(function () { busy = false; st.textContent = EPT("eTech"); });
   });
 
   document.getElementById("ep-start").addEventListener("submit", function (e) {
@@ -356,7 +353,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       document.getElementById("ep-dash").classList.remove("ep-hide");
       document.getElementById("ep-org-lbl").textContent = (res.body.org || "Votre organisation") + " · accès jusqu'au " + res.body.exp;
       loadPool();
-    }).catch(function () { busy = false; document.getElementById("ep-st1").textContent = "Petit souci technique."; });
+    }).catch(function () { busy = false; document.getElementById("ep-st1").textContent = EPT("eTech"); });
   });
   document.getElementById("ep-refresh").addEventListener("click", loadPool);
   document.getElementById("ep-showall").addEventListener("change", loadPool);
@@ -366,8 +363,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     var b = e.target.closest(".ep-out");
     if (!b || busy) return;
     var msg = b.dataset.r === "hired"
-      ? "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste)."
-      : "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.";
+      ? EPT("cHired")
+      : EPT("cRejected");
     if (!window.confirm(msg)) return;
     busy = true;
     var st = document.getElementById("ep-st2");
@@ -376,10 +373,261 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       busy = false; st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); return; }
       loadPool();
-    }).catch(function () { busy = false; st.textContent = "Petit souci technique."; });
+    }).catch(function () { busy = false; st.textContent = EPT("eTech"); });
   });
 })();
 </script>
+<script>
+/* ===== Langue de la page employeur =====
+   Cette page n'avait AUCUN mecanisme : son corps etait en francais en dur, et
+   sur driver360.atmart.ltd il le restait meme quand l'enveloppe passait en
+   kreyol, en anglais ou en espagnol. Meme dispositif que rejistre.html : un
+   dictionnaire, un applyLang(), et un MutationObserver sur <html lang> — le
+   seul signal commun aux deux mecanismes de traduction de la suite. */
+(function () {
+  var EPL = {
+    fr: {
+      ti: "Driver Employer — recruter des chauffeurs au Massachusetts | Atmart",
+      kicker: "Recrutez des chauffeurs préparés — avec des résultats vérifiables.",
+      lead: "Le portail des compagnies de transport du Massachusetts — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) : recrutez dans le pool de chauffeurs Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont explicitement consenti à être contactés.",
+      note: "Confidentialité : seuls les candidats ayant coché « entrer dans le pool » apparaissent ici — jamais les autres. Codes fondateurs gratuits pour les premières compagnies : sales@atmart.ltd.",
+      Lcode: "🔑 Code d'accès employeur<small>EMP-XXXX-XXXX. Pas encore de code ? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20code%20fondateur\" style=\"color:#2ec4b6\">Demander un code fondateur (gratuit)</a></small>",
+      Lorg: "Votre organisation", orgPh: "Ex. : ABC Student Transportation",
+      Lkind: "Vous êtes",
+      k1: "🚌 Transport scolaire", k2: "🏫 District / école", k3: "📦 Livraison de colis",
+      k4: "🧓 Transport de personnes âgées / médical", k5: "🚍 Transport régional (MART, RTA)", k6: "🚕 Autre transport",
+      Lcontact: "Personne de contact", Lphone: "Téléphone",
+      Lquota: "Combien de chauffeurs recherchez-vous ? <small>C'est votre quota de sélection : vous pourrez révéler le contact de ce nombre de candidats. Pour l'augmenter plus tard, écrivez-nous.</small>",
+      Lneeds: "Détails de votre besoin (optionnel) <small>Ex. : 4 chauffeurs 7D pour la rentrée, zone Worcester ; profil recherché…</small>",
+      go: "Ouvrir le pool", refresh: "Actualiser",
+      credits: "Crédits de sélection restants :",
+      showall: "Voir aussi les chauffeurs qui visent un autre secteur",
+      hSel: "⭐ Mes candidats sélectionnés",
+      ths1: "Candidat", ths2: "Contact", ths3: "Ville / zone", ths4: "Type", ths5: "Résultat",
+      emptySel: "Aucune sélection encore — parcourez les pools ci-dessous et sélectionnez vos candidats. Une sélection est définitive et révèle le contact.",
+      hLic: "🪪 Pool chauffeurs déjà licenciés",
+      thl1: "Réf.", thl2: "Licences", thl3: "Expérience", thl4: "Langues", thl5: "Recherche",
+      thl6: "Dispo.", thl7: "Autorisé", thl8: "Ville / zone", thl9: "Action",
+      emptyLic: "Aucun chauffeur licencié inscrit pour l'instant — partagez le lien d'inscription gratuite.",
+      h7d: "🚌 Pool 7D — transport scolaire",
+      thn1: "Réf.", thw1: "Examen écrit 7D", th7v: "Ville / zone", thc1: "Action",
+      empty7d: "Aucun candidat 7D dans le pool pour l'instant — les premiers arrivent avec les ventes 7D Pro.",
+      hCd: "🚗 Pool Class D",
+      thn2: "Réf.", thr2: "Préparation route", the2: "Écrit (Pèmi)", tho2: "Résultats RMV",
+      thcv: "Ville / zone", thc2: "Action",
+      emptyCd: "Aucun candidat Class D dans le pool pour l'instant.",
+      foot: "Vous voyez tout le pool, mais le nom et le contact d'un candidat n'apparaissent qu'au moment où vous le <strong>sélectionnez</strong> — et une sélection est <strong>définitive</strong>. Chaque personne a explicitement accepté d'être contactée. Merci de la traiter avec respect : ce pool vit de leur confiance. Vous connaissez des chauffeurs déjà licenciés ? Envoyez-leur le lien d'<a href=\"rejistre.html\" style=\"color:#2ec4b6\">inscription gratuite au pool</a>.",
+      eInvalid: "Code invalide — demandez un code fondateur à sales@atmart.ltd.",
+      eExpired: "Accès expiré — sales@atmart.ltd.",
+      eRate: "Limite du jour atteinte — réessayez demain.",
+      eQuota: "Plus de crédits — écrivez à sales@atmart.ltd pour recharger.",
+      eDeclare: "Déclarez d'abord le résultat de vos sélections précédentes.",
+      eTech: "Petit souci technique. Réessayez.",
+      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner",
+      qNote: "sélectionner un candidat est définitif et révèle son contact.",
+      cHired: "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste).",
+      cRejected: "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.",
+      desc: "Le portail employeur de Driver360 : les compagnies de transport du Massachusetts recrutent dans le vivier de chauffeurs Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont consenti à être contactés.",
+      oHired: "Embauché", oRejected: "Pas retenu", kLicensed: "🪪 Licencié",
+      wUndeclared: "sélections sans résultat déclaré. Déclarez « Embauché » ou « Pas retenu » ci-dessous pour pouvoir continuer.",
+      wNoCredit: "Plus de crédits de sélection. Écrivez à sales@atmart.ltd pour recharger (15 $ la sélection, ou abonnement 49 $/mois).",
+      confirm: "Sélectionner ce candidat révèle son nom et son contact, et consomme 1 place de votre quota. C'est DÉFINITIF (on ne peut pas revenir en arrière). Continuer ?"
+    },
+    en: {
+      ti: "Driver Employer — hire drivers in Massachusetts | Atmart",
+      kicker: "Hire drivers who are ready — with results you can check.",
+      lead: "The portal for Massachusetts transport companies — school transport, package delivery, senior and medical transport, regional transit (MART): hire from the pool of Class D, 7D and CDL drivers, people who are trained or already licensed and who have explicitly agreed to be contacted.",
+      note: "Privacy: only drivers who ticked “join the pool” appear here — never anyone else. Free founder codes for the first companies: sales@atmart.ltd.",
+      Lcode: "🔑 Employer access code<small>EMP-XXXX-XXXX. No code yet? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20founder%20code\" style=\"color:#2ec4b6\">Ask for a founder code (free)</a></small>",
+      Lorg: "Your organisation", orgPh: "E.g.: ABC Student Transportation",
+      Lkind: "You are",
+      k1: "🚌 School transport", k2: "🏫 District / school", k3: "📦 Package delivery",
+      k4: "🧓 Senior / medical transport", k5: "🚍 Regional transit (MART, RTA)", k6: "🚕 Other transport",
+      Lcontact: "Contact person", Lphone: "Phone",
+      Lquota: "How many drivers are you looking for? <small>This is your selection quota: you will be able to reveal the contact details of that many candidates. Write to us to raise it later.</small>",
+      Lneeds: "What you need (optional) <small>E.g.: 4 7D drivers for the new school year, Worcester area; profile sought…</small>",
+      go: "Open the pool", refresh: "Refresh",
+      credits: "Selection credits left:",
+      showall: "Also show drivers aiming at another sector",
+      hSel: "⭐ My selected candidates",
+      ths1: "Candidate", ths2: "Contact", ths3: "City / area", ths4: "Type", ths5: "Outcome",
+      emptySel: "No selection yet — browse the pools below and pick your candidates. A selection is final and reveals the contact details.",
+      hLic: "🪪 Already-licensed driver pool",
+      thl1: "Ref.", thl2: "Licences", thl3: "Experience", thl4: "Languages", thl5: "Looking for",
+      thl6: "Availability", thl7: "Authorised", thl8: "City / area", thl9: "Action",
+      emptyLic: "No licensed driver registered yet — share the free registration link.",
+      h7d: "🚌 7D pool — school transport",
+      thn1: "Ref.", thw1: "7D written exam", th7v: "City / area", thc1: "Action",
+      empty7d: "No 7D candidate in the pool yet — the first ones arrive with 7D Pro sales.",
+      hCd: "🚗 Class D pool",
+      thn2: "Ref.", thr2: "Road preparation", the2: "Written (Pèmi)", tho2: "RMV results",
+      thcv: "City / area", thc2: "Action",
+      emptyCd: "No Class D candidate in the pool yet.",
+      foot: "You see the whole pool, but a candidate's name and contact details appear only when you <strong>select</strong> them — and a selection is <strong>final</strong>. Every person here explicitly agreed to be contacted. Please treat them with respect: this pool lives on their trust. To equip your recruits in their own language: <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:#2ec4b6\">code packs</a>. Do you know drivers who are already licensed? Send them the <a href=\"rejistre.html\" style=\"color:#2ec4b6\">free pool registration link</a>.",
+      eInvalid: "Invalid code — ask for a founder code at sales@atmart.ltd.",
+      eExpired: "Access expired — sales@atmart.ltd.",
+      eRate: "Daily limit reached — try again tomorrow.",
+      eQuota: "No credits left — write to sales@atmart.ltd to top up.",
+      eDeclare: "First declare the outcome of your previous selections.",
+      eTech: "Small technical problem. Please try again.",
+      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select",
+      qNote: "selecting a candidate is final and reveals their contact details.",
+      cHired: "Confirm you HIRED this candidate? They will leave the pool for every employer (they can put themselves back if they leave the job).",
+      cRejected: "Confirm this candidate was NOT selected? They stay available to other employers.",
+      desc: "The Driver360 employer portal: Massachusetts transport companies hire from the pool of Class D, 7D and CDL drivers — people who are trained or already licensed and who agreed to be contacted.",
+      oHired: "Hired", oRejected: "Not selected", kLicensed: "🪪 Licensed",
+      wUndeclared: "selections with no outcome declared. Declare “Hired” or “Not selected” below to carry on.",
+      wNoCredit: "No selection credits left. Write to sales@atmart.ltd to top up ($15 per selection, or $49/month).",
+      confirm: "Selecting this candidate reveals their name and contact details, and uses 1 place of your quota. This is FINAL (there is no going back). Continue?"
+    },
+    ht: {
+      ti: "Driver Employer — anboche chofè nan Massachusetts | Atmart",
+      kicker: "Anboche chofè ki prepare — ak rezilta ou ka verifye.",
+      lead: "Pòtay konpayi transpò Massachusetts yo — transpò lekòl, livrezon pake, transpò granmoun ak medikal, transpò rejyonal (MART) : chèche nan vivye chofè Class D, 7D ak CDL yo — moun ki prepare oswa ki gen pèmi deja, epi ki di klè yo dakò pou yo kontakte yo.",
+      note: "Konfidansyalite : se sèlman moun ki te koche « antre nan vivye a » ki parèt isit la — pa gen lòt. Kòd fondatè gratis pou premye konpayi yo : sales@atmart.ltd.",
+      Lcode: "🔑 Kòd aksè anplwayè<small>EMP-XXXX-XXXX. Ou poko gen kòd ? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20kod%20fondate\" style=\"color:#2ec4b6\">Mande yon kòd fondatè (gratis)</a></small>",
+      Lorg: "Òganizasyon w", orgPh: "Egz. : ABC Student Transportation",
+      Lkind: "Ou se",
+      k1: "🚌 Transpò lekòl", k2: "🏫 Distri / lekòl", k3: "📦 Livrezon pake",
+      k4: "🧓 Transpò granmoun / medikal", k5: "🚍 Transpò rejyonal (MART, RTA)", k6: "🚕 Lòt transpò",
+      Lcontact: "Moun pou kontakte", Lphone: "Telefòn",
+      Lquota: "Konbyen chofè w ap chèche ? <small>Se kota seleksyon w : w ap ka wè kontak kantite kandida sa a. Pou monte l pita, ekri nou.</small>",
+      Lneeds: "Sa w bezwen (si w vle) <small>Egz. : 4 chofè 7D pou rantre lekòl la, zòn Worcester ; ki pwofil…</small>",
+      go: "Louvri vivye a", refresh: "Aktyalize",
+      credits: "Kredi seleksyon ki rete :",
+      showall: "Montre tou chofè k ap vize yon lòt sektè",
+      hSel: "⭐ Kandida mwen chwazi yo",
+      ths1: "Kandida", ths2: "Kontak", ths3: "Vil / zòn", ths4: "Tip", ths5: "Rezilta",
+      emptySel: "Ou poko chwazi pèsonn — gade vivye anba yo epi chwazi kandida w yo. Yon seleksyon final epi li montre kontak la.",
+      hLic: "🪪 Vivye chofè ki gen pèmi deja",
+      thl1: "Ref.", thl2: "Pèmi", thl3: "Eksperyans", thl4: "Lang", thl5: "L ap chèche",
+      thl6: "Disponiblite", thl7: "Otorize", thl8: "Vil / zòn", thl9: "Aksyon",
+      emptyLic: "Poko gen chofè ak pèmi ki enskri — pataje lyen enskripsyon gratis la.",
+      h7d: "🚌 Vivye 7D — transpò lekòl",
+      thn1: "Ref.", thw1: "Egzamen ekri 7D", th7v: "Vil / zòn", thc1: "Aksyon",
+      empty7d: "Poko gen kandida 7D nan vivye a — premye yo ap vini ak vant 7D Pro yo.",
+      hCd: "🚗 Vivye Class D",
+      thn2: "Ref.", thr2: "Preparasyon wout", the2: "Ekri (Pèmi)", tho2: "Rezilta RMV",
+      thcv: "Vil / zòn", thc2: "Aksyon",
+      emptyCd: "Poko gen kandida Class D nan vivye a.",
+      foot: "Ou wè tout vivye a, men non ak kontak yon kandida parèt sèlman lè ou <strong>chwazi</strong> li — epi yon seleksyon <strong>final</strong>. Chak moun isit la te di klè li dakò pou yo kontakte l. Tanpri trete l ak respè : vivye sa a viv sou konfyans yo. Pou ekipe moun ou anboche yo nan lang pa yo : <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:#2ec4b6\">pake kòd</a>. Ou konnen chofè ki gen pèmi deja ? Voye <a href=\"rejistre.html\" style=\"color:#2ec4b6\">lyen enskripsyon gratis la</a> ba yo.",
+      eInvalid: "Kòd la pa bon — mande yon kòd fondatè nan sales@atmart.ltd.",
+      eExpired: "Aksè a fini — sales@atmart.ltd.",
+      eRate: "Ou rive nan limit jounen an — eseye demen.",
+      eQuota: "Pa gen kredi ankò — ekri sales@atmart.ltd pou w chaje.",
+      eDeclare: "Di dabò ki rezilta seleksyon w te fè anvan yo bay.",
+      eTech: "Gen yon ti pwoblèm teknik. Eseye ankò.",
+      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi",
+      qNote: "lè w chwazi yon kandida se final epi kontak li parèt.",
+      cHired: "Konfime ou ANBOCHE kandida sa a ? L ap sòti nan vivye a pou tout anplwayè (li ka retounen li menm si li kite travay la).",
+      cRejected: "Konfime ou PA chwazi kandida sa a ? Li rete disponib pou lòt anplwayè yo.",
+      desc: "Pòtay anplwayè Driver360 la : konpayi transpò Massachusetts yo chèche nan vivye chofè Class D, 7D ak CDL yo — moun ki prepare oswa ki gen pèmi deja, epi ki dakò pou yo kontakte yo.",
+      oHired: "Anboche", oRejected: "Pa chwazi", kLicensed: "🪪 Gen pèmi",
+      wUndeclared: "seleksyon ki san rezilta. Di « Anboche » oswa « Pa chwazi » anba a pou w ka kontinye.",
+      wNoCredit: "Pa gen kredi seleksyon ankò. Ekri sales@atmart.ltd pou w chaje (15 $ pa seleksyon, oswa 49 $ pa mwa).",
+      confirm: "Lè w chwazi kandida sa a, non l ak kontak li parèt, epi sa pran 1 plas nan kota w. Se FINAL (ou pa ka fè bak). Kontinye ?"
+    },
+    es: {
+      ti: "Driver Employer — contrata conductores en Massachusetts | Atmart",
+      kicker: "Contrata conductores preparados — con resultados que puedes verificar.",
+      lead: "El portal de las empresas de transporte de Massachusetts — transporte escolar, entrega de paquetes, transporte de personas mayores y médico, transporte regional (MART): contrata del registro de conductores Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron explícitamente ser contactadas.",
+      note: "Privacidad: aquí solo aparecen quienes marcaron «entrar al pool» — nadie más. Códigos fundadores gratis para las primeras empresas: sales@atmart.ltd.",
+      Lcode: "🔑 Código de acceso de empleador<small>EMP-XXXX-XXXX. ¿Aún no tienes código? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20codigo%20fundador\" style=\"color:#2ec4b6\">Pedir un código fundador (gratis)</a></small>",
+      Lorg: "Tu organización", orgPh: "Ej.: ABC Student Transportation",
+      Lkind: "Eres",
+      k1: "🚌 Transporte escolar", k2: "🏫 Distrito / escuela", k3: "📦 Entrega de paquetes",
+      k4: "🧓 Transporte de mayores / médico", k5: "🚍 Transporte regional (MART, RTA)", k6: "🚕 Otro transporte",
+      Lcontact: "Persona de contacto", Lphone: "Teléfono",
+      Lquota: "¿Cuántos conductores buscas? <small>Es tu cuota de selección: podrás ver el contacto de esa cantidad de candidatos. Escríbenos para ampliarla más adelante.</small>",
+      Lneeds: "Lo que necesitas (opcional) <small>Ej.: 4 conductores 7D para el inicio de clases, zona Worcester; perfil buscado…</small>",
+      go: "Abrir el registro", refresh: "Actualizar",
+      credits: "Créditos de selección restantes:",
+      showall: "Mostrar también conductores que apuntan a otro sector",
+      hSel: "⭐ Mis candidatos seleccionados",
+      ths1: "Candidato", ths2: "Contacto", ths3: "Ciudad / zona", ths4: "Tipo", ths5: "Resultado",
+      emptySel: "Todavía no has seleccionado a nadie — recorre los registros de abajo y elige a tus candidatos. Una selección es definitiva y revela el contacto.",
+      hLic: "🪪 Registro de conductores ya licenciados",
+      thl1: "Ref.", thl2: "Licencias", thl3: "Experiencia", thl4: "Idiomas", thl5: "Busca",
+      thl6: "Disponib.", thl7: "Autorizado", thl8: "Ciudad / zona", thl9: "Acción",
+      emptyLic: "Todavía no hay conductores licenciados inscritos — comparte el enlace de inscripción gratuita.",
+      h7d: "🚌 Registro 7D — transporte escolar",
+      thn1: "Ref.", thw1: "Examen escrito 7D", th7v: "Ciudad / zona", thc1: "Acción",
+      empty7d: "Todavía no hay candidatos 7D — los primeros llegan con las ventas de 7D Pro.",
+      hCd: "🚗 Registro Class D",
+      thn2: "Ref.", thr2: "Preparación de ruta", the2: "Escrito (Pèmi)", tho2: "Resultados del RMV",
+      thcv: "Ciudad / zona", thc2: "Acción",
+      emptyCd: "Todavía no hay candidatos Class D en el registro.",
+      foot: "Ves todo el registro, pero el nombre y el contacto de un candidato solo aparecen cuando lo <strong>seleccionas</strong> — y una selección es <strong>definitiva</strong>. Cada persona aceptó explícitamente ser contactada. Trátala con respeto: este registro vive de su confianza. Para equipar a tus contrataciones en su idioma: <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:#2ec4b6\">packs de códigos</a>. ¿Conoces conductores ya licenciados? Envíales el <a href=\"rejistre.html\" style=\"color:#2ec4b6\">enlace de inscripción gratuita</a>.",
+      eInvalid: "Código no válido — pide un código fundador a sales@atmart.ltd.",
+      eExpired: "Acceso vencido — sales@atmart.ltd.",
+      eRate: "Límite diario alcanzado — inténtalo mañana.",
+      eQuota: "Sin créditos — escribe a sales@atmart.ltd para recargar.",
+      eDeclare: "Declara primero el resultado de tus selecciones anteriores.",
+      eTech: "Pequeño problema técnico. Inténtalo de nuevo.",
+      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar",
+      qNote: "seleccionar a un candidato es definitivo y revela su contacto.",
+      cHired: "¿Confirmas que CONTRATASTE a este candidato? Saldrá del registro para todos los empleadores (podrá volver él mismo si deja el puesto).",
+      cRejected: "¿Confirmas que este candidato NO fue seleccionado? Sigue disponible para otros empleadores.",
+      desc: "El portal de empleadores de Driver360: las empresas de transporte de Massachusetts contratan del registro de conductores Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron ser contactadas.",
+      oHired: "Contratado", oRejected: "No seleccionado", kLicensed: "🪪 Licenciado",
+      wUndeclared: "selecciones sin resultado declarado. Declara «Contratado» o «No seleccionado» abajo para poder continuar.",
+      wNoCredit: "Sin créditos de selección. Escribe a sales@atmart.ltd para recargar (15 $ por selección, o 49 $/mes).",
+      confirm: "Seleccionar a este candidato revela su nombre y su contacto, y consume 1 lugar de tu cuota. Es DEFINITIVO (no se puede deshacer). ¿Continuar?"
+    }
+  };
+
+  function code() {
+    var l = document.documentElement.lang;
+    if (!EPL[l]) { try { l = localStorage.getItem("atmart_lang"); } catch (e) { l = null; } }
+    return EPL[l] ? l : "fr";
+  }
+  /* Le francais sert de repli : une cle oubliee dans une langue s'affiche en
+     francais lisible, jamais comme un identifiant technique — et se voit. */
+  window.EPT = function (k) {
+    var d = EPL[code()];
+    return d[k] != null ? d[k] : EPL.fr[k];
+  };
+
+  var applique = null;
+  function txt(id, v) { var e = document.getElementById(id); if (e && v != null) e.textContent = v; }
+  function html(id, v) { var e = document.getElementById(id); if (e && v != null) e.innerHTML = v; }
+
+  function applyLang() {
+    var l = code(); if (l === applique) return; applique = l;
+    var t = EPL[l], f = EPL.fr, v = function (k) { return t[k] != null ? t[k] : f[k]; };
+    document.title = v("ti");
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute("content", v("desc"));
+    txt("ep-kicker", v("kicker")); txt("ep-lead", v("lead")); txt("ep-note", v("note"));
+    html("L-code", v("Lcode"));
+    txt("L-org", v("Lorg")); txt("L-kind", v("Lkind"));
+    txt("L-contact", v("Lcontact")); txt("L-phone", v("Lphone"));
+    html("L-quota", v("Lquota")); html("L-needs", v("Lneeds"));
+    var org = document.getElementById("ep-org"); if (org) org.placeholder = v("orgPh");
+    var kd = document.getElementById("ep-kind");
+    if (kd) for (var i = 0; i < 6 && i < kd.options.length; i++) kd.options[i].text = v("k" + (i + 1));
+    txt("ep-go", v("go")); txt("ep-refresh", v("refresh"));
+    txt("ep-credits-lbl", v("credits")); txt("ep-showall-lbl", v("showall"));
+    txt("ep-h-sel", v("hSel")); txt("ep-h-lic", v("hLic"));
+    txt("ep-h-7d", v("h7d")); txt("ep-h-cd", v("hCd"));
+    txt("ep-empty-sel", v("emptySel")); txt("ep-empty-lic", v("emptyLic"));
+    txt("ep-empty-7d", v("empty7d")); txt("ep-empty-cd", v("emptyCd"));
+    ["ths1","ths2","ths3","ths4","ths5","thl1","thl2","thl3","thl4","thl5","thl6",
+     "thl7","thl8","thl9","th7v","thcv"].forEach(function (k) { txt(k, v(k)); });
+    txt("th-n1", v("thn1")); txt("th-w1", v("thw1")); txt("th-c1", v("thc1"));
+    txt("th-n2", v("thn2")); txt("th-r2", v("thr2")); txt("th-e2", v("the2"));
+    txt("th-o2", v("tho2")); txt("th-c2", v("thc2"));
+    html("ep-foot", v("foot"));
+  }
+
+  applyLang();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", applyLang);
+  new MutationObserver(applyLang).observe(document.documentElement, {
+    attributes: true, attributeFilter: ["lang"]
+  });
+})();
+</script>
+<script src="assets/suite.js?v=1"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

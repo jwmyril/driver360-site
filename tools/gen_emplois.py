@@ -39,6 +39,12 @@ LANGUES = ["en", "fr", "ht", "es"]
 # NOTE KREYOL. Traduit a partir du SENS, jamais mot a mot. A relire par
 # l'utilisateur, qui est l'autorite sur cette langue.
 TX = {
+    "ti": {
+        "en": "Driving jobs in Massachusetts — Driver360",
+        "fr": "Emplois de chauffeur au Massachusetts — Driver360",
+        "ht": "Travay chofè nan Massachusetts — Driver360",
+        "es": "Empleos de conductor en Massachusetts — Driver360",
+    },
     "titre": {
         "en": "Driving jobs in Massachusetts",
         "fr": "Emplois de chauffeur au Massachusetts",
@@ -287,8 +293,10 @@ d.lang=l||"en";})();
 <script>
 var T = %(dico)s;
 var LANGUES = {en:"English", ht:"Kreyòl", fr:"Français", es:"Español"};
+var TITRE0 = document.title;   /* le titre anglais, ecrit dans le <title> */
 function appliquer(l){
   var d = T[l];                      /* en = ce qui est ecrit dans le HTML */
+  document.title = (d && d.ti) ? d.ti : TITRE0;
   document.querySelectorAll("[data-t]").forEach(function(e){
     if(!e.dataset.original) e.dataset.original = e.innerHTML;
     e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
@@ -311,6 +319,7 @@ function appliquer(l){
   appliquer(document.documentElement.lang || "en");
 })();
 </script>
+<script src="assets/suite.js?v=1"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

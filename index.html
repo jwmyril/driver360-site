@@ -172,9 +172,9 @@ d.lang=l||"en";})();
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
-    <span data-t="contact">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — <span data-t="droits">All rights reserved.</span></p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
   </div>
 </footer>
 
@@ -191,6 +191,7 @@ d.lang=l||"en";})();
    RELECTURE KREYOL : a faire par l utilisateur, qui est l autorite. */
 var T = {
  "ht": {
+  "ti": "Driver360 — travay chofè ak pèmi nan Massachusetts",
   "fil": "Massachusetts manke chofè. Distri lekòl yo, konpayi transpò piblik yo ak lòt konpayi ap chèche moun.",
   "aka": "travay chofè, pèmi, ak rekritman",
   "lieu": "Massachusetts",
@@ -230,10 +231,9 @@ var T = {
   "w5_d": "Tout bagay isit la egziste tou an kreyòl, an franse ak an panyòl — egzèsis egzamen yo ladan. Anglè se lang defo a; rès la se yon klik, pou moun ki bezwen l.",
   "w6_t": "Fèt nan Massachusetts",
   "w6_d": "Class D ak 7D, règ RMV yo, vil yo ak konpayi transpò eta sa a. Se pa yon sit nasyonal ki gen de twa travay isit la.",
-  "contact": "Yon kesyon",
-  "droits": "Tout dwa rezève."
  },
  "fr": {
+  "ti": "Driver360 — emplois de chauffeur et permis au Massachusetts",
   "fil": "Le Massachusetts manque de chauffeurs. Les districts scolaires, les régies de transport et les entreprises recrutent.",
   "aka": "emplois de chauffeur, permis et recrutement",
   "lieu": "Massachusetts",
@@ -273,10 +273,9 @@ var T = {
   "w5_d": "Tout existe aussi en kreyòl, en français et en espagnol — les exercices d'examen compris. L'anglais est la langue par défaut ; le reste est à un clic, pour qui en a besoin.",
   "w6_t": "Fait au Massachusetts",
   "w6_d": "Class D et 7D, les règles du RMV, les villes et les régies de transport de cet État. Pas un site national qui liste au passage quelques offres ici.",
-  "contact": "Une question",
-  "droits": "Tous droits réservés."
  },
  "es": {
+  "ti": "Driver360 — empleos de conductor y licencias en Massachusetts",
   "fil": "A Massachusetts le faltan conductores. Los distritos escolares, las autoridades de transporte y las empresas están contratando.",
   "aka": "empleos de conductor, licencias y contratación",
   "lieu": "Massachusetts",
@@ -316,15 +315,15 @@ var T = {
   "w5_d": "Todo existe también en criollo haitiano, francés y español — los ejercicios de examen incluidos. El inglés es el idioma por defecto; el resto está a un clic, para quien lo necesite.",
   "w6_t": "Hecho en Massachusetts",
   "w6_d": "Class D y 7D, las reglas del RMV, las ciudades y las autoridades de transporte de este estado. No es un sitio nacional que de paso lista unas cuantas ofertas aquí.",
-  "contact": "Una pregunta",
-  "droits": "Todos los derechos reservados."
  }
 };
 
 var LANGUES = {en:"English", ht:"Kreyòl", fr:"Français", es:"Español"};
 
+var TITRE0 = document.title;   /* le titre anglais, ecrit dans le <title> */
 function appliquer(l){
   var d = T[l];                      /* en = ce qui est ecrit dans le HTML */
+  document.title = (d && d.ti) ? d.ti : TITRE0;
   document.querySelectorAll("[data-t]").forEach(function(e){
     if(!e.dataset.original) e.dataset.original = e.innerHTML;
     e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
@@ -346,6 +345,7 @@ function appliquer(l){
   appliquer(document.documentElement.lang || "en");
 })();
 </script>
+<script src="assets/suite.js?v=1"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

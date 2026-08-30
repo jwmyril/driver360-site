@@ -71,18 +71,15 @@ APPEL_EMPLOYEUR = """
   <div class="container">
     <div style="background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.45);
       border-radius:16px;padding:1.5rem 1.7rem;max-width:820px">
-      <h2 style="margin:0 0 .6rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.24rem">
-        Le vivier est en train de se constituer</h2>
-      <p style="margin:0 0 1rem;font-size:.96rem;line-height:1.68;color:#e4dbcf;max-width:64ch">
-        Nous n'avons pas encore de chauffeurs à vous montrer, et nous n'allons pas faire
-        semblant : les viviers ci-dessous sont vides aujourd'hui. Dites-nous plutôt
-        <strong>ce que vous cherchez</strong> — nous vous préviendrons dès qu'un profil
-        correspond, et cela nous dit où concentrer le recrutement.
+      <h2 data-d3="b_titre" style="margin:0 0 .6rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.24rem">The pool is still being built</h2>
+      <p data-d3="b_texte" style="margin:0 0 1rem;font-size:.96rem;line-height:1.68;color:#e4dbcf;max-width:64ch">
+        We have no drivers to show you yet, and we are not going to pretend otherwise: the pools
+        below are empty today. Tell us instead <strong>what you are looking for</strong> — we will
+        let you know as soon as a profile matches, and it tells us where to concentrate our recruiting.
       </p>
-      <a class="btn btn-primary" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">
-        Dire ce que je recherche</a>
-      <p style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
-        Aucun engagement, et nous ne diffusons le nom d'aucun chauffeur sans son accord.
+      <a class="btn btn-primary" data-d3="b_bouton" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">Tell us what we should look for</a>
+      <p data-d3="b_note" style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
+        No commitment, and we never pass on a driver's name without their agreement.
       </p>
     </div>
   </div>
@@ -99,12 +96,18 @@ APPEL_EMPLOYEUR = """
 # POURQUOI « JOBS » EN PREMIER. C'est ce que le visiteur est venu chercher.
 # Le vivier, le coach et le portail employeur sont les moyens ; l'emploi est
 # la fin. La navigation doit lire dans cet ordre-la.
+# Chaque entree : (page, libelle en anglais, cle de traduction).
+# Une cle vide = un NOM DE PRODUIT, qui ne se traduit pas. Driver Pool reste
+# Driver Pool dans les quatre langues : traduire un nom propre ferait croire a
+# quatre produits differents. Les libelles generiques, eux, se traduisent —
+# assets/suite.js tient le dictionnaire.
 NAV_CHAUFFEUR = [
-    ("index.html", "Home"), ("jobs.html", "Jobs"), ("vivye.html", "Driver Pool"),
-    ("wout.html", "Driver Coach"), ("setdi.html", "7D Coach"),
+    ("index.html", "Home", "n_home"), ("jobs.html", "Jobs", "n_jobs"),
+    ("vivye.html", "Driver Pool", ""), ("wout.html", "Driver Coach", ""),
+    ("setdi.html", "7D Coach", ""),
 ]
 NAV_EMPLOYEUR = [
-    ("index.html", "Home"), ("anplwaye.html", "Driver Employer"),
+    ("index.html", "Home", "n_home"), ("anplwaye.html", "Driver Employer", ""),
 ]
 
 # Les pages qui appartiennent a CETTE suite : leurs liens restent relatifs.
@@ -125,12 +128,13 @@ def entete(actif, cote, selecteur=False):
     """
     liens = NAV_CHAUFFEUR if cote == "chauffeur" else NAV_EMPLOYEUR
     lis = []
-    for href, libelle in liens:
+    for href, libelle, cle in liens:
         style = ("color:var(--accent);font-weight:600" if href == actif else "color:var(--ink)")
-        lis.append(f'        <li><a href="{href}" style="{style};text-decoration:none;font-size:.9rem">{libelle}</a></li>')
-    autre = ('<a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a>'
+        d3 = f' data-d3="{cle}"' if cle else ""
+        lis.append(f'        <li><a href="{href}"{d3} style="{style};text-decoration:none;font-size:.9rem">{libelle}</a></li>')
+    autre = ('<a href="anplwaye.html" data-d3="x_hiring" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a>'
              if cote == "chauffeur" else
-             '<a href="index.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a>')
+             '<a href="index.html" data-d3="x_drive" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a>')
     return ('<header>\n  <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">\n'
             '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />'
             'Driver<span>360</span><small>by Atmart</small></a>\n'
@@ -140,12 +144,13 @@ def entete(actif, cote, selecteur=False):
             + '    </ul>\n  </nav>\n</header>')
 
 
-PIED = ('<footer>\n  <div class="container">\n'
-        '    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" '
-        'style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />\n'
-        '    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>\n'
-        '    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>\n'
-        '  </div>\n</footer>')
+PIED = """<footer>
+  <div class="container">
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
+  </div>
+</footer>"""
 
 # Les scripts propres a atmart.ltd n'ont rien a faire ici : ils chargent un
 # service worker et un lanceur qui pointent vers l'autre site.
@@ -167,7 +172,12 @@ def transformer(src_nom, dst_nom, cote):
     for rx in A_RETIRER:
         s = rx.sub("", s)
     # le service worker de CETTE suite
-    s = s.replace("</body>", '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
+    # suite.js traduit l'enveloppe (navigation, pied, bandeau) ; il doit
+    # etre charge sur TOUTES les pages, sinon la page reste dans la langue
+    # ecrite en dur pendant que son corps change — le melange exact que
+    # l'utilisateur a signale le 30/08/2026.
+    s = s.replace("</body>", '<script src="assets/suite.js?v=1"></script>\n'
+                  '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres
     #    partent en absolu vers atmart.ltd — sinon ils tombent dans le vide.

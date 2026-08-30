@@ -49,12 +49,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
     <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
-        <li><a href="jobs.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Jobs</a></li>
+        <li><a href="index.html" data-d3="n_home" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
+        <li><a href="jobs.html" data-d3="n_jobs" style="color:var(--ink);text-decoration:none;font-size:.9rem">Jobs</a></li>
         <li><a href="vivye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Coach</a></li>
         <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">7D Coach</a></li>
-        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
+        <li><a href="anplwaye.html" data-d3="x_hiring" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
     </ul>
   </nav>
 </header>
@@ -114,12 +114,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t3">3. Ce que vous cherchez</h3>
         <label id="L-seek">Types de transport qui vous intéressent</label>
         <div class="rj-checks" id="rj-seek">
-          <label class="rj-chk"><input type="checkbox" value="school" /> <span>🏫 Transport scolaire</span></label>
-          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span>📦 Livraison de colis</span></label>
-          <label class="rj-chk"><input type="checkbox" value="senior" /> <span>🧓 Personnes âgées / médical</span></label>
-          <label class="rj-chk"><input type="checkbox" value="transit" /> <span>🚍 Transport régional (MART, RTA)</span></label>
-          <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span>🚕 Taxi / VTC</span></label>
-          <label class="rj-chk"><input type="checkbox" value="other" /> <span>➕ Autre</span></label>
+          <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 Transport scolaire</span></label>
+          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span id="S-delivery">📦 Livraison de colis</span></label>
+          <label class="rj-chk"><input type="checkbox" value="senior" /> <span id="S-senior">🧓 Personnes âgées / médical</span></label>
+          <label class="rj-chk"><input type="checkbox" value="transit" /> <span id="S-transit">🚍 Transport régional (MART, RTA)</span></label>
+          <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span id="S-rideshare">🚕 Taxi / VTC</span></label>
+          <label class="rj-chk"><input type="checkbox" value="other" /> <span id="S-other">➕ Autre</span></label>
         </div>
         <label id="L-flex">Jusqu'où êtes-vous ouvert ?<small>C'est vous qui décidez qui peut vous voir.</small></label>
         <div id="rj-flex" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
@@ -180,9 +180,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
-    Une question : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — Tous droits réservés.</p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
   </div>
 </footer>
 
@@ -208,6 +208,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Années d'expérience au volant (professionnelle)", seek:"Types de transport qui vous intéressent",
       avail:"Disponibilité", v1:"Temps plein", v2:"Temps partiel", v3:"L'un ou l'autre",
       consent:"J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.",
+      s_school:"🏫 Transport scolaire",
+      s_delivery:"📦 Livraison de colis",
+      s_senior:"🧓 Personnes âgées / médical",
+      s_transit:"🚍 Transport régional (MART, RTA)",
+      s_rideshare:"🚕 Taxi / VTC",
+      s_other:"➕ Autre",
+      ti:"Driver360 — Inscrivez-vous au pool de chauffeurs (gratuit) | Atmart",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -232,6 +239,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Konbyen ane eksperyans kondwi (pwofesyonèl)", seek:"Ki kalite transpò ki enterese w",
       avail:"Disponibilite", v1:"Tan konplè", v2:"Tan pasyèl", v3:"Youn oswa lòt",
       consent:"Mwen dakò pou anplwayè nan Massachusetts kontakte m pou yon travay chofè. Mwen konprann non m ak telefòn mwen parèt sèlman pou yon anplwayè ki chwazi m, epi mwen ka retire m nan pool la nenpòt lè ak kòd mwen.",
+      s_school:"🏫 Transpò lekòl",
+      s_delivery:"📦 Livrezon pake",
+      s_senior:"🧓 Granmoun / medikal",
+      s_transit:"🚍 Transpò rejyonal (MART, RTA)",
+      s_rideshare:"🚕 Taksi / VTC",
+      s_other:"➕ Lòt",
+      ti:"Driver360 — Enskri nan vivye chofè yo (gratis) | Atmart",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -256,6 +270,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Years of professional driving experience", seek:"Types of transport that interest you",
       avail:"Availability", v1:"Full time", v2:"Part time", v3:"Either",
       consent:"I agree that Massachusetts employers may contact me for a driving job. I understand my name and phone are revealed only to an employer who selects me, and that I can withdraw from the pool anytime with my code.",
+      s_school:"🏫 School transport",
+      s_delivery:"📦 Package delivery",
+      s_senior:"🧓 Seniors / medical",
+      s_transit:"🚍 Regional transit (MART, RTA)",
+      s_rideshare:"🚕 Taxi / rideshare",
+      s_other:"➕ Other",
+      ti:"Driver360 — Join the driver pool (free) | Atmart",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -280,6 +301,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Años de experiencia profesional al volante", seek:"Tipos de transporte que te interesan",
       avail:"Disponibilidad", v1:"Tiempo completo", v2:"Medio tiempo", v3:"Cualquiera",
       consent:"Acepto que empleadores de Massachusetts puedan contactarme para un empleo de chofer. Entiendo que mi nombre y teléfono solo se revelan a un empleador que me selecciona, y que puedo retirarme del pool cuando quiera con mi código.",
+      s_school:"🏫 Transporte escolar",
+      s_delivery:"📦 Entrega de paquetes",
+      s_senior:"🧓 Personas mayores / médico",
+      s_transit:"🚍 Transporte regional (MART, RTA)",
+      s_rideshare:"🚕 Taxi / VTC",
+      s_other:"➕ Otro",
+      ti:"Driver360 — Inscríbete en el registro de conductores (gratis) | Atmart",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -312,6 +340,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     av[0].text=t.a0; av[1].text=t.v1; av[2].text=t.v2; av[3].text=t.v3;
     setT("rj-consent-txt",t.consent); setT("rj-go",t.go); setT("rj-have",t.have);
     var w=document.getElementById("rj-wa-txt"); if(w&&t.wa) w.innerHTML=t.wa;
+    ["school","delivery","senior","transit","rideshare","other"].forEach(function(v){
+      setT("S-"+v, t["s_"+v]);});
+    if(t.ti) document.title=t.ti;
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
@@ -451,6 +482,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   });
 })();
 </script>
+<script src="assets/suite.js?v=1"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>
