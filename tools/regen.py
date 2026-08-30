@@ -89,30 +89,55 @@ APPEL_EMPLOYEUR = """
 </section>
 """
 
+# LA NAVIGATION EST EN ANGLAIS, et « Jobs » vient en premier apres l'accueil.
+#
+# POURQUOI L'ANGLAIS. Driver360 s'adresse a tous les residents du Massachusetts,
+# pas a une communaute. Le kreyol, le francais et l'espagnol restent disponibles
+# d'un clic sur chaque page — mais ils sont un AVANTAGE du produit, pas son
+# identite. Une barre de navigation en francais disait le contraire.
+#
+# POURQUOI « JOBS » EN PREMIER. C'est ce que le visiteur est venu chercher.
+# Le vivier, le coach et le portail employeur sont les moyens ; l'emploi est
+# la fin. La navigation doit lire dans cet ordre-la.
 NAV_CHAUFFEUR = [
-    ("index.html", "Accueil"), ("vivye.html", "Driver Pool"),
-    ("wout.html", "Driver Coach"), ("setdi.html", "Coach 7D"),
+    ("index.html", "Home"), ("jobs.html", "Jobs"), ("vivye.html", "Driver Pool"),
+    ("wout.html", "Driver Coach"), ("setdi.html", "7D Coach"),
 ]
 NAV_EMPLOYEUR = [
-    ("index.html", "Accueil"), ("anplwaye.html", "Driver Employer"),
+    ("index.html", "Home"), ("anplwaye.html", "Driver Employer"),
 ]
 
+# Les pages qui appartiennent a CETTE suite : leurs liens restent relatifs.
+# jobs.html n'est derivee d'aucune page d'atmart.ltd (elle est fabriquee par
+# tools/gen_emplois.py), donc elle n'apparait pas dans PAGES — sans cette
+# liste, `absolu()` l'enverrait sur atmart.ltd/jobs.html, qui n'existe pas.
+PAGES_SUITE = {b for _, b, _, _, _ in PAGES} | {"index.html", "jobs.html"}
 
-def entete(actif, cote):
+
+def entete(actif, cote, selecteur=False):
+    """L'en-tete de la suite.
+
+    `selecteur` pose la barre de langues DANS la navigation. Elle n'est utile
+    que pour les pages qui portent leur propre dictionnaire (l'accueil, jobs) :
+    les pages derivees d'atmart.ltd chargent assets/i18n.js, qui injecte deja
+    son propre selecteur dans `.nav-links` — en poser un second en donnerait
+    deux cote a cote, dont un seul marcherait.
+    """
     liens = NAV_CHAUFFEUR if cote == "chauffeur" else NAV_EMPLOYEUR
     lis = []
     for href, libelle in liens:
         style = ("color:var(--accent);font-weight:600" if href == actif else "color:var(--ink)")
         lis.append(f'        <li><a href="{href}" style="{style};text-decoration:none;font-size:.9rem">{libelle}</a></li>')
-    autre = ('<a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">Je recrute →</a>'
+    autre = ('<a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a>'
              if cote == "chauffeur" else
-             '<a href="index.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">← Je conduis</a>')
+             '<a href="index.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">← I drive</a>')
     return ('<header>\n  <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">\n'
             '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />'
-            'Driver<span>360</span><small>pa Atmart</small></a>\n'
+            'Driver<span>360</span><small>by Atmart</small></a>\n'
             '    <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">\n'
             + "\n".join(lis) + f'\n        <li>{autre}</li>\n'
-            '    </ul>\n  </nav>\n</header>')
+            + ('        <li><div class="d3-lang" id="lang"></div></li>\n' if selecteur else "")
+            + '    </ul>\n  </nav>\n</header>')
 
 
 PIED = ('<footer>\n  <div class="container">\n'
@@ -152,7 +177,7 @@ def transformer(src_nom, dst_nom, cote):
                    lambda m: 'href="%s%s"' % (b, m.group(1) or ""), s)
     def absolu(m):
         cible = m.group(1)
-        if cible in interne.values() or cible in ("index.html",):
+        if cible in PAGES_SUITE:
             return m.group(0)
         return 'href="https://atmart.ltd/%s"' % cible
     s = re.sub(r'href="([a-z0-9\-]+\.html)"', absolu, s)

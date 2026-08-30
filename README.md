@@ -1,7 +1,22 @@
 # Driver360 — driver360.atmart.ltd
 
-La suite conduite d'Atmart pour le Massachusetts : préparation au permis et
-recrutement de chauffeurs, réunis sous une adresse à eux.
+La suite conduite d'Atmart **pour tous les résidents du Massachusetts** :
+trouver un emploi de chauffeur, obtenir le permis qu'il demande, et recruter.
+
+## À qui la suite s'adresse — décidé le 29/08/2026
+
+Driver360 s'adresse à **tout résident du Massachusetts** qui veut lever la
+barrière à l'emploi que représentent le Class D et le 7D. Ce n'est **pas** un
+produit communautaire.
+
+Conséquences, appliquées partout :
+
+- **La langue écrite dans le HTML est l'anglais**, y compris la navigation. Le
+  kreyòl, le français et l'espagnol restent à un clic sur chaque page : ils sont
+  un **avantage** du produit, pas son identité.
+- **Ni les Haïtiens ni le test de route ne sont mis en avant sur l'accueil.**
+  L'accueil parle d'emploi. Le permis apparaît comme ce qui sépare quelqu'un
+  d'un poste — un moyen, jamais la promesse principale.
 
 ## La règle qui commande la structure
 
@@ -44,12 +59,54 @@ concrète de s'inscrire.
 **Retirer ce bandeau le jour où le vivier compte de vrais chauffeurs — pas avant.**
 Il est dans `APPEL_EMPLOYEUR`, en tête de `tools/regen.py`.
 
-## Régénérer les pages
+## `jobs.html` — la page qui renverse la relation
 
-Les quatre pages sont **dérivées** d'atmart.ltd, jamais éditées ici :
+Un chauffeur ne s'inscrit pas dans un vivier pour figurer dans une base. Il
+s'inscrit parce qu'il y a un poste. Tant que le site ne disait que « inscrivez-
+vous, on vous trouvera peut-être », il demandait un service au chauffeur au lieu
+de lui en rendre un. `jobs.html` donne quelque chose d'utile **avant** de
+demander quoi que ce soit.
+
+**Elle ne republie aucune annonce.** Elle liste les employeurs qui recrutent des
+chauffeurs au Massachusetts et renvoie sur *leur* page. Rien n'y périme, aucune
+condition d'utilisation d'un agrégateur n'est enfreinte, et le chauffeur postule
+au bon endroit du premier coup.
+
+Les employeurs sont dans `tools/emplois.py`, avec la date de vérification.
+**Aucune URL n'entre sans avoir été ouverte :**
 
 ```bash
-python tools/regen.py
+python tools/gen_emplois.py --verifier   # ouvre les 8 liens, dit lesquels sont morts
+python tools/gen_emplois.py              # régénère la page
+```
+
+Au 29/08/2026 : 8 employeurs, 8 liens vivants.
+
+## Les alertes WhatsApp
+
+À l'inscription au vivier, une **deuxième case, facultative**, demande à être
+prévenu quand une offre s'ouvre. Elle est distincte du consentement au vivier :
+on peut vouloir être trouvé par un employeur sans vouloir recevoir de messages.
+
+Le Worker stocke `wa` **et `waAt`**, l'horodatage du consentement. Le booléen
+seul ne suffit pas : la loi américaine (TCPA) et les règles de Meta demandent de
+pouvoir montrer *quand* il a été donné. Un consentement déjà donné **garde sa
+date d'origine** quand la fiche est modifiée ; le retirer efface la date.
+
+**Aujourd'hui l'envoi est manuel.** Le compte WhatsApp Business n'est pas ouvert
+(il demande un numéro dédié, un compte vérifié et des gabarits approuvés par
+Meta, facturés à la conversation). La page le dit en toutes lettres plutôt que
+de laisser croire à un système automatique. Le consentement, lui, est collecté
+et daté dès maintenant — c'est ce qui rendra l'ouverture du compte possible.
+
+## Régénérer les pages
+
+Les quatre pages dérivées d'atmart.ltd ne sont **jamais** éditées ici.
+`index.html` et `jobs.html`, elles, appartiennent à ce dépôt :
+
+```bash
+python tools/regen.py        # les 4 pages derivees
+python tools/gen_emplois.py  # jobs.html
 ```
 
 Sources : `chofe360.html`, `setd360.html`, `rejistre.html`, `anplwaye360.html`.
@@ -62,4 +119,10 @@ atmart.ltd, et rend absolus les liens qui sortent de la suite.
   `https://driver360.atmart.ltd` doit figurer dans `ALLOWED_ORIGINS`, sinon le
   Worker répond et le navigateur jette la réponse : panne silencieuse.
 - **GitHub Pages** — publier = pousser sur `main`.
-- **DNS** — un CNAME `driver360` → `jwmyril.github.io` chez le registrar.
+- **DNS** — un CNAME `driver360` → `jwmyril.github.io` **dans Cloudflare**,
+  proxifié (nuage orange), comme `360` et `arpentaj`. Porkbun n'est que le
+  bureau d'enregistrement : les serveurs de noms d'`atmart.ltd` sont délégués à
+  Cloudflare, donc un enregistrement posé chez Porkbun ne serait jamais lu.
+  Posé le 29/08/2026.
+- **Service worker** — bumper `CACHE` dans `sw.js` à chaque refonte visible,
+  sinon les visiteurs gardent l'ancienne page pendant des jours.

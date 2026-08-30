@@ -1,52 +1,67 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Driver360 — permis, test de route et recrutement de chauffeurs (Massachusetts)</title>
-  <meta name="description" content="Driver360 : le coach du test de route en kreyòl, français, anglais et espagnol, la préparation au permis 7D, et le vivier de chauffeurs du Massachusetts. Pour ceux qui conduisent et pour ceux qui recrutent." />
+  <title>Driver360 — driving jobs and licences in Massachusetts</title>
+  <meta name="description" content="Massachusetts is short of drivers. Driver360 shows you who is hiring, tells you when a new job opens, and gets you through the Class D road test and the 7D exam. For every Massachusetts resident — and for the companies that need drivers." />
+  <link rel="canonical" href="https://driver360.atmart.ltd/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css" />
-<script>/* lang otomatik : anvan premye afichaj la */
+<script>/* langue automatique, avant le premier affichage */
 (function(){var S={ht:1,fr:1,en:1,es:1},d=document.documentElement,s=null;
 try{s=localStorage.getItem("atmart_lang")}catch(e){}
 var l=s&&S[s]?s:null;
 if(!l){var n=navigator.languages||[navigator.language||""];
 for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
 if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
-d.lang=l||"ht";})();
+d.lang=l||"en";})();
 </script>
   <style>
-    .d3-produits{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-top:2rem}
-    @media(min-width:900px){.d3-produits{grid-template-columns:repeat(3,1fr);gap:1.2rem}}
-    .d3-porte .rang{font-size:.68rem;font-weight:700;letter-spacing:.14em;color:#5a6f83;display:block;margin-bottom:.7rem}
-    .d3-porte .qui{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.04em;
-      border-radius:99px;padding:.22rem .7rem;margin-bottom:.9rem}
+    .d3-deux{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.8rem}
+    @media(min-width:820px){.d3-deux{grid-template-columns:1fr 1fr;gap:1.2rem}}
+    .d3-voie{display:block;text-decoration:none;border-radius:18px;padding:1.7rem 1.8rem;
+      border:1px solid rgba(255,255,255,.12);transition:border-color .25s,transform .25s}
+    .d3-voie:hover{transform:translateY(-3px)}
+    .d3-voie.dr{background:rgba(46,196,182,.09);border-color:rgba(46,196,182,.4)}
+    .d3-voie.dr:hover{border-color:rgba(46,196,182,.8)}
+    .d3-voie.em{background:rgba(93,156,236,.09);border-color:rgba(93,156,236,.4)}
+    .d3-voie.em:hover{border-color:rgba(93,156,236,.8)}
+    .d3-voie .ic{font-size:2rem;display:block;margin-bottom:.6rem}
+    .d3-voie h2{margin:0 0 .5rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
+    .d3-voie>p{margin:0 0 1.1rem;font-size:.98rem;color:#c9d8e6;line-height:1.65}
+    .d3-voie .entrer{font-weight:600;font-size:.95rem}
+    .d3-voie.dr .entrer{color:#2ec4b6}
+    .d3-voie.em .entrer{color:#5d9cec}
+
+    .d3-produits{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.4rem}
+    @media(min-width:900px){.d3-produits{grid-template-columns:repeat(3,1fr);gap:1.1rem}}
+    .d3-porte{display:block;text-decoration:none;border-radius:16px;padding:1.4rem 1.5rem;
+      border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.035);
+      transition:border-color .25s,transform .25s}
+    .d3-porte:hover{transform:translateY(-3px)}
+    .d3-porte.pool:hover,.d3-porte.coach:hover{border-color:rgba(46,196,182,.7)}
+    .d3-porte.emp:hover{border-color:rgba(93,156,236,.7)}
+    .d3-porte .rang{font-size:.66rem;font-weight:700;letter-spacing:.14em;color:#5a6f83;display:block;margin-bottom:.6rem}
+    .d3-porte .qui{display:inline-block;font-size:.73rem;font-weight:600;letter-spacing:.04em;
+      border-radius:99px;padding:.2rem .65rem;margin-bottom:.75rem}
     .d3-porte.pool .qui,.d3-porte.coach .qui{background:rgba(46,196,182,.16);color:#2ec4b6}
     .d3-porte.emp .qui{background:rgba(93,156,236,.16);color:#5d9cec}
-    .d3-porte{display:block;text-decoration:none;border-radius:18px;padding:1.7rem 1.8rem;
-      border:1px solid rgba(255,255,255,.12);transition:border-color .25s,transform .25s}
-    .d3-porte:hover{transform:translateY(-3px)}
-    .d3-porte.pool,.d3-porte.coach{background:rgba(46,196,182,.08);border-color:rgba(46,196,182,.38)}
-    .d3-porte.pool:hover,.d3-porte.coach:hover{border-color:rgba(46,196,182,.75)}
-    .d3-porte.emp{background:rgba(93,156,236,.08);border-color:rgba(93,156,236,.38)}
-    .d3-porte.emp:hover{border-color:rgba(93,156,236,.75)}
-    .d3-porte .ic{font-size:2.2rem;display:block;margin-bottom:.7rem}
-    .d3-porte h2{margin:0 0 .45rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
-    .d3-porte>p{margin:0 0 1.1rem;font-size:.98rem;color:#c9d8e6;line-height:1.65}
-    .d3-porte ul{margin:0 0 1.2rem;padding-left:1.1rem}
-    .d3-porte li{font-size:.9rem;color:#9db2c7;line-height:1.6;margin-bottom:.35rem}
-    .d3-porte .entrer{font-weight:600;font-size:.95rem}
+    .d3-porte .ic{font-size:1.7rem;display:block;margin-bottom:.5rem}
+    .d3-porte h3{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.28rem}
+    .d3-porte>p{margin:0 0 .9rem;font-size:.92rem;color:#9db2c7;line-height:1.62}
+    .d3-porte .entrer{font-weight:600;font-size:.9rem}
     .d3-porte.pool .entrer,.d3-porte.coach .entrer{color:#2ec4b6}
     .d3-porte.emp .entrer{color:#5d9cec}
+
     .d3-franc{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.42);border-radius:14px;
-      padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:#e4dbcf;line-height:1.65;max-width:760px}
+      padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:#e4dbcf;line-height:1.65;max-width:74ch}
     .d3-pour{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.1rem}
     .d3-pour div{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
       border-radius:13px;padding:1.05rem 1.2rem;font-size:.88rem;color:#9db2c7;line-height:1.6}
@@ -61,195 +76,255 @@ d.lang=l||"ht";})();
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>pa Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <div class="d3-lang" id="lang"></div>
   </nav>
 </header>
 
 <section class="hero" style="padding-bottom:1rem">
   <div class="container">
-    <p class="kreyol" data-t="fil">Nan Massachusetts, egzaminatè a pale anglè — men ou gen dwa a yon entèprèt.</p>
+    <p class="kreyol" data-t="fil">Massachusetts is short of drivers. School districts, transit authorities and companies are all hiring.</p>
     <h1>Driver360</h1>
-    <div class="aka"><b data-t="aka">pèmi, tès wout, ak rekritman chofè</b><small data-t="lieu">Massachusetts</small></div>
-    <p class="lead" data-t="lead">Yon sèl kote pou moun k ap aprann kondi ak moun k ap chèche chofè. Nou pa mete de bagay sa yo nan menm paj la : chak moun gen pòt pa l.</p>
+    <div class="aka"><b data-t="aka">driving jobs, licences, and hiring</b><small data-t="lieu">Massachusetts</small></div>
+    <p class="lead" data-t="lead">If you want one of those jobs, we show you who is hiring, tell you when a new post opens, and get you through the licence exam. If you need drivers, we bring you people who are ready to work.</p>
   </div>
 </section>
 
-<section style="padding-top:.2rem">
+<section style="padding-top:.2rem;padding-bottom:.6rem">
   <div class="container">
+    <div class="d3-deux">
+
+      <a class="d3-voie dr" href="jobs.html">
+        <span class="ic">🔎</span>
+        <h2 data-t="v1_t">I want a driving job</h2>
+        <p data-t="v1_d">See who is hiring drivers in Massachusetts right now — school transport, regional transit, medical transport. Checked links, straight to the employer. Free, and no account to open.</p>
+        <span class="entrer" data-t="v1_e">See who is hiring →</span>
+      </a>
+
+      <a class="d3-voie em" href="anplwaye.html">
+        <span class="ic">🏢</span>
+        <h2 data-t="v2_t">I need drivers</h2>
+        <p data-t="v2_d">Tell us what you are looking for — how many, which town, which licence. You reach the driver directly, and you see how far along they are, not just a résumé.</p>
+        <span class="entrer" data-t="v2_e">Tell us what you need →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-t="s_t">The three parts of Driver360</h2></div>
+
     <div class="d3-produits">
 
       <a class="d3-porte pool" href="vivye.html">
-        <span class="rang" data-t="r1">PWODWI 1</span>
+        <span class="rang" data-t="r1">PART 1</span>
         <span class="ic">📋</span>
-        <h2 data-t="p1_t">Driver Pool</h2>
-        <p data-t="p1_d">Mete non w nan vivye a. Yon sèl fich, epi konpayi k ap chèche chofè yo ka jwenn ou — sèlman si ou dakò.</p>
-        <span class="qui" data-t="p1_q">Pou chofè yo</span>
-        <span class="entrer" data-t="p1_e">Enskri nan vivye a →</span>
+        <h3 data-t="p1_t">Driver Pool</h3>
+        <p data-t="p1_d">One profile, filled in once. Employers looking for drivers can find you — only if you agree — and you can ask to be told by WhatsApp when a job opens near you.</p>
+        <span class="qui" data-t="p1_q">For drivers</span>
+        <span class="entrer" data-t="p1_e">Join the pool →</span>
       </a>
 
       <a class="d3-porte emp" href="anplwaye.html">
-        <span class="rang" data-t="r2">PWODWI 2</span>
+        <span class="rang" data-t="r2">PART 2</span>
         <span class="ic">🏢</span>
-        <h2 data-t="p2_t">Driver Employer</h2>
-        <p data-t="p2_d">Di nou ki kalite chofè w bezwen, konbyen, nan ki vil. Ou wè rezilta tès yo, pa sèlman yon CV.</p>
-        <span class="qui" data-t="p2_q">Pou konpayi yo</span>
-        <span class="entrer" data-t="p2_e">Di nou sa w bezwen →</span>
+        <h3 data-t="p2_t">Driver Employer</h3>
+        <p data-t="p2_d">Say what kind of driver you need, how many, in which town. Once you subscribe, you contact the driver yourself — no middleman, no waiting for a callback.</p>
+        <span class="qui" data-t="p2_q">For companies</span>
+        <span class="entrer" data-t="p2_e">Tell us what you need →</span>
       </a>
 
       <a class="d3-porte coach" href="wout.html">
-        <span class="rang" data-t="r3">PWODWI 3</span>
+        <span class="rang" data-t="r3">PART 3</span>
         <span class="ic">🚗</span>
-        <h2 data-t="p3_t">Driver Coach</h2>
-        <p data-t="p3_d">Prepare tès wout la ak pèmi 7D a : 12 manèv, vrè kòmand egzaminatè a, ak tradiksyon an kreyòl, franse ak panyòl.</p>
-        <span class="qui" data-t="p3_q">Pou chofè yo</span>
-        <span class="entrer" data-t="p3_e">Kòmanse preparasyon an →</span>
+        <h3 data-t="p3_t">Driver Coach</h3>
+        <p data-t="p3_d">The licence is what stands between most people and one of these jobs. Drill the Class D road test and the 7D written exam — 12 manoeuvres and the examiner's real commands.</p>
+        <span class="qui" data-t="p3_q">For drivers</span>
+        <span class="entrer" data-t="p3_e">Start preparing →</span>
       </a>
 
     </div>
 
-    <p style="margin-top:1.3rem;font-size:.9rem;color:#9db2c7;max-width:66ch" data-t="ordre">
-      L'ordre n'est pas anodin : le vivier est ce qui a de la valeur, le portail employeur est
-      ce qui la transforme en revenu, et le coach est ce qui remplit le vivier.
+    <p style="margin-top:1.2rem;font-size:.9rem;color:#9db2c7;max-width:70ch" data-t="ordre">
+      They are in that order on purpose: the pool is what has value, the employer portal is what turns
+      it into revenue, and the coach is what fills the pool.
     </p>
 
-    <div class="d3-franc" data-t="franc">🚧 <strong>Vivye a ap konstwi kounye a.</strong> Nou pa gen chofè pou nou montre w jodi a, epi nou pa pral fè sanblan. Si w ap chèche chofè, di nou sa w bezwen : sa ede nou konnen ki kote pou nou konsantre, epi sa bay chofè yo yon rezon pou yo enskri.</div>
+    <div class="d3-franc" data-t="franc">🚧 <strong>The pool is still being built.</strong> Nobody has registered yet, and we are not going to pretend otherwise. So we started at the other end: the jobs page is real today, with employers who are hiring today. If you are a company, tell us who you need — it tells us where to focus, and it gives drivers a reason to sign up.</div>
   </div>
 </section>
 
-<section style="padding-top:1.6rem;padding-bottom:2.4rem">
+<section style="padding-top:1.8rem;padding-bottom:2.4rem">
   <div class="container">
-    <div class="section-head"><h2 data-t="p_t">Poukisa Driver360</h2></div>
+    <div class="section-head"><h2 data-t="p_t">Why Driver360</h2></div>
     <div class="d3-pour">
-      <div><b data-t="w1_t">Egzaminatè a pale anglè</b><span data-t="w1_d">Nou drile vrè kòmand li yo, ak tradiksyon an kreyòl, franse ak panyòl. Ou gen dwa a yon entèprèt nan tès la — men fòk ou konprann sa yo mande w la.</span></div>
-      <div><b data-t="w2_t">Yon nich pèsonn pa okipe</b><span data-t="w2_d">Manyèl 7D a egziste sèlman an anglè ak panyòl, alòske tès la fèt an kreyòl. Nou ranpli twou sa a.</span></div>
-      <div><b data-t="w3_t">Rezilta, pa yon CV</b><span data-t="w3_d">Yon konpayi wè kote chofè a rive nan preparasyon l, pa yon lis bèl pawòl.</span></div>
-      <div><b data-t="w4_t">Ou rete mèt done w</b><span data-t="w4_d">Yon konpayi wè w sèlman si ou dakò. Nou pa vann non pèsonn.</span></div>
+      <div><b data-t="w1_t">The job comes first</b><span data-t="w1_d">Most sites ask you to register and then hope. We start by showing you who is hiring, before asking you for anything at all.</span></div>
+      <div><b data-t="w2_t">One profile, every employer</b><span data-t="w2_d">Fill it in once. You do not retype your name, your town and your licences for each company that might want you.</span></div>
+      <div><b data-t="w3_t">Results, not a résumé</b><span data-t="w3_d">A company sees how far along a driver is in their preparation. That is worth more to them than a page of fine words — and it is worth more to you than an empty inbox.</span></div>
+      <div><b data-t="w4_t">Your data stays yours</b><span data-t="w4_d">A company sees you only if you agree, and alerts only reach you if you asked for them. We sell nobody's name.</span></div>
+      <div><b data-t="w5_t">Four languages, if you need them</b><span data-t="w5_d">Everything here also exists in Haitian Creole, French and Spanish — the exam drills included. English is the default; the rest is one click away, for whoever needs it.</span></div>
+      <div><b data-t="w6_t">Made in Massachusetts</b><span data-t="w6_d">Class D and 7D, the RMV's rules, the towns and the transit authorities of this state. Not a national site that happens to list a few jobs here.</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)">Driver360 — un service <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
-    <span data-t="contact">Yon kesyon</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — <span data-t="droits">Tout dwa rezève.</span></p>
+    <p style="font-size:.85rem;color:var(--muted)">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.<br />
+    <span data-t="contact">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-t="droits">All rights reserved.</span></p>
   </div>
 </footer>
 
 <script>
 /* Dictionnaire inline : l accueil ne depend d aucun fichier externe, donc il
    s affiche meme si le reste du site ne charge pas. Les autres pages, elles,
-   gardent le mecanisme i18n d origine. */
+   gardent le mecanisme i18n d origine.
+
+   LA LANGUE ECRITE DANS LE HTML EST L ANGLAIS. C est un changement du
+   29/08/2026 : Driver360 s adresse a tous les residents du Massachusetts. Le
+   kreyol, le francais et l espagnol restent a un clic — ils sont un AVANTAGE
+   du produit, pas son identite.
+
+   RELECTURE KREYOL : a faire par l utilisateur, qui est l autorite. */
 var T = {
- "fr": {
-  "fil": "Au Massachusetts, l'examinateur parle anglais — mais vous avez droit à un interprète.",
-  "aka": "permis, test de route et recrutement de chauffeurs",
+ "ht": {
+  "fil": "Massachusetts manke chofè. Distri lekòl yo, konpayi transpò piblik yo ak lòt konpayi ap chèche moun.",
+  "aka": "travay chofè, pèmi, ak rekritman",
   "lieu": "Massachusetts",
-  "lead": "Trois produits sous un même toit : le vivier de chauffeurs, le portail des employeurs, et la préparation aux examens.",
+  "lead": "Si ou vle youn nan travay sa yo, nou montre w kilès k ap anboche, nou avèti w lè yon nouvo pòs louvri, epi nou prepare w pou egzamen pèmi a. Si se chofè ou bezwen, nou pote moun ki pare pou travay.",
+  "v1_t": "Mwen vle yon travay chofè",
+  "v1_d": "Gade kilès k ap chèche chofè nan Massachusetts kounye a — transpò lekòl, transpò rejyonal, transpò medikal. Lyen verifye, dirèk sou anplwayè a. Gratis, epi ou pa bezwen louvri okenn kont.",
+  "v1_e": "Gade kilès k ap anboche →",
+  "v2_t": "Mwen bezwen chofè",
+  "v2_d": "Di nou sa w ap chèche — konbyen, nan ki vil, ki pèmi. Ou rive sou chofè a dirèk, epi ou wè kote li rive nan preparasyon l, se pa yon CV sèlman.",
+  "v2_e": "Di nou sa w bezwen →",
+  "s_t": "Twa pati Driver360 yo",
+  "r1": "PATI 1", "r2": "PATI 2", "r3": "PATI 3",
+  "p1_t": "Driver Pool",
+  "p1_q": "Pou chofè yo",
+  "p1_d": "Yon sèl fich, ou ranpli l yon sèl fwa. Anplwayè k ap chèche chofè ka jwenn ou — sèlman si ou dakò — epi ou ka mande pou yo avèti w sou WhatsApp lè yon travay louvri toupre lakay ou.",
+  "p1_e": "Enskri nan vivye a →",
+  "p2_t": "Driver Employer",
+  "p2_q": "Pou konpayi yo",
+  "p2_d": "Di ki kalite chofè ou bezwen, konbyen, nan ki vil. Yon fwa ou abòne, se ou menm ki kontakte chofè a — pa gen entèmedyè, pa gen tann yon repons.",
+  "p2_e": "Di nou sa w bezwen →",
+  "p3_t": "Driver Coach",
+  "p3_q": "Pou chofè yo",
+  "p3_d": "Se pèmi a ki kanpe ant pifò moun ak youn nan travay sa yo. Travay tès wout Class D a ak egzamen ekri 7D a — 12 manèv ak vrè kòmand egzaminatè a.",
+  "p3_e": "Kòmanse preparasyon an →",
+  "ordre": "Lòd la gen yon rezon: se vivye a ki gen valè, se pòtay anplwayè a ki fè l tounen lajan, epi se koach la ki ranpli vivye a.",
+  "franc": "🚧 <strong>Vivye a ap konstwi toujou.</strong> Pèsonn poko enskri, epi nou pa pral fè sanblan. Se poutèt sa nou kòmanse pa lòt bout la: paj travay la reyèl jodi a, ak anplwayè k ap anboche jodi a. Si ou se yon konpayi, di nou ki moun ou bezwen — sa di nou ki kote pou nou konsantre, epi sa bay chofè yo yon rezon pou yo enskri.",
+  "p_t": "Poukisa Driver360",
+  "w1_t": "Travay la vin anvan",
+  "w1_d": "Pifò sit mande w enskri epi tann. Nou menm nou kòmanse pa montre w kilès k ap anboche, anvan nou mande w anyen.",
+  "w2_t": "Yon sèl fich, tout anplwayè yo",
+  "w2_d": "Ranpli l yon sèl fwa. Ou pa bezwen retape non w, vil ou ak pèmi w pou chak konpayi ki ta ka vle w.",
+  "w3_t": "Rezilta, pa yon CV",
+  "w3_d": "Yon konpayi wè kote chofè a rive nan preparasyon l. Sa vo plis pou li pase yon paj bèl pawòl — epi sa vo plis pou ou pase yon bwat lèt vid.",
+  "w4_t": "Done w rete pou ou",
+  "w4_d": "Yon konpayi wè w sèlman si ou dakò, epi alèt yo rive sèlman si ou te mande yo. Nou pa vann non pèsonn.",
+  "w5_t": "Kat lang, si w bezwen yo",
+  "w5_d": "Tout bagay isit la egziste tou an kreyòl, an franse ak an panyòl — egzèsis egzamen yo ladan. Anglè se lang defo a; rès la se yon klik, pou moun ki bezwen l.",
+  "w6_t": "Fèt nan Massachusetts",
+  "w6_d": "Class D ak 7D, règ RMV yo, vil yo ak konpayi transpò eta sa a. Se pa yon sit nasyonal ki gen de twa travay isit la.",
+  "contact": "Yon kesyon",
+  "droits": "Tout dwa rezève."
+ },
+ "fr": {
+  "fil": "Le Massachusetts manque de chauffeurs. Les districts scolaires, les régies de transport et les entreprises recrutent.",
+  "aka": "emplois de chauffeur, permis et recrutement",
+  "lieu": "Massachusetts",
+  "lead": "Si vous voulez un de ces postes, nous vous montrons qui recrute, nous vous prévenons quand une offre s'ouvre, et nous vous préparons à l'examen du permis. Si vous cherchez des chauffeurs, nous vous amenons des gens prêts à travailler.",
+  "v1_t": "Je cherche un emploi de chauffeur",
+  "v1_d": "Voyez qui recrute des chauffeurs au Massachusetts en ce moment — transport scolaire, transport régional, transport médical. Des liens vérifiés, directement chez l'employeur. Gratuit, et sans compte à ouvrir.",
+  "v1_e": "Voir qui recrute →",
+  "v2_t": "J'ai besoin de chauffeurs",
+  "v2_d": "Dites-nous ce que vous cherchez — combien, dans quelle ville, quel permis. Vous joignez le chauffeur directement, et vous voyez où il en est, pas seulement un CV.",
+  "v2_e": "Dire ce dont j'ai besoin →",
+  "s_t": "Les trois parties de Driver360",
+  "r1": "PARTIE 1", "r2": "PARTIE 2", "r3": "PARTIE 3",
   "p1_t": "Driver Pool",
   "p1_q": "Pour les chauffeurs",
-  "p1_d": "Inscrivez-vous au vivier. Une seule fiche, et les entreprises qui cherchent des chauffeurs peuvent vous trouver — uniquement si vous êtes d'accord.",
+  "p1_d": "Une fiche, remplie une seule fois. Les employeurs qui cherchent des chauffeurs peuvent vous trouver — uniquement si vous êtes d'accord — et vous pouvez demander à être prévenu par WhatsApp quand une offre s'ouvre près de chez vous.",
   "p1_e": "M'inscrire au vivier →",
   "p2_t": "Driver Employer",
   "p2_q": "Pour les entreprises",
-  "p2_d": "Dites-nous quel type de chauffeur il vous faut, combien, dans quelle ville. Vous voyez leurs résultats aux tests, pas seulement un CV.",
-  "p2_e": "Dire ce que je cherche →",
+  "p2_d": "Dites quel type de chauffeur il vous faut, combien, dans quelle ville. Une fois abonné, vous contactez vous-même le chauffeur — sans intermédiaire et sans attendre qu'on vous rappelle.",
+  "p2_e": "Dire ce dont j'ai besoin →",
   "p3_t": "Driver Coach",
   "p3_q": "Pour les chauffeurs",
-  "p3_d": "Préparez le test de route et le permis 7D : 12 manœuvres, les vraies commandes de l'examinateur, traduites en kreyòl, français et espagnol.",
+  "p3_d": "Le permis, c'est ce qui sépare la plupart des gens d'un de ces postes. Travaillez le test de route Class D et l'examen écrit 7D — 12 manœuvres et les vraies commandes de l'examinateur.",
   "p3_e": "Commencer la préparation →",
   "ordre": "L'ordre n'est pas anodin : le vivier est ce qui a de la valeur, le portail employeur est ce qui la transforme en revenu, et le coach est ce qui remplit le vivier.",
-  "franc": "🚧 <strong>Le vivier est en train de se constituer.</strong> Nous n'avons pas de chauffeurs à vous montrer aujourd'hui, et nous n'allons pas faire semblant. Si vous cherchez des chauffeurs, dites-nous lesquels : cela nous dit où concentrer nos efforts, et cela donne aux chauffeurs une raison de s'inscrire.",
+  "franc": "🚧 <strong>Le vivier est en train de se constituer.</strong> Personne ne s'est encore inscrit, et nous n'allons pas faire semblant. Nous avons donc commencé par l'autre bout : la page des offres est réelle dès aujourd'hui, avec des employeurs qui recrutent aujourd'hui. Si vous êtes une entreprise, dites-nous qui vous cherchez : cela nous dit où concentrer nos efforts, et cela donne aux chauffeurs une raison de s'inscrire.",
   "p_t": "Pourquoi Driver360",
-  "w1_t": "L'examinateur parle anglais",
-  "w1_d": "Nous drillons ses vraies commandes, avec la traduction en kreyòl, français et espagnol. Vous avez droit à un interprète au test — encore faut-il comprendre ce qu'on vous demande.",
-  "w2_t": "Une niche que personne ne couvre",
-  "w2_d": "Le manuel 7D n'existe qu'en anglais et en espagnol, alors que le test se passe en kreyòl. Nous comblons ce trou.",
+  "w1_t": "L'emploi passe en premier",
+  "w1_d": "La plupart des sites vous demandent de vous inscrire, puis d'espérer. Nous commençons par vous montrer qui recrute, avant de vous demander quoi que ce soit.",
+  "w2_t": "Une fiche, tous les employeurs",
+  "w2_d": "Remplissez-la une fois. Vous ne retapez pas votre nom, votre ville et vos permis pour chaque entreprise susceptible de vous vouloir.",
   "w3_t": "Des résultats, pas un CV",
-  "w3_d": "Une entreprise voit où en est le chauffeur dans sa préparation, pas une liste de belles phrases.",
+  "w3_d": "Une entreprise voit où en est le chauffeur dans sa préparation. Cela vaut plus pour elle qu'une page de belles phrases — et cela vaut plus pour vous qu'une boîte mail vide.",
   "w4_t": "Vous restez maître de vos données",
-  "w4_d": "Une entreprise ne vous voit que si vous êtes d'accord. Nous ne vendons le nom de personne.",
+  "w4_d": "Une entreprise ne vous voit que si vous êtes d'accord, et les alertes ne vous arrivent que si vous les avez demandées. Nous ne vendons le nom de personne.",
+  "w5_t": "Quatre langues, si vous en avez besoin",
+  "w5_d": "Tout existe aussi en kreyòl, en français et en espagnol — les exercices d'examen compris. L'anglais est la langue par défaut ; le reste est à un clic, pour qui en a besoin.",
+  "w6_t": "Fait au Massachusetts",
+  "w6_d": "Class D et 7D, les règles du RMV, les villes et les régies de transport de cet État. Pas un site national qui liste au passage quelques offres ici.",
   "contact": "Une question",
-  "droits": "Tous droits réservés.",
-  "r1": "PRODUIT 1",
-  "r2": "PRODUIT 2",
-  "r3": "PRODUIT 3"
- },
- "en": {
-  "fil": "In Massachusetts the examiner speaks English — but you have a right to an interpreter.",
-  "aka": "licence, road test and driver recruitment",
-  "lieu": "Massachusetts",
-  "lead": "Three products under one roof: the driver pool, the employer portal, and exam preparation.",
-  "p1_t": "Driver Pool",
-  "p1_q": "For drivers",
-  "p1_d": "Join the pool. One profile, and companies looking for drivers can find you — only if you agree.",
-  "p1_e": "Join the pool →",
-  "p2_t": "Driver Employer",
-  "p2_q": "For companies",
-  "p2_d": "Tell us what kind of driver you need, how many, in which city. You see their test results, not just a CV.",
-  "p2_e": "Tell us what I need →",
-  "p3_t": "Driver Coach",
-  "p3_q": "For drivers",
-  "p3_d": "Prepare for the road test and the 7D licence: 12 manoeuvres, the examiner's real commands, translated into Haitian Creole, French and Spanish.",
-  "p3_e": "Start preparing →",
-  "ordre": "The order is deliberate: the pool is what holds the value, the employer portal is what turns it into revenue, and the coach is what fills the pool.",
-  "franc": "🚧 <strong>The pool is still being built.</strong> We have no drivers to show you today, and we will not pretend otherwise. If you are hiring, tell us who you need: it tells us where to focus, and it gives drivers a reason to sign up.",
-  "p_t": "Why Driver360",
-  "w1_t": "The examiner speaks English",
-  "w1_d": "We drill their real commands, with translation into Haitian Creole, French and Spanish. You have a right to an interpreter at the test — but you still need to understand what is being asked.",
-  "w2_t": "A gap nobody covers",
-  "w2_d": "The 7D manual exists only in English and Spanish, while the test can be taken in Haitian Creole. We fill that gap.",
-  "w3_t": "Results, not a CV",
-  "w3_d": "A company sees where the driver stands in their preparation, not a list of fine words.",
-  "w4_t": "Your data stays yours",
-  "w4_d": "A company sees you only if you agree. We sell nobody's name.",
-  "contact": "A question",
-  "droits": "All rights reserved.",
-  "r1": "PRODUCT 1",
-  "r2": "PRODUCT 2",
-  "r3": "PRODUCT 3"
+  "droits": "Tous droits réservés."
  },
  "es": {
-  "fil": "En Massachusetts el examinador habla inglés — pero tienes derecho a un intérprete.",
-  "aka": "licencia, examen de manejo y reclutamiento de conductores",
+  "fil": "A Massachusetts le faltan conductores. Los distritos escolares, las autoridades de transporte y las empresas están contratando.",
+  "aka": "empleos de conductor, licencias y contratación",
   "lieu": "Massachusetts",
-  "lead": "Tres productos bajo un mismo techo: el registro de conductores, el portal de empresas y la preparación de exámenes.",
+  "lead": "Si quieres uno de esos empleos, te mostramos quién contrata, te avisamos cuando se abre una vacante y te preparamos para el examen de la licencia. Si necesitas conductores, te traemos gente lista para trabajar.",
+  "v1_t": "Busco empleo de conductor",
+  "v1_d": "Mira quién contrata conductores en Massachusetts ahora mismo — transporte escolar, transporte regional, transporte médico. Enlaces verificados, directos al empleador. Gratis y sin abrir ninguna cuenta.",
+  "v1_e": "Ver quién contrata →",
+  "v2_t": "Necesito conductores",
+  "v2_d": "Dinos qué buscas — cuántos, en qué ciudad, con qué licencia. Contactas al conductor directamente y ves en qué punto está, no solo un currículum.",
+  "v2_e": "Decir lo que necesito →",
+  "s_t": "Las tres partes de Driver360",
+  "r1": "PARTE 1", "r2": "PARTE 2", "r3": "PARTE 3",
   "p1_t": "Driver Pool",
   "p1_q": "Para conductores",
-  "p1_d": "Inscríbete en el registro. Una sola ficha, y las empresas que buscan conductores pueden encontrarte — solo si estás de acuerdo.",
-  "p1_e": "Inscribirme →",
+  "p1_d": "Una ficha, rellenada una sola vez. Los empleadores que buscan conductores pueden encontrarte — solo si estás de acuerdo — y puedes pedir que te avisen por WhatsApp cuando se abra un empleo cerca de ti.",
+  "p1_e": "Inscribirme en el registro →",
   "p2_t": "Driver Employer",
   "p2_q": "Para empresas",
-  "p2_d": "Dinos qué tipo de conductor necesitas, cuántos y en qué ciudad. Ves sus resultados en los exámenes, no solo un currículum.",
-  "p2_e": "Decir lo que busco →",
+  "p2_d": "Di qué tipo de conductor necesitas, cuántos y en qué ciudad. Una vez suscrito, contactas tú mismo al conductor — sin intermediarios y sin esperar a que te devuelvan la llamada.",
+  "p2_e": "Decir lo que necesito →",
   "p3_t": "Driver Coach",
   "p3_q": "Para conductores",
-  "p3_d": "Prepara el examen de manejo y la licencia 7D: 12 maniobras, las órdenes reales del examinador, traducidas al criollo haitiano, francés y español.",
+  "p3_d": "La licencia es lo que separa a la mayoría de la gente de uno de estos empleos. Practica el examen de manejo Class D y el examen escrito 7D — 12 maniobras y las órdenes reales del examinador.",
   "p3_e": "Empezar la preparación →",
   "ordre": "El orden no es casual: el registro es lo que tiene valor, el portal de empresas es lo que lo convierte en ingresos, y el entrenador es lo que llena el registro.",
-  "franc": "🚧 <strong>El registro se está formando.</strong> Hoy no tenemos conductores que mostrarte, y no vamos a fingir lo contrario. Si estás contratando, dinos a quién necesitas: nos dice dónde concentrarnos, y les da a los conductores una razón para inscribirse.",
+  "franc": "🚧 <strong>El registro se está formando.</strong> Todavía no se ha inscrito nadie, y no vamos a fingir lo contrario. Por eso empezamos por el otro extremo: la página de empleos es real desde hoy, con empleadores que contratan hoy. Si eres una empresa, dinos a quién necesitas: nos dice dónde concentrarnos y les da a los conductores una razón para inscribirse.",
   "p_t": "Por qué Driver360",
-  "w1_t": "El examinador habla inglés",
-  "w1_d": "Practicamos sus órdenes reales, con traducción al criollo haitiano, francés y español. Tienes derecho a un intérprete en el examen — pero hay que entender lo que te piden.",
-  "w2_t": "Un hueco que nadie cubre",
-  "w2_d": "El manual 7D solo existe en inglés y español, aunque el examen se puede rendir en criollo haitiano. Llenamos ese hueco.",
+  "w1_t": "El empleo va primero",
+  "w1_d": "La mayoría de los sitios te piden inscribirte y luego esperar. Nosotros empezamos por mostrarte quién contrata, antes de pedirte nada.",
+  "w2_t": "Una ficha, todos los empleadores",
+  "w2_d": "Rellénala una vez. No vuelves a escribir tu nombre, tu ciudad y tus licencias para cada empresa que pueda quererte.",
   "w3_t": "Resultados, no un currículum",
-  "w3_d": "Una empresa ve en qué punto está el conductor de su preparación, no una lista de buenas palabras.",
+  "w3_d": "Una empresa ve en qué punto está el conductor de su preparación. Eso le vale más que una página de buenas palabras — y a ti te vale más que un buzón vacío.",
   "w4_t": "Tus datos siguen siendo tuyos",
-  "w4_d": "Una empresa te ve solo si estás de acuerdo. No vendemos el nombre de nadie.",
+  "w4_d": "Una empresa te ve solo si estás de acuerdo, y los avisos solo te llegan si los pediste. No vendemos el nombre de nadie.",
+  "w5_t": "Cuatro idiomas, si los necesitas",
+  "w5_d": "Todo existe también en criollo haitiano, francés y español — los ejercicios de examen incluidos. El inglés es el idioma por defecto; el resto está a un clic, para quien lo necesite.",
+  "w6_t": "Hecho en Massachusetts",
+  "w6_d": "Class D y 7D, las reglas del RMV, las ciudades y las autoridades de transporte de este estado. No es un sitio nacional que de paso lista unas cuantas ofertas aquí.",
   "contact": "Una pregunta",
-  "droits": "Todos los derechos reservados.",
-  "r1": "PRODUCTO 1",
-  "r2": "PRODUCTO 2",
-  "r3": "PRODUCTO 3"
+  "droits": "Todos los derechos reservados."
  }
 };
 
-var LANGUES = {ht:"Kreyòl", fr:"Français", en:"English", es:"Español"};
+var LANGUES = {en:"English", ht:"Kreyòl", fr:"Français", es:"Español"};
 
 function appliquer(l){
-  var d = T[l];                      /* ht = ce qui est ecrit dans le HTML */
+  var d = T[l];                      /* en = ce qui est ecrit dans le HTML */
   document.querySelectorAll("[data-t]").forEach(function(e){
     if(!e.dataset.original) e.dataset.original = e.innerHTML;
     e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
@@ -268,7 +343,7 @@ function appliquer(l){
     b.addEventListener("click", function(){ appliquer(code); });
     bar.appendChild(b);
   });
-  appliquer(document.documentElement.lang || "ht");
+  appliquer(document.documentElement.lang || "en");
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>

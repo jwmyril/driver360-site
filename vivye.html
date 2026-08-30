@@ -47,13 +47,14 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>pa Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <ul class="nav-links" style="display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;align-items:center">
-        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Accueil</a></li>
+        <li><a href="index.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Home</a></li>
+        <li><a href="jobs.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Jobs</a></li>
         <li><a href="vivye.html" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Pool</a></li>
         <li><a href="wout.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Coach</a></li>
-        <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Coach 7D</a></li>
-        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">Je recrute →</a></li>
+        <li><a href="setdi.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">7D Coach</a></li>
+        <li><a href="anplwaye.html" style="font-size:.82rem;color:var(--muted);text-decoration:none">I&rsquo;m hiring →</a></li>
     </ul>
   </nav>
 </header>
@@ -140,6 +141,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <span id="rj-consent-txt">J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.</span>
         </label>
 
+        <label class="rj-consent" id="L-wa" style="background:rgba(37,211,102,0.07);border-color:rgba(37,211,102,0.32);margin-top:0.7rem">
+          <input type="checkbox" id="rj-wa" />
+          <span id="rj-wa-txt">💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir.</span>
+        </label>
+
         <div style="margin-top:1.2rem;display:flex;gap:0.6rem;flex-wrap:wrap">
           <button type="submit" class="btn btn-primary" id="rj-go">M'inscrire au pool (gratuit)</button>
           <button type="button" class="btn btn-outline" id="rj-have">J'ai déjà un code</button>
@@ -202,6 +208,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Années d'expérience au volant (professionnelle)", seek:"Types de transport qui vous intéressent",
       avail:"Disponibilité", v1:"Temps plein", v2:"Temps partiel", v3:"L'un ou l'autre",
       consent:"J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.",
+      wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
       codeLbl:"✅ Vous êtes dans le pool ! Voici votre code personnel :",
@@ -225,6 +232,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Konbyen ane eksperyans kondwi (pwofesyonèl)", seek:"Ki kalite transpò ki enterese w",
       avail:"Disponibilite", v1:"Tan konplè", v2:"Tan pasyèl", v3:"Youn oswa lòt",
       consent:"Mwen dakò pou anplwayè nan Massachusetts kontakte m pou yon travay chofè. Mwen konprann non m ak telefòn mwen parèt sèlman pou yon anplwayè ki chwazi m, epi mwen ka retire m nan pool la nenpòt lè ak kòd mwen.",
+      wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
       codeLbl:"✅ Ou nan pool la ! Men kòd pèsonèl ou :",
@@ -248,6 +256,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Years of professional driving experience", seek:"Types of transport that interest you",
       avail:"Availability", v1:"Full time", v2:"Part time", v3:"Either",
       consent:"I agree that Massachusetts employers may contact me for a driving job. I understand my name and phone are revealed only to an employer who selects me, and that I can withdraw from the pool anytime with my code.",
+      wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
       codeLbl:"✅ You are in the pool! Here is your personal code:",
@@ -271,6 +280,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       years:"Años de experiencia profesional al volante", seek:"Tipos de transporte que te interesan",
       avail:"Disponibilidad", v1:"Tiempo completo", v2:"Medio tiempo", v3:"Cualquiera",
       consent:"Acepto que empleadores de Massachusetts puedan contactarme para un empleo de chofer. Entiendo que mi nombre y teléfono solo se revelan a un empleador que me selecciona, y que puedo retirarme del pool cuando quiera con mi código.",
+      wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
       codeLbl:"✅ ¡Estás en el pool! Este es tu código personal:",
@@ -301,6 +311,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     var av=document.getElementById("rj-avail").options;
     av[0].text=t.a0; av[1].text=t.v1; av[2].text=t.v2; av[3].text=t.v3;
     setT("rj-consent-txt",t.consent); setT("rj-go",t.go); setT("rj-have",t.have);
+    var w=document.getElementById("rj-wa-txt"); if(w&&t.wa) w.innerHTML=t.wa;
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
@@ -329,7 +340,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       auth:document.getElementById("rj-auth").value,
       licenses:checked("#rj-lic"), years:document.getElementById("rj-years").value,
       flex:(document.querySelector('input[name=flex]:checked')||{}).value||"prefer",
-      seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value};
+      seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value,
+      wa:document.getElementById("rj-wa").checked};
   }
   function fill(p){
     document.getElementById("rj-name").value=p.name||"";
@@ -345,6 +357,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     document.querySelectorAll("#rj-seek input").forEach(function(cb){
       cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
     document.getElementById("rj-consent").checked=true;
+    document.getElementById("rj-wa").checked=(p.wa===true);
     var fx=p.flex||"prefer";
     var r=document.querySelector('input[name=flex][value="'+fx+'"]'); if(r)r.checked=true;
     document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
