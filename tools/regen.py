@@ -216,7 +216,43 @@ def transformer(src_nom, dst_nom, cote):
     return len(s)
 
 
+# Les FICHIERS DE DONNEES que les pages derivees vont chercher au chargement.
+#
+# ⚠️ CE BLOC EXISTE A CAUSE D'UNE PANNE REELLE (30/08/2026). `chofe360.html`
+# fait `fetch("assets/komand.json")` pour les commandes de l'examinateur, et
+# `fetch("assets/pemi-questions.json")` pour le test ecrit. Ces deux fichiers
+# vivent dans le depot d'atmart.ltd ; personne ne les avait copies ici.
+#
+# La panne etait DOUBLE, et la deuxieme partie est la plus grave :
+#   · le module ne pouvait pas se traduire — son `paint()` commence par
+#     `if(!DATA) return;`, donc il gardait le francais ecrit dans le HTML,
+#     quelle que soit la langue choisie. C'est ce que l'utilisateur a vu ;
+#   · et surtout, LES DEUX EXERCICES NE MARCHAIENT PAS DU TOUT. Ce n'etait pas
+#     un defaut de traduction, c'etait une fonctionnalite absente.
+#
+# Copier a la main se serait redecale au premier ajout. `verif_actifs.py`
+# refuse desormais toute reference locale sans fichier.
+DONNEES = ["komand.json", "pemi-questions.json"]
+
+
+def copier_donnees():
+    """Recopie les fichiers de donnees d'atmart.ltd vers cette suite."""
+    import shutil
+    faits = []
+    for nom in DONNEES:
+        src = os.path.join(SOURCE, "assets", nom)
+        if not os.path.exists(src):
+            print("  !! introuvable a la source : %s" % src)
+            continue
+        dst = os.path.join(RACINE, "assets", nom)
+        shutil.copyfile(src, dst)
+        faits.append("%s (%d octets)" % (nom, os.path.getsize(dst)))
+    return faits
+
+
 if __name__ == "__main__":
     for src, dst, cote, nom, _ in PAGES:
         n = transformer(src, dst, cote)
         print("%-20s -> %-16s %-10s %7d octets" % (src, dst, "(" + cote + ")", n))
+    for ligne in copier_donnees():
+        print("donnees              -> assets/%s" % ligne)

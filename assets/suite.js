@@ -28,7 +28,10 @@
 (function () {
   "use strict";
 
-  var LANGUES = { en: "English", ht: "Kreyòl", fr: "Français", es: "Español" };
+  // L'ORDRE DE CETTE LISTE EST CELUI DU MENU (demande le 30/08/2026).
+  // Anglais, espagnol, kreyol, francais — l'ordre des langues du
+  // Massachusetts, pas l'ordre alphabetique ni celui de nos habitudes.
+  var LANGUES = { en: "English", es: "Español", ht: "Kreyòl", fr: "Français" };
 
   var D = {
     en: {

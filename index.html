@@ -65,6 +65,21 @@ d.lang=l||"en";})();
     .of .btn{width:100%;text-align:center}
     .of .apres{margin:.7rem 0 0;font-size:.78rem;color:#7f93a7;text-align:center}
 
+    /* --- telecharger l'application ------------------------------------ */
+    .dl{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap;margin-top:2rem;
+      background:linear-gradient(135deg,rgba(46,196,182,.13),rgba(93,156,236,.10));
+      border:1px solid rgba(46,196,182,.42);border-radius:20px;padding:1.7rem 1.9rem}
+    .dl img{width:72px;height:72px;border-radius:16px;flex-shrink:0}
+    .dl .txt{flex:1;min-width:260px}
+    .dl h2{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.45rem}
+    .dl p{margin:0 0 .3rem;font-size:.95rem;color:#c9d8e6;line-height:1.62;max-width:60ch}
+    .dl .note{font-size:.82rem;color:#7f93a7}
+    .dl .act{display:flex;flex-direction:column;gap:.5rem;align-items:stretch;min-width:210px}
+    .dl-mode{margin-top:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);
+      border-radius:12px;padding:1rem 1.2rem;font-size:.89rem;color:#9db2c7;line-height:1.6}
+    .dl-mode[hidden]{display:none}
+    .dl-mode b{color:#fff;display:block;margin-bottom:.2rem}
+    .dl-mode div+div{margin-top:.7rem}
     .d3-franc{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.42);border-radius:14px;
       padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:#e4dbcf;line-height:1.65;max-width:74ch}
     .d3-pour{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.1rem}
@@ -103,7 +118,7 @@ d.lang=l||"en";})();
       <a class="d3-voie dr" href="jobs.html">
         <span class="ic">🔎</span>
         <h2 data-t="v1_t">I want a driving job</h2>
-        <p data-t="v1_d">See who is hiring drivers in Massachusetts right now — school transport, regional transit, medical transport. Checked links, straight to the employer. Free, and no account to open.</p>
+        <p data-t="v1_d">See who is hiring drivers in Massachusetts right now — package delivery, medical transport, public transit, school runs, trucking. Checked links, straight to the employer. Free, and no account to open.</p>
         <span class="entrer" data-t="v1_e">See who is hiring →</span>
       </a>
 
@@ -114,6 +129,27 @@ d.lang=l||"en";})();
         <span class="entrer" data-t="v2_e">Tell us what you need →</span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:.4rem;padding-bottom:.2rem">
+  <div class="container">
+    <div class="dl">
+      <img src="assets/brand/icon-192.png" alt="Driver360" />
+      <div class="txt">
+        <h2 data-t="dl_t">Download Driver360</h2>
+        <p data-t="dl_d">Put it on your phone and it opens like any other app — job postings, your pool profile and the exam drills, straight from the home screen. It also keeps working when you lose signal.</p>
+        <p class="note" data-t="dl_n">Free. No app store, no account, and it takes about a second — the app installs from this page.</p>
+      </div>
+      <div class="act">
+        <button type="button" class="btn btn-primary" id="dl-go" data-t="dl_b">Install the app</button>
+      </div>
+    </div>
+    <div class="dl-mode" id="dl-how" hidden>
+      <div><b data-t="dl_ios_t">On iPhone or iPad</b><span data-t="dl_ios">Open this page in Safari, tap the Share button at the bottom, then choose “Add to Home Screen”.</span></div>
+      <div><b data-t="dl_and_t">On Android</b><span data-t="dl_and">Open the browser menu (the three dots), then choose “Install app” or “Add to Home screen”.</span></div>
+      <div><b data-t="dl_pc_t">On a computer</b><span data-t="dl_pc">Click the install icon at the right of the address bar, or open the browser menu and choose “Install”.</span></div>
     </div>
   </div>
 </section>
@@ -224,11 +260,22 @@ var T = {
   "lieu": "Massachusetts",
   "lead": "Si ou vle youn nan travay sa yo, nou montre w kilès k ap anboche, nou avèti w lè yon nouvo pòs louvri, epi nou prepare w pou egzamen pèmi a. Si se chofè ou bezwen, nou pote moun ki pare pou travay.",
   "v1_t": "Mwen vle yon travay chofè",
-  "v1_d": "Gade kilès k ap chèche chofè nan Massachusetts kounye a — transpò lekòl, transpò rejyonal, transpò medikal. Lyen verifye, dirèk sou anplwayè a. Gratis, epi ou pa bezwen louvri okenn kont.",
+  "v1_d": "Gade kilès k ap chèche chofè nan Massachusetts kounye a — livrezon pake, transpò medikal, transpò piblik, wout lekòl, kamyon. Lyen verifye, dirèk sou anplwayè a. Gratis, epi ou pa bezwen louvri okenn kont.",
   "v1_e": "Gade kilès k ap anboche →",
   "v2_t": "Mwen bezwen chofè",
   "v2_d": "Di nou sa w ap chèche — konbyen, nan ki vil, ki pèmi. Ou rive sou chofè a dirèk, epi ou wè kote li rive nan preparasyon l, se pa yon CV sèlman.",
   "v2_e": "Di nou sa w bezwen →",
+  "dl_t": "Telechaje Driver360",
+  "dl_d": "Mete l sou telefòn ou epi l ap louvri tankou nenpòt lòt aplikasyon — òf travay, fich vivye w ak egzèsis egzamen yo, dirèk depi ekran dakèy la. Li kontinye mache tou lè w pèdi rezo.",
+  "dl_n": "Gratis. Pa gen boutik aplikasyon, pa gen kont, epi sa pran yon segonn — aplikasyon an enstale depi paj sa a.",
+  "dl_b": "Enstale aplikasyon an",
+  "dl_done": "Li deja enstale ✓",
+  "dl_ios_t": "Sou iPhone oswa iPad",
+  "dl_ios": "Louvri paj sa a nan Safari, peze bouton Pataje a anba a, epi chwazi « Add to Home Screen ».",
+  "dl_and_t": "Sou Android",
+  "dl_and": "Louvri meni navigatè a (twa ti pwen yo), epi chwazi « Install app » oswa « Add to Home screen ».",
+  "dl_pc_t": "Sou yon òdinatè",
+  "dl_pc": "Klike sou ti ikòn enstalasyon an adwat bar adrès la, oswa louvri meni navigatè a epi chwazi « Install ».",
   "s_t": "Twa pwodwi, yon sèl mache",
   "s_d": "Vivye a gratis epi l ap rete gratis — se chofè yo ki bay tout rès la valè. Se konpayi yo ki peye, paske se yo menm ki jwenn yon moun pou anboche.",
   "o1_b": "GRATIS — TOUJOU",
@@ -282,11 +329,22 @@ var T = {
   "lieu": "Massachusetts",
   "lead": "Si vous voulez un de ces postes, nous vous montrons qui recrute, nous vous prévenons quand une offre s'ouvre, et nous vous préparons à l'examen du permis. Si vous cherchez des chauffeurs, nous vous amenons des gens prêts à travailler.",
   "v1_t": "Je cherche un emploi de chauffeur",
-  "v1_d": "Voyez qui recrute des chauffeurs au Massachusetts en ce moment — transport scolaire, transport régional, transport médical. Des liens vérifiés, directement chez l'employeur. Gratuit, et sans compte à ouvrir.",
+  "v1_d": "Voyez qui recrute des chauffeurs au Massachusetts en ce moment — livraison de colis, transport médical, transport public, circuits scolaires, camion. Des liens vérifiés, directement chez l'employeur. Gratuit, et sans compte à ouvrir.",
   "v1_e": "Voir qui recrute →",
   "v2_t": "J'ai besoin de chauffeurs",
   "v2_d": "Dites-nous ce que vous cherchez — combien, dans quelle ville, quel permis. Vous joignez le chauffeur directement, et vous voyez où il en est, pas seulement un CV.",
   "v2_e": "Dire ce dont j'ai besoin →",
+  "dl_t": "Télécharger Driver360",
+  "dl_d": "Installez-le sur votre téléphone et il s'ouvre comme n'importe quelle autre application — les offres, votre fiche du vivier et les exercices d'examen, directement depuis l'écran d'accueil. Il continue aussi de fonctionner quand vous perdez le réseau.",
+  "dl_n": "Gratuit. Pas de boutique d'applications, pas de compte, et cela prend une seconde — l'application s'installe depuis cette page.",
+  "dl_b": "Installer l'application",
+  "dl_done": "Déjà installée ✓",
+  "dl_ios_t": "Sur iPhone ou iPad",
+  "dl_ios": "Ouvrez cette page dans Safari, touchez le bouton Partager en bas, puis choisissez « Sur l'écran d'accueil ».",
+  "dl_and_t": "Sur Android",
+  "dl_and": "Ouvrez le menu du navigateur (les trois points), puis choisissez « Installer l'application » ou « Ajouter à l'écran d'accueil ».",
+  "dl_pc_t": "Sur un ordinateur",
+  "dl_pc": "Cliquez sur l'icône d'installation à droite de la barre d'adresse, ou ouvrez le menu du navigateur et choisissez « Installer ».",
   "s_t": "Trois produits, un seul marché",
   "s_d": "Le vivier est gratuit et le restera — ce sont les chauffeurs qui donnent de la valeur à tout le reste. Ce sont les entreprises qui paient, parce que ce sont elles qui en tirent une embauche.",
   "o1_b": "GRATUIT — TOUJOURS",
@@ -340,11 +398,22 @@ var T = {
   "lieu": "Massachusetts",
   "lead": "Si quieres uno de esos empleos, te mostramos quién contrata, te avisamos cuando se abre una vacante y te preparamos para el examen de la licencia. Si necesitas conductores, te traemos gente lista para trabajar.",
   "v1_t": "Busco empleo de conductor",
-  "v1_d": "Mira quién contrata conductores en Massachusetts ahora mismo — transporte escolar, transporte regional, transporte médico. Enlaces verificados, directos al empleador. Gratis y sin abrir ninguna cuenta.",
+  "v1_d": "Mira quién contrata conductores en Massachusetts ahora mismo — reparto de paquetes, transporte médico, transporte público, rutas escolares, camión. Enlaces verificados, directos al empleador. Gratis y sin abrir ninguna cuenta.",
   "v1_e": "Ver quién contrata →",
   "v2_t": "Necesito conductores",
   "v2_d": "Dinos qué buscas — cuántos, en qué ciudad, con qué licencia. Contactas al conductor directamente y ves en qué punto está, no solo un currículum.",
   "v2_e": "Decir lo que necesito →",
+  "dl_t": "Descargar Driver360",
+  "dl_d": "Instálalo en tu teléfono y se abre como cualquier otra aplicación — las ofertas, tu ficha del registro y los ejercicios de examen, directamente desde la pantalla de inicio. También sigue funcionando cuando te quedas sin cobertura.",
+  "dl_n": "Gratis. Sin tienda de aplicaciones, sin cuenta, y tarda un segundo — la aplicación se instala desde esta página.",
+  "dl_b": "Instalar la aplicación",
+  "dl_done": "Ya instalada ✓",
+  "dl_ios_t": "En iPhone o iPad",
+  "dl_ios": "Abre esta página en Safari, toca el botón Compartir abajo y elige «Añadir a pantalla de inicio».",
+  "dl_and_t": "En Android",
+  "dl_and": "Abre el menú del navegador (los tres puntos) y elige «Instalar aplicación» o «Añadir a pantalla de inicio».",
+  "dl_pc_t": "En un ordenador",
+  "dl_pc": "Haz clic en el icono de instalación a la derecha de la barra de direcciones, o abre el menú del navegador y elige «Instalar».",
   "s_t": "Tres productos, un solo mercado",
   "s_d": "El registro es gratis y seguirá siéndolo — son los conductores los que le dan valor a todo lo demás. Pagan las empresas, porque son ellas las que consiguen una contratación.",
   "o1_b": "GRATIS — SIEMPRE",
@@ -408,6 +477,56 @@ appliquer();
    observe, exactement comme les cinq autres pages de la suite. */
 new MutationObserver(appliquer).observe(document.documentElement,
   {attributes:true, attributeFilter:["lang"]});
+</script>
+<script>
+/* TELECHARGER = INSTALLER LA PAGE. Driver360 n'est sur aucune boutique : c'est
+   une application web installable (manifest.webmanifest + sw.js). Le bouton
+   declenche donc l'invite native du navigateur quand elle existe.
+
+   ELLE N'EXISTE PAS PARTOUT. Safari sur iPhone n'emet jamais
+   `beforeinstallprompt` : sur iOS l'installation passe obligatoirement par
+   Partager -> Sur l'ecran d'accueil. Le bouton ne peut donc pas se contenter
+   d'attendre l'evenement — sans repli, il ne ferait rien pour une bonne moitie
+   des visiteurs, et sur un site qui s'adresse a des gens qui cherchent un
+   emploi depuis leur telephone, c'est la moitie qui compte. */
+(function(){
+  var bouton = document.getElementById("dl-go");
+  var mode = document.getElementById("dl-how");
+  if(!bouton) return;
+  var invite = null;
+
+  window.addEventListener("beforeinstallprompt", function(e){
+    e.preventDefault(); invite = e;
+  });
+
+  function deja(){
+    try{
+      return window.matchMedia("(display-mode: standalone)").matches
+        || window.navigator.standalone === true;
+    }catch(e){ return false; }
+  }
+  if(deja()){
+    bouton.disabled = true;
+    bouton.textContent = (window.T && T[document.documentElement.lang]
+      && T[document.documentElement.lang].dl_done) || "Already installed";
+    bouton.dataset.t = "dl_done";
+  }
+
+  bouton.addEventListener("click", function(){
+    if(invite){ invite.prompt(); invite = null; return; }
+    /* Pas d'invite native : on montre comment faire a la main. */
+    mode.hidden = !mode.hidden;
+    if(!mode.hidden) mode.scrollIntoView({block:"nearest", behavior:"smooth"});
+  });
+
+  window.addEventListener("appinstalled", function(){
+    bouton.disabled = true;
+    bouton.dataset.t = "dl_done";
+    var d = T[document.documentElement.lang];
+    bouton.textContent = (d && d.dl_done) || "Installed ✓";
+    mode.hidden = true;
+  });
+})();
 </script>
 <script src="assets/suite.js?v=2"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>

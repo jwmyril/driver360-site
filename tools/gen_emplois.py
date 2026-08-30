@@ -52,10 +52,10 @@ TX = {
         "es": "Empleos de conductor en Massachusetts",
     },
     "fil": {
-        "en": "Massachusetts is short of drivers. For most of these jobs, the licence is the only thing in the way.",
-        "fr": "Le Massachusetts manque de chauffeurs. Pour la plupart de ces postes, le permis est le seul obstacle.",
-        "ht": "Massachusetts manke chofè. Pou pifò nan travay sa yo, se pèmi a ki sèl bagay k ap bare wout la.",
-        "es": "A Massachusetts le faltan conductores. Para la mayoría de estos puestos, la licencia es el único obstáculo.",
+        "en": "Massachusetts is short of drivers — package delivery, medical transport, transit, school runs, trucking. For most of these jobs the licence is the only thing in the way.",
+        "es": "A Massachusetts le faltan conductores — reparto de paquetes, transporte médico, transporte público, rutas escolares, camión. Para la mayoría de estos puestos la licencia es el único obstáculo.",
+        "ht": "Massachusetts manke chofè — livrezon pake, transpò medikal, transpò piblik, wout lekòl, kamyon. Pou pifò nan travay sa yo, se pèmi a ki sèl bagay k ap bare wout la.",
+        "fr": "Le Massachusetts manque de chauffeurs — livraison de colis, transport médical, transport public, circuits scolaires, camion. Pour la plupart de ces postes, le permis est le seul obstacle.",
     },
     "lead": {
         "en": "We do not host job adverts and we do not copy them. Below is the list of employers who actually hire drivers here, with a link straight to their own openings — so you apply in the right place, and nothing on this page goes stale.",
@@ -78,10 +78,10 @@ TX = {
         "ht": "Konbyen travay sa yo peye", "es": "Cuánto pagan estos puestos",
     },
     "paye_d": {
-        "en": "School bus driver posts in Massachusetts were advertised at roughly $27 to $32 an hour in August 2026, and CDL routes often carry a sign-on bonus. Those are figures read on job boards, not a promise from anyone: the only number that binds an employer is the one on the employer's own page. Many of these posts are split shifts — morning and afternoon — which suits people who need the middle of the day free.",
-        "fr": "Les postes de chauffeur de bus scolaire étaient affichés autour de 27 à 32 dollars de l'heure au Massachusetts en août 2026, et les circuits CDL s'accompagnent souvent d'une prime à l'embauche. Ce sont des chiffres lus sur des sites d'emploi, pas une promesse : le seul chiffre qui engage un employeur est celui de sa propre page. Beaucoup de ces postes sont en horaires coupés — matin et après-midi — ce qui convient à qui a besoin de son milieu de journée.",
-        "ht": "Pòs chofè bis lekòl yo te afiche ant 27 ak 32 dola lè a nan Massachusetts nan mwa out 2026, epi wout CDL yo souvan vini ak yon prim lè ou siyen. Se chif nou li sou sit travay, se pa yon pwomès: sèl chif ki angaje yon anplwayè se sa ki sou paj pa l. Anpil nan pòs sa yo se orè koupe — maten ak apremidi — sa bon pou moun ki bezwen mitan jounen an lib.",
-        "es": "Los puestos de conductor de autobús escolar se anunciaban entre 27 y 32 dólares la hora en Massachusetts en agosto de 2026, y las rutas con CDL suelen incluir un bono de contratación. Son cifras leídas en portales de empleo, no una promesa: el único número que compromete a un empleador es el de su propia página. Muchos de estos puestos son de jornada partida — mañana y tarde — lo que le conviene a quien necesita libre el mediodía.",
+        "en": "In August 2026, delivery van work was advertised at roughly $17 to $26 an hour and asks for no CDL; school bus posts at roughly $27 to $32, often with a sign-on bonus; and CDL work in food distribution or waste collection pays more again. Those are figures read on job boards, not a promise from anyone: the only number that binds an employer is the one on the employer's own page. Watch the hours too — school runs are usually split shifts, delivery is full days, waste starts before dawn.",
+        "es": "En agosto de 2026, el reparto en furgoneta se anunciaba entre 17 y 26 dólares la hora y no exige CDL; los puestos de autobús escolar entre 27 y 32, a menudo con bono de contratación; y el trabajo con CDL en distribución de alimentos o recogida de residuos paga más todavía. Son cifras leídas en portales de empleo, no una promesa: el único número que compromete a un empleador es el de su propia página. Mira también el horario — lo escolar suele ser jornada partida, el reparto son días completos, los residuos empiezan antes del amanecer.",
+        "ht": "Nan mwa out 2026, travay livrezon nan kamyonèt te afiche ant 17 ak 26 dola lè a epi li pa mande CDL ; pòs bis lekòl yo ant 27 ak 32, souvan ak yon prim lè ou siyen ; epi travay CDL nan distribisyon manje oswa ranmase fatra peye pi plis toujou. Se chif nou li sou sit travay, se pa yon pwomès : sèl chif ki angaje yon anplwayè se sa ki sou paj pa l. Gade orè a tou — lekòl se souvan orè koupe, livrezon se jounen konplè, fatra kòmanse anvan solèy leve.",
+        "fr": "En août 2026, la livraison en camionnette était affichée autour de 17 à 26 dollars de l'heure et ne demande aucun CDL ; les postes de bus scolaire autour de 27 à 32, souvent avec une prime à l'embauche ; et le travail sous CDL en distribution alimentaire ou en collecte des déchets paie davantage encore. Ce sont des chiffres lus sur des sites d'emploi, pas une promesse : le seul chiffre qui engage un employeur est celui de sa propre page. Regardez aussi les horaires — le scolaire est en journée coupée, la livraison en journée pleine, les déchets démarrent avant le jour.",
     },
     "pub_t": {
         "en": "Hiring? We publish your opening here — free",
@@ -130,10 +130,10 @@ TX = {
         "ht": "Se pèmi a ki manke w?", "es": "¿Te falta la licencia?",
     },
     "permis_d": {
-        "en": "Most of these employers will train you, but they all need you to hold — or be able to get — a Class D or a 7D. Driver Coach drills the road test and the 7D written test, in English, Haitian Creole, French and Spanish.",
-        "fr": "La plupart de ces employeurs vous formeront, mais tous ont besoin que vous ayez — ou puissiez obtenir — un Class D ou un 7D. Driver Coach fait travailler le test de route et l'examen écrit 7D, en anglais, kreyòl, français et espagnol.",
-        "ht": "Pifò nan anplwayè sa yo ap fòme w, men yo tout bezwen ou genyen — oswa ou ka jwenn — yon Class D oswa yon 7D. Driver Coach fè w travay tès wout la ak egzamen ekri 7D a, an anglè, kreyòl, franse ak panyòl.",
-        "es": "La mayoría de estos empleadores te formarán, pero todos necesitan que tengas — o puedas obtener — una Class D o una 7D. Driver Coach practica el examen de manejo y el examen escrito 7D, en inglés, criollo haitiano, francés y español.",
+        "en": "Delivery, medical transport and rideshare need only a <strong>Class D</strong> — the licence you already have, or can get. School runs need the <strong>7D</strong>, a written test only. Buses, trucks and waste need a <strong>CDL</strong>, and several of the employers above pay to train you for it. Driver Coach drills the Class D road test and the 7D exam, in English, Spanish, Haitian Creole and French.",
+        "es": "El reparto, el transporte médico y las apps de viajes solo necesitan una <strong>Class D</strong> — la licencia que ya tienes o puedes obtener. Las rutas escolares necesitan la <strong>7D</strong>, solo examen escrito. Autobuses, camiones y residuos necesitan un <strong>CDL</strong>, y varios de los empleadores de arriba pagan tu formación. Driver Coach practica el examen Class D y el examen 7D, en inglés, español, criollo haitiano y francés.",
+        "ht": "Livrezon, transpò medikal ak aplikasyon vwayaj mande sèlman yon <strong>Class D</strong> — pèmi ou gen deja, oswa ou ka jwenn. Wout lekòl mande <strong>7D</strong> a, ki se yon egzamen ekri sèlman. Bis, kamyon ak fatra mande yon <strong>CDL</strong>, epi plizyè nan anplwayè anwo yo peye pou fòme w. Driver Coach fè w travay tès wout Class D a ak egzamen 7D a, an anglè, an panyòl, an kreyòl ak an franse.",
+        "fr": "La livraison, le transport médical et les applications de course ne demandent qu'un <strong>Class D</strong> — le permis que vous avez déjà, ou que vous pouvez obtenir. Les circuits scolaires demandent le <strong>7D</strong>, un examen écrit seulement. Les bus, camions et déchets demandent un <strong>CDL</strong>, et plusieurs employeurs ci-dessus paient votre formation. Driver Coach fait travailler le test de route Class D et l'examen 7D, en anglais, espagnol, kreyòl et français.",
     },
     "permis_b": {
         "en": "Prepare with Driver Coach →", "fr": "Me préparer avec Driver Coach →",
