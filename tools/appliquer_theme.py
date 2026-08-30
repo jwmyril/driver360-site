@@ -103,7 +103,7 @@ GARDE = re.compile(
     r'|@media\s+print\s*\{(?:[^{}]|\{[^{}]*\})*\}')
 
 
-LIEN = '<link rel="stylesheet" href="assets/theme.css?v=3" />'
+LIEN = '<link rel="stylesheet" href="assets/theme.css?v=4" />'
 
 # ⚠️ CE SCRIPT DOIT S'EXÉCUTER AVANT LE PREMIER AFFICHAGE.
 # Poser la classe depuis suite.js, chargé en bas de page, ferait apparaître la

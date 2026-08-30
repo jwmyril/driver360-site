@@ -219,4 +219,8 @@ select:focus-visible, textarea:focus-visible {
   .btn { padding: 0.8rem 1.4rem; }
   .logo small { font-size: 0.7rem; }
   .of .prix { font-size: 0.76rem; }
+  /* L'accroche nomme sept secteurs : au format telephone elle occupait six
+     lignes et repoussait le titre. On la resserre plutot que de la raccourcir
+     — c'est justement la liste qui dit l'etendue du marche. */
+  .hero .kreyol { font-size: 1rem; line-height: 1.5; }
 }
