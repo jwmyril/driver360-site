@@ -36,19 +36,65 @@ SOURCE = os.path.join(os.path.dirname(RACINE), "Atmart_website")
 # Quelle page source devient quelle page de la suite, et de quel côté du
 # marché elle se range. Le côté décide de l'en-tête : on ne montre pas les
 # outils du chauffeur à un employeur.
+# L ORDRE COMPTE, et il n est pas alphabetique : c est celui des produits dans
+# la suite, decide le 20/08/2026.
+#   1. Driver Pool     — le vivier. L ACTIF : sans chauffeurs inscrits, rien
+#                        d autre n a de valeur.
+#   2. Driver Employer — la demande, et donc le revenu.
+#   3. Driver Coach    — la preparation (test de route, 7D). C est le canal qui
+#                        ALIMENTE le vivier, pas la finalite.
+#
+# NOMS : la SUITE s appelle Driver360 ; le coach s appelle DRIVER COACH. Les
+# confondre — ce que faisait la premiere version — rendait la suite illisible :
+# on ne sait plus si « Driver360 » designe le tout ou une de ses parties.
+# Cet ordre se lit dans la navigation, sur l accueil et dans le sitemap.
 PAGES = [
-    ("chofe360.html",    "wout.html",     "chauffeur", "Wout",       "Coach du test de route"),
-    ("setd360.html",     "setdi.html",    "chauffeur", "7D",         "Permis 7D"),
-    ("rejistre.html",    "vivye.html",    "chauffeur", "Vivier",     "S'inscrire au vivier"),
-    ("anplwaye360.html", "anplwaye.html", "employeur", "Employeurs", "Recruter des chauffeurs"),
+    ("rejistre.html",    "vivye.html",    "chauffeur", "Driver Pool",     "Le vivier de chauffeurs"),
+    ("anplwaye360.html", "anplwaye.html", "employeur", "Driver Employer", "Recruter des chauffeurs"),
+    ("chofe360.html",    "wout.html",     "chauffeur", "Driver Coach",    "Coach du test de route"),
+    ("setd360.html",     "setdi.html",    "chauffeur", "Driver Coach 7D", "Permis 7D"),
 ]
 
+
+# Le bloc pose EN TETE de la page employeur.
+#
+# POURQUOI. La page parcourt des viviers — « Ouvrir le pool », Class D, 7D.
+# Au 20/08/2026 ces viviers sont VIDES : zero chauffeur inscrit, verifie dans
+# le KV. Un employeur qui clique sur « Ouvrir le pool » ne trouve rien, et ne
+# revient jamais. Plutot que de le laisser decouvrir le vide, on le dit avant,
+# et on recueille sa demande — ce qui a deux vertus : on apprend qui cherche
+# quoi et ou, et les chauffeurs gagnent une raison concrete de s inscrire.
+#
+# A RETIRER le jour ou le vivier compte de vrais chauffeurs. Pas avant.
+APPEL_EMPLOYEUR = """
+<section style="padding:1.6rem 0 .4rem">
+  <div class="container">
+    <div style="background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.45);
+      border-radius:16px;padding:1.5rem 1.7rem;max-width:820px">
+      <h2 style="margin:0 0 .6rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.24rem">
+        Le vivier est en train de se constituer</h2>
+      <p style="margin:0 0 1rem;font-size:.96rem;line-height:1.68;color:#e4dbcf;max-width:64ch">
+        Nous n'avons pas encore de chauffeurs à vous montrer, et nous n'allons pas faire
+        semblant : les viviers ci-dessous sont vides aujourd'hui. Dites-nous plutôt
+        <strong>ce que vous cherchez</strong> — nous vous préviendrons dès qu'un profil
+        correspond, et cela nous dit où concentrer le recrutement.
+      </p>
+      <a class="btn btn-primary" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">
+        Dire ce que je recherche</a>
+      <p style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
+        Aucun engagement, et nous ne diffusons le nom d'aucun chauffeur sans son accord.
+      </p>
+    </div>
+  </div>
+</section>
+"""
+
 NAV_CHAUFFEUR = [
-    ("index.html", "Accueil"), ("wout.html", "Test de route"),
-    ("setdi.html", "Permis 7D"), ("vivye.html", "Le vivier"),
+    ("index.html", "Accueil"), ("vivye.html", "Driver Pool"),
+    ("wout.html", "Driver Coach"), ("setdi.html", "Coach 7D"),
 ]
 NAV_EMPLOYEUR = [
-    ("index.html", "Accueil"), ("anplwaye.html", "Recruter"),
+    ("index.html", "Accueil"), ("anplwaye.html", "Driver Employer"),
 ]
 
 
@@ -111,7 +157,11 @@ def transformer(src_nom, dst_nom, cote):
         return 'href="https://atmart.ltd/%s"' % cible
     s = re.sub(r'href="([a-z0-9\-]+\.html)"', absolu, s)
 
-    # 4. le manifeste de la suite
+    # 4. la porte employeur dit la verite avant de montrer des viviers vides
+    if cote == "employeur":
+        s = s.replace("</header>", "</header>" + chr(10) + APPEL_EMPLOYEUR, 1)
+
+    # 5. le manifeste de la suite
     s = s.replace('<link rel="manifest" href="manifest.webmanifest" />',
                   '<link rel="manifest" href="manifest.webmanifest" />')
     io.open(os.path.join(RACINE, dst_nom), "w", encoding="utf-8", newline="\n").write(s)

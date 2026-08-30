@@ -23,23 +23,28 @@ if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
 d.lang=l||"ht";})();
 </script>
   <style>
-    .d3-fourche{display:grid;grid-template-columns:1fr;gap:1.2rem;margin-top:2rem}
-    @media(min-width:800px){.d3-fourche{grid-template-columns:1fr 1fr;gap:1.4rem}}
-    .d3-porte{display:block;text-decoration:none;border-radius:20px;padding:2rem 2.1rem;
+    .d3-produits{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-top:2rem}
+    @media(min-width:900px){.d3-produits{grid-template-columns:repeat(3,1fr);gap:1.2rem}}
+    .d3-porte .rang{font-size:.68rem;font-weight:700;letter-spacing:.14em;color:#5a6f83;display:block;margin-bottom:.7rem}
+    .d3-porte .qui{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.04em;
+      border-radius:99px;padding:.22rem .7rem;margin-bottom:.9rem}
+    .d3-porte.pool .qui,.d3-porte.coach .qui{background:rgba(46,196,182,.16);color:#2ec4b6}
+    .d3-porte.emp .qui{background:rgba(93,156,236,.16);color:#5d9cec}
+    .d3-porte{display:block;text-decoration:none;border-radius:18px;padding:1.7rem 1.8rem;
       border:1px solid rgba(255,255,255,.12);transition:border-color .25s,transform .25s}
     .d3-porte:hover{transform:translateY(-3px)}
-    .d3-porte.conduit{background:rgba(46,196,182,.08);border-color:rgba(46,196,182,.38)}
-    .d3-porte.conduit:hover{border-color:rgba(46,196,182,.75)}
-    .d3-porte.recrute{background:rgba(93,156,236,.08);border-color:rgba(93,156,236,.38)}
-    .d3-porte.recrute:hover{border-color:rgba(93,156,236,.75)}
+    .d3-porte.pool,.d3-porte.coach{background:rgba(46,196,182,.08);border-color:rgba(46,196,182,.38)}
+    .d3-porte.pool:hover,.d3-porte.coach:hover{border-color:rgba(46,196,182,.75)}
+    .d3-porte.emp{background:rgba(93,156,236,.08);border-color:rgba(93,156,236,.38)}
+    .d3-porte.emp:hover{border-color:rgba(93,156,236,.75)}
     .d3-porte .ic{font-size:2.2rem;display:block;margin-bottom:.7rem}
-    .d3-porte h2{margin:0 0 .5rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
+    .d3-porte h2{margin:0 0 .45rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
     .d3-porte>p{margin:0 0 1.1rem;font-size:.98rem;color:#c9d8e6;line-height:1.65}
     .d3-porte ul{margin:0 0 1.2rem;padding-left:1.1rem}
     .d3-porte li{font-size:.9rem;color:#9db2c7;line-height:1.6;margin-bottom:.35rem}
     .d3-porte .entrer{font-weight:600;font-size:.95rem}
-    .d3-porte.conduit .entrer{color:#2ec4b6}
-    .d3-porte.recrute .entrer{color:#5d9cec}
+    .d3-porte.pool .entrer,.d3-porte.coach .entrer{color:#2ec4b6}
+    .d3-porte.emp .entrer{color:#5d9cec}
     .d3-franc{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.42);border-radius:14px;
       padding:1.1rem 1.3rem;margin-top:1.6rem;font-size:.92rem;color:#e4dbcf;line-height:1.65;max-width:760px}
     .d3-pour{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.1rem}
@@ -72,33 +77,41 @@ d.lang=l||"ht";})();
 
 <section style="padding-top:.2rem">
   <div class="container">
-    <div class="d3-fourche">
+    <div class="d3-produits">
 
-      <a class="d3-porte conduit" href="wout.html">
-        <span class="ic">🚗</span>
-        <h2 data-t="c_t">Mwen ap kondi</h2>
-        <p data-t="c_d">Prepare tès wout la, jwenn pèmi 7D a, epi mete non w nan vivye a pou konpayi yo ka jwenn ou.</p>
-        <ul>
-          <li data-t="c_1">Koach tès wout la : 12 manèv, kòmand egzaminatè a an angle ak tradiksyon</li>
-          <li data-t="c_2">Pèmi 7D : preparasyon konplè pou transpò lekòl</li>
-          <li data-t="c_3">Vivye chofè a : yon sèl fich, konpayi yo wè w</li>
-        </ul>
-        <span class="entrer" data-t="c_e">Kòmanse →</span>
+      <a class="d3-porte pool" href="vivye.html">
+        <span class="rang" data-t="r1">PWODWI 1</span>
+        <span class="ic">📋</span>
+        <h2 data-t="p1_t">Driver Pool</h2>
+        <p data-t="p1_d">Mete non w nan vivye a. Yon sèl fich, epi konpayi k ap chèche chofè yo ka jwenn ou — sèlman si ou dakò.</p>
+        <span class="qui" data-t="p1_q">Pou chofè yo</span>
+        <span class="entrer" data-t="p1_e">Enskri nan vivye a →</span>
       </a>
 
-      <a class="d3-porte recrute" href="anplwaye.html">
+      <a class="d3-porte emp" href="anplwaye.html">
+        <span class="rang" data-t="r2">PWODWI 2</span>
         <span class="ic">🏢</span>
-        <h2 data-t="e_t">M ap chèche chofè</h2>
-        <p data-t="e_d">Di nou ki kalite chofè w bezwen, konbyen, ak nan ki vil. Nou mennen yo ba ou lè yo prè.</p>
-        <ul>
-          <li data-t="e_1">Class D oswa 7D, selon sa w bezwen</li>
-          <li data-t="e_2">Chofè ki pale kreyòl, franse, angle oswa panyòl</li>
-          <li data-t="e_3">Ou wè rezilta tès yo, pa sèlman yon CV</li>
-        </ul>
-        <span class="entrer" data-t="e_e">Di nou sa w bezwen →</span>
+        <h2 data-t="p2_t">Driver Employer</h2>
+        <p data-t="p2_d">Di nou ki kalite chofè w bezwen, konbyen, nan ki vil. Ou wè rezilta tès yo, pa sèlman yon CV.</p>
+        <span class="qui" data-t="p2_q">Pou konpayi yo</span>
+        <span class="entrer" data-t="p2_e">Di nou sa w bezwen →</span>
+      </a>
+
+      <a class="d3-porte coach" href="wout.html">
+        <span class="rang" data-t="r3">PWODWI 3</span>
+        <span class="ic">🚗</span>
+        <h2 data-t="p3_t">Driver Coach</h2>
+        <p data-t="p3_d">Prepare tès wout la ak pèmi 7D a : 12 manèv, vrè kòmand egzaminatè a, ak tradiksyon an kreyòl, franse ak panyòl.</p>
+        <span class="qui" data-t="p3_q">Pou chofè yo</span>
+        <span class="entrer" data-t="p3_e">Kòmanse preparasyon an →</span>
       </a>
 
     </div>
+
+    <p style="margin-top:1.3rem;font-size:.9rem;color:#9db2c7;max-width:66ch" data-t="ordre">
+      L'ordre n'est pas anodin : le vivier est ce qui a de la valeur, le portail employeur est
+      ce qui la transforme en revenu, et le coach est ce qui remplit le vivier.
+    </p>
 
     <div class="d3-franc" data-t="franc">🚧 <strong>Vivye a ap konstwi kounye a.</strong> Nou pa gen chofè pou nou montre w jodi a, epi nou pa pral fè sanblan. Si w ap chèche chofè, di nou sa w bezwen : sa ede nou konnen ki kote pou nou konsantre, epi sa bay chofè yo yon rezon pou yo enskri.</div>
   </div>
@@ -108,10 +121,10 @@ d.lang=l||"ht";})();
   <div class="container">
     <div class="section-head"><h2 data-t="p_t">Poukisa Driver360</h2></div>
     <div class="d3-pour">
-      <div><b data-t="p1_t">Egzaminatè a pale anglè</b><span data-t="p1_d">Nou drile vrè kòmand li yo, ak tradiksyon an kreyòl, franse ak panyòl. Ou gen dwa a yon entèprèt nan tès la — men fòk ou konprann sa yo mande w la.</span></div>
-      <div><b data-t="p2_t">Yon nich pèsonn pa okipe</b><span data-t="p2_d">Manyèl 7D a egziste sèlman an anglè ak panyòl, alòske tès la fèt an kreyòl. Nou ranpli twou sa a.</span></div>
-      <div><b data-t="p3_t">Rezilta, pa yon CV</b><span data-t="p3_d">Yon konpayi wè kote chofè a rive nan preparasyon l, pa yon lis bèl pawòl.</span></div>
-      <div><b data-t="p4_t">Ou rete mèt done w</b><span data-t="p4_d">Yon konpayi wè w sèlman si ou dakò. Nou pa vann non pèsonn.</span></div>
+      <div><b data-t="w1_t">Egzaminatè a pale anglè</b><span data-t="w1_d">Nou drile vrè kòmand li yo, ak tradiksyon an kreyòl, franse ak panyòl. Ou gen dwa a yon entèprèt nan tès la — men fòk ou konprann sa yo mande w la.</span></div>
+      <div><b data-t="w2_t">Yon nich pèsonn pa okipe</b><span data-t="w2_d">Manyèl 7D a egziste sèlman an anglè ak panyòl, alòske tès la fèt an kreyòl. Nou ranpli twou sa a.</span></div>
+      <div><b data-t="w3_t">Rezilta, pa yon CV</b><span data-t="w3_d">Yon konpayi wè kote chofè a rive nan preparasyon l, pa yon lis bèl pawòl.</span></div>
+      <div><b data-t="w4_t">Ou rete mèt done w</b><span data-t="w4_d">Yon konpayi wè w sèlman si ou dakò. Nou pa vann non pèsonn.</span></div>
     </div>
   </div>
 </section>
@@ -129,57 +142,109 @@ d.lang=l||"ht";})();
    s affiche meme si le reste du site ne charge pas. Les autres pages, elles,
    gardent le mecanisme i18n d origine. */
 var T = {
- fr:{fil:"Au Massachusetts, l'examinateur parle anglais — mais vous avez droit à un interprète.",
-  aka:"permis, test de route et recrutement de chauffeurs",lieu:"Massachusetts",
-  lead:"Un seul endroit pour ceux qui apprennent à conduire et pour ceux qui cherchent des chauffeurs. Nous ne mélangeons pas les deux : chacun a sa porte.",
-  c_t:"Je conduis",c_d:"Préparez le test de route, obtenez le permis 7D, et inscrivez-vous au vivier pour que les entreprises vous trouvent.",
-  c_1:"Coach du test de route : 12 manœuvres, les vraies commandes de l'examinateur avec leur traduction",
-  c_2:"Permis 7D : préparation complète au transport scolaire",
-  c_3:"Le vivier : une seule fiche, et les entreprises vous voient",c_e:"Commencer →",
-  e_t:"Je recrute",e_d:"Dites-nous quel type de chauffeur il vous faut, combien, et dans quelle ville. Nous vous les amenons quand ils sont prêts.",
-  e_1:"Class D ou 7D, selon votre besoin",e_2:"Des chauffeurs qui parlent kreyòl, français, anglais ou espagnol",
-  e_3:"Vous voyez leurs résultats aux tests, pas seulement un CV",e_e:"Dites-nous votre besoin →",
-  franc:"🚧 <strong>Le vivier est en train de se constituer.</strong> Nous n'avons pas de chauffeurs à vous montrer aujourd'hui, et nous n'allons pas faire semblant. Si vous cherchez des chauffeurs, dites-nous lesquels : cela nous dit où concentrer nos efforts, et cela donne aux chauffeurs une raison de s'inscrire.",
-  p_t:"Pourquoi Driver360",
-  p1_t:"L'examinateur parle anglais",p1_d:"Nous drillons ses vraies commandes, avec la traduction en kreyòl, français et espagnol. Vous avez droit à un interprète au test — encore faut-il comprendre ce qu'on vous demande.",
-  p2_t:"Une niche que personne ne couvre",p2_d:"Le manuel 7D n'existe qu'en anglais et en espagnol, alors que le test se passe en kreyòl. Nous comblons ce trou.",
-  p3_t:"Des résultats, pas un CV",p3_d:"Une entreprise voit où en est le chauffeur dans sa préparation, pas une liste de belles phrases.",
-  p4_t:"Vous restez maître de vos données",p4_d:"Une entreprise ne vous voit que si vous êtes d'accord. Nous ne vendons le nom de personne.",
-  contact:"Une question",droits:"Tous droits réservés."},
- en:{fil:"In Massachusetts the examiner speaks English — but you have a right to an interpreter.",
-  aka:"licence, road test and driver recruitment",lieu:"Massachusetts",
-  lead:"One place for people learning to drive and for people looking for drivers. We do not mix the two: each has its own door.",
-  c_t:"I drive",c_d:"Prepare for the road test, get the 7D licence, and join the pool so companies can find you.",
-  c_1:"Road-test coach: 12 manoeuvres, the examiner's real commands with their translation",
-  c_2:"7D licence: full preparation for school transport",
-  c_3:"The pool: one profile, and companies can see you",c_e:"Start →",
-  e_t:"I am hiring",e_d:"Tell us what kind of driver you need, how many, and in which city. We bring them to you when they are ready.",
-  e_1:"Class D or 7D, whichever you need",e_2:"Drivers who speak Haitian Creole, French, English or Spanish",
-  e_3:"You see their test results, not just a CV",e_e:"Tell us what you need →",
-  franc:"🚧 <strong>The pool is still being built.</strong> We have no drivers to show you today, and we will not pretend otherwise. If you are hiring, tell us who you need: it tells us where to focus, and it gives drivers a reason to sign up.",
-  p_t:"Why Driver360",
-  p1_t:"The examiner speaks English",p1_d:"We drill their real commands, with translation into Haitian Creole, French and Spanish. You have a right to an interpreter at the test — but you still need to understand what is being asked.",
-  p2_t:"A gap nobody covers",p2_d:"The 7D manual exists only in English and Spanish, while the test can be taken in Haitian Creole. We fill that gap.",
-  p3_t:"Results, not a CV",p3_d:"A company sees where the driver stands in their preparation, not a list of fine words.",
-  p4_t:"Your data stays yours",p4_d:"A company sees you only if you agree. We sell nobody's name.",
-  contact:"A question",droits:"All rights reserved."},
- es:{fil:"En Massachusetts el examinador habla inglés — pero tienes derecho a un intérprete.",
-  aka:"licencia, examen de manejo y reclutamiento de conductores",lieu:"Massachusetts",
-  lead:"Un solo lugar para quien aprende a conducir y para quien busca conductores. No mezclamos ambos: cada uno tiene su puerta.",
-  c_t:"Yo conduzco",c_d:"Prepara el examen de manejo, obtén la licencia 7D e inscríbete para que las empresas te encuentren.",
-  c_1:"Entrenador del examen: 12 maniobras, las órdenes reales del examinador con su traducción",
-  c_2:"Licencia 7D: preparación completa para transporte escolar",
-  c_3:"El registro: una sola ficha, y las empresas te ven",c_e:"Empezar →",
-  e_t:"Estoy contratando",e_d:"Dinos qué tipo de conductor necesitas, cuántos y en qué ciudad. Te los llevamos cuando estén listos.",
-  e_1:"Class D o 7D, según tu necesidad",e_2:"Conductores que hablan criollo haitiano, francés, inglés o español",
-  e_3:"Ves sus resultados en los exámenes, no solo un currículum",e_e:"Dinos qué necesitas →",
-  franc:"🚧 <strong>El registro se está formando.</strong> Hoy no tenemos conductores que mostrarte, y no vamos a fingir lo contrario. Si estás contratando, dinos a quién necesitas: nos dice dónde concentrarnos, y les da a los conductores una razón para inscribirse.",
-  p_t:"Por qué Driver360",
-  p1_t:"El examinador habla inglés",p1_d:"Practicamos sus órdenes reales, con traducción al criollo haitiano, francés y español. Tienes derecho a un intérprete en el examen — pero hay que entender lo que te piden.",
-  p2_t:"Un hueco que nadie cubre",p2_d:"El manual 7D solo existe en inglés y español, aunque el examen se puede rendir en criollo haitiano. Llenamos ese hueco.",
-  p3_t:"Resultados, no un currículum",p3_d:"Una empresa ve en qué punto está el conductor de su preparación, no una lista de buenas palabras.",
-  p4_t:"Tus datos siguen siendo tuyos",p4_d:"Una empresa te ve solo si estás de acuerdo. No vendemos el nombre de nadie.",
-  contact:"Una pregunta",droits:"Todos los derechos reservados."}};
+ "fr": {
+  "fil": "Au Massachusetts, l'examinateur parle anglais — mais vous avez droit à un interprète.",
+  "aka": "permis, test de route et recrutement de chauffeurs",
+  "lieu": "Massachusetts",
+  "lead": "Trois produits sous un même toit : le vivier de chauffeurs, le portail des employeurs, et la préparation aux examens.",
+  "p1_t": "Driver Pool",
+  "p1_q": "Pour les chauffeurs",
+  "p1_d": "Inscrivez-vous au vivier. Une seule fiche, et les entreprises qui cherchent des chauffeurs peuvent vous trouver — uniquement si vous êtes d'accord.",
+  "p1_e": "M'inscrire au vivier →",
+  "p2_t": "Driver Employer",
+  "p2_q": "Pour les entreprises",
+  "p2_d": "Dites-nous quel type de chauffeur il vous faut, combien, dans quelle ville. Vous voyez leurs résultats aux tests, pas seulement un CV.",
+  "p2_e": "Dire ce que je cherche →",
+  "p3_t": "Driver Coach",
+  "p3_q": "Pour les chauffeurs",
+  "p3_d": "Préparez le test de route et le permis 7D : 12 manœuvres, les vraies commandes de l'examinateur, traduites en kreyòl, français et espagnol.",
+  "p3_e": "Commencer la préparation →",
+  "ordre": "L'ordre n'est pas anodin : le vivier est ce qui a de la valeur, le portail employeur est ce qui la transforme en revenu, et le coach est ce qui remplit le vivier.",
+  "franc": "🚧 <strong>Le vivier est en train de se constituer.</strong> Nous n'avons pas de chauffeurs à vous montrer aujourd'hui, et nous n'allons pas faire semblant. Si vous cherchez des chauffeurs, dites-nous lesquels : cela nous dit où concentrer nos efforts, et cela donne aux chauffeurs une raison de s'inscrire.",
+  "p_t": "Pourquoi Driver360",
+  "w1_t": "L'examinateur parle anglais",
+  "w1_d": "Nous drillons ses vraies commandes, avec la traduction en kreyòl, français et espagnol. Vous avez droit à un interprète au test — encore faut-il comprendre ce qu'on vous demande.",
+  "w2_t": "Une niche que personne ne couvre",
+  "w2_d": "Le manuel 7D n'existe qu'en anglais et en espagnol, alors que le test se passe en kreyòl. Nous comblons ce trou.",
+  "w3_t": "Des résultats, pas un CV",
+  "w3_d": "Une entreprise voit où en est le chauffeur dans sa préparation, pas une liste de belles phrases.",
+  "w4_t": "Vous restez maître de vos données",
+  "w4_d": "Une entreprise ne vous voit que si vous êtes d'accord. Nous ne vendons le nom de personne.",
+  "contact": "Une question",
+  "droits": "Tous droits réservés.",
+  "r1": "PRODUIT 1",
+  "r2": "PRODUIT 2",
+  "r3": "PRODUIT 3"
+ },
+ "en": {
+  "fil": "In Massachusetts the examiner speaks English — but you have a right to an interpreter.",
+  "aka": "licence, road test and driver recruitment",
+  "lieu": "Massachusetts",
+  "lead": "Three products under one roof: the driver pool, the employer portal, and exam preparation.",
+  "p1_t": "Driver Pool",
+  "p1_q": "For drivers",
+  "p1_d": "Join the pool. One profile, and companies looking for drivers can find you — only if you agree.",
+  "p1_e": "Join the pool →",
+  "p2_t": "Driver Employer",
+  "p2_q": "For companies",
+  "p2_d": "Tell us what kind of driver you need, how many, in which city. You see their test results, not just a CV.",
+  "p2_e": "Tell us what I need →",
+  "p3_t": "Driver Coach",
+  "p3_q": "For drivers",
+  "p3_d": "Prepare for the road test and the 7D licence: 12 manoeuvres, the examiner's real commands, translated into Haitian Creole, French and Spanish.",
+  "p3_e": "Start preparing →",
+  "ordre": "The order is deliberate: the pool is what holds the value, the employer portal is what turns it into revenue, and the coach is what fills the pool.",
+  "franc": "🚧 <strong>The pool is still being built.</strong> We have no drivers to show you today, and we will not pretend otherwise. If you are hiring, tell us who you need: it tells us where to focus, and it gives drivers a reason to sign up.",
+  "p_t": "Why Driver360",
+  "w1_t": "The examiner speaks English",
+  "w1_d": "We drill their real commands, with translation into Haitian Creole, French and Spanish. You have a right to an interpreter at the test — but you still need to understand what is being asked.",
+  "w2_t": "A gap nobody covers",
+  "w2_d": "The 7D manual exists only in English and Spanish, while the test can be taken in Haitian Creole. We fill that gap.",
+  "w3_t": "Results, not a CV",
+  "w3_d": "A company sees where the driver stands in their preparation, not a list of fine words.",
+  "w4_t": "Your data stays yours",
+  "w4_d": "A company sees you only if you agree. We sell nobody's name.",
+  "contact": "A question",
+  "droits": "All rights reserved.",
+  "r1": "PRODUCT 1",
+  "r2": "PRODUCT 2",
+  "r3": "PRODUCT 3"
+ },
+ "es": {
+  "fil": "En Massachusetts el examinador habla inglés — pero tienes derecho a un intérprete.",
+  "aka": "licencia, examen de manejo y reclutamiento de conductores",
+  "lieu": "Massachusetts",
+  "lead": "Tres productos bajo un mismo techo: el registro de conductores, el portal de empresas y la preparación de exámenes.",
+  "p1_t": "Driver Pool",
+  "p1_q": "Para conductores",
+  "p1_d": "Inscríbete en el registro. Una sola ficha, y las empresas que buscan conductores pueden encontrarte — solo si estás de acuerdo.",
+  "p1_e": "Inscribirme →",
+  "p2_t": "Driver Employer",
+  "p2_q": "Para empresas",
+  "p2_d": "Dinos qué tipo de conductor necesitas, cuántos y en qué ciudad. Ves sus resultados en los exámenes, no solo un currículum.",
+  "p2_e": "Decir lo que busco →",
+  "p3_t": "Driver Coach",
+  "p3_q": "Para conductores",
+  "p3_d": "Prepara el examen de manejo y la licencia 7D: 12 maniobras, las órdenes reales del examinador, traducidas al criollo haitiano, francés y español.",
+  "p3_e": "Empezar la preparación →",
+  "ordre": "El orden no es casual: el registro es lo que tiene valor, el portal de empresas es lo que lo convierte en ingresos, y el entrenador es lo que llena el registro.",
+  "franc": "🚧 <strong>El registro se está formando.</strong> Hoy no tenemos conductores que mostrarte, y no vamos a fingir lo contrario. Si estás contratando, dinos a quién necesitas: nos dice dónde concentrarnos, y les da a los conductores una razón para inscribirse.",
+  "p_t": "Por qué Driver360",
+  "w1_t": "El examinador habla inglés",
+  "w1_d": "Practicamos sus órdenes reales, con traducción al criollo haitiano, francés y español. Tienes derecho a un intérprete en el examen — pero hay que entender lo que te piden.",
+  "w2_t": "Un hueco que nadie cubre",
+  "w2_d": "El manual 7D solo existe en inglés y español, aunque el examen se puede rendir en criollo haitiano. Llenamos ese hueco.",
+  "w3_t": "Resultados, no un currículum",
+  "w3_d": "Una empresa ve en qué punto está el conductor de su preparación, no una lista de buenas palabras.",
+  "w4_t": "Tus datos siguen siendo tuyos",
+  "w4_d": "Una empresa te ve solo si estás de acuerdo. No vendemos el nombre de nadie.",
+  "contact": "Una pregunta",
+  "droits": "Todos los derechos reservados.",
+  "r1": "PRODUCTO 1",
+  "r2": "PRODUCTO 2",
+  "r3": "PRODUCTO 3"
+ }
+};
 
 var LANGUES = {ht:"Kreyòl", fr:"Français", en:"English", es:"Español"};
 
