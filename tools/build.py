@@ -17,9 +17,19 @@ affiche juste faux.
 Le code de sortie est non nul dès qu'un contrôle échoue : rien ne se publie
 sur un site cassé.
 """
+import io
 import os
 import subprocess
 import sys
+
+# ⚠️ La console Windows est en cp1252 : imprimer la sortie d'un controle qui
+# contient un accent — ou le caractere de remplacement U+FFFD — y leve une
+# UnicodeEncodeError. Le 31/08/2026 build.py a plante EN AFFICHANT un echec,
+# et a donc rendu le code 0 : l'outil cense refuser de publier un site casse
+# se cassait lui-meme au moment de le dire. On force UTF-8 en sortie.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 RACINE = os.path.dirname(ICI)

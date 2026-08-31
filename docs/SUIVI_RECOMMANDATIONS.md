@@ -67,7 +67,7 @@ passe, soit il ne passe pas, soit il n'existe pas.
 | C1 | `esc(e.city)` aux lignes 345 et 360 d'`anplwaye.html` — XSS stocké | 🔴 | **vérifié** | corrigé dans `anplwaye360.html` (2 insertions de `e.city`, lignes 359 et 382 de la source). **Prouvé au navigateur** : réponse serveur truquée avec `<img src=x onerror=…>` en ville → 0 image injectée, code non exécuté, ville rendue en texte |
 | C2 | Retirer `auth` de la réponse `list` du Worker et la colonne de la vue libre | 🔴 | **à faire** | pastille ✅/⏳/❌ triable sur fiches anonymes — le site pose lui-même cette règle pour la nationalité |
 | C3 | Porter `esc()` dans `vivye.html` et l'appliquer à `d.org`, `d.emp`, `d.at` | 🔴 | **vérifié** | `esc()` **créé** dans `rejistre.html` (il n'en avait aucune) et appliqué à `d.org`, `d.emp`, `d.at` — dont **deux attributs** `data-emp`, la variante la plus facile à rater. Prouvé au navigateur par le même essai, dans l'autre sens |
-| C4 | `anplwaye.html:380` : `enAttente(b.dataset.id)` au lieu de `enAttente(id)` | 🔴 | **à faire** | `ReferenceError` en mode strict : le bouton « Sélectionner » ne fonctionne pas, et le chemin d'accord préalable n'a jamais tourné |
+| C4 | `anplwaye.html:380` : `enAttente(b.dataset.id)` au lieu de `enAttente(id)` | 🔴 | **vérifié** | `enAttente(id)` → `enAttente(idSel)` avec `idSel = b.dataset.id`. **Prouvé au navigateur** : 0 erreur JS, la requête `select` part avec le bon id, et les DEUX branches de confirmation s'affichent enfin — `confirmPend` pour un chauffeur en mode accord préalable, `confirm` sinon. Ce mécanisme n'avait jamais tourné une seule fois |
 | C5 | Sortir les blocs `<script>` inline pour lever `'unsafe-inline'` | 🟠 | **à faire** | aucun filet sous C1 et C3 |
 | C6 | Passer le code employeur en `sessionStorage` et purger à l'expiration | 🟠 | **à faire** | code à 15 $ la sélection, en clair, copiable d'un navigateur à l'autre |
 | C7 | Passer les HTML du service worker en *network-first* et bumper `CACHE` | 🟠 | **à faire** | cache-first sans revalidation ; `CACHE` non bumpé depuis `c0acd86` alors que `09bc6d3` a touché `wout.html` |
@@ -86,7 +86,7 @@ passe, soit il ne passe pas, soit il n'existe pas.
 
 | # | Recommandation | Gravité | État | Preuve |
 |---|---|---|---|---|
-| D1 | Mettre `terms.html` et `privacy.html` dans le pied partagé (`regen.py:155`) et au-dessus des boutons d'envoi | 🔴 | **à faire** | seul `index.html` y renvoie : aucune page qui collecte ne les montre |
+| D1 | Mettre `terms.html` et `privacy.html` dans le pied partagé (`regen.py:155`) et au-dessus des boutons d'envoi | 🔴 | **vérifié** | `terms.html` et `privacy.html` dans le pied partagé (`regen.py`) **et** une mention juste au-dessus du bouton d'envoi des deux formulaires — injectée au build, car ces pages n'existent pas sur atmart.ltd. Deux défauts corrigés en route : `PAGES_SUITE` ne les contenait pas (les liens du pied partaient sur un 404 d'atmart.ltd), et `suite.js` n'avait pas changé de version (tout visiteur déjà venu gardait l'ancien fichier, donc une mention figée en français) |
 | D2 | Aligner `privacy.html:77` sur ce que l'employeur voit vraiment (7 données de plus) | 🔴 | **à faire** | résultats d'examen, préparation %, meilleur score, date de test, drapeau CV — la page se réclame pourtant d'une exactitude littérale |
 | D3 | Case distincte, décochée par défaut, pour la publication des résultats d'examen | 🔴 | **à faire** | les cases actuelles ne parlent que de nom et téléphone |
 | D4 | Retirer « Atmart LLC. Massachusetts. » du pied des 8 pages, ou immatriculer la LLC | 🔴 | **à faire** | `legal_specs.py:14` dit qu'elle n'y est PAS établie ; `terms.html:95` et `:102` se contredisent à 7 lignes |
@@ -150,7 +150,7 @@ passe, soit il ne passe pas, soit il n'existe pas.
 
 | # | Recommandation | Gravité | État | Preuve |
 |---|---|---|---|---|
-| G1 | `sys.exit(1)` dans `regen.py` quand un fichier de données est introuvable | 🔴 | **à faire** | prouvé en dépôt isolé : source retirée → `REGEN EXIT: 0` → « Build vert », et `verif_actifs.py` passe sur la copie périmée |
+| G1 | `sys.exit(1)` dans `regen.py` quand un fichier de données est introuvable | 🔴 | **vérifié** | `copier_donnees()` retourne les manquants, `regen.py` sort en 1. **Preuve par la panne** : source retirée → regen code 1, build code 1 et nomme l'étape ; source restaurée → vert. Défaut attrapé au passage : `build.py` plantait en UnicodeEncodeError **en affichant** l'échec sur une console cp1252 — l'outil censé refuser de publier se cassait au moment de le dire. Sortie forcée en UTF-8 |
 | G2 | Poser les balises Open Graph sur les 9 pages | 🔴 | **à faire** | 0 balise ; le canal du produit est WhatsApp, où chaque lien s'affiche en texte nu |
 | G3 | Poser `<link rel="canonical">` sur les 4 pages dérivées | 🔴 | **à faire** | leurs originaux sont toujours en ligne sur atmart.ltd : contenu dupliqué, et c'est le nouveau domaine qui perd |
 | G4 | Supprimer `assets/i18n/` et `assets/i18n.js` | 🟠 | **à faire** | 828 Ko publiés que `regen.py:174` empêche de charger, dont 113 Ko appartenant à l'Explorateur Haïti |

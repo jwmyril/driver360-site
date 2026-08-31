@@ -124,7 +124,8 @@ NAV = [
 # jobs.html n'est derivee d'aucune page d'atmart.ltd (elle est fabriquee par
 # tools/gen_emplois.py), donc elle n'apparait pas dans PAGES — sans cette
 # liste, `absolu()` l'enverrait sur atmart.ltd/jobs.html, qui n'existe pas.
-PAGES_SUITE = {b for _, b, _, _, _ in PAGES} | {"index.html", "jobs.html"}
+PAGES_SUITE = ({b for _, b, _, _, _ in PAGES}
+               | {"index.html", "jobs.html", "terms.html", "privacy.html"})
 
 
 def entete(actif, cote=None):
@@ -152,13 +153,42 @@ def entete(actif, cote=None):
             + NL.join(lis) + NL + '    </ul>' + NL + '  </nav>' + NL + '</header>')
 
 
+# ⚠️ LES PAGES LEGALES SONT DANS LE PIED PARTAGE, pas seulement sur l'accueil.
+# Jusqu'au 31/08/2026 seul `index.html` y renvoyait : AUCUNE page qui collecte
+# ne les liait. Un chauffeur saisissait donc son telephone, son CV et sa
+# nationalite sans jamais pouvoir lire la politique, et rien de ce que les
+# conditions imposent a un employeur ne lui etait opposable.
+#
+# La mention « Massachusetts » a aussi disparu de la ligne de service : Atmart
+# LLC n'y est pas etablie. Elle etait deja retiree de `suite.js`, mais le
+# gabarit statique la portait encore — ce que lit un moteur de recherche.
 PIED = """<footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
-    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span>
+      &nbsp;·&nbsp; <a href="terms.html" data-d3="f_terms" style="color:var(--d-doux)">Terms and conditions</a>
+      &nbsp;·&nbsp; <a href="privacy.html" data-d3="f_privacy" style="color:var(--d-doux)">Privacy</a></p>
   </div>
 </footer>"""
+
+# La meme mention, mais JUSTE AU-DESSUS du bouton qui envoie les donnees.
+# Un lien en pied de page se lit apres coup ; ici il se lit avant de cliquer.
+#
+# Elle est injectee AU BUILD et non ecrite dans les pages sources : ces pages
+# servent aussi atmart.ltd, ou `terms.html` et `privacy.html` n'existent pas.
+# Les y ecrire creerait deux 404 sur l'autre site.
+MENTION = ('<p data-d3="f_avant_envoi" style="font-size:.82rem;color:var(--d-faible);'
+           'margin:.9rem 0 0;line-height:1.55">En envoyant ce formulaire, vous acceptez '
+           'nos <a href="terms.html" style="color:var(--d-accent)">conditions d\'utilisation</a> '
+           'et notre <a href="privacy.html" style="color:var(--d-accent)">politique de '
+           'confidentialité</a>.</p>')
+
+# (page, ancre avant laquelle poser la mention)
+AVANT_ENVOI = {
+    "vivye.html": '<div style="margin-top:1.2rem;display:flex;gap:0.6rem;flex-wrap:wrap">',
+    "anplwaye.html": '<button type="submit" class="btn btn-primary" id="ep-go">',
+}
 
 # Les scripts propres a atmart.ltd n'ont rien a faire ici : ils chargent un
 # service worker et un lanceur qui pointent vers l'autre site.
@@ -190,7 +220,7 @@ def transformer(src_nom, dst_nom, cote):
     # etre charge sur TOUTES les pages, sinon la page reste dans la langue
     # ecrite en dur pendant que son corps change — le melange exact que
     # l'utilisateur a signale le 30/08/2026.
-    s = s.replace("</body>", '<script src="assets/suite.js?v=4"></script>\n'
+    s = s.replace("</body>", '<script src="assets/suite.js?v=5"></script>\n'
                   '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres
@@ -226,6 +256,13 @@ def transformer(src_nom, dst_nom, cote):
     # dans une chaine JavaScript tomberait dans le vide sur cette suite.
     s = re.sub(r"""(href=\\?["'])([a-z0-9\-]+\.html)""", absolu, s)
 
+    # 3bis. la mention legale, juste au-dessus du bouton qui envoie
+    ancre = AVANT_ENVOI.get(dst_nom)
+    if ancre:
+        if ancre not in s:
+            raise SystemExit("mention legale : ancre introuvable dans %s" % dst_nom)
+        s = s.replace(ancre, MENTION + chr(10) + "        " + ancre, 1)
+
     # 4. la porte employeur dit la verite avant de montrer des viviers vides
     if cote == "employeur":
         s = s.replace("</header>", "</header>" + chr(10) + APPEL_EMPLOYEUR, 1)
@@ -257,23 +294,41 @@ DONNEES = ["komand.json", "pemi-questions.json"]
 
 
 def copier_donnees():
-    """Recopie les fichiers de donnees d'atmart.ltd vers cette suite."""
+    """Recopie les fichiers de donnees d'atmart.ltd vers cette suite.
+
+    ⚠️ RETOURNE AUSSI LES MANQUANTS, et l'appelant SORT EN ERREUR s'il y en a.
+    La version d'origine se contentait d'imprimer « introuvable » et de
+    continuer : le build affichait « vert » alors que le coach n'avait plus ses
+    exercices. C'est exactement la panne du 30/08/2026, qui a tenu plusieurs
+    jours precisement parce que rien ne criait — une page qui ne charge pas ses
+    donnees ne casse pas, elle affiche juste moins.
+    """
     import shutil
-    faits = []
+    faits, manquants = [], []
     for nom in DONNEES:
         src = os.path.join(SOURCE, "assets", nom)
         if not os.path.exists(src):
-            print("  !! introuvable a la source : %s" % src)
+            manquants.append(src)
             continue
         dst = os.path.join(RACINE, "assets", nom)
         shutil.copyfile(src, dst)
         faits.append("%s (%d octets)" % (nom, os.path.getsize(dst)))
-    return faits
+    return faits, manquants
 
 
 if __name__ == "__main__":
     for src, dst, cote, nom, _ in PAGES:
         n = transformer(src, dst, cote)
         print("%-20s -> %-16s %-10s %7d octets" % (src, dst, "(" + cote + ")", n))
-    for ligne in copier_donnees():
+    faits, manquants = copier_donnees()
+    for ligne in faits:
         print("donnees              -> assets/%s" % ligne)
+    if manquants:
+        print("")
+        print("ARRET : %d fichier(s) de donnees introuvable(s) a la source." % len(manquants))
+        for m in manquants:
+            print("  - %s" % m)
+        print("")
+        print("Sans eux le coach perd ses exercices ET sa traduction, sans rien casser")
+        print("de visible. On sort en erreur plutot que d'annoncer un build vert.")
+        sys.exit(1)

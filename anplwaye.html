@@ -125,7 +125,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <input type="number" id="ep-quota" min="1" max="50" value="4" />
         <label for="ep-needs" id="L-needs">Détails de votre besoin (optionnel) <small>Ex. : 4 chauffeurs 7D pour la rentrée, zone Worcester ; profil recherché…</small></label>
         <textarea id="ep-needs" maxlength="400" style="min-height:70px"></textarea>
-        <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="ep-go">Ouvrir le pool</button></div>
+        <div style="margin-top:1.1rem"><p data-d3="f_avant_envoi" style="font-size:.82rem;color:var(--d-faible);margin:.9rem 0 0;line-height:1.55">En envoyant ce formulaire, vous acceptez nos <a href="terms.html" style="color:var(--d-accent)">conditions d'utilisation</a> et notre <a href="privacy.html" style="color:var(--d-accent)">politique de confidentialité</a>.</p>
+        <button type="submit" class="btn btn-primary" id="ep-go">Ouvrir le pool</button></div>
         <p class="ep-status" id="ep-st1"></p>
       </form>
 
@@ -176,9 +177,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
 <footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--accent)">Atmart LLC</a>. Massachusetts.</span><br />
-    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--accent)">sales@atmart.ltd</a></p>
-    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span></p>
+    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
+    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
+    <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span>
+      &nbsp;·&nbsp; <a href="terms.html" data-d3="f_terms" style="color:var(--d-doux)">Terms and conditions</a>
+      &nbsp;·&nbsp; <a href="privacy.html" data-d3="f_privacy" style="color:var(--d-doux)">Privacy</a></p>
   </div>
 </footer>
 
@@ -383,11 +386,17 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   document.getElementById("ep-dash").addEventListener("click", function (e) {
     var b = e.target.closest(".ep-sel");
     if (!b || busy) return;
-    if (!window.confirm(enAttente(id) ? EPT("confirmPend") : EPT("confirm"))) return;
+    // ⚠️ uid=197609(USUARIO) gid=197121 groups=197121 n'existe pas dans cette portee : seul le bouton la porte. La
+    // version d'origine appelait , ce qui levait une
+    // ReferenceError AVANT la confirmation — le bouton « Selectionner »,
+    // celui qui rapporte, ne faisait donc rien du tout, et le mecanisme
+    // d'accord prealable du chauffeur n'avait jamais tourne une seule fois.
+    var idSel = b.dataset.id;
+    if (!window.confirm(enAttente(idSel) ? EPT("confirmPend") : EPT("confirm"))) return;
     busy = true;
     var st = document.getElementById("ep-st2");
     st.textContent = "Sélection…";
-    post({ action: "select", id: b.dataset.id }).then(function (res) {
+    post({ action: "select", id: idSel }).then(function (res) {
       busy = false;
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); if (res.body && res.body.error === "quota_reached") loadPool(); return; }
@@ -690,7 +699,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   });
 })();
 </script>
-<script src="assets/suite.js?v=4"></script>
+<script src="assets/suite.js?v=5"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

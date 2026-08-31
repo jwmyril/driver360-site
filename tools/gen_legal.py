@@ -96,7 +96,7 @@ appliquer();
 new MutationObserver(appliquer).observe(document.documentElement,
   {attributes:true, attributeFilter:["lang"]});
 </script>
-<script src="assets/suite.js?v=4"></script>
+<script src="assets/suite.js?v=5"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>
