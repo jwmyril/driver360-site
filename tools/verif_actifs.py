@@ -45,8 +45,22 @@ PAGES = ["index.html", "jobs.html", "vivye.html", "anplwaye.html", "wout.html",
          "setdi.html", "terms.html", "privacy.html", "404.html"]
 
 # `src`/`href` relatifs, puis les chargements de données faits en JavaScript.
+# ⚠️ TROIS FORMES D'ECRITURE, PAS UNE.
+#
+# Jusqu'au 30/08/2026 ce controle ne regardait que `href="page.html"` en
+# guillemets doubles. Les pages d'atmart.ltd ecrivent aussi leurs liens DANS
+# DES CHAINES JAVASCRIPT — en apostrophes (`href='rejistre.html'`) ou en
+# guillemets echappes (`href=\"rejistre.html\"`).
+#
+# Ce qui a echappe : 14 liens vers `rejistre.html`, la page D'INSCRIPTION AU
+# VIVIER, sur 4 pages et dans les 4 langues. Vivants dans le HTML, 404 en
+# production. Le controle disait « toutes les references existent » parce
+# qu'il ne les voyait pas — le pire genre de controle : celui qui rassure.
+EXCLUS = r"(?!https?:|mailto:|tel:|data:|javascript:|#|/)"
 MOTIFS = [
-    re.compile(r'(?:src|href)="((?!https?:|mailto:|tel:|data:|javascript:|#|/)[^"]+)"'),
+    re.compile(r'(?:src|href)="%s([^"]+)"' % EXCLUS),
+    re.compile(r"(?:src|href)='%s([^']+)'" % EXCLUS),
+    re.compile(r'(?:src|href)=\\"%s([^\\"]+)\\"' % EXCLUS),
     re.compile(r'fetch\("((?!https?:)assets/[^"]+)"'),
 ]
 

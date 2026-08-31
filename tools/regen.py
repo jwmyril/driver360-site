@@ -195,16 +195,36 @@ def transformer(src_nom, dst_nom, cote):
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres
     #    partent en absolu vers atmart.ltd — sinon ils tombent dans le vide.
+    # ⚠️ TROIS FORMES D'ECRITURE, PAS UNE. Jusqu'au 30/08/2026 cette
+    # reecriture ne connaissait que `href="page.html"`. Or les pages
+    # d'atmart.ltd ecrivent aussi leurs liens DANS DES CHAINES JAVASCRIPT,
+    # avec des apostrophes (`href='rejistre.html'`) ou des guillemets
+    # echappes (`href=\"rejistre.html\"`). Ces formes-la passaient intactes.
+    #
+    # Consequence mesuree : 14 liens vers `rejistre.html` — le lien
+    # D'INSCRIPTION AU VIVIER, l'actif du produit — vivants dans le HTML,
+    # morts en production (404), sur 4 pages et dans les 4 langues, poses des
+    # le chargement. Personne ne l'avait vu parce que rien ne les regardait.
     interne = {a: b for a, b, _, _, _ in PAGES}
+    FORMES = [
+        (r'href="%s([#?][^"]*)?"', 'href="%s%s"'),
+        (r"href='%s([#?][^']*)?'", "href='%s%s'"),
+        (r'href=\\"%s([#?][^\\"]*)?\\"', 'href=\\"%s%s\\"'),
+    ]
     for a, b in interne.items():
-        s = re.sub(r'href="%s([#?][^"]*)?"' % re.escape(a),
-                   lambda m: 'href="%s%s"' % (b, m.group(1) or ""), s)
+        for motif, sortie in FORMES:
+            s = re.sub(motif % re.escape(a),
+                       lambda m, _b=b, _s=sortie: _s % (_b, m.group(1) or ""), s)
+
     def absolu(m):
-        cible = m.group(1)
+        cible = m.group(2)
         if cible in PAGES_SUITE:
             return m.group(0)
-        return 'href="https://atmart.ltd/%s"' % cible
-    s = re.sub(r'href="([a-z0-9\-]+\.html)"', absolu, s)
+        return m.group(0).replace(cible, "https://atmart.ltd/" + cible)
+
+    # Meme elargissement pour l'envoi vers atmart.ltd : un lien relatif laisse
+    # dans une chaine JavaScript tomberait dans le vide sur cette suite.
+    s = re.sub(r"""(href=\\?["'])([a-z0-9\-]+\.html)""", absolu, s)
 
     # 4. la porte employeur dit la verite avant de montrer des viviers vides
     if cote == "employeur":
