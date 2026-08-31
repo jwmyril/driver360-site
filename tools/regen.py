@@ -165,7 +165,7 @@ def entete(actif, cote=None):
 PIED = """<footer>
   <div class="container">
     <p style="font-size:.85rem;color:var(--d-doux)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
-    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
+    <span data-d3="f_question">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
     <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span>
       &nbsp;·&nbsp; <a href="terms.html" data-d3="f_terms" style="color:var(--d-doux)">Terms and conditions</a>
       &nbsp;·&nbsp; <a href="privacy.html" data-d3="f_privacy" style="color:var(--d-doux)">Privacy</a></p>

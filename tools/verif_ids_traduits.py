@@ -46,10 +46,16 @@ import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SOURCE = os.path.join(os.path.dirname(RACINE), "Atmart_website")
+SOURCE = RACINE  # ⚠️ CE DEPOT, pas Atmart_website : le controle doit lire les
+            # pages REELLEMENT publiees. Il lisait les sources, donc
+            # l'etape 9 du build ne prouvait rien sur le site en ligne.
 
 # Les pages d'où Driver360 dérive ses quatre pages produit.
-PAGES = ["chofe360.html", "setd360.html", "rejistre.html", "anplwaye360.html"]
+# ⚠️ LES NOMS PUBLIES, pas ceux des sources. Ce controle lisait
+# `Atmart_website/chofe360.html` : il validait donc les fichiers d'ENTREE
+# de la moulinette, jamais les pages reellement servies. Un texte fige
+# introduit PAR le build lui echappait entierement.
+PAGES = ["wout.html", "setdi.html", "vivye.html", "anplwaye.html"]
 
 # Un texte sans langue n'a pas besoin d'être traduit.
 SANS_LANGUE = re.compile(r"^[\s\d\W_]*$", re.U)

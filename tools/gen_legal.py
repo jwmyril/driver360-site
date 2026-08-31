@@ -65,7 +65,7 @@ d.lang=l||"en";})();
   <div class="container">
     <h1 data-t="titre">%(titre)s</h1>
     <p class="lead" data-t="intro">%(intro)s</p>
-    <p class="maj"><span data-t="majl">%(majl)s</span> : %(maj)s</p>
+    <p class="maj"><span data-t="majl">%(majl)s</span>: %(maj)s</p>
   </div>
 </section>
 

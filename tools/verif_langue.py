@@ -36,7 +36,7 @@ import sys
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGUES = ["en", "fr", "ht", "es"]
 PAGES = ["index.html", "jobs.html", "vivye.html", "anplwaye.html", "wout.html", "setdi.html",
-         "terms.html", "privacy.html"]
+         "terms.html", "privacy.html", "404.html"]
 
 defauts = []
 
@@ -75,7 +75,7 @@ def main():
                                % (page, cle, ", ".join(manquantes)))
 
     # --- 3 : les dictionnaires inline de l'accueil et de jobs ------------
-    for page in ("index.html", "jobs.html", "terms.html", "privacy.html"):
+    for page in ("index.html", "jobs.html", "terms.html", "privacy.html", "404.html"):
         s = lire(page)
         posees = set(re.findall(r'data-t="(\w+)"', s))
         for lg in ("fr", "ht", "es"):

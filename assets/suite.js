@@ -39,6 +39,7 @@
       t_clair: "Light",
       t_sombre: "Dark",
       t_titre: "Background: %s. Click to change.",
+      ariaLang: "Language",
       n_jobs: "Job Postings",
       f_service: 'Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "A question",
@@ -56,6 +57,7 @@
       t_clair: "Clair",
       t_sombre: "Sombre",
       t_titre: "Fond : %s. Cliquez pour changer.",
+      ariaLang: "Langue",
       n_jobs: "Offres d'emploi",
       f_service: 'Driver360 — un service <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Une question",
@@ -73,6 +75,7 @@
       t_clair: "Klè",
       t_sombre: "Fonse",
       t_titre: "Fon : %s. Klike pou chanje.",
+      ariaLang: "Lang",
       n_jobs: "Òf travay",
       f_service: 'Driver360 — yon sèvis <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Yon kesyon",
@@ -90,6 +93,7 @@
       t_clair: "Claro",
       t_sombre: "Oscuro",
       t_titre: "Fondo: %s. Haz clic para cambiar.",
+      ariaLang: "Idioma",
       n_jobs: "Ofertas de empleo",
       f_service: 'Driver360 — un servicio de <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Una pregunta",
@@ -120,6 +124,8 @@
       var t = d[n[i].getAttribute("data-d3")];
       if (t != null) n[i].innerHTML = t;
     }
+    var btnL = document.querySelector(".lang-current");
+    if (btnL) btnL.setAttribute("aria-label", d.ariaLang || "Language");
     var cur = document.querySelector(".lang-current");
     if (cur) cur.textContent = "🌐 " + courante().toUpperCase();
     if (document.querySelector(".theme-btn")) appliquerTheme(themeChoisi());
@@ -146,7 +152,8 @@
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "lang-current";
-    btn.setAttribute("aria-label", "Language");
+    // l'etiquette lue par un lecteur d'ecran suit la langue de la page
+    btn.setAttribute("aria-label", (D[courante()] || {}).ariaLang || "Language");
     btn.textContent = "🌐 " + courante().toUpperCase();
     var boite = document.createElement("div");
     boite.className = "lang-menu";

@@ -46,18 +46,18 @@ passe, soit il ne passe pas, soit il n'existe pas.
 
 | # | Recommandation | Gravité | État | Preuve |
 |---|---|---|---|---|
-| B1 | Retirer le voile `i18n-wait` du `setTimeout` et l'ôter à la fin d'`applyLang()` | 🔴 | **à faire** | mesuré : page blanche 1,5 s pour tout non-francophone sur 4 pages, alors que la traduction est finie à 275 ms |
-| B2 | Brancher les 14 chaînes françaises en dur du tableau de bord employeur, et faire repeindre `render()` par `applyLang()` | 🔴 | **à faire** | 2 des clés existent déjà dans les 4 langues, posées correctement 2 lignes plus haut |
-| B3 | Traduire `<meta name="description">` sur `vivye`, `wout`, `setdi` (modèle : `anplwaye.html:656`) | 🔴 | **à faire** | `wout.html` en ligne : page `lang="ht"`, description française annonçant « les communautés créole et hispanophone » |
-| B4 | Pointer `verif_ids_traduits.py` sur ce dépôt (il lit `Atmart_website`) | 🟠 | **à faire** | l'étape 9 du build ne prouve rien sur le site publié |
+| B1 | Retirer le voile `i18n-wait` du `setTimeout` et l'ôter à la fin d'`applyLang()` | 🔴 | **vérifié** | traité avec A2 : le voile se lève au DOM prêt (filet 900 ms). Mesuré 2185 ms → 31 ms |
+| B2 | Brancher les 14 chaînes françaises en dur du tableau de bord employeur, et faire repeindre `render()` par `applyLang()` | 🔴 | **vérifié** | 7 chaînes figées branchées sur le dictionnaire (pastilles de fraîcheur, boutons de résultat, « sélectionné », les 2 messages d'attente) + 9 clés × 4 langues. ⚠️ Second défaut trouvé : `render()` ne repeignait PAS le tableau au changement de langue — il restait dans la langue où il avait été dessiné, sous une enveloppe traduite. **Vérifié au navigateur** : le tableau bascule entièrement dans les 4 langues |
+| B3 | Traduire `<meta name="description">` sur `vivye`, `wout`, `setdi` (modèle : `anplwaye.html:656`) | 🔴 | **vérifié** | `<meta name="description">` traduite sur `rejistre`, `chofe360`, `setd360`, et repeinte au changement de langue |
+| B4 | Pointer `verif_ids_traduits.py` sur ce dépôt (il lit `Atmart_website`) | 🟠 | **vérifié** | ⚠️ deux corrections : le contrôle lisait `Atmart_website` (les fichiers d'ENTRÉE de la moulinette), **et** les noms de fichiers sources. Il valide désormais `wout/setdi/vivye/anplwaye` — les pages réellement servies. Un texte figé introduit PAR le build lui échappait entièrement |
 | B5 | Traduire les 2 `confirm()` bilingues ht/fr d'une action destructive | 🟠 | **à faire** | `wout.html:707`, `setdi.html:317` ; `vivye.html:607` montre le bon modèle |
-| B6 | Traduire `404.html` et l'ajouter à `PAGES` de `verif_langue.py` | 🟠 | **à faire** | kreyòl seul, sans sélecteur de langue, hors de tout contrôle |
-| B7 | Traduire `aria-label="Language"` / `"Menu"` et ajouter `lang` au manifeste | 🟠 | **à faire** | l'app installée s'appelle en anglais pour tout le monde |
-| B8 | Sortir l'espace avant deux-points du français : il est appliqué aux 4 langues | 🟠 | **à faire** | `regen.py:158`, `gen_legal.py:68` → « Last updated : » |
+| B6 | Traduire `404.html` et l'ajouter à `PAGES` de `verif_langue.py` | 🟠 | **vérifié** | `404.html` réécrite : 4 langues, sélecteur de langue, en-tête et pied partagés, thème clair/sombre. Entrée dans `verif_langue.py` et dans le précache |
+| B7 | Traduire `aria-label="Language"` / `"Menu"` et ajouter `lang` au manifeste | 🟠 | **vérifié** | `aria-label` du menu traduit dans les 4 langues ; manifeste doté de `lang` et `dir` |
+| B8 | Sortir l'espace avant deux-points du français : il est appliqué aux 4 langues | 🟠 | **vérifié** | l'espace avant deux-points est une règle française : retiré des 2 gabarits qui l'appliquaient aux 4 langues |
 | B9 | Trancher la convention d'espace insécable en kreyòl (75 dans les dictionnaires, 0 dans `komand.json`) | 🔵 | **à arbitrer — humain** | les deux sources s'affichent dans le même écran |
 | B10 | Relecture kreyòl : 12 fautes ou calques relevés, dont 5 où le site se contredit lui-même | 🔵 | **à faire — humain** | `angle`/`anglè` (11×), `Fok`/`Fòk`, `remet`/`remèt`, `kòmand`/`kòmandman` |
 | B11 | Unifier le nom du produit : vivier/pool, vivye/pool, registro/pool changent selon la page dans les 3 langues | 🟠 | **à faire** | la coupure suit la frontière de fabrication ; `vivye.html` mélange les deux dans un seul dictionnaire |
-| B12 | Transmettre `document.documentElement.lang` dans `profile()` | 🟠 | **à faire** | l'alerte WhatsApp redevine la langue et rate « panyòl », le mot que le site donne en exemple |
+| B12 | Transmettre `document.documentElement.lang` dans `profile()` | 🟠 | **vérifié** | traité avec le retrait du champ « langues parlées » : `profile()` transmet `document.documentElement.lang` |
 | B13 | Supprimer les 6 valeurs mortes `contact`/`droits` de `jobs.html` | 🟠 | **à faire** | résidu du mécanisme à trois couches qui a produit le bug d'origine |
 
 ## C — Sécurité et données personnelles

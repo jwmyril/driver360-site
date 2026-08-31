@@ -178,7 +178,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 <footer>
   <div class="container">
     <p style="font-size:.85rem;color:var(--d-doux)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
-    <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
+    <span data-d3="f_question">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
     <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span>
       &nbsp;·&nbsp; <a href="terms.html" data-d3="f_terms" style="color:var(--d-doux)">Terms and conditions</a>
       &nbsp;·&nbsp; <a href="privacy.html" data-d3="f_privacy" style="color:var(--d-doux)">Privacy</a></p>
@@ -255,24 +255,25 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   var SECT = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
   function matchBadge(e) {
     if (e.match === "open") return '<span class="ep-b pass">⚡ ' + EPT("bOpen") + "</span>";
-    if (e.match === "sector") return '<span class="ep-b pass">✅ Cherche votre secteur</span>';
+    if (e.match === "sector") return '<span class="ep-b pass">✅ ' + EPT("bSector") + '</span>';
     var v = (e.seeking || []).map(function (x) { return SECT[x] || ""; }).join("");
     return '<span class="ep-b mid">↔️ ' + EPT("bAims") + " " + (v || EPT("bOther")) + "</span>";
   }
   function freshBadge(d) {
     if (d === null || d === undefined) return "";
     var cls = d <= 7 ? "pass" : d <= 21 ? "mid" : "fail";
-    var txt = d === 0 ? "aujourd'hui" : d === 1 ? "hier" : "il y a " + d + " j";
+    var txt = d === 0 ? EPT("fToday") : d === 1 ? EPT("fYest")
+              : EPT("fDays").replace("%d", d);
     return '<span class="ep-b ' + cls + '">🕒 ' + txt + "</span>";
   }
   function outcomeCell(s) {
     if (s.outcome === "hired") return '<span class="ep-b pass">✅ ' + EPT("oHired") + "</span>";
     if (s.outcome === "rejected") return '<span class="ep-b" style="color:var(--d-doux)">❌ ' + EPT("oRejected") + "</span>";
-    return '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="hired" style="padding:0.25rem 0.6rem;font-size:0.75rem">✅ Embauché</button> ' +
-           '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="rejected" style="padding:0.25rem 0.6rem;font-size:0.75rem">❌ Pas retenu</button>';
+    return '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="hired" style="padding:0.25rem 0.6rem;font-size:0.75rem">✅ ' + EPT("btHired") + '</button> ' +
+           '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="rejected" style="padding:0.25rem 0.6rem;font-size:0.75rem">❌ ' + EPT("btRejected") + '</button>';
   }
   function actionCell(e, atMax) {
-    if (e.selected) return '<span class="ep-b pass">✓ Sélectionné</span>';
+    if (e.selected) return '<span class="ep-b pass">✓ ' + EPT("btSelected") + '</span>';
     if (atMax) return '<span class="ep-b" style="color:var(--d-doux)">' + EPT("bNoCredit") + "</span>";
     return '<button type="button" class="btn btn-outline ep-sel" data-id="' + e.id + '" style="padding:0.3rem 0.8rem;font-size:0.8rem">🔓 ' + EPT("bSelect") + '</button>';
   }
@@ -280,6 +281,13 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   // La derniere liste recue : on y relit la posture d'un chauffeur avant
   // de promettre un contact immediat qui ne viendrait pas.
   var dernier = {};
+  // repeindre le tableau quand la langue change : sans cela il reste
+  // dans la langue ou il a ete dessine, sous une enveloppe traduite.
+  new MutationObserver(function () {
+    if (dernier && dernier.selected) render(dernier);
+  }).observe(document.documentElement,
+             { attributes: true, attributeFilter: ["lang"] });
+
   function render(data) {
     var sel = data.selected || [];
     var credits = data.credits || 0;
@@ -377,7 +385,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
   function loadPool() {
     var st = document.getElementById("ep-st2");
-    st.textContent = "Chargement du pool…";
+    st.textContent = EPT("sLoading");
     post({ action: "list", showAll: document.getElementById("ep-showall").checked }).then(function (res) {
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); return; }
@@ -397,7 +405,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     if (!window.confirm(enAttente(idSel) ? EPT("confirmPend") : EPT("confirm"))) return;
     busy = true;
     var st = document.getElementById("ep-st2");
-    st.textContent = "Sélection…";
+    st.textContent = EPT("sSelecting");
     post({ action: "select", id: idSel }).then(function (res) {
       busy = false;
       st.textContent = "";
@@ -497,7 +505,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       eQuota: "Plus de crédits — écrivez à sales@atmart.ltd pour recharger.",
       eDeclare: "Déclarez d'abord le résultat de vos sélections précédentes.",
       eTech: "Petit souci technique. Réessayez.",
-      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner", avFull: "Temps plein", avPart: "Partiel", avBoth: "Les deux", pendWho: "En attente de l'accord du chauffeur", pendNote: "Il a demandé à autoriser chaque employeur. Nous lui avons transmis votre demande ; son nom et son téléphone n'apparaîtront qu'après son accord. S'il refuse, votre crédit vous est rendu.", pendWait: "En attente", until: "accès jusqu'au", ctcApproval: "Ce chauffeur donne son accord avant d'être contacté", ctcPush: "Ce chauffeur demande à être contacté", confirmPend: "Ce chauffeur a demandé à donner son accord avant d'être contacté. La sélection consomme 1 place de votre quota et lui transmet votre demande ; vous n'aurez son contact qu'après son accord, et votre crédit vous sera rendu s'il refuse. Continuer ?", yrs: "ans", cvLink: "CV", cvResume: "parcours résumé", cvHas: "Ce chauffeur a joint un CV — visible après sélection", testOn: "test",
+      bOpen: "Ouvert à tout", bAims: "Vise plutôt", bOther: "autre", bNoCredit: "Plus de crédits", bSelect: "Sélectionner", bSector: "Cherche votre secteur", fToday: "aujourd'hui", fYest: "hier", fDays: "il y a %d j", btHired: "Embauché", btRejected: "Pas retenu", btSelected: "Sélectionné", sLoading: "Chargement du pool…", sSelecting: "Sélection…", avFull: "Temps plein", avPart: "Partiel", avBoth: "Les deux", pendWho: "En attente de l'accord du chauffeur", pendNote: "Il a demandé à autoriser chaque employeur. Nous lui avons transmis votre demande ; son nom et son téléphone n'apparaîtront qu'après son accord. S'il refuse, votre crédit vous est rendu.", pendWait: "En attente", until: "accès jusqu'au", ctcApproval: "Ce chauffeur donne son accord avant d'être contacté", ctcPush: "Ce chauffeur demande à être contacté", confirmPend: "Ce chauffeur a demandé à donner son accord avant d'être contacté. La sélection consomme 1 place de votre quota et lui transmet votre demande ; vous n'aurez son contact qu'après son accord, et votre crédit vous sera rendu s'il refuse. Continuer ?", yrs: "ans", cvLink: "CV", cvResume: "parcours résumé", cvHas: "Ce chauffeur a joint un CV — visible après sélection", testOn: "test",
       qNote: "sélectionner un candidat est définitif et révèle son contact.",
       cHired: "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste).",
       cRejected: "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.",
@@ -544,7 +552,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       eQuota: "No credits left — write to sales@atmart.ltd to top up.",
       eDeclare: "First declare the outcome of your previous selections.",
       eTech: "Small technical problem. Please try again.",
-      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select", avFull: "Full time", avPart: "Part time", avBoth: "Either", pendWho: "Waiting for the driver's agreement", pendNote: "They asked to approve each employer. We have passed on your request; their name and phone will appear only once they agree. If they refuse, your credit is given back.", pendWait: "Waiting", until: "access until", ctcApproval: "This driver approves each employer before being contacted", ctcPush: "This driver is asking to be contacted", confirmPend: "This driver asked to give their agreement before being contacted. Selecting uses 1 place of your quota and passes on your request; you get their contact details only once they agree, and your credit is given back if they refuse. Continue?", yrs: "yrs", cvLink: "CV", cvResume: "summary", cvHas: "This driver attached a CV — visible after selection", testOn: "test",
+      bOpen: "Open to anything", bAims: "Aims rather at", bOther: "other", bNoCredit: "No credits left", bSelect: "Select", bSector: "Wants your sector", fToday: "today", fYest: "yesterday", fDays: "%d days ago", btHired: "Hired", btRejected: "Not selected", btSelected: "Selected", sLoading: "Loading the pool…", sSelecting: "Selecting…", avFull: "Full time", avPart: "Part time", avBoth: "Either", pendWho: "Waiting for the driver's agreement", pendNote: "They asked to approve each employer. We have passed on your request; their name and phone will appear only once they agree. If they refuse, your credit is given back.", pendWait: "Waiting", until: "access until", ctcApproval: "This driver approves each employer before being contacted", ctcPush: "This driver is asking to be contacted", confirmPend: "This driver asked to give their agreement before being contacted. Selecting uses 1 place of your quota and passes on your request; you get their contact details only once they agree, and your credit is given back if they refuse. Continue?", yrs: "yrs", cvLink: "CV", cvResume: "summary", cvHas: "This driver attached a CV — visible after selection", testOn: "test",
       qNote: "selecting a candidate is final and reveals their contact details.",
       cHired: "Confirm you HIRED this candidate? They will leave the pool for every employer (they can put themselves back if they leave the job).",
       cRejected: "Confirm this candidate was NOT selected? They stay available to other employers.",
@@ -591,7 +599,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       eQuota: "Pa gen kredi ankò — ekri sales@atmart.ltd pou w chaje.",
       eDeclare: "Di dabò ki rezilta seleksyon w te fè anvan yo bay.",
       eTech: "Gen yon ti pwoblèm teknik. Eseye ankò.",
-      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi", avFull: "Tan konplè", avPart: "Tan pasyèl", avBoth: "Youn oswa lòt", pendWho: "N ap tann chofè a dakò", pendNote: "Li mande pou l bay chak anplwayè otorizasyon. Nou voye demann ou an ba li ; non l ak telefòn li ap parèt sèlman aprè li dakò. Si li refize, yo remet ou kredi w.", pendWait: "N ap tann", until: "aksè jiska", ctcApproval: "Chofè sa a bay otorizasyon anvan yo kontakte l", ctcPush: "Chofè sa a mande pou yo kontakte l", confirmPend: "Chofè sa a mande pou l bay otorizasyon anvan yo kontakte l. Seleksyon an pran 1 plas nan kota w epi li voye demann ou an ba li ; ou p ap gen kontak li anvan li dakò, epi y ap remet ou kredi w si li refize. Kontinye ?", yrs: "lane", cvLink: "CV", cvResume: "rezime pakou", cvHas: "Chofè sa a mete yon CV — w ap wè l aprè ou chwazi l", testOn: "tès",
+      bOpen: "Louvri a tout bagay", bAims: "L ap vize plis", bOther: "lòt", bNoCredit: "Pa gen kredi ankò", bSelect: "Chwazi", bSector: "L ap chèche sektè w", fToday: "jodi a", fYest: "yè", fDays: "gen %d jou", btHired: "Anboche", btRejected: "Pa chwazi", btSelected: "Chwazi", sLoading: "N ap chaje vivye a…", sSelecting: "N ap chwazi…", avFull: "Tan konplè", avPart: "Tan pasyèl", avBoth: "Youn oswa lòt", pendWho: "N ap tann chofè a dakò", pendNote: "Li mande pou l bay chak anplwayè otorizasyon. Nou voye demann ou an ba li ; non l ak telefòn li ap parèt sèlman aprè li dakò. Si li refize, yo remet ou kredi w.", pendWait: "N ap tann", until: "aksè jiska", ctcApproval: "Chofè sa a bay otorizasyon anvan yo kontakte l", ctcPush: "Chofè sa a mande pou yo kontakte l", confirmPend: "Chofè sa a mande pou l bay otorizasyon anvan yo kontakte l. Seleksyon an pran 1 plas nan kota w epi li voye demann ou an ba li ; ou p ap gen kontak li anvan li dakò, epi y ap remet ou kredi w si li refize. Kontinye ?", yrs: "lane", cvLink: "CV", cvResume: "rezime pakou", cvHas: "Chofè sa a mete yon CV — w ap wè l aprè ou chwazi l", testOn: "tès",
       qNote: "lè w chwazi yon kandida se final epi kontak li parèt.",
       cHired: "Konfime ou ANBOCHE kandida sa a ? L ap sòti nan vivye a pou tout anplwayè (li ka retounen li menm si li kite travay la).",
       cRejected: "Konfime ou PA chwazi kandida sa a ? Li rete disponib pou lòt anplwayè yo.",
@@ -638,7 +646,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       eQuota: "Sin créditos — escribe a sales@atmart.ltd para recargar.",
       eDeclare: "Declara primero el resultado de tus selecciones anteriores.",
       eTech: "Pequeño problema técnico. Inténtalo de nuevo.",
-      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar", avFull: "Tiempo completo", avPart: "Medio tiempo", avBoth: "Cualquiera", pendWho: "Esperando el acuerdo del conductor", pendNote: "Pidió aprobar a cada empleador. Le hemos transmitido tu solicitud; su nombre y su teléfono aparecerán solo cuando acepte. Si rechaza, se te devuelve el crédito.", pendWait: "Esperando", until: "acceso hasta", ctcApproval: "Este conductor aprueba a cada empleador antes de ser contactado", ctcPush: "Este conductor pide que lo contacten", confirmPend: "Este conductor pidió dar su acuerdo antes de ser contactado. La selección consume 1 lugar de tu cuota y le transmite tu solicitud; solo tendrás su contacto cuando acepte, y se te devuelve el crédito si rechaza. ¿Continuar?", yrs: "años", cvLink: "CV", cvResume: "trayectoria", cvHas: "Este conductor adjuntó un CV — visible tras la selección", testOn: "examen",
+      bOpen: "Abierto a todo", bAims: "Apunta más a", bOther: "otro", bNoCredit: "Sin créditos", bSelect: "Seleccionar", bSector: "Busca tu sector", fToday: "hoy", fYest: "ayer", fDays: "hace %d días", btHired: "Contratado", btRejected: "No seleccionado", btSelected: "Seleccionado", sLoading: "Cargando el registro…", sSelecting: "Seleccionando…", avFull: "Tiempo completo", avPart: "Medio tiempo", avBoth: "Cualquiera", pendWho: "Esperando el acuerdo del conductor", pendNote: "Pidió aprobar a cada empleador. Le hemos transmitido tu solicitud; su nombre y su teléfono aparecerán solo cuando acepte. Si rechaza, se te devuelve el crédito.", pendWait: "Esperando", until: "acceso hasta", ctcApproval: "Este conductor aprueba a cada empleador antes de ser contactado", ctcPush: "Este conductor pide que lo contacten", confirmPend: "Este conductor pidió dar su acuerdo antes de ser contactado. La selección consume 1 lugar de tu cuota y le transmite tu solicitud; solo tendrás su contacto cuando acepte, y se te devuelve el crédito si rechaza. ¿Continuar?", yrs: "años", cvLink: "CV", cvResume: "trayectoria", cvHas: "Este conductor adjuntó un CV — visible tras la selección", testOn: "examen",
       qNote: "seleccionar a un candidato es definitivo y revela su contacto.",
       cHired: "¿Confirmas que CONTRATASTE a este candidato? Saldrá del registro para todos los empleadores (podrá volver él mismo si deja el puesto).",
       cRejected: "¿Confirmas que este candidato NO fue seleccionado? Sigue disponible para otros empleadores.",
