@@ -126,11 +126,29 @@ if(m) m.setAttribute("content", clair ? "#f4f8fb" : "#0e2240");})();
 # injection réussie quelque part peut faire venir un script de n'importe où et
 # expédier les données ailleurs ; avec elle, l'injection ne mène nulle part.
 #
-# ⚠️ `'unsafe-inline'` sur les scripts est ASSUMÉ, pas oublié. Ces pages
-# portent leurs dictionnaires de traduction en ligne : les interdire
-# demanderait de tout réécrire en fichiers externes. La politique garde donc sa
-# valeur principale — aucun script d'un autre domaine, aucun appel réseau
-# ailleurs que vers notre Worker.
+# ⚠️ `'unsafe-inline'` A ÉTÉ LEVÉ SUR LES SCRIPTS, le 31/08/2026, par
+# EMPREINTES. C'était le filet sous les deux XSS stockés (C1, C3) — et il
+# n'existait pas : une charge injectée se serait exécutée sans obstacle.
+#
+# Pourquoi des empreintes plutôt qu'un refactor. Sortir la trentaine de blocs
+# `<script>` en fichiers séparés casserait ce qui fait tenir ce site : le thème
+# et la langue sont posés AVANT le premier affichage précisément PARCE QU'ILS
+# SONT EN LIGNE. Externalisés, ils s'exécuteraient plus tard et la page
+# clignoterait du sombre au clair à chaque chargement. On aurait échangé une
+# faille théorique contre un défaut visible par tous.
+#
+# Un `nonce` est l'autre solution propre, mais il doit changer à chaque
+# réponse : impossible sur GitHub Pages, qui sert des fichiers figés.
+#
+# ⚠️ CONSÉQUENCE : toute modification d'un bloc en ligne change son empreinte.
+# Le calcul se fait donc À LA POSE, page par page, après toutes les autres
+# étapes du build. Écrire ces empreintes à la main condamnerait la page au
+# premier caractère changé.
+#
+# ⚠️ `style-src` GARDE `'unsafe-inline'`. Les empreintes ne couvrent pas les
+# attributs `style=`, et le site en pose des dizaines. Les retirer est un
+# chantier de mise en page, pas de sécurité : un `style=` injecté ne peut pas
+# exécuter de code.
 #
 # ⚠️ `frame-ancestors` NE PEUT PAS être posé dans une balise meta (la
 # spécification l'ignore). La protection contre l'encadrement doit venir d'un
@@ -140,10 +158,9 @@ if(m) m.setAttribute("content", clair ? "#f4f8fb" : "#0e2240");})();
 # construit a partir d'une liste, ce qui evite toute imbrication de quotes.
 DIRECTIVES = [
     "default-src 'self'",
-    # 'unsafe-inline' est ASSUME, pas oublie : ces pages portent leurs
-    # dictionnaires de traduction en ligne. La politique garde l'essentiel —
-    # aucun script venu d'un autre domaine.
-    "script-src 'self' 'unsafe-inline'",
+    # script-src est complete PAR PAGE avec les empreintes de ses blocs en
+    # ligne : voir empreintes_scripts() et poser_securite().
+    "script-src 'self'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data:",
@@ -166,12 +183,45 @@ CSP = ('<meta http-equiv="Content-Security-Policy" content="'
 AUTRES = '<meta name="referrer" content="strict-origin-when-cross-origin" />'
 
 
+def empreintes_scripts(s):
+    """Le SHA-256 de chaque bloc <script> SANS `src`, encode en base64.
+
+    Le navigateur n'executera que les blocs dont l'empreinte figure dans la
+    politique — au caractere pres. Un script injecte n'a pas la bonne
+    empreinte : il ne demarre pas.
+    """
+    import base64
+    import hashlib
+    out = []
+    for m in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", s, re.S):
+        h = hashlib.sha256(m.group(1).encode("utf-8")).digest()
+        e = "'sha256-%s'" % base64.b64encode(h).decode("ascii")
+        if e not in out:
+            out.append(e)
+    return out
+
+
 def poser_securite(s):
-    if "Content-Security-Policy" in s:
-        return s
+    # ⚠️ ON REMPLACE, ON N'IGNORE PAS. La version d'origine sortait des qu'une
+    # CSP existait : une page deja generee gardait donc la sienne pour
+    # toujours. Le passage aux empreintes n'aurait jamais pris effet — et
+    # surtout, une empreinte perimee bloquerait la page en silence.
+    s = re.sub(r'\s*<meta http-equiv="Content-Security-Policy"[^>]*/>', "", s)
+    s = re.sub(r'\s*<meta name="referrer"[^>]*/>', "", s)
+    # ⚠️ LES EMPREINTES SE CALCULENT ICI, sur la page finie. Les figer ailleurs
+    # les perimerait au premier caractere change dans un bloc en ligne.
+    directives = list(DIRECTIVES)
+    emp = empreintes_scripts(s)
+    if emp:
+        for i, d in enumerate(directives):
+            if d.startswith("script-src"):
+                directives[i] = d + " " + " ".join(emp)
+                break
+    csp = ('<meta http-equiv="Content-Security-Policy" content="'
+           + "; ".join(directives) + '" />')
     ancre = '<meta charset="UTF-8" />'
     if ancre in s:
-        s = s.replace(ancre, ancre + chr(10) + "  " + CSP + chr(10) + "  " + AUTRES, 1)
+        s = s.replace(ancre, ancre + chr(10) + "  " + csp + chr(10) + "  " + AUTRES, 1)
     return s
 
 

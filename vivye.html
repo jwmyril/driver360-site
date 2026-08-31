@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-CUepErlcf4l/ZdhFTZfoMuNrOjvXn760lg22UWN7vW8=' 'sha256-EOrn6JZxBHG/Ynh1/7i3FuL6Xt0OnE9vuUppHhujGd4=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -258,6 +258,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Je refuse",
       pendOkMsg:"Accord donné : cet employeur a maintenant votre contact.",
       pendNoMsg:"Refusé. Cet employeur n'a pas votre contact, et son crédit lui est rendu.",
+      stConfirmer:"Confirmez que vous êtes toujours disponible pour rester dans le vivier.",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -304,6 +305,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Mwen refize",
       pendOkMsg:"Ou bay otorizasyon an : anplwayè sa a gen kontak ou kounye a.",
       pendNoMsg:"Ou refize. Anplwayè a pa gen kontak ou, epi yo remet li kredi l.",
+      stConfirmer:"Konfime ou toujou disponib pou w rete nan vivye a.",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -350,6 +352,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ I refuse",
       pendOkMsg:"Granted: this employer now has your contact details.",
       pendNoMsg:"Refused. This employer does not have your contact details, and their credit is given back.",
+      stConfirmer:"Confirm you are still available to stay in the pool.",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them. Today these messages are written and sent by hand, by a person.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -396,6 +399,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Rechazo",
       pendOkMsg:"Concedido: este empleador ya tiene tus datos de contacto.",
       pendNoMsg:"Rechazado. Este empleador no tiene tus datos, y se le devuelve su crédito.",
+      stConfirmer:"Confirma que sigues disponible para permanecer en el registro.",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos. Hoy estos mensajes los escribe y los envía una persona, a mano.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -614,17 +618,36 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     }).catch(function(){st2.textContent=t.err;});
   });
 
-  // lien de reconfirmation en un clic : rejistre.html?c=DRV-XXXX-XXXX
-  var urlCode=(new URLSearchParams(location.search)).get("c");
+  // Lien de reconfirmation : vivye.html#c=DRV-XXXX-XXXX
+  //
+  // ⚠️ EN FRAGMENT, PAS EN PARAMETRE. Un `?c=` part dans l'historique, dans le
+  // Cache Storage du service worker et dans tout journal intermediaire. Le
+  // fragment, lui, ne quitte jamais le navigateur — il n'est meme pas envoye
+  // au serveur.
+  //
+  // ⚠️ ET IL FAUT UN CLIC. La version d'origine republiait la fiche des
+  // l'ouverture du lien : un simple APERCU — WhatsApp en genere un a chaque
+  // envoi — suffisait a rafraichir `lastSeen` et a remettre quelqu'un dans le
+  // vivier sans qu'il ait rien demande.
+  var urlCode=(location.hash.match(/[#&]c=([^&]+)/)||[])[1]
+            ||(new URLSearchParams(location.search)).get("c");
   if(urlCode){
     var cIn=document.getElementById("rj-code"); cIn.value=urlCode.toUpperCase();
     document.getElementById("rj-form").classList.add("rj-hide");
     document.getElementById("rj-manage").classList.remove("rj-hide");
-    post({action:"avail",code:cIn.value}).then(function(res){
-      var t=T(), st2=document.getElementById("rj-st2");
-      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
-      editCode=cIn.value; showStatus(res.body.status); st2.textContent=t.stOk;
-    });
+    // ⚠️ ON NE REPUBLIE PAS TOUT SEUL. La version d'origine appelait `avail`
+    // des l'ouverture du lien : un simple APERCU — WhatsApp en genere un a
+    // chaque envoi, et les antivirus en font autant — suffisait a rafraichir
+    // `lastSeen` et a remettre quelqu'un dans le vivier sans qu'il ait rien
+    // demande. Un consentement qui se renouvelle sans geste n'en est pas un.
+    var st2=document.getElementById("rj-st2");
+    st2.textContent = T().stConfirmer || "";
+    var bAv=document.querySelector('#rj-statusbox button[data-st="available"]');
+    if(bAv){
+      document.getElementById("rj-statusbox").classList.remove("rj-hide");
+      editCode=cIn.value;
+      bAv.focus();
+    }
   }
 
   document.getElementById("rj-del").addEventListener("click",function(){

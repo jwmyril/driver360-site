@@ -200,7 +200,7 @@ En place :
   côté page *et* côté Worker : seul `http(s)` est accepté.
 - `rel="noopener noreferrer"` sur les liens qui ouvrent un onglet.
 - Le contact d'un chauffeur n'est jamais dans la liste parcourue ; la
-  nationalité n'y figure jamais du tout.
+  nationalité n'apparaît jamais dans la liste parcourue ; elle est révélée APRÈS sélection, avec le contact — c'est ce que dit `privacy.html`.
 
 ⚠️ **Ce qui manque, et qui ne peut pas venir d'ici.** `frame-ancestors` (contre
 l'encadrement de la page dans un site tiers) et `X-Content-Type-Options` ne

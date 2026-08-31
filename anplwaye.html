@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-CUepErlcf4l/ZdhFTZfoMuNrOjvXn760lg22UWN7vW8=' 'sha256-rfoY12uPZEWfZuhMTXZrwQjsv+EV6+N4Jdh0hlp6Bxo=' 'sha256-Gw8pUbRkKPP1AE7+BqRnAcOwjiINq929+KYJTEhtn34=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -189,9 +189,12 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 <script>
 (function () {
   "use strict";
+  // ⚠️ Le code employeur vit en sessionStorage, PAS en localStorage : il
+  // vaut 15 $ la selection. En localStorage il survivait a la fermeture
+  // du navigateur et se recopiait d'un profil a l'autre.
   var EP = "https://atmart-chat.atmartllc.workers.dev/anplwaye";
   var codeEl = document.getElementById("ep-code");
-  codeEl.value = localStorage.getItem("anplwaye_code") || "";
+  codeEl.value = sessionStorage.getItem("anplwaye_code") || "";
   var busy = false;
   var quota = 0;
 
@@ -430,7 +433,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     } }).then(function (res) {
       busy = false;
       if (!res.ok) { document.getElementById("ep-st1").textContent = emsg(res.body && res.body.error); return; }
-      localStorage.setItem("anplwaye_code", codeEl.value.trim().toUpperCase());
+      sessionStorage.setItem("anplwaye_code", codeEl.value.trim().toUpperCase());
       document.getElementById("ep-start").classList.add("ep-hide");
       document.getElementById("ep-dash").classList.remove("ep-hide");
       document.getElementById("ep-org-lbl").textContent = (res.body.org || EPT("Lorg")) + " · " + EPT("until") + " " + res.body.exp;
