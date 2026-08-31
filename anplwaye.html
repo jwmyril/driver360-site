@@ -214,6 +214,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   // TOUTE valeur venant d'un formulaire public passe par ici avant d'entrer
   // dans du HTML. Les tableaux sont construits par concatenation puis poses
   // en innerHTML : sans echappement, un nom de chauffeur est du code.
+  // ⚠️ TOUTE valeur venue du Worker passe par ici AVANT d'entrer dans un
+  // innerHTML. `city`, `langs`, `nat`, `org` sont saisis librement par un
+  // chauffeur ou un employeur : ce sont des valeurs d'attaquant potentiel.
+  // Le 30/08/2026 deux `e.city` avaient echappe au filtre — un code coach
+  // gratuit suffisait alors a voler le code d'un employeur payant, au simple
+  // affichage de sa liste, sans aucun clic.
   function esc(v) {
     return String(v == null ? "" : v)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -342,7 +348,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     // pool 7D
     var t7 = document.querySelector("#ep-t-7d tbody");
     t7.innerHTML = (data.setd || []).map(function (e) {
-      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td><td>" + badge(e.written, "Réussi", "Échoué") + "</td><td>" + (e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
+      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td><td>" + badge(e.written, "Réussi", "Échoué") + "</td><td>" + esc(e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
     }).join("");
     document.getElementById("ep-empty-7d").classList.toggle("ep-hide", (data.setd || []).length > 0);
     document.getElementById("ep-t-7d").classList.toggle("ep-hide", (data.setd || []).length === 0);
@@ -357,7 +363,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         '<td><span class="ep-b ' + (e.readiness >= 70 ? "pass" : e.readiness >= 40 ? "mid" : "fail") + '">' + e.readiness + " %</span></td>" +
         "<td>" + (e.quizBest !== null && e.quizBest !== undefined ? e.quizBest + " %" : "—") + "</td>" +
         "<td>" + (res.join(" · ") || "—") + "</td>" +
-        "<td>" + (e.city || "—") + "</td>" +
+        "<td>" + esc(e.city || "—") + "</td>" +
         "<td>" + actionCell(e, atMax) + "</td></tr>";
     }).join("");
     document.getElementById("ep-empty-cd").classList.toggle("ep-hide", (data.classd || []).length > 0);

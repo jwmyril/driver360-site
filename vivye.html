@@ -467,7 +467,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value,
       wa:document.getElementById("rj-wa").checked,
       contact:(document.querySelector('input[name=ctc]:checked')||{}).value||"direct",
-      cv:document.getElementById("rj-cv").value,
+      cv:lienSur(document.getElementById("rj-cv").value),
       resume:document.getElementById("rj-resume").value};
   }
   function fill(p){
@@ -551,15 +551,36 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   // Elles n'existent que pour la posture « je dois donner mon autorisation ».
   // Tant que le chauffeur n'a pas repondu, l'employeur ne voit ni son nom ni
   // son telephone : c'est ici que ca se decide.
+  // ⚠️ AUCUNE fonction d'echappement n'existait ici avant le 30/08/2026, alors
+  // que la page affiche le NOM D'UN EMPLOYEUR — une valeur qu'il a saisie
+  // lui-meme — sur le seul ecran ou un chauffeur donne son accord. C'etait la
+  // meme faille qu'en face, dans l'autre sens.
+  // ⚠️ `<input type="url">` N'EST PAS UN CONTROLE DE SECURITE. Il accepte
+  // n'importe quel schema absolu : `javascript:alert(1)` et
+  // `data:text/html,<script>` passent son checkValidity() sans broncher —
+  // mesure au navigateur le 30/08/2026, alors qu'une relecture de code avait
+  // conclu l'inverse. Le lien finit dans un href chez un employeur : on
+  // n'accepte donc que http(s), et on refuse silencieusement le reste.
+  function lienSur(v){
+    v = String(v || "").trim();
+    return /^https?:\/\//i.test(v) ? v : "";
+  }
+
+  function esc(v){
+    return String(v==null?"":v)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+
   function montrerDemandes(pend){
     var t=T(), boite=document.getElementById("rj-pend"), liste=document.getElementById("rj-pend-list");
     if(!pend||!pend.length){boite.classList.add("rj-hide");liste.innerHTML="";return;}
     document.getElementById("rj-pend-t").textContent=t.pendT;
     liste.innerHTML=pend.map(function(d){
       return '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-bottom:0.6rem">'
-        +'<span style="flex:1;min-width:180px;font-size:0.9rem">'+(d.org||d.emp)+' <small style="color:var(--d-doux)">'+(d.at||"")+'</small></span>'
-        +'<button type="button" class="btn btn-primary" data-emp="'+d.emp+'" data-ok="1" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendYes+'</button>'
-        +'<button type="button" class="btn btn-outline" data-emp="'+d.emp+'" data-ok="0" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendNo+'</button>'
+        +'<span style="flex:1;min-width:180px;font-size:0.9rem">'+esc(d.org||d.emp)+' <small style="color:var(--d-doux)">'+esc(d.at||"")+'</small></span>'
+        +'<button type="button" class="btn btn-primary" data-emp="'+esc(d.emp)+'" data-ok="1" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendYes+'</button>'
+        +'<button type="button" class="btn btn-outline" data-emp="'+esc(d.emp)+'" data-ok="0" style="padding:0.3rem 0.8rem;font-size:0.8rem">'+t.pendNo+'</button>'
         +'</div>';
     }).join("");
     boite.classList.remove("rj-hide");
