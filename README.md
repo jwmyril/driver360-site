@@ -252,6 +252,36 @@ Le jour où l'envoi manuel devient impraticable — disons au-delà d'une trenta
 d'alertes par semaine — la Platform devient justifiée. Les quatre messages de
 `MESSAGES` sont déjà écrits pour devenir les gabarits à soumettre.
 
+### Un compte existe déjà (créé pour Arpentaj)
+
+⚠️ **PARTAGER LA VÉRIFICATION, SÉPARER LES NUMÉROS.** C'est la décision, et
+elle n'est pas symétrique.
+
+Ce qui se PARTAGE — le **portefeuille d'entreprise Meta** et sa vérification.
+Elle se fait une fois, au niveau du portefeuille, et couvre tous les comptes
+WhatsApp qui vivent dessous. Refaire vérifier Atmart LLC pour Driver360 serait
+du travail perdu.
+
+Ce qui se SÉPARE — le **numéro**. Arpentaj écrit à des arpenteurs en Haïti au
+sujet de leurs dossiers ; Driver360 écrit à des chauffeurs du Massachusetts au
+sujet d'offres d'emploi. Trois raisons de ne pas mélanger :
+
+  · **le consentement ne se transfère pas.** Quelqu'un qui a accepté d'être
+    prévenu par Arpentaj n'a rien accepté de Driver360 ;
+  · **la réputation est attachée au numéro.** Des alertes d'emploi signalées
+    comme indésirables dégraderaient la qualité du numéro d'Arpentaj — et
+    couperaient un canal client au passage ;
+  · **une suspension frappe le numéro.** Un seul incident côté Driver360
+    fermerait le canal d'Arpentaj le même jour.
+
+**Vérifier ce qu'on a réellement**, avant toute chose :
+
+| Question | Où regarder | Ce que ça veut dire |
+|---|---|---|
+| L'appli gratuite ou la Platform ? | business.facebook.com → WhatsApp Manager | si aucun « WhatsApp Account » n'apparaît, c'est l'appli gratuite |
+| Le portefeuille est-il vérifié ? | Paramètres du portefeuille → Centre de sécurité | « Vérifiée » = l'étape la plus longue est déjà faite |
+| Le numéro est-il pris ? | WhatsApp Manager → Numéros de téléphone | un numéro déjà sur l'appli doit être désinscrit, ou passer en Coexistence |
+
 ### Si un compte existe et a été restreint
 
 Le vocabulaire de Meta distingue quatre états, du plus léger au plus grave :
