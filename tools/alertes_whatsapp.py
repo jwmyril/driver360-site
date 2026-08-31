@@ -212,11 +212,17 @@ def action_liste(fiches):
     if not fiches:
         print("Le vivier est vide : personne a prevenir.")
         return 0
-    print("%-16s %-22s %-13s %-4s %s" % ("CODE", "VILLE", "ALERTES", "LG", "ETAT"))
+    print("%-16s %-7s %-20s %-11s %-4s %s"
+          % ("CODE", "TEL", "VILLE", "ALERTES", "LG", "ETAT"))
     for f in sorted(fiches, key=lambda x: x.get("city") or ""):
         ok, pourquoi = joignable(f)
-        print("%-16s %-22s %-13s %-4s %s"
-              % (f["_code"], (f.get("city") or "-")[:22],
+        # ⚠️ LES QUATRE DERNIERS CHIFFRES, PAS LE NUMERO. Ils suffisent a
+        # reconnaitre l'expediteur d'un STOP ; etaler des numeros entiers dans
+        # un terminal, c'est les laisser dans un historique de shell.
+        tel = chiffres(f.get("phone"))
+        print("%-16s %-7s %-20s %-11s %-4s %s"
+              % (f["_code"], ("…" + tel[-4:]) if tel else "-",
+                 (f.get("city") or "-")[:20],
                  "%d/7j" % len(envois_recents(f)), langue(f),
                  "pret" if ok else pourquoi))
     joignables = sum(1 for f in fiches if joignable(f)[0])
@@ -277,10 +283,39 @@ def action_marquer(fiches, code):
     return 0
 
 
+def chiffres(v):
+    return "".join(c for c in (v or "") if c.isdigit())
+
+
+def trouver(fiches, quoi):
+    """Retrouve une fiche par son CODE ou par son NUMERO.
+
+    ⚠️ UN STOP ARRIVE PAR WHATSAPP — donc avec un numero, jamais avec un code
+    `DRV-`. Ne l'accepter que par code rendait la promesse « repondez STOP »
+    intenable en pratique : l'operateur avait le numero sous les yeux et aucun
+    moyen de retrouver la fiche.
+    """
+    q = quoi.strip().upper()
+    f = next((x for x in fiches if x["_code"] == q), None)
+    if f:
+        return f
+    n = chiffres(quoi)
+    if len(n) >= 7:
+        # on compare les 10 derniers chiffres : le +1 des Etats-Unis est
+        # tantot ecrit, tantot non.
+        cands = [x for x in fiches if chiffres(x.get("phone"))[-10:] == n[-10:]]
+        if len(cands) == 1:
+            return cands[0]
+        if len(cands) > 1:
+            raise SystemExit("%d fiches partagent ce numero : traiter par code."
+                             % len(cands))
+    return None
+
+
 def action_stop(fiches, code):
-    f = next((x for x in fiches if x["_code"] == code.upper()), None)
+    f = trouver(fiches, code)
     if not f:
-        raise SystemExit("Code inconnu : %s" % code)
+        raise SystemExit("Ni code ni numero connu : %s" % code)
     f["wa"] = False
     f.pop("waAt", None)
     f["waStopAt"] = date.today().isoformat()
@@ -300,7 +335,8 @@ def main():
     ap.add_argument("--poste", default="")
     ap.add_argument("--lien", default="", help="la page de candidature de l'employeur")
     ap.add_argument("--marquer", metavar="CODE", help="enregistrer un envoi effectue")
-    ap.add_argument("--stop", metavar="CODE", help="couper les alertes (STOP recu)")
+    ap.add_argument("--stop", metavar="CODE_OU_TEL",
+                    help="couper les alertes — accepte un code DRV- ou un numero,\ncar un STOP arrive par WhatsApp, donc avec un numero")
     args = ap.parse_args()
 
     if not any([args.liste, args.preparer, args.marquer, args.stop]):

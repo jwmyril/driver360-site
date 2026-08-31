@@ -209,8 +209,14 @@ def m_c1():
     t = lire("anplwaye.html")
     if t is None:
         return None, "anplwaye.html introuvable"
-    brut = len(re.findall(r"(?<!esc\()\(e\.city", t))
-    total = len(re.findall(r"e\.city", t))
+    # /!\ LA SENTINELLE ETAIT AVEUGLE. Le motif cherchait `(e.city` non
+    # precede de `esc(` — or dans `esc(e.city ...)` la parenthese EST celle de
+    # `esc(`, si bien que chaque insertion correctement echappee etait comptee
+    # comme brute. Le controle censes detecter une regression XSS ne pouvait
+    # donc jamais passer, et son alarme permanente valait silence.
+    code = re.sub(r"//[^\n]*", "", t)
+    brut = len(re.findall(r"(?<!esc\()e\.city", code))
+    total = len(re.findall(r"e\.city", code))
     return brut == 0, "%d insertion(s) de e.city sans esc(), sur %d" % (
         brut, total)
 
@@ -220,7 +226,8 @@ def m_c3():
     t = lire("vivye.html")
     if t is None:
         return None, "vivye.html introuvable"
-    brut = len(re.findall(r"(?<!esc\()\(d\.org", t))
+    code = re.sub(r"//[^\n]*", "", t)          # meme correction qu'en C1
+    brut = len(re.findall(r"(?<!esc\()d\.org", code))
     a_esc = bool(re.search(r"function esc\b", t))
     return (brut == 0 and a_esc), (
         "%d insertion(s) de d.org sans esc() · esc() %s dans la page"
@@ -232,9 +239,15 @@ def m_c4():
     t = lire("anplwaye.html")
     if t is None:
         return None, "anplwaye.html introuvable"
-    casse = bool(re.search(r"enAttente\(id\)", t))
-    return not casse, ("enAttente(id) — identifiant non déclaré" if casse
-                       else "enAttente() reçoit un identifiant déclaré")
+    # /!\ NE PAS COMPTER LA DECLARATION. `function enAttente(id)` contient
+    # evidemment « enAttente(id) » : la sentinelle accusait donc la definition
+    # de la fonction, jamais ses appels, et criait au loup en permanence.
+    appels = re.findall(r"(?<!function )enAttente\(([^)]*)\)", t)
+    casse = [a for a in appels if a.strip() == "id"]
+    return not casse, ("%d appel(s) enAttente(id) — identifiant non déclaré"
+                       % len(casse) if casse
+                       else "enAttente() reçoit un identifiant déclaré (%d appel(s))"
+                       % len(appels))
 
 
 def m_c11():
@@ -398,11 +411,20 @@ def m_h1():
     if t is None:
         return None, "vivye.html introuvable"
     lit = bool(re.search(r'getElementById\("rj-cv"\)', t))
-    teste = bool(re.search(r"https\?:\?/\?/", t))
     if not lit:
         return None, "le champ rj-cv n'est plus lu par la page"
-    return teste, ("le lien de CV est filtre sur http(s) avant l'envoi" if teste
-                   else "aucun filtre http(s) : javascript: et data: passent")
+    # /!\ LE MOTIF CHERCHAIT UN LITTERAL QUI N'EXISTE PAS. Dans une expression
+    # reguliere JavaScript les barres obliques sont echappees — `^https?:\/\//`
+    # — si bien que la sentinelle ne trouvait jamais le filtre POURTANT PRESENT
+    # et declarait la page ouverte a `javascript:`. Une alarme qui ne peut pas
+    # s'eteindre ne protege rien.
+    passe = bool(re.search(r'lienSur\(\s*document\.getElementById\("rj-cv"\)', t))
+    garde = bool(re.search(r"function lienSur\b", t)
+                 and re.search(r"\^https\?:\\?/\\?/", t))
+    ok = passe and garde
+    return ok, ("le lien de CV passe par lienSur(), ancre sur ^https?://" if ok
+                else "filtre absent ou contourne : passe=%s garde=%s"
+                     % (passe, garde))
 
 
 def m_h3():
