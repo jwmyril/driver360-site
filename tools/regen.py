@@ -78,7 +78,7 @@ APPEL_EMPLOYEUR = """
         below are empty today. Tell us instead <strong>what you are looking for</strong> — we will
         let you know as soon as a profile matches, and it tells us where to concentrate our recruiting.
       </p>
-      <a class="btn btn-primary" data-d3="b_bouton" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Entreprise%20%3A%0AVille%20ou%20zone%20%3A%0AType%20de%20permis%20(Class%20D%20%2F%207D)%20%3A%0ACombien%20de%20chauffeurs%20%3A%0AQuand%20%3A%0ALangues%20souhaitees%20%3A%0A%0AMerci.">Tell us what we should look for</a>
+      <a class="btn btn-primary" data-d3="b_bouton" href="mailto:sales@atmart.ltd?subject=Driver360%20-%20je%20recherche%20des%20chauffeurs&amp;body=Company%3A%0ATown%20or%20area%3A%0ALicence%20needed%20%28Class%20D%20/%207D%20/%20CDL%29%3A%0AHow%20many%20drivers%3A%0AWhen%3A%0A%0AThank%20you.">Tell us what we should look for</a>
       <p data-d3="b_note" style="margin:.9rem 0 0;font-size:.84rem;color:#c9b79c">
         No commitment, and we never pass on a driver's name without their agreement.
       </p>

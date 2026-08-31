@@ -79,11 +79,16 @@ Les employeurs sont dans `tools/emplois.py`, avec la date de vérification.
 **Aucune URL n'entre sans avoir été ouverte :**
 
 ```bash
-python tools/gen_emplois.py --verifier   # ouvre les 8 liens, dit lesquels sont morts
+python tools/gen_emplois.py --verifier   # ouvre les 20 liens, dit lesquels sont morts
 python tools/gen_emplois.py              # régénère la page
 ```
 
-Au 29/08/2026 : 8 employeurs, 8 liens vivants.
+Au 31/08/2026 : **20 employeurs sur 7 secteurs**, tous les liens ouverts et vérifiés.
+
+Les employeurs qui nous ENVOIENT une offre ont leur propre liste, `OFFRES` dans
+le même fichier. ⚠️ Une offre sans date de vérification ne s'affiche pas, et une
+offre pourvue se retire : une page qui garde des postes fermés fait perdre son
+temps à qui la lit.
 
 ## Les alertes WhatsApp
 

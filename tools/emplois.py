@@ -296,3 +296,28 @@ SECTIONS = [
              "ht": "Kamyon, distribisyon manje ak fatra — CDL",
              "fr": "Camion, distribution alimentaire et déchets — CDL"}),
 ]
+
+# --------------------------------------------------------------------------
+# LES OFFRES QU'ON NOUS ENVOIE
+# --------------------------------------------------------------------------
+# ⚠️ CE BLOC EXISTE PARCE QUE LA PAGE PROMETTAIT SANS POUVOIR TENIR. Elle dit
+# a un employeur : « envoyez-nous votre offre et elle parait ici, gratuitement ».
+# Or `EMPLOYEURS` ne decrit que des employeurs : il n'y avait AUCUN chemin
+# entre le courriel de collecte et la page. La promesse etait donc une phrase.
+#
+# Chaque entree :
+#   employeur : le nom, tel qu'il doit s'afficher
+#   poste     : l'intitule, dans la langue de l'employeur
+#   ville     : ou, pour que les alertes WhatsApp sachent qui prevenir
+#   permis    : "classd" | "7d" | "cdl" | ""   (informatif)
+#   url       : LA PAGE DE CANDIDATURE DE L'EMPLOYEUR. Jamais la notre.
+#   recu      : la date ou l'offre nous a ete envoyee
+#   verifie   : la date ou le lien a ete OUVERT. Vide = pas encore publiable.
+#
+# ⚠️ UNE OFFRE SANS `verifie` NE S'AFFICHE PAS. Meme regle que pour les
+# employeurs : on n'envoie personne vers un lien qu'on n'a pas ouvert.
+#
+# ⚠️ ET ON RETIRE UNE OFFRE POURVUE. Une page d'offres qui garde des postes
+# fermes fait perdre son temps a un chauffeur, et c'est exactement ce que le
+# renvoi vers la page de l'employeur devait eviter.
+OFFRES = []

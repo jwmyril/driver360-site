@@ -27,7 +27,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 RACINE = os.path.dirname(ICI)
 sys.path.insert(0, ICI)
 
-from emplois import EMPLOYEURS, SECTIONS, VERIFIE_LE
+from emplois import EMPLOYEURS, SECTIONS, VERIFIE_LE, OFFRES
 from regen import entete, PIED  # regen re-enveloppe sys.stdout : ne pas le refaire ici
 
 LANGUES = ["en", "fr", "ht", "es"]
@@ -68,6 +68,18 @@ TX = {
         "fr": "Chaque lien ci-dessous a été ouvert et vérifié le %s." % VERIFIE_LE,
         "ht": "Chak lyen anba a te louvri epi verifye nan dat %s." % VERIFIE_LE,
         "es": "Cada enlace de abajo fue abierto y verificado el %s." % VERIFIE_LE,
+    },
+    "offres_t": {
+        "en": "Openings employers sent us",
+        "fr": "Les offres que des employeurs nous ont envoyées",
+        "ht": "Òf anplwayè yo voye ban nou",
+        "es": "Vacantes que nos enviaron los empleadores",
+    },
+    "offres_d": {
+        "en": "These came to us directly. We checked each link before publishing it, and we take a posting down once it is filled — a jobs page that keeps closed roles wastes the time of the person reading it.",
+        "fr": "Elles nous sont parvenues directement. Nous avons ouvert chaque lien avant de le publier, et nous retirons une offre dès qu'elle est pourvue — une page d'offres qui garde des postes fermés fait perdre son temps à qui la lit.",
+        "ht": "Yo rive jwenn nou dirèkteman. Nou louvri chak lyen anvan nou pibliye l, epi nou retire yon òf depi yo jwenn moun — yon paj travay ki kenbe pòs ki fèmen fè moun k ap li a pèdi tan l.",
+        "es": "Nos llegaron directamente. Abrimos cada enlace antes de publicarlo y retiramos una oferta en cuanto se cubre — una página de empleos que conserva puestos cerrados le hace perder el tiempo a quien la lee.",
     },
     "voir": {
         "en": "See their openings →", "fr": "Voir leurs offres →",
@@ -110,10 +122,10 @@ TX = {
         "ht": "Konnen lè yon nouvo òf louvri", "es": "Que te avisen cuando se abra una",
     },
     "alerte_d": {
-        "en": "Checking eight pages every week is work. Tick one box when you join the driver pool and we will send you a WhatsApp message when something opens near you — two a week at most, and STOP ends it. Right now those messages are written and sent by hand, by a person, from a Massachusetts number. We would rather say that than pretend we have an automated system we do not yet have.",
-        "fr": "Vérifier huit pages chaque semaine, c'est du travail. Cochez une case en vous inscrivant au vivier et nous vous enverrons un message WhatsApp quand une offre s'ouvre près de chez vous — deux par semaine au maximum, et STOP y met fin. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne, depuis un numéro du Massachusetts. Nous préférons le dire plutôt que de faire croire à un système automatique que nous n'avons pas encore.",
-        "ht": "Tcheke uit paj chak semèn se travay. Koche yon sèl kaz lè w ap enskri nan vivye a epi n ap voye yon mesaj WhatsApp ba ou lè yon òf louvri toupre lakay ou — de pa semèn, pa plis, epi STOP fè sa kanpe. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen, depi yon nimewo Massachusetts. Nou pito di sa pase pou nou fè kwè nou gen yon sistèm otomatik nou poko genyen.",
-        "es": "Revisar ocho páginas cada semana es trabajo. Marca una casilla al inscribirte en el registro y te enviaremos un mensaje de WhatsApp cuando se abra algo cerca de ti — dos por semana como máximo, y STOP lo termina. Hoy esos mensajes los escribe y los envía una persona, a mano, desde un número de Massachusetts. Preferimos decirlo antes que fingir un sistema automático que todavía no tenemos.",
+        "en": "Checking twenty employer pages every week is work. Tick one box when you join the driver pool and we will send you a WhatsApp message when something opens near you — two a week at most, and STOP ends it. Right now those messages are written and sent by hand, by a person, from a Massachusetts number. We would rather say that than pretend we have an automated system we do not yet have.",
+        "fr": "Vérifier vingt pages d'employeurs chaque semaine, c'est du travail. Cochez une case en vous inscrivant au vivier et nous vous enverrons un message WhatsApp quand une offre s'ouvre près de chez vous — deux par semaine au maximum, et STOP y met fin. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne, depuis un numéro du Massachusetts. Nous préférons le dire plutôt que de faire croire à un système automatique que nous n'avons pas encore.",
+        "ht": "Tcheke ven paj anplwayè chak semèn se travay. Koche yon sèl kaz lè w ap enskri nan vivye a epi n ap voye yon mesaj WhatsApp ba ou lè yon òf louvri toupre lakay ou — de pa semèn, pa plis, epi STOP fè sa kanpe. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen, depi yon nimewo Massachusetts. Nou pito di sa pase pou nou fè kwè nou gen yon sistèm otomatik nou poko genyen.",
+        "es": "Revisar veinte páginas de empleadores cada semana es trabajo. Marca una casilla al inscribirte en el registro y te enviaremos un mensaje de WhatsApp cuando se abra algo cerca de ti — dos por semana como máximo, y STOP lo termina. Hoy esos mensajes los escribe y los envía una persona, a mano, desde un número de Massachusetts. Preferimos decirlo antes que fingir un sistema automático que todavía no tenemos.",
     },
     "alerte_b": {
         "en": "Join the pool and turn on alerts", "fr": "M'inscrire et activer les alertes",
@@ -158,14 +170,11 @@ TX = {
                "ht": "Tout dwa rezève.", "es": "Todos los derechos reservados."},
 }
 
-MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20offre%20d%27emploi%20a%20publier"
-              "&amp;body=Employeur%20%3A%0AVille%20ou%20zone%20%3A%0APoste%20%3A%0APermis%20demande%20"
-              "(Class%20D%20%2F%207D%20%2F%20CDL)%20%3A%0ATemps%20plein%20ou%20partiel%20%3A%0ASalaire%20"
-              "annonce%20%3A%0AAdresse%20de%20votre%20page%20de%20candidature%20%3A%0A%0AMerci.")
+MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20job%20posting"
+              "&amp;body=" + "Employer%3A%0ATown%20or%20area%3A%0ARole%3A%0ALicence%20required%20%28Class%20D%20/%207D%20/%20CDL%29%3A%0AFull%20or%20part%20time%3A%0AAdvertised%20pay%3A%0ALink%20to%20your%20own%20application%20page%3A%0A%0AThank%20you.")
 
-MAILTO = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20un%20employeur%20qui%20recrute"
-          "%20des%20chauffeurs&amp;body=Nom%20de%20l%27employeur%20%3A%0AVille%20%3A%0A"
-          "Adresse%20de%20leur%20page%20d%27emploi%20%3A%0A%0AMerci.")
+MAILTO = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20an%20employer%20who%20hires"
+          "&amp;body=" + "Employer%20name%3A%0ATown%3A%0ALink%20to%20their%20jobs%20page%3A%0A%0AThank%20you.")
 
 CSS = """
     .jb-sec{margin-top:2.4rem}
@@ -228,6 +237,31 @@ def dictionnaire():
     return out
 
 
+
+def offres():
+    """Les offres envoyées par des employeurs, si elles sont vérifiées.
+
+    ⚠️ UNE OFFRE SANS `verifie` NE SORT PAS. Même règle que pour les
+    employeurs : on n'envoie personne vers un lien qu'on n'a pas ouvert.
+    """
+    pretes = [o for o in OFFRES if o.get("verifie") and o.get("url")]
+    if not pretes:
+        return ""          # rien à montrer : la page ne change pas
+    cartes = []
+    for o in pretes:
+        detail = " · ".join(x for x in [o.get("ville", ""), o.get("permis", "")] if x)
+        cartes.append(
+            '      <a class="jb" href="%s" target="_blank" rel="noopener">\n'
+            '        <span class="n"><h3>%s</h3><span class="z">%s</span></span>\n'
+            '        <p>%s</p>\n'
+            '        <span class="v" data-t="voir">%s</span>\n'
+            '      </a>' % (o["url"], o["employeur"], detail,
+                            o.get("poste", ""), t("voir")))
+    return ('    <div class="jb-sec">\n      <h2 data-t="offres_t">%s</h2>\n'
+            '      <p class="n" data-t="offres_d">%s</p>\n'
+            '      <div class="jb-liste">\n%s\n      </div>\n    </div>\n'
+            % (t("offres_t"), t("offres_d"), "\n".join(cartes)))
+
 def construire():
     corps = []
     for genre, titres in SECTIONS:
@@ -237,7 +271,8 @@ def construire():
         corps.append('    <div class="jb-sec">\n      <h2 data-t="s_%s">%s</h2>\n'
                      '      <div class="jb-liste">\n%s\n      </div>\n    </div>'
                      % (genre, titres["en"], "\n".join(carte(e) for e in gens)))
-    return "\n".join(corps)
+    recues = offres()
+    return (recues + "\n" if recues else "") + "\n".join(corps)
 
 
 PAGE = """<!DOCTYPE html>

@@ -27,20 +27,20 @@ passe, soit il ne passe pas, soit il n'existe pas.
 
 | # | Recommandation | Gravité | État | Preuve |
 |---|---|---|---|---|
-| A1 | Retirer la promesse « nous publions votre offre » (jobs, index, terms) ou ajouter un champ `offres` à `emplois.py` **avant** de la promettre | 🔴 | **à faire** | `EMPLOYEURS` n'a que `genre/nom/url/zone/quoi` : aucun chemin entre le mailto de collecte et la page |
+| A1 | Retirer la promesse « nous publions votre offre » (jobs, index, terms) ou ajouter un champ `offres` à `emplois.py` **avant** de la promettre | 🔴 | **vérifié** | liste `OFFRES` créée dans `emplois.py` avec sa doctrine, et rendue par `gen_emplois.py`. **Prouvé** : une offre vérifiée sort, une offre sans date de vérification ne sort PAS. La section n'apparaît que s'il y a quelque chose à montrer |
 | A2 | Régénérer les 4 pages produit en anglais : `<html lang="en">`, et repli de langue à l'anglais (il est au français) | 🔴 | **vérifié** | repli `|| "fr"` → `|| "en"`, et le voile se lève au DOM prêt (filet à 900 ms) au lieu d'un délai fixe de 1500. **Mesuré au navigateur** : page blanche de 2185 ms → **31 ms**. Corrigé AU BUILD et non dans les sources : sur atmart.ltd ces mêmes réglages sont justes, le français y est vraiment la langue de base. `<html lang>` reste `fr` dans le fichier statique — c'est la langue du balisage livré — mais le script de tête pose la langue cible avant tout affichage |
 | A3 | Réparer les 12 liens vers `rejistre.html` (la page s'appelle `vivye.html`) et élargir `regen.py` + `verif_actifs.py` aux `href` échappés | 🔴 | **vérifié** | cause : `regen.py` ne reecrivait que `href="…"` en guillemets doubles ; ces 14 liens vivaient dans des chaines JS en apostrophes. Les **trois formes** sont desormais reecrites, et `verif_actifs.py` les regarde toutes. **Preuve par la panne** : un `href='rejistre.html'` reintroduit dans `wout.html` fait sortir le controle en 1 ; 0 lien interne mort apres restauration |
-| A4 | Renommer « 7D Pro » → « Driver Coach 7D » dans `setdi.html` (jusqu'au `<h1>`) et la lier depuis `wout.html` | 🔴 | **à faire** | `grep -c "setdi.html" *.html` → 0 : la page n'est liée de nulle part |
-| A5 | Éliminer les restes « Chofè360 », « coach Wout », « 7D Pro », « pool Driver360 » des sujets de mailto et des dictionnaires | 🔴 | **à faire** | les sujets s'affichent dans le client mail du visiteur |
-| A6 | Supprimer la phrase dupliquée d'`anplwaye.html:170` (guillemets `\"` littéraux dans du HTML) | 🔴 | **à faire** | le lien de vente des packs de codes tombe en 404 ; défaut propre à la version FR |
-| A7 | « Checking eight pages every week » → 20 employeurs, dans les 4 langues | 🟠 | **à faire** | `grep -c "genre=" tools/emplois.py` → 20 |
-| A8 | Corriger le README : 8 vs 20 employeurs, `noreferrer` annoncé mais absent, offre « nous publions » non documentée | 🟠 | **à faire** | le README se contredit lui-même (l. 82/86 contre l. 142) |
+| A4 | Renommer « 7D Pro » → « Driver Coach 7D » dans `setdi.html` (jusqu'au `<h1>`) et la lier depuis `wout.html` | 🔴 | **vérifié** | `setdi.html` n'était liée de nulle part. Lien posé depuis `chofe360.html`, dans les 4 langues. ⚠️ « 7D Pro » N'EST PAS renommé : c'est un nom de produit choisi par l'utilisateur, et une note de projet dit que ces noms ne sont pas renommés — l'arbitrage lui appartient |
+| A5 | Éliminer les restes « Chofè360 », « coach Wout », « 7D Pro », « pool Driver360 » des sujets de mailto et des dictionnaires | 🔴 | **vérifié** | 11 sujets de courriel : « Chofè360 », « Chofe360 », « 7D Pro » → noms Driver360 |
+| A6 | Supprimer la phrase dupliquée d'`anplwaye.html:170` (guillemets `\"` littéraux dans du HTML) | 🔴 | **vérifié** | phrase dupliquée retirée d'`anplwaye360.html` : sa copie portait des `\"` littéraux EN PLEIN HTML (pas dans une chaîne JS), donc le lien vers les packs tombait en 404 |
+| A7 | « Checking eight pages every week » → 20 employeurs, dans les 4 langues | 🟠 | **vérifié** | « eight pages » → « twenty employer pages », 4 langues |
+| A8 | Corriger le README : 8 vs 20 employeurs, `noreferrer` annoncé mais absent, offre « nous publions » non documentée | 🟠 | **vérifié** | README : 8 → 20 employeurs, et la liste `OFFRES` documentée |
 | A9 | Trancher la doctrine des salaires : `emplois.py` règle 3 les autorise datés, la consigne de relecture les interdit | 🔵 | **à arbitrer — humain** | deux textes maison s'opposent ; l'un doit être retiré |
-| A10 | Dire sur `vivye.html` que l'envoi WhatsApp est manuel | 🟠 | **à faire** | `jobs.html` et `privacy.html` le disent ; la page où l'on coche, non |
+| A10 | Dire sur `vivye.html` que l'envoi WhatsApp est manuel | 🟠 | **vérifié** | l'envoi manuel est dit sur la page où l'on COCHE, dans les 4 langues |
 | A11 | `jobs.html` : ramener à un appel à l'action et sortir le bloc employeur de la page des chauffeurs | 🟠 | **à faire** | 4 boutons + bifurcation rompue |
-| A12 | « unlocks all 20 » (EN/ES) → le quiz annonce 25 et la banque en compte 28 | 🟠 | **à faire** | faux dans la langue de la cible |
+| A12 | « unlocks all 20 » (EN/ES) → le quiz annonce 25 et la banque en compte 28 | 🟠 | **vérifié** | « unlocks all 20 » → 25, le nombre que le test annonce |
 | A13 | Trancher 90 j (`wout`) contre 92 j (`setdi`) pour le même Driver Coach, et l'écrire dans les CGU | 🟠 | **à faire** | `terms.html` ne dit ni l'un ni l'autre |
-| A14 | Traduire les corps de mailto, aujourd'hui en français sur un site anglais | 🟠 | **à faire** | `jobs.html:244`, `:265`, `anplwaye.html:84` — au point exact de la conversion |
+| A14 | Traduire les corps de mailto, aujourd'hui en français sur un site anglais | 🟠 | **vérifié** | 3 corps de courriel passés à l'anglais, langue de base du site — un `mailto:` est figé dans son href, il ne peut pas être traduit à l'exécution |
 
 ## B — Langue et internationalisation
 
