@@ -229,6 +229,66 @@ En dessous de 64 px le dessin se **simplifie** — quatre filaments au lieu de
 sept, plus épais. À 32 px les sept se rejoignaient en une bouillie, et un logo
 doit survivre à sa plus petite taille : c'est là qu'on le voit le plus souvent.
 
+## Ouvrir le compte WhatsApp Business
+
+⚠️ **DEUX PRODUITS PORTENT CE NOM**, et confondre les deux fait perdre des
+semaines.
+
+| | WhatsApp Business (l'appli) | WhatsApp Business Platform (Cloud API) |
+|---|---|---|
+| Prix | gratuit | par message livré |
+| Envoi | à la main, depuis un téléphone | par programme |
+| Gabarits à faire approuver | non | oui |
+| Vérification d'entreprise Meta | non | oui |
+| Ce qu'il faut pour Driver360 **aujourd'hui** | ✅ suffit | prématuré |
+
+**COMMENCER PAR L'APPLI GRATUITE.** `tools/alertes_whatsapp.py` prépare déjà
+des liens `wa.me` qu'on ouvre et qu'on envoie à la main : c'est exactement le
+mode de travail de l'appli. Avec zéro chauffeur dans le vivier, monter la
+Platform maintenant, ce serait de la vérification d'entreprise et des gabarits
+à faire approuver pour zéro message envoyé.
+
+Le jour où l'envoi manuel devient impraticable — disons au-delà d'une trentaine
+d'alertes par semaine — la Platform devient justifiée. Les quatre messages de
+`MESSAGES` sont déjà écrits pour devenir les gabarits à soumettre.
+
+### Si un compte existe et a été restreint
+
+Le vocabulaire de Meta distingue quatre états, du plus léger au plus grave :
+**restreint** (ça marche, quelque chose est bridé), **suspendu** (verrouillé en
+attente d'un examen humain), **banni** (le numéro est détaché de WhatsApp), et
+**WABA désactivé** (l'actif est gelé pendant l'examen du portefeuille).
+
+Demander l'examen : depuis l'appli, « Request a review » quand le bouton est
+proposé ; depuis la Platform, par **Meta Business Support Home** ou WhatsApp
+Manager. Compter 24 à 48 h, jusqu'à 7 jours ouvrés si la vérification
+d'entreprise est en cause. **L'examen ne garantit pas le rétablissement.**
+
+### Les pièges propres à Driver360
+
+⚠️ **Nos alertes sont de catégorie « marketing »** au sens de Meta — une offre
+d'emploi n'est pas une notification de service. C'est la catégorie la plus
+chère, et elle est facturée à chaque message même dans une fenêtre de service
+ouverte. Ne pas essayer de les faire passer pour de l'« utility » : c'est
+exactement le genre de chose qui fait restreindre un compte.
+
+⚠️ **Ne jamais utiliser un numéro personnel.** Un numéro déjà actif sur l'appli
+gratuite doit être désinscrit avant de passer à la Cloud API — ou passer par
+la **Coexistence**, qui permet de garder l'appli et l'API sur le même numéro.
+
+⚠️ **La vérification d'entreprise demande le nom légal et l'adresse.** C'est le
+MÊME renseignement qui manque aux pages légales (`terms.html`, `privacy.html`).
+Une seule information manquante bloque deux chantiers : la fournir une fois
+débloque les deux.
+
+**Ce qui nous protège si le numéro est signalé** : le consentement horodaté
+(`waAt` sur chaque fiche) et le plafond de deux messages par semaine, tenu par
+`--marquer`. La qualité d'un numéro se dégrade quand les gens bloquent ou
+signalent ; le plafond n'est pas seulement une promesse tenue, c'est ce qui
+garde le numéro en vie.
+
+Tarifs et catégories à jour : <https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing>
+
 ## Ce qui reste à faire, et par qui
 
 Ce tableau est ici pour survivre à la conversation qui l'a produit.

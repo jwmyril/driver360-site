@@ -24,7 +24,7 @@ le plus cher. Cet outil est le mécanisme.
 
 CE QU'IL N'EST PAS. Ce n'est pas un automate d'envoi. Le compte WhatsApp
 Business n'est pas ouvert (numéro dédié, compte vérifié, gabarits approuvés par
-Meta, facturation à la conversation). L'envoi reste donc fait par une personne
+Meta, facturation par message livré). L'envoi reste donc fait par une personne
 — exactement ce que la page annonce. L'outil rend cet envoi FAISABLE : il dit
 qui prévenir, dans quelle langue, et il refuse ceux qu'on a déjà sollicités.
 
