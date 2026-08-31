@@ -152,8 +152,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <input type="text" id="cf-phone" maxlength="30" />
           <label for="cf-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.</small></label>
           <input type="text" id="cf-city" maxlength="60" />
-          <label for="cf-langs" id="L-langs">Langues que vous parlez <small>Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.</small></label>
-          <input type="text" id="cf-langs" maxlength="80" />
           <label for="cf-nat" id="L-nat">Nationalité (optionnel) <small>Visible seulement par un employeur qui vous sélectionne.</small></label>
           <input type="text" id="cf-nat" maxlength="60" />
         </div>
@@ -522,7 +520,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
             name:document.getElementById("cf-name").value,
             phone:document.getElementById("cf-phone").value,
             city:document.getElementById("cf-city").value,
-            langs:document.getElementById("cf-langs").value,
+            lang:(document.documentElement.lang||"en"),
             nat:document.getElementById("cf-nat").value}}})
     .then(function(res){busy=false;
       if(!res.ok){document.getElementById("cf-st1").textContent=emsg(res.body&&res.body.error);return;}

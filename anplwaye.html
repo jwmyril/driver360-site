@@ -334,7 +334,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     // pool chauffeurs licencies
     var SEEKLBL = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
     var AVLBL = { fulltime: EPT("avFull"), parttime: EPT("avPart"), both: EPT("avBoth") };
-    var AUTHLBL = { yes: '<span class="ep-b pass">✅</span>', pending: '<span class="ep-b mid">⏳</span>', no: '<span class="ep-b fail">❌</span>' };
+    // `sponsor` = le chauffeur aura besoin d'un parrainage. `no` reste pour les
+      // fiches d'avant le 31/08/2026, quand l'option voulait dire « pas encore ».
+      var AUTHLBL = { yes: '<span class="ep-b pass">✅</span>', sponsor: '<span class="ep-b mid">🛂</span>', pending: '<span class="ep-b mid">⏳</span>', no: '<span class="ep-b fail">❌</span>' };
     var tl = document.querySelector("#ep-t-lic tbody");
     tl.innerHTML = (data.licensed || []).map(function (e) {
       var lic = (e.licenses || []).map(function (l) { return '<span class="ep-b pass" style="margin-right:0.2rem">' + (LICLBL[l] || l) + "</span>"; }).join("");

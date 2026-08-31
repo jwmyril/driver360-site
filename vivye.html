@@ -97,16 +97,14 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <input type="text" id="rj-phone" maxlength="30" placeholder="508-555-0100" />
         <label for="rj-city" id="L-city">Ville / zone<small>Ex. : Fitchburg, Worcester, Boston — pour que l'employeur cible son secteur.</small></label>
         <input type="text" id="rj-city" maxlength="60" />
-        <label for="rj-langs" id="L-langs">Langues que vous parlez<small>Ex. : kreyòl, anglais, español — un atout réel pour le transport scolaire et les personnes âgées.</small></label>
-        <input type="text" id="rj-langs" maxlength="80" />
         <label for="rj-nat" id="L-nat">Nationalité (optionnel)<small>Visible par l'employeur seulement s'il vous sélectionne — jamais dans la liste publique.</small></label>
         <input type="text" id="rj-nat" maxlength="60" />
         <label for="rj-auth" id="L-auth">Autorisation de travail aux États-Unis</label>
         <select id="rj-auth">
           <option value="">— choisir —</option>
           <option value="yes">✅ Oui, je suis autorisé(e) à travailler</option>
+          <option value="sponsor">🛂 J'aurai besoin d'un parrainage à l'avenir</option>
           <option value="pending">⏳ En cours / demande déposée</option>
-          <option value="no">❌ Pas encore</option>
         </select>
 
         <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t2">2. Vos licences</h3>
@@ -230,10 +228,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       t1:"1. Qui êtes-vous", t2:"2. Vos licences", t3:"3. Ce que vous cherchez", t4:"Modifier ou retirer mon inscription",
       name:"Votre nom complet", phone:"Téléphone (WhatsApp)",
       city:"Ville / zone", citys:"Ex. : Fitchburg, Worcester, Boston — pour que l'employeur cible son secteur.",
-      langs:"Langues que vous parlez", langss:"Ex. : kreyòl, anglais, español — un atout réel pour le transport scolaire et les personnes âgées.",
       nat:"Nationalité (optionnel)", nats:"Visible par l'employeur seulement s'il vous sélectionne — jamais dans la liste publique.",
       auth:"Autorisation de travail aux États-Unis",
-      a0:"— choisir —", a1:"✅ Oui, je suis autorisé(e) à travailler", a2:"⏳ En cours / demande déposée", a3:"❌ Pas encore",
+      a0:"— choisir —", a1:"✅ Oui, je suis autorisé(e) à travailler", a2:"🛂 J'aurai besoin d'un parrainage à l'avenir", a3:"⏳ En cours / demande déposée",
       lic:"Cochez ce que vous avez déjà", lics:"Au moins une est nécessaire pour entrer dans le pool.",
       years:"Années d'expérience au volant (professionnelle)", seek:"Types de transport qui vous intéressent",
       avail:"Disponibilité", v1:"Temps plein", v2:"Temps partiel", v3:"L'un ou l'autre",
@@ -276,10 +273,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       t1:"1. Kilès ou ye", t2:"2. Lisans ou yo", t3:"3. Sa w ap chèche", t4:"Chanje oswa retire enskripsyon m",
       name:"Non konplè ou", phone:"Telefòn (WhatsApp)",
       city:"Vil / zòn ou", citys:"Egz. : Fitchburg, Worcester, Boston — pou anplwayè a vize sektè l.",
-      langs:"Lang ou pale", langss:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou transpò lekòl ak granmoun.",
       nat:"Nasyonalite (opsyonèl)", nats:"Anplwayè a wè l sèlman si li chwazi w — pa janm nan lis piblik la.",
-      auth:"Otorizasyon travay Ozetazini",
-      a0:"— chwazi —", a1:"✅ Wi, mwen otorize travay", a2:"⏳ Nan pwosesis / demann depoze", a3:"❌ Poko",
+      auth:"Otorizasyon pou travay Ozetazini",
+      a0:"— chwazi —", a1:"✅ Wi, mwen gen dwa travay", a2:"🛂 M ap bezwen yon sponsò pita", a3:"⏳ Nan pwosesis / mwen fè demann lan",
       lic:"Tcheke sa ou genyen deja", lics:"Fòk gen omwen youn pou antre nan pool la.",
       years:"Konbyen ane eksperyans kondwi (pwofesyonèl)", seek:"Ki kalite transpò ki enterese w",
       avail:"Disponibilite", v1:"Tan konplè", v2:"Tan pasyèl", v3:"Youn oswa lòt",
@@ -322,10 +318,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       t1:"1. About you", t2:"2. Your licenses", t3:"3. What you are looking for", t4:"Edit or withdraw my registration",
       name:"Your full name", phone:"Phone (WhatsApp)",
       city:"City / area", citys:"E.g.: Fitchburg, Worcester, Boston — so employers can target their area.",
-      langs:"Languages you speak", langss:"E.g.: Kreyòl, English, Spanish — a real asset for school and senior transport.",
       nat:"Nationality (optional)", nats:"Visible to an employer only if they select you — never in the public list.",
       auth:"US work authorization",
-      a0:"— choose —", a1:"✅ Yes, I am authorized to work", a2:"⏳ In process / applied", a3:"❌ Not yet",
+      a0:"— choose —", a1:"✅ Yes, I am authorized to work", a2:"🛂 I will need sponsorship in the future", a3:"⏳ In process / applied",
       lic:"Check what you already hold", lics:"At least one is required to join the pool.",
       years:"Years of professional driving experience", seek:"Types of transport that interest you",
       avail:"Availability", v1:"Full time", v2:"Part time", v3:"Either",
@@ -368,10 +363,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       t1:"1. Quién eres", t2:"2. Tus licencias", t3:"3. Lo que buscas", t4:"Editar o retirar mi registro",
       name:"Tu nombre completo", phone:"Teléfono (WhatsApp)",
       city:"Ciudad / zona", citys:"Ej.: Fitchburg, Worcester, Boston — para que el empleador enfoque su zona.",
-      langs:"Idiomas que hablas", langss:"Ej.: kreyòl, inglés, español — una gran ventaja para transporte escolar y de mayores.",
       nat:"Nacionalidad (opcional)", nats:"Visible para el empleador solo si te selecciona — nunca en la lista pública.",
       auth:"Autorización de trabajo en EE. UU.",
-      a0:"— elegir —", a1:"✅ Sí, estoy autorizado(a) a trabajar", a2:"⏳ En trámite / solicitado", a3:"❌ Todavía no",
+      a0:"— elegir —", a1:"✅ Sí, tengo autorización para trabajar", a2:"🛂 Necesitaré patrocinio en el futuro", a3:"⏳ En trámite / solicitado",
       lic:"Marca lo que ya tienes", lics:"Se necesita al menos una para entrar al pool.",
       years:"Años de experiencia profesional al volante", seek:"Tipos de transporte que te interesan",
       avail:"Disponibilidad", v1:"Tiempo completo", v2:"Medio tiempo", v3:"Cualquiera",
@@ -419,7 +413,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     setT("rj-kicker",t.kicker); setT("rj-lead",t.lead); setT("rj-note",t.note);
     setT("rj-t1",t.t1); setT("rj-t2",t.t2); setT("rj-t3",t.t3); setT("rj-t4",t.t4);
     setL("L-name",t.name); setL("L-phone",t.phone); setL("L-city",t.city,t.citys);
-    setL("L-langs",t.langs,t.langss); setL("L-nat",t.nat,t.nats); setL("L-auth",t.auth);
+    setL("L-nat",t.nat,t.nats); setL("L-auth",t.auth);
     setL("L-lic",t.lic,t.lics); setL("L-years",t.years); setL("L-seek",t.seek); setL("L-avail",t.avail);
     setL("L-code2",t.code2); setL("L-flex",t.flexT,t.flexS);
     setT("F-any",t.fAny); setT("F-prefer",t.fPrefer); setT("F-only",t.fOnly);
@@ -462,7 +456,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     return {name:document.getElementById("rj-name").value,
       phone:document.getElementById("rj-phone").value,
       city:document.getElementById("rj-city").value,
-      langs:document.getElementById("rj-langs").value,
+      // La langue dans laquelle le chauffeur LIT le site au moment de
+      // s'inscrire. Elle remplace l'ancien champ « langues parlées » :
+      // aucune saisie, et un signal plus fiable pour savoir dans quelle
+      // langue lui écrire. Voir tools/alertes_whatsapp.py.
+      lang:(document.documentElement.lang||"en"),
       nat:document.getElementById("rj-nat").value,
       auth:document.getElementById("rj-auth").value,
       licenses:checked("#rj-lic"), years:document.getElementById("rj-years").value,

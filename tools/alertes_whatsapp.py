@@ -153,8 +153,19 @@ def joignable(fiche):
 
 
 def langue(fiche):
-    """La langue du message. `langs` est un texte libre : on y cherche des
-    indices plutot que d'imposer l'anglais a tout le monde."""
+    """La langue du message.
+
+    On prend d'abord `lang` : la langue dans laquelle le chauffeur LISAIT le
+    site en s'inscrivant. C'est le signal le plus sur, et il ne lui a rien
+    coute a saisir.
+
+    ⚠️ On garde la lecture de `langs` pour les fiches d'AVANT le 31/08/2026,
+    quand un champ « langues parlees » existait encore. Sans ce repli, toutes
+    ces fiches basculeraient en anglais du jour au lendemain — en silence.
+    """
+    direct = fiche.get("lang")
+    if direct in MESSAGES:
+        return direct
     t = (fiche.get("langs") or "").lower()
     if any(m in t for m in ("krey", "creol", "kreol", "haitian")):
         return "ht"

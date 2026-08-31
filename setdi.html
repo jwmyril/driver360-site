@@ -128,8 +128,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <input type="text" id="sd-phone" maxlength="30" />
           <label for="sd-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les compagnies à cibler leur secteur.</small></label>
           <input type="text" id="sd-city" maxlength="60" />
-          <label for="sd-langs" id="L-langs">Langues que vous parlez <small>Ex. : kreyòl, anglais, español.</small></label>
-          <input type="text" id="sd-langs" maxlength="80" />
           <label for="sd-nat" id="L-nat">Nationalité (optionnel) <small>Visible seulement par un employeur qui vous sélectionne.</small></label>
           <input type="text" id="sd-nat" maxlength="60" />
         </div>
@@ -283,7 +281,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     post({action:"start",profile:{pool:{optin:document.getElementById("sd-pool").checked,
       name:document.getElementById("sd-name").value,phone:document.getElementById("sd-phone").value,
       city:document.getElementById("sd-city").value,
-      langs:document.getElementById("sd-langs").value,
+      lang:(document.documentElement.lang||"en"),
       nat:document.getElementById("sd-nat").value}}})
     .then(function(res){busy=false;
       if(!res.ok){document.getElementById("sd-st1").textContent=emsg(res.body&&res.body.error);return;}
