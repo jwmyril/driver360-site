@@ -109,14 +109,35 @@ def lire_vivier():
 
 
 def ecrire_fiche(fiche):
+    """Ecrit une fiche dans le KV.
+
+    ⚠️ `wrangler kv key put` ne sait lire que depuis un FICHIER : la fiche —
+    nom, telephone, ville, CV — passe donc par le disque. Trois precautions,
+    parce que ce sont des donnees personnelles :
+
+      · un nom de fichier TIRE AU SORT plutot qu'un chemin fixe, pour qu'un
+        autre programme ne puisse pas l'attendre au meme endroit ;
+      · le fichier n'est lisible QUE par le compte courant ;
+      · `finally` : il part meme si `wrangler` leve. La version d'origine le
+        laissait en clair dans %TEMP% des que la commande echouait.
+    """
+    import stat
+    import tempfile
     cle = fiche.pop("_cle")
     fiche.pop("_code", None)
-    chemin = os.path.join(os.environ.get("TEMP", "."), "d360-fiche.json")
-    with io.open(chemin, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(fiche, f, ensure_ascii=False)
-    wrangler("kv", "key", "put", cle, "--path", chemin,
-             "--binding=" + BINDING, "--remote")
-    os.remove(chemin)
+    fd, chemin = tempfile.mkstemp(prefix="d360-", suffix=".json")
+    try:
+        os.close(fd)
+        os.chmod(chemin, stat.S_IRUSR | stat.S_IWUSR)
+        with io.open(chemin, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(fiche, f, ensure_ascii=False)
+        wrangler("kv", "key", "put", cle, "--path", chemin,
+                 "--binding=" + BINDING, "--remote")
+    finally:
+        try:
+            os.remove(chemin)
+        except OSError:
+            pass
 
 
 # ------------------------------------------------------------- les regles

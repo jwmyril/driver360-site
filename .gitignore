@@ -1,3 +1,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Fichiers de travail qui transportent un code d'acces entre deux
+# commandes. Ils n'ont rien a faire dans un depot public, meme vides.
+code.txt
+*.sauve

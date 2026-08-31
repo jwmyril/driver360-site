@@ -148,7 +148,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
         <h3 class="ep-h" style="margin-top:1.8rem" id="ep-h-lic">🪪 Pool chauffeurs déjà licenciés</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-lic">
-          <thead><tr><th id="thl1">Réf.</th><th id="thl2">Licences</th><th id="thl3">Expérience</th><th id="thl4">Langues</th><th id="thl5">Recherche</th><th id="thl6">Dispo.</th><th id="thl7">Autorisé</th><th id="thl8">Ville / zone</th><th id="thl9">Action</th></tr></thead>
+          <thead><tr><th id="thl1">Réf.</th><th id="thl2">Licences</th><th id="thl3">Expérience</th><th id="thl5">Recherche</th><th id="thl6">Dispo.</th><th id="thl8">Ville / zone</th><th id="thl9">Action</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty ep-hide" id="ep-empty-lic">Aucun chauffeur licencié inscrit pour l'instant — partagez le lien d'inscription gratuite.</p>
@@ -351,8 +351,8 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       var seek = (e.seeking || []).map(function (x) { return SEEKLBL[x] || ""; }).join(" ");
       return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + (e.hasCv ? ' <span class="ep-b" style="color:var(--d-accent)" title="' + EPT("cvHas") + '">📄</span>' : "") + (e.contact === "approval" ? ' <span class="ep-b" style="color:var(--d-alerte)" title="' + EPT("ctcApproval") + '">🔒</span>' : "") + (e.contact === "push" ? ' <span class="ep-b pass" title="' + EPT("ctcPush") + '">📨</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
         "<td>" + (e.years !== null && e.years !== undefined ? e.years + " " + EPT("yrs") : "—") + "</td>" +
-        "<td>" + esc(e.langs || "—") + "</td><td>" + (seek || "—") + "</td>" +
-        "<td>" + (AVLBL[e.avail] || "—") + "</td><td>" + (AUTHLBL[e.auth] || "—") + "</td>" +
+        "<td>" + (seek || "—") + "</td>" +
+        "<td>" + (AVLBL[e.avail] || "—") + "</td>" +
         "<td>" + esc(e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
     }).join("");
     document.getElementById("ep-empty-lic").classList.toggle("ep-hide", (data.licensed || []).length > 0);
