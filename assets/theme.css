@@ -224,3 +224,21 @@ select:focus-visible, textarea:focus-visible {
      — c'est justement la liste qui dit l'etendue du marche. */
   .hero .kreyol { font-size: 1rem; line-height: 1.5; }
 }
+
+/* ===== Liens dans un bloc de texte =====================================
+   ⚠️ MESURE, PAS SUPPOSITION. Une fois les jetons reparés, les liens du pied
+   affichent 8,06:1 contre le fond — parfait — mais **1,01:1 contre le texte
+   qui les entoure**. Le rapport de contraste ne mesure que la LUMINANCE :
+   deux couleurs de teintes differentes peuvent avoir la meme clarte. Le
+   turquoise d'accent et le gris-bleu du pied sont exactement dans ce cas.
+
+   Consequence : une personne qui distingue mal les couleurs ne voit AUCUN
+   lien dans ce paragraphe. Le WCAG (1.4.1) demande soit 3:1 contre le texte
+   voisin, soit un indice non colore. Un soulignement coute moins cher qu'un
+   troisieme jeu de couleurs, et il se voit par tout le monde. */
+footer a,
+.lg a,
+.jb-note a { text-decoration: underline; text-underline-offset: 0.18em; }
+footer a:hover,
+.lg a:hover,
+.jb-note a:hover { text-decoration-thickness: 2px; }

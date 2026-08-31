@@ -86,6 +86,36 @@ def main():
                 if not os.path.exists(os.path.join(RACINE, cible)):
                     manques.setdefault(cible, []).append(page)
 
+    # --- les jetons de couleur ------------------------------------------
+    # ⚠️ Un `var(--truc)` qui ne correspond a AUCUNE definition rend la
+    # propriete invalide : elle HERITE au lieu de s'appliquer. Le 31/08/2026,
+    # `var(--accent)` et `var(--muted)` — inexistants — donnaient aux liens du
+    # pied la couleur exacte du texte autour, sans soulignement. Contraste
+    # 1,00:1 : invisibles, pas discrets. Rien ne cassait, rien ne s'affichait
+    # en rouge : la panne silencieuse habituelle.
+    definis = set()
+    for feuille in ("style.css", "theme.css"):
+        chemin = os.path.join(RACINE, "assets", feuille)
+        if os.path.exists(chemin):
+            with io.open(chemin, encoding="utf-8") as f:
+                definis |= set(re.findall(r"(--[\w-]+)\s*:", f.read()))
+    inconnus = {}
+    for page in PAGES + [os.path.join("assets", "suite.js")]:
+        chemin = os.path.join(RACINE, page)
+        if not os.path.exists(chemin):
+            continue
+        with io.open(chemin, encoding="utf-8", errors="replace") as f:
+            for jeton in re.findall(r"var\((--[\w-]+)", f.read()):
+                if jeton not in definis:
+                    inconnus.setdefault(jeton, set()).add(page)
+    if inconnus:
+        print("%d jeton(s) de couleur sans definition :\n" % len(inconnus))
+        for jeton, pages in sorted(inconnus.items()):
+            print("  - %-16s reclame par %s" % (jeton, ", ".join(sorted(pages))))
+        print("\nUne propriete qui reference un jeton inconnu HERITE au lieu de")
+        print("s'appliquer : le texte prend la couleur de ce qui l'entoure.")
+        return 1
+
     if manques:
         print("%d reference(s) sans fichier :\n" % len(manques))
         for cible, pages in sorted(manques.items()):

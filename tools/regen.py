@@ -139,7 +139,7 @@ def entete(actif, cote=None):
     """
     lis = []
     for href, libelle, cle in NAV:
-        style = ("color:var(--accent);font-weight:600" if href == actif else "color:var(--ink)")
+        style = ("color:var(--d-accent);font-weight:600" if href == actif else "color:var(--ink)")
         d3 = ' data-d3="%s"' % cle if cle else ""
         lis.append('        <li><a href="%s"%s style="%s;text-decoration:none;font-size:.9rem">%s</a></li>'
                    % (href, d3, style, libelle))
@@ -164,7 +164,7 @@ def entete(actif, cote=None):
 # gabarit statique la portait encore — ce que lit un moteur de recherche.
 PIED = """<footer>
   <div class="container">
-    <p style="font-size:.85rem;color:var(--muted)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
+    <p style="font-size:.85rem;color:var(--d-doux)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
     <span data-d3="f_question">A question</span> : <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
     <p class="footer-note">© Atmart LLC — <span data-d3="f_rights">All rights reserved.</span>
       &nbsp;·&nbsp; <a href="terms.html" data-d3="f_terms" style="color:var(--d-doux)">Terms and conditions</a>
@@ -255,6 +255,30 @@ def transformer(src_nom, dst_nom, cote):
     # Meme elargissement pour l'envoi vers atmart.ltd : un lien relatif laisse
     # dans une chaine JavaScript tomberait dans le vide sur cette suite.
     s = re.sub(r"""(href=\\?["'])([a-z0-9\-]+\.html)""", absolu, s)
+
+    # 3ter. la langue : repli anglais, et voile leve des que possible.
+    #
+    # Ces pages viennent d'atmart.ltd, ou le FRANCAIS est la langue de base :
+    # leur repli (`|| "fr"`) et leur voile (`si la langue n'est pas le
+    # francais, masquer 1500 ms`) y sont justes. Recopies ici, ou l'anglais
+    # est la langue d'accueil depuis le 29/08/2026, ils se retournent : le
+    # repli sert du francais a qui n'en demandait pas, et le voile impose plus
+    # de DEUX SECONDES de page blanche a tout anglophone — mesure au
+    # navigateur — alors que la traduction est finie bien avant.
+    #
+    # On garde le voile : sans lui la page clignote du francais vers l'anglais,
+    # ce qui est pire qu'une courte attente. On le leve seulement plus tot.
+    s = s.replace('window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;',
+                  'window.__atmAuto=!s;window.__atmLang=l=l||"en";d.lang=l;')
+    ancien_voile = ('if(l!=="fr"){d.className+=" i18n-wait";'
+                    'setTimeout(function(){d.classList.remove("i18n-wait")},1500)}')
+    nouveau_voile = (
+        'if(l!=="fr"){d.className+=" i18n-wait";'
+        'var lev=function(){d.classList.remove("i18n-wait")};'
+        'document.addEventListener("DOMContentLoaded",function(){setTimeout(lev,0)});'
+        'setTimeout(lev,900)}')
+    if ancien_voile in s:
+        s = s.replace(ancien_voile, nouveau_voile)
 
     # 3bis. la mention legale, juste au-dessus du bouton qui envoie
     ancre = AVANT_ENVOI.get(dst_nom)
