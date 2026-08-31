@@ -41,8 +41,11 @@ L'ordre est une décision, pas un hasard — il dit où est la valeur :
 **Driver Coach**. Les confondre — ce que faisait la première version — rend la
 suite illisible : on ne sait plus si « Driver360 » désigne le tout ou une partie.
 
-La navigation reste séparée par côté du marché : un chauffeur ne voit pas le
-portail employeur dans son menu, et réciproquement.
+La navigation est **unique sur les six pages** : Driver Pool · Driver Employer ·
+Job Postings · Driver Coach. Elle était séparée par côté du marché jusqu'au
+30/08 — un chauffeur ne voyait pas le portail employeur. L'idée se défendait,
+mais le produit qui rapporte n'apparaissait alors nulle part pour qui n'était
+pas déjà du bon côté.
 
 ## Le vivier est vide, et la page le dit
 
@@ -200,12 +203,20 @@ s'appliquent QUE dans un en-tête HTTP, et GitHub Pages n'en pose aucun.
 À créer dans **Cloudflare → Rules → Transform Rules → Modify Response Header**,
 sur `driver360.atmart.ltd` :
 
-| En-tête | Valeur |
-|---|---|
-| `Content-Security-Policy` | `frame-ancestors 'none'` |
-| `X-Content-Type-Options` | `nosniff` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | `geolocation=(), microphone=(), camera=()` |
+| En-tête | Valeur | État au 30/08/2026 |
+|---|---|---|
+| `X-Frame-Options` | `SAMEORIGIN` | ✅ posé |
+| `X-Content-Type-Options` | `nosniff` | ✅ posé |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` | ✅ posé |
+| `Strict-Transport-Security` | `max-age=15552000; includeSubDomains` | ✅ posé |
+| `Permissions-Policy` | `geolocation=(), microphone=(), camera=()` | ⬜ à poser |
+
+Vérifier à tout moment : `curl -sI https://driver360.atmart.ltd/ | grep -i policy`
+
+`X-Frame-Options: SAMEORIGIN` couvre déjà l'encadrement dans un site tiers, donc
+`frame-ancestors` en en-tête n'est plus indispensable. La CSP complète reste
+dans un `<meta>` de chaque page : toutes ses directives s'y appliquent sauf
+`frame-ancestors`, précisément celle que l'en-tête ci-dessus remplace.
 
 ## Le logo
 
@@ -217,3 +228,16 @@ comme des trajets, et le dégradé aboutit au turquoise du site.
 En dessous de 64 px le dessin se **simplifie** — quatre filaments au lieu de
 sept, plus épais. À 32 px les sept se rejoignaient en une bouillie, et un logo
 doit survivre à sa plus petite taille : c'est là qu'on le voit le plus souvent.
+
+## Ce qui reste à faire, et par qui
+
+Ce tableau est ici pour survivre à la conversation qui l'a produit.
+
+| Quoi | Qui | Pourquoi ça bloque |
+|---|---|---|
+| Ouvrir le compte WhatsApp Business | vous | numéro dédié, compte vérifié, gabarits approuvés par Meta. Sans lui l'envoi reste manuel — ce que la page annonce déjà. Les 4 messages de `tools/alertes_whatsapp.py` sont écrits pour devenir ces gabarits. |
+| Poser `Permissions-Policy` dans Cloudflare | vous | les 4 autres en-têtes sont déjà là ; celui-ci ferme géoloc / micro / caméra. |
+| Relire les 8 questions ajoutées au test écrit (`q21`–`q28`) | vous | elles portent `verif: "a-relire-2026-08-30"`. Retirer ce marqueur une fois recoupées avec le manuel courant du RMV. |
+| Relecture kreyòl | vous | accueil, offres, pages légales, message d'alerte. Vous êtes l'autorité sur cette langue. |
+| Adresse postale et État d'immatriculation | vous | les pages légales le signalent en clair plutôt que de l'inventer. Atmart LLC n'étant pas au Massachusetts, le marché visé ne le renseigne pas. |
+| Lier le contact employeur→chauffeur à l'abonnement | à décider ensemble | le mécanisme existe (sélection, quota, accord du chauffeur) mais c'est le *crédit* qui le déclenche, pas un abonnement actif. Reste à décider ce qui se passe quand un abonnement s'arrête alors que des contacts ont déjà été révélés. |
