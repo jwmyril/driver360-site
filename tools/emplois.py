@@ -62,10 +62,10 @@ EMPLOYEURS = [
         zone={"en": "Depots across the state", "es": "Centros en todo el estado",
               "ht": "Depo toupatou nan eta a", "fr": "Dépôts dans tout l'État"},
         quoi={
-            "en": "Delivery vans, through Amazon's partner companies. <strong>No CDL needed</strong> — a Class D licence and a clean record are enough. It is the biggest single source of driving work in the state right now.",
-            "es": "Furgonetas de reparto, a través de las empresas socias de Amazon. <strong>No hace falta CDL</strong> — basta una licencia Class D y un historial limpio. Es la mayor fuente de empleo de conductor del estado ahora mismo.",
-            "ht": "Kamyonèt livrezon, atravè konpayi patnè Amazon yo. <strong>Ou pa bezwen CDL</strong> — yon pèmi Class D ak yon dosye pwòp ase. Se pi gwo sous travay chofè nan eta a kounye a.",
-            "fr": "Camionnettes de livraison, via les sociétés partenaires d'Amazon. <strong>Aucun CDL exigé</strong> — un permis Class D et un dossier propre suffisent. C'est aujourd'hui la plus grosse source d'emplois de chauffeur de l'État.",
+            "en": "Delivery vans, through Amazon's partner companies. <strong>No CDL needed</strong> — but you must be <strong>21 or over</strong>, with a Class D licence and a clean record. It is the biggest single source of driving work in the state right now.",
+            "es": "Furgonetas de reparto, a través de las empresas socias de Amazon. <strong>No hace falta CDL</strong> — pero hay que tener <strong>21 años o más</strong>, licencia Class D e historial limpio. Es la mayor fuente de empleo de conductor del estado ahora mismo.",
+            "ht": "Kamyonèt livrezon, atravè konpayi patnè Amazon yo. <strong>Ou pa bezwen CDL</strong> — men fòk ou gen <strong>21 an oswa plis</strong>, yon pèmi Class D ak yon dosye pwòp. Se pi gwo sous travay chofè nan eta a kounye a.",
+            "fr": "Camionnettes de livraison, via les sociétés partenaires d'Amazon. <strong>Aucun CDL exigé</strong> — mais il faut avoir <strong>21 ans ou plus</strong>, un permis Class D et un dossier propre. C'est aujourd'hui la plus grosse source d'emplois de chauffeur de l'État.",
         },
     ),
     dict(

@@ -600,10 +600,10 @@
    },
    "opts": [
     {
-     "ht": "Vire volan an nan direksyon ou VLE ale a",
-     "fr": "Tourner le volant dans la direction où vous VOULEZ aller",
-     "en": "Steer in the direction you WANT to go",
-     "es": "Girar hacia donde QUIERE ir"
+     "en": "Turn the steering wheel in the direction of the skid",
+     "fr": "Tourner le volant dans la direction du dérapage",
+     "ht": "Vire volan an nan direksyon patinaj la",
+     "es": "Girar el volante en la dirección del derrape"
     },
     {
      "ht": "Frennen fò",
@@ -626,11 +626,12 @@
    ],
    "a": 0,
    "ex": {
-    "ht": "Pa frennen brital ; gide machin nan kote w vle ale a.",
-    "fr": "Pas de freinage brutal ; guidez vers votre trajectoire.",
-    "en": "No hard braking; steer where you want to go.",
-    "es": "Sin frenado brusco; dirija hacia su trayectoria."
-   }
+    "en": "Manual, ch. 5: ease off the gas, shift to neutral, do NOT brake — and turn the wheel in the direction of the skid. Rear tires sliding left, steer left.",
+    "fr": "Manuel, ch. 5 : lever le pied, passer au point mort, NE PAS freiner — et tourner le volant dans la direction du dérapage. Roues arrière qui glissent à gauche, braquez à gauche.",
+    "ht": "Manyèl la, chap. 5 : leve pye w sou gaz la, mete nan nètral, PA frennen — epi vire volan an nan direksyon patinaj la. Si wou deyè yo ap glise agòch, vire agòch.",
+    "es": "Manual, cap. 5: levante el pie del acelerador, ponga en neutro, NO frene — y gire el volante en la dirección del derrape. Si las ruedas traseras se van a la izquierda, gire a la izquierda."
+   },
+   "verif": "a-relire-2026-08-31"
   },
   {
    "id": "q16",
@@ -1185,6 +1186,49 @@
     "es": "La ley «Move Over» cubre policía, bomberos, ambulancias, grúas y equipos de carretera. Reducir la velocidad es obligatorio aunque no puedas cambiar de carril."
    },
    "verif": "a-relire-2026-08-30"
+  },
+  {
+   "id": "q29",
+   "verif": "a-relire-2026-08-31",
+   "q": {
+    "en": "You are 17 and you hold a learner's permit. You may not drive between:",
+    "fr": "Vous avez 17 ans et vous avez un permis d'apprenti. Vous ne pouvez pas conduire entre :",
+    "ht": "Ou gen 17 an epi ou gen yon pèmi aprantisaj. Ou pa gen dwa kondwi ant :",
+    "es": "Tienes 17 años y tienes un permiso de aprendiz. No puedes conducir entre:"
+   },
+   "opts": [
+    {
+     "en": "12:00 midnight and 5:00 a.m.",
+     "fr": "minuit et 5 h 00",
+     "ht": "minýi ak 5:00 AM",
+     "es": "medianoche y 5:00 a.m."
+    },
+    {
+     "en": "12:30 a.m. and 5:00 a.m.",
+     "fr": "0 h 30 et 5 h 00",
+     "ht": "12:30 AM ak 5:00 AM",
+     "es": "12:30 a.m. y 5:00 a.m."
+    },
+    {
+     "en": "10 p.m. and 6 a.m.",
+     "fr": "22 h et 6 h",
+     "ht": "10 PM ak 6 AM",
+     "es": "10 p.m. y 6 a.m."
+    },
+    {
+     "en": "No restriction, as long as an adult is with you",
+     "fr": "Aucune limite, du moment qu'un adulte est avec vous",
+     "ht": "Pa gen limit, depi gen yon granmoun ak ou",
+     "es": "Sin restricción, mientras un adulto vaya contigo"
+    }
+   ],
+   "a": 0,
+   "ex": {
+    "en": "Permit, under 18: no driving from midnight to 5:00 a.m. unless a parent or legal guardian is with you. ⚠️ 12:30 a.m. is the JUNIOR LICENCE rule — the permit is half an hour stricter. Driving at 12:15 a.m. on a permit is a criminal violation, not a ticket.",
+    "fr": "Permis d'apprenti, moins de 18 ans : pas de conduite de minuit à 5 h, sauf avec un parent ou tuteur légal. ⚠️ 0 h 30, c'est la règle du PERMIS JUNIOR — l'apprenti est plus strict d'une demi-heure. Conduire à 0 h 15 avec un permis d'apprenti est une infraction pénale, pas une contravention.",
+    "ht": "Pèmi aprantisaj, anba 18 an : pa kondwi ant minýi ak 5:00 AM, sof si yon paran oswa gadyen legal ak ou. ⚠️ 12:30 AM se règ PÈMI JINYÒ a — aprantisaj la pi strik yon demi è. Kondwi a 12:15 AM ak yon pèmi aprantisaj se yon zak kriminèl, se pa yon senp tikè.",
+    "es": "Permiso de aprendiz, menor de 18: no conducir de medianoche a 5:00 a.m., salvo con un padre o tutor legal. ⚠️ Las 12:30 a.m. son la regla de la LICENCIA JUNIOR — el permiso es media hora más estricto. Conducir a las 12:15 a.m. con permiso de aprendiz es una infracción penal, no una multa."
+   }
   }
  ],
  "total": 25
