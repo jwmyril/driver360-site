@@ -7,15 +7,16 @@ doit être vérifiable dans le code. Une politique de confidentialité qui prome
 plus que le produit ne tient est pire que pas de politique du tout — c'est un
 engagement écrit qu'on ne respecte pas.
 
-⚠️ DEUX TROUS QUE SEUL L'UTILISATEUR PEUT COMBLER, et qui sont signalés dans
-la page elle-même plutôt que remplis au hasard :
-  · l'adresse postale de la société ;
-  · l'État d'immatriculation, qui décide du droit applicable.
-Atmart LLC n'est PAS établie au Massachusetts (précisé le 30/08/2026), donc on
-ne peut pas le déduire du marché visé.
+⚠️ UN TROU RESTE, signalé dans la page plutôt que rempli au hasard :
+l'adresse postale de la société.
+
+L'ÉTAT D'IMMATRICULATION EST COMBLÉ : Wyoming, confirmé par l'utilisateur le
+31/08/2026. La clause de droit applicable réserve expressément les protections
+impératives de l'État de résidence — un chauffeur du Massachusetts garde les
+siennes, et prétendre le contraire rendrait la clause attaquable en entier.
 """
 
-MAJ = "2026-08-30"
+MAJ = "2026-08-31"
 
 # --------------------------------------------------------------------------
 # Conditions d'utilisation
@@ -26,10 +27,10 @@ TERMS = {
         "ht": "Kondisyon itilizasyon", "es": "Términos y condiciones",
     },
     "intro": {
-        "en": "Driver360 is run by Atmart LLC. By using it you accept what is written below. It is short on purpose, and it says what the service does rather than what it would like you to believe.",
-        "fr": "Driver360 est édité par Atmart LLC. En l'utilisant, vous acceptez ce qui suit. C'est court volontairement, et cela dit ce que le service fait plutôt que ce qu'il aimerait vous laisser croire.",
-        "ht": "Se Atmart LLC ki dirije Driver360. Lè w sèvi avè l, ou aksepte sa ki ekri anba a. Li kout espre, epi li di sa sèvis la fè olye sa li ta renmen fè w kwè.",
-        "es": "Driver360 está operado por Atmart LLC. Al usarlo aceptas lo siguiente. Es corto a propósito, y dice lo que el servicio hace en vez de lo que le gustaría hacerte creer.",
+        "en": "Driver360 is run by Atmart LLC, a Wyoming limited liability company. By using it you accept what is written below. It is short on purpose, and it says what the service does rather than what it would like you to believe.",
+        "fr": "Driver360 est édité par Atmart LLC, société à responsabilité limitée du Wyoming. En l'utilisant, vous acceptez ce qui suit. C'est court volontairement, et cela dit ce que le service fait plutôt que ce qu'il aimerait vous laisser croire.",
+        "ht": "Se Atmart LLC, yon konpayi a responsablite limite nan Wyoming, ki dirije Driver360. Lè w sèvi avè l, ou aksepte sa ki ekri anba a. Li kout espre, epi li di sa sèvis la fè olye sa li ta renmen fè w kwè.",
+        "es": "Driver360 está operado por Atmart LLC, sociedad de responsabilidad limitada de Wyoming. Al usarlo aceptas lo siguiente. Es corto a propósito, y dice lo que el servicio hace en vez de lo que le gustaría hacerte creer.",
     },
     "sections": [
         {
@@ -169,19 +170,19 @@ TERMS = {
                 "en": ["<strong>Language.</strong> These terms exist in English, Spanish, Haitian Creole and French. The <strong>English version prevails</strong> if a translation says something different. We translate to be understood, not to create four different contracts.",
                        "<strong>No guarantee.</strong> The service is provided as it is. We do not guarantee that you will find work, that an employer will contact you, that you will pass an exam, or that the site will be available without interruption. The preparation is independent and is not endorsed by the Massachusetts RMV.",
                        "<strong>What we are responsible for.</strong> We are responsible for our own serious fault. We are not responsible for what an employer does, for what a driver declares about themselves, for a decision you take after reading this site, or for a loss of earnings. Nothing here removes a right the law gives you and that cannot be waived.",
-                       "<strong>Governing law.</strong> ⚠️ To be completed: the governing law and the competent court depend on Atmart LLC's state of incorporation, which is not yet published here. Until it is, no choice of law is claimed — the law that would otherwise apply, applies."],
+                       "<strong>Governing law.</strong> Atmart LLC is a limited liability company formed in the State of <strong>Wyoming</strong>, United States. These terms are governed by Wyoming law, and the courts of Wyoming have jurisdiction. This does not take away the protections that the law of your own state or country gives you and that cannot be waived — if you live in Massachusetts, your consumer protections there still apply."],
                 "fr": ["<strong>Langue.</strong> Ces conditions existent en anglais, espagnol, kreyòl et français. La <strong>version anglaise prévaut</strong> si une traduction dit autre chose. Nous traduisons pour être compris, pas pour créer quatre contrats différents.",
                        "<strong>Aucune garantie.</strong> Le service est fourni tel qu'il est. Nous ne garantissons ni que vous trouverez un emploi, ni qu'un employeur vous contactera, ni que vous réussirez un examen, ni que le site sera disponible sans interruption. La préparation est indépendante et n'est pas approuvée par le RMV du Massachusetts.",
                        "<strong>Ce dont nous répondons.</strong> Nous répondons de notre propre faute grave. Nous ne répondons pas de ce que fait un employeur, de ce qu'un chauffeur déclare sur lui-même, d'une décision que vous prenez après avoir lu ce site, ni d'un manque à gagner. Rien ici ne retire un droit que la loi vous donne et auquel on ne peut pas renoncer.",
-                       "<strong>Droit applicable.</strong> ⚠️ À compléter : le droit applicable et le tribunal compétent dépendent de l'État d'immatriculation d'Atmart LLC, qui n'est pas encore publié ici. Tant qu'il ne l'est pas, aucun choix de loi n'est revendiqué — la loi qui s'appliquerait autrement s'applique."],
+                       "<strong>Droit applicable.</strong> Atmart LLC est une société à responsabilité limitée constituée dans l'État du <strong>Wyoming</strong>, aux États-Unis. Ces conditions sont régies par le droit du Wyoming, et les tribunaux du Wyoming sont compétents. Cela ne retire pas les protections que la loi de votre propre État ou pays vous donne et auxquelles on ne peut pas renoncer — si vous vivez au Massachusetts, vos protections de consommateur y restent acquises."],
                 "ht": ["<strong>Lang.</strong> Kondisyon sa yo egziste an angle, panyòl, kreyòl ak franse. Se <strong>vèsyon anglè a ki gen dènye mo a</strong> si yon tradiksyon di yon lòt bagay. Nou tradui pou moun konprann, se pa pou nou fè kat kontra diferan.",
                        "<strong>Pa gen okenn garanti.</strong> Sèvis la bay jan li ye a. Nou pa garanti ou pral jwenn travay, ni yon anplwayè pral kontakte w, ni ou pral pase yon egzamen, ni sit la ap mache san kanpe. Preparasyon an endepandan epi RMV Massachusetts la pa apwouve l.",
                        "<strong>Sa nou reponn de li.</strong> Nou reponn de pwòp gwo fòt pa nou. Nou pa reponn de sa yon anplwayè fè, de sa yon chofè di sou tèt li, de yon desizyon ou pran apre w fin li sit sa a, ni de lajan ou pa fè. Anyen isit la pa retire yon dwa lalwa ba ou epi ou pa ka renonse a li.",
-                       "<strong>Ki lwa ki aplike.</strong> ⚠️ Pou konplete : lwa ki aplike a ak tribinal ki konpetan an depann de Eta kote Atmart LLC anrejistre, ki poko pibliye isit la. Toutotan li pa pibliye, nou pa reklame okenn chwa lwa — se lwa ki ta aplike otreman an ki aplike."],
+                       "<strong>Ki lwa ki aplike.</strong> Atmart LLC se yon konpayi a responsablite limite ki fonde nan Eta <strong>Wyoming</strong>, Etazini. Se lwa Wyoming ki gouvène kondisyon sa yo, epi se tribinal Wyoming ki konpetan. Sa pa retire pwoteksyon lwa pwop Eta w oswa peyi w ba ou epi ou pa ka renonse a yo — si w ap viv nan Massachusetts, pwoteksyon konsomatè ou genyen la yo rete."],
                 "es": ["<strong>Idioma.</strong> Estos términos existen en inglés, español, criollo haitiano y francés. <strong>Prevalece la versión en inglés</strong> si una traducción dice otra cosa. Traducimos para que se nos entienda, no para crear cuatro contratos distintos.",
                        "<strong>Sin garantía.</strong> El servicio se presta tal cual. No garantizamos que encuentres trabajo, que un empleador te contacte, que apruebes un examen, ni que el sitio esté disponible sin interrupciones. La preparación es independiente y no está avalada por el RMV de Massachusetts.",
                        "<strong>De qué respondemos.</strong> Respondemos de nuestra propia falta grave. No respondemos de lo que hace un empleador, de lo que un conductor declara sobre sí mismo, de una decisión que tomes tras leer este sitio, ni de un lucro cesante. Nada aquí elimina un derecho que la ley te concede y al que no se puede renunciar.",
-                       "<strong>Ley aplicable.</strong> ⚠️ Por completar: la ley aplicable y el tribunal competente dependen del estado de constitución de Atmart LLC, que aún no se publica aquí. Mientras no se publique, no se reclama ninguna elección de ley — se aplica la que correspondería de otro modo."],
+                       "<strong>Ley aplicable.</strong> Atmart LLC es una sociedad de responsabilidad limitada constituida en el Estado de <strong>Wyoming</strong>, Estados Unidos. Estos términos se rigen por la ley de Wyoming, y los tribunales de Wyoming son competentes. Esto no elimina las protecciones que la ley de tu propio estado o país te da y a las que no se puede renunciar — si vives en Massachusetts, tus protecciones de consumidor siguen vigentes."],
             },
         },
         {
