@@ -63,14 +63,21 @@ def lire(rel):
     return io.open(p, encoding="utf-8", errors="replace").read()
 
 
-def compter(motif, fichiers, drapeaux=0):
-    """(nombre total, pages touchées) pour un motif d'expression régulière."""
+def compter(motif, fichiers, drapeaux=0, filtre=None):
+    """(nombre total, pages touchées) pour un motif d'expression régulière.
+
+    `filtre` retire du texte ce qui ne doit pas compter — un commentaire, une
+    clé de stockage. C'est ce qui sépare une sentinelle utile d'une sentinelle
+    qui hurle sur du code correct jusqu'à ce qu'on cesse de l'écouter.
+    """
     rx = re.compile(motif, drapeaux)
     n, ou = 0, []
     for f in fichiers:
         t = lire(f)
         if t is None:
             continue
+        if filtre:
+            t = filtre(t)
         k = len(rx.findall(t))
         if k:
             n += k
@@ -78,9 +85,9 @@ def compter(motif, fichiers, drapeaux=0):
     return n, ou
 
 
-def zero(motif, fichiers, quoi, drapeaux=0):
+def zero(motif, fichiers, quoi, drapeaux=0, filtre=None):
     """Vrai quand le motif a disparu partout. Rend (verdict, détail)."""
-    n, ou = compter(motif, fichiers, drapeaux)
+    n, ou = compter(motif, fichiers, drapeaux, filtre)
     if n == 0:
         return True, "aucune occurrence de %s" % quoi
     return False, "%d %s : %s" % (n, quoi, " ".join(ou[:6]))
@@ -115,24 +122,46 @@ def m_a2():
 
 
 def m_a3():
-    """rejistre.html n'existe pas : la page du vivier s'appelle vivye.html."""
-    return zero(r"rejistre\.html", TOUTES, "renvoi(s) vers rejistre.html")
+    """rejistre.html n'existe pas : la page du vivier s'appelle vivye.html.
+
+    /!\\ ON NE COMPTE QUE LES RENVOIS, PAS LA PROSE. Le nom `rejistre.html`
+    reste JUSTE dans un commentaire : sur atmart.ltd la page s'appelle vraiment
+    ainsi, et c'est de la que ces pages sont derivees. Comptez la mention et la
+    sentinelle accuse une page correcte — puis on apprend a ne plus la lire.
+    """
+    return zero(r'(?:href|action|src)="[^"]*rejistre\.html|location\.(?:href|assign|replace)\s*[=(]\s*["\'][^"\']*rejistre\.html|window\.open\(\s*["\'][^"\']*rejistre\.html',
+                TOUTES, "renvoi(s) vers rejistre.html")
 
 
 def m_a4():
-    """« 7D Pro » disparu, et setdi.html atteignable depuis une page."""
-    n, ou = compter(r"7D Pro", TOUTES)
+    """setdi.html atteignable depuis une autre page.
+
+    /!\\ « 7D PRO » NE SE COMPTE PLUS. La recommandation demandait de le
+    renommer ; l'utilisateur a tranché l'inverse — c'est un nom de produit
+    qu'il a choisi, au même titre que Driver Pool ou Career360. La sentinelle
+    portait donc une décision abandonnée et accusait 35 fois un site correct.
+    Reste la moitié qui vaut : setdi.html n'était liée de nulle part.
+    """
     lie, _ = compter(r"setdi\.html", [f for f in TOUTES if f != "setdi.html"])
-    if n or not lie:
-        return False, ("%d « 7D Pro » (%s) · setdi.html liée depuis %d page(s)"
-                       % (n, " ".join(ou) or "—", lie))
-    return True, "aucun « 7D Pro » ; setdi.html liée depuis %d page(s)" % lie
+    return bool(lie), ("setdi.html liée depuis %d page(s)" % lie if lie
+                       else "setdi.html n'est liée depuis aucune page")
 
 
 def m_a5():
-    """Les anciens noms de produits, visibles jusque dans les sujets de mail."""
+    """Les anciens noms de produits, visibles jusque dans les sujets de mail.
+
+    /!\\ LES CLES DE STOCKAGE NE SE RENOMMENT PAS. `chofe360_code` et
+    `chofe360_weakcmds` vivent dans le navigateur des gens : les rebaptiser
+    deconnecterait tout le monde et effacerait les progres deja enregistres.
+    C'est la regle posee avec les noms de produits — les URL, les codes d'acces
+    et les cles de stockage restent. La sentinelle les comptait pourtant, et
+    exigeait donc une correction qu'il ne faut surtout pas faire.
+    """
+    def sans_cles(t):
+        return re.sub(r'(?:local|session)Storage\.\w+\(\s*"[^"]*"', "", t)
+
     return zero(r"Chof[eè]360|Chof%C3%A8360|coach Wout|pool Driver360",
-                TOUTES, "ancien(s) nom(s) de produit", re.I)
+                TOUTES, "ancien(s) nom(s) de produit", re.I, filtre=sans_cles)
 
 
 def m_a7():
@@ -182,9 +211,15 @@ def m_b4():
     src = lire("tools/verif_ids_traduits.py")
     if src is None:
         return None, "tools/verif_ids_traduits.py introuvable"
-    if "Atmart_website" in src:
-        return False, "il lit Atmart_website, pas les pages publiées ici"
-    return True, "il lit les pages de ce dépôt"
+    # /!\ REGARDER L'AFFECTATION, PAS LA PROSE. Le contrôle a bien été corrigé
+    # (`SOURCE = RACINE`), mais il EXPLIQUE la correction en nommant
+    # `Atmart_website` dans son commentaire — et la sentinelle, qui cherchait
+    # le mot n'importe où, accusait le fichier de son propre correctif.
+    code = re.sub(r"#[^\n]*", "", src)
+    code = re.sub(r'"""(?:.|\n)*?"""', "", code)
+    mauvais = re.search(r"SOURCE\s*=\s*[^\n]*Atmart_website", code)
+    return not mauvais, ("il lit Atmart_website, pas les pages publiées ici"
+                         if mauvais else "il lit les pages de ce dépôt")
 
 
 def m_b6():

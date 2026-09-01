@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-CUepErlcf4l/ZdhFTZfoMuNrOjvXn760lg22UWN7vW8=' 'sha256-JAAP61h8MI2MvHQ5w/FK/Vf/iJawiQk04gYbssrjsRc=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-WWI1XDSFqhYGrOnbdsRZM02UOINOuSr2aiik2DOECMo=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -10,8 +10,8 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Driver360 — Inscrivez-vous au pool de chauffeurs (gratuit) | Atmart</title>
-  <meta name="description" content="Vous avez déjà votre licence Class D, 7D ou CDL ? Inscrivez-vous gratuitement au Driver Pool : livraison de colis, transport médical et de personnes âgées, circuits scolaires, transport régional. Des employeurs du Massachusetts vous contactent — seulement si vous êtes d'accord." />
+  <title>Driver360 — Join the driver pool (free) | Atmart</title>
+  <meta name="description" content="Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css?v=32" />
@@ -32,7 +32,7 @@ if(!l){var n=navigator.languages||[navigator.language||""];
 for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
 if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
 window.__atmAuto=!s;window.__atmLang=l=l||"en";d.lang=l;
-if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i18n-wait")};document.addEventListener("DOMContentLoaded",function(){setTimeout(lev,0)});setTimeout(lev,900)}})();
+if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i18n-wait")};document.addEventListener("DOMContentLoaded",function(){setTimeout(lev,0)});setTimeout(lev,900)}})();
 </script>
   <style>
     .rj-app{max-width:760px;margin:0 auto}
@@ -71,10 +71,10 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
 <section class="hero" style="padding-bottom:1rem">
   <div class="container">
-    <p class="kreyol" id="rj-kicker">Ou gen lisans ou deja ? Antre nan pool la — se gratis.</p>
+    <p class="kreyol" id="rj-kicker">Already licensed? Join the pool — it's free.</p>
     <h1 id="rj-h1">Driver <em>Pool</em></h1>
-    <p class="lead" id="rj-lead">Vous avez déjà votre licence Class D, votre certificat 7D ou votre CDL ? Inscrivez-vous gratuitement : des employeurs du Massachusetts cherchent des chauffeurs — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) et plus.</p>
-    <p style="color:var(--d-doux);font-size:0.88rem" id="rj-note">Gratuit et sans engagement. Votre nom et votre téléphone restent masqués : un employeur ne les voit qu'au moment où il vous sélectionne, et son nombre de sélections est limité. Vous pouvez vous retirer à tout moment.</p>
+    <p class="lead" id="rj-lead">Do you already have your Class D license, 7D certificate or CDL? Register for free: Massachusetts employers are looking for drivers — school transport, package delivery, senior transport, regional transit (MART) and more.</p>
+    <p style="color:var(--d-doux);font-size:0.88rem" id="rj-note">Free, no commitment. Your name and phone stay hidden: an employer sees them only when they select you, and their number of selections is limited. You can withdraw anytime.</p>
   </div>
 </section>
 
@@ -84,31 +84,31 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
       <!-- code affiche apres inscription -->
       <div class="rj-code rj-hide" id="rj-codebox">
-        <p style="margin:0" id="rj-code-lbl">✅ Vous êtes dans le pool ! Voici votre code personnel :</p>
+        <p style="margin:0" id="rj-code-lbl">✅ You are in the pool! Here is your personal code:</p>
         <p class="big" id="rj-code-val"></p>
-        <p class="rj-note" id="rj-code-note">Notez-le et gardez-le (capture d'écran ou WhatsApp à vous-même). Il sert à modifier ou retirer votre inscription. Nous ne pouvons pas le retrouver à votre place.</p>
+        <p class="rj-note" id="rj-code-note">Write it down and keep it (screenshot or WhatsApp it to yourself). It lets you edit or withdraw your registration. We cannot recover it for you.</p>
       </div>
 
       <form class="rj-card" id="rj-form">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t1">1. Qui êtes-vous</h3>
-        <label for="rj-name" id="L-name">Votre nom complet</label>
+        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t1">1. About you</h3>
+        <label for="rj-name" id="L-name">Your full name</label>
         <input type="text" id="rj-name" maxlength="80" />
-        <label for="rj-phone" id="L-phone">Téléphone (WhatsApp)</label>
+        <label for="rj-phone" id="L-phone">Phone (WhatsApp)</label>
         <input type="text" id="rj-phone" maxlength="30" placeholder="508-555-0100" />
-        <label for="rj-city" id="L-city">Ville / zone<small>Ex. : Fitchburg, Worcester, Boston — pour que l'employeur cible son secteur.</small></label>
+        <label for="rj-city" id="L-city">City / area<small>E.g.: Fitchburg, Worcester, Boston — so employers can target their area.</small></label>
         <input type="text" id="rj-city" maxlength="60" />
-        <label for="rj-nat" id="L-nat">Nationalité (optionnel)<small>Visible par l'employeur seulement s'il vous sélectionne — jamais dans la liste publique.</small></label>
+        <label for="rj-nat" id="L-nat">Nationality (optional)<small>Visible to an employer only if they select you — never in the public list.</small></label>
         <input type="text" id="rj-nat" maxlength="60" />
-        <label for="rj-auth" id="L-auth">Autorisation de travail aux États-Unis</label>
+        <label for="rj-auth" id="L-auth">US work authorization</label>
         <select id="rj-auth">
-          <option value="">— choisir —</option>
-          <option value="yes">✅ Oui, je suis autorisé(e) à travailler</option>
-          <option value="sponsor">🛂 J'aurai besoin d'un parrainage à l'avenir</option>
-          <option value="pending">⏳ En cours / demande déposée</option>
+          <option value="">— choose —</option>
+          <option value="yes">✅ Yes, I am authorized to work</option>
+          <option value="sponsor">🛂 I will need sponsorship in the future</option>
+          <option value="pending">⏳ In process / applied</option>
         </select>
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t2">2. Vos licences</h3>
-        <label id="L-lic">Cochez ce que vous avez déjà<small>Au moins une est nécessaire pour entrer dans le pool.</small></label>
+        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t2">2. Your licenses</h3>
+        <label id="L-lic">Check what you already hold<small>At least one is required to join the pool.</small></label>
         <div class="rj-checks" id="rj-lic">
           <label class="rj-chk"><input type="checkbox" value="classd" /> <span>🚗 Class D</span></label>
           <label class="rj-chk"><input type="checkbox" value="7d" /> <span>🚌 7D</span></label>
@@ -116,45 +116,45 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <label class="rj-chk"><input type="checkbox" value="cdl_b" /> <span>🚚 CDL-B</span></label>
           <label class="rj-chk"><input type="checkbox" value="cdl_c" /> <span>🚐 CDL-C</span></label>
         </div>
-        <label for="rj-years" id="L-years">Années d'expérience au volant (professionnelle)</label>
+        <label for="rj-years" id="L-years">Years of professional driving experience</label>
         <input type="number" id="rj-years" min="0" max="60" />
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t3">3. Ce que vous cherchez</h3>
-        <label id="L-seek">Types de transport qui vous intéressent</label>
+        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t3">3. What you are looking for</h3>
+        <label id="L-seek">Types of transport that interest you</label>
         <div class="rj-checks" id="rj-seek">
-          <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 Transport scolaire</span></label>
-          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span id="S-delivery">📦 Livraison de colis</span></label>
-          <label class="rj-chk"><input type="checkbox" value="senior" /> <span id="S-senior">🧓 Personnes âgées / médical</span></label>
-          <label class="rj-chk"><input type="checkbox" value="transit" /> <span id="S-transit">🚍 Transport régional (MART, RTA)</span></label>
-          <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span id="S-rideshare">🚕 Taxi / VTC</span></label>
-          <label class="rj-chk"><input type="checkbox" value="other" /> <span id="S-other">➕ Autre</span></label>
+          <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 School transport</span></label>
+          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span id="S-delivery">📦 Package delivery</span></label>
+          <label class="rj-chk"><input type="checkbox" value="senior" /> <span id="S-senior">🧓 Seniors / medical</span></label>
+          <label class="rj-chk"><input type="checkbox" value="transit" /> <span id="S-transit">🚍 Regional transit (MART, RTA)</span></label>
+          <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span id="S-rideshare">🚕 Taxi / rideshare</span></label>
+          <label class="rj-chk"><input type="checkbox" value="other" /> <span id="S-other">➕ Other</span></label>
         </div>
-        <label id="L-flex">Jusqu'où êtes-vous ouvert ?<small>C'est vous qui décidez qui peut vous voir.</small></label>
+        <label id="L-flex">How open are you?<small>You decide who can see you.</small></label>
         <div id="rj-flex" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="any" /> <span id="F-any">⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir</span></label>
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="prefer" checked /> <span id="F-prefer">↔️ J'ai des préférences, mais je reste ouvert aux autres offres</span></label>
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="only" /> <span id="F-only">🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="any" /> <span id="F-any">⚡ I'll take any driving job — every employer can see me</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="prefer" checked /> <span id="F-prefer">↔️ I have preferences, but I stay open to other offers</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="only" /> <span id="F-only">🎯 Only the sectors I checked — other employers cannot see me</span></label>
         </div>
 
-        <label for="rj-avail" id="L-avail">Disponibilité</label>
+        <label for="rj-avail" id="L-avail">Availability</label>
         <select id="rj-avail">
-          <option value="">— choisir —</option>
-          <option value="fulltime">Temps plein</option>
-          <option value="parttime">Temps partiel</option>
-          <option value="both">L'un ou l'autre</option>
+          <option value="">— choose —</option>
+          <option value="fulltime">Full time</option>
+          <option value="parttime">Part time</option>
+          <option value="both">Either</option>
         </select>
 
-        <label id="L-ctc">Comment un employeur peut vous joindre<small>Trois façons, et c'est vous qui choisissez.</small></label>
+        <label id="L-ctc">How an employer can reach you<small>Three ways, and you choose.</small></label>
         <div id="rj-ctc" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="direct" checked /> <span id="C-direct">✅ Un employeur a l'autorisation de me contacter</span></label>
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="approval" /> <span id="C-approval">🔒 Je dois donner mon autorisation pour qu'un employeur me contacte</span></label>
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 Je veux envoyer mon dossier directement à des employeurs abonnés</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="direct" checked /> <span id="C-direct">✅ An employer may contact me</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="approval" /> <span id="C-approval">🔒 An employer must have my permission before contacting me</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 I want my file sent straight to subscribed employers</span></label>
         </div>
 
-        <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem" id="rj-t5">4. Votre CV (optionnel)</h3>
-        <label for="rj-cv" id="L-cv">Lien vers votre CV</label>
+        <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem" id="rj-t5">4. Your CV (optional)</h3>
+        <label for="rj-cv" id="L-cv">Link to your CV<small>A Google Drive, LinkedIn or Indeed link… An employer sees it only after selecting you. No CV? <a href="https://360.atmart.ltd/entevyou.html" target="_blank" rel="noopener" style="color:var(--d-accent)">Make one free with Entèvyou360</a>.</small></label>
         <input type="url" id="rj-cv" maxlength="300" placeholder="https://..." />
-        <label for="rj-resume" id="L-resume">Ou résumez votre parcours en quelques lignes</label>
+        <label for="rj-resume" id="L-resume">Or sum up your experience in a few lines<small>What you have driven, where, and for how long. Useful if you have no document yet.</small></label>
         <textarea id="rj-resume" maxlength="1200" style="min-height:80px"></textarea>
 
         <div id="rj-pend" class="rj-hide" style="background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem">
@@ -164,39 +164,39 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
         <label class="rj-consent" id="L-consent">
           <input type="checkbox" id="rj-consent" />
-          <span id="rj-consent-txt">J'accepte que des employeurs du Massachusetts puissent me contacter pour un emploi de chauffeur. Je comprends que mon nom et mon téléphone ne sont révélés qu'à un employeur qui me sélectionne, et que je peux me retirer du pool à tout moment avec mon code.</span>
+          <span id="rj-consent-txt">I agree that Massachusetts employers may contact me for a driving job. I understand my name and phone are revealed only to an employer who selects me, and that I can withdraw from the pool anytime with my code.</span>
         </label>
 
         <label class="rj-consent" id="L-wa" style="background:var(--d-vert-fond);border-color:var(--d-vert-bord);margin-top:0.7rem">
           <input type="checkbox" id="rj-wa" />
-          <span id="rj-wa-txt">💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne. Les messages viennent d'Atmart LLC. Cocher n'est pas obligatoire pour entrer dans le vivier, et votre opérateur peut facturer la réception selon votre forfait.</span>
+          <span id="rj-wa-txt">💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them. Today these messages are written and sent by hand, by a person. The messages come from Atmart LLC. Ticking is not required to join the pool, and your carrier may charge you to receive them, depending on your plan.</span>
         </label>
 
         <p data-d3="f_avant_envoi" style="font-size:.82rem;color:var(--d-faible);margin:.9rem 0 0;line-height:1.55">En envoyant ce formulaire, vous acceptez nos <a href="terms.html" style="color:var(--d-accent)">conditions d'utilisation</a> et notre <a href="privacy.html" style="color:var(--d-accent)">politique de confidentialité</a>.</p>
         <div style="margin-top:1.2rem;display:flex;gap:0.6rem;flex-wrap:wrap">
-          <button type="submit" class="btn btn-primary" id="rj-go">M'inscrire au pool (gratuit)</button>
-          <button type="button" class="btn btn-outline" id="rj-have">J'ai déjà un code</button>
+          <button type="submit" class="btn btn-primary" id="rj-go">Join the pool (free)</button>
+          <button type="button" class="btn btn-outline" id="rj-have">I already have a code</button>
         </div>
         <p class="rj-status" id="rj-st"></p>
       </form>
 
       <!-- retrouver / modifier / retirer -->
       <form class="rj-card rj-hide" id="rj-manage">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t4">Modifier ou retirer mon inscription</h3>
-        <label for="rj-code" id="L-code2">Votre code personnel</label>
+        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t4">Edit or withdraw my registration</h3>
+        <label for="rj-code" id="L-code2">Your personal code</label>
         <input type="text" id="rj-code" maxlength="24" placeholder="DRV-XXXX-XXXX" />
         <div id="rj-statusbox" class="rj-hide" style="background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:10px;padding:1rem;margin-top:1rem">
           <p style="margin:0 0 0.6rem;font-size:0.9rem" id="rj-status-now"></p>
           <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
-            <button type="button" class="btn btn-primary" data-st="available" id="B-available">✅ Je suis disponible</button>
-            <button type="button" class="btn btn-outline" data-st="hired" id="B-hired">💼 J'ai trouvé un emploi</button>
-            <button type="button" class="btn btn-outline" data-st="paused" id="B-paused">⏸ Mettre en pause</button>
+            <button type="button" class="btn btn-primary" data-st="available" id="B-available">✅ I'm available</button>
+            <button type="button" class="btn btn-outline" data-st="hired" id="B-hired">💼 I found a job</button>
+            <button type="button" class="btn btn-outline" data-st="paused" id="B-paused">⏸ Pause</button>
           </div>
         </div>
         <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
-          <button type="submit" class="btn btn-primary" id="rj-load">Charger mon inscription</button>
-          <button type="button" class="btn btn-outline" id="rj-del" style="border-color:var(--d-alerte-fond)">🗑 Me retirer du pool</button>
-          <button type="button" class="btn btn-outline" id="rj-back">← Retour</button>
+          <button type="submit" class="btn btn-primary" id="rj-load">Load my registration</button>
+          <button type="button" class="btn btn-outline" id="rj-del" style="border-color:var(--d-alerte-fond)">🗑 Withdraw from the pool</button>
+          <button type="button" class="btn btn-outline" id="rj-back">← Back</button>
         </div>
         <p class="rj-status" id="rj-st2"></p>
       </form>
@@ -411,7 +411,7 @@ if(l!=="fr"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       invalid:"Código no encontrado. Verifícalo.", limit:"Demasiados registros desde este dispositivo hoy. Inténtalo mañana.",
       err:"Pequeño problema técnico. Inténtalo de nuevo.", save:"Guardar cambios", flexT:"¿Hasta dónde estás abierto?", flexS:"Tú decides quién puede verte.", fAny:"⚡ Acepto cualquier empleo de chofer — todos los empleadores pueden verme", fPrefer:"↔️ Tengo preferencias, pero sigo abierto a otras ofertas", fOnly:"🎯 Solo los sectores que marqué — otros empleadores no me ven", bAvail:"✅ Estoy disponible", bHired:"💼 Encontré empleo", bPaused:"⏸ Pausar", stNow:"Estado actual: ", stA:"disponible — los empleadores te ven", stH:"empleado — estás fuera del pool", stP:"en pausa — estás fuera del pool", stOk:"Estado actualizado ✔" }
   };
-  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"en";return L[l]?l:"en";}
   function T(){return L[lang()];}
   function setL(id,main,sub){var e=document.getElementById(id);if(e)e.innerHTML=main+(sub?"<small>"+sub+"</small>":"");}
   function setT(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}

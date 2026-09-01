@@ -227,12 +227,29 @@ def poser_securite(s):
 
 def poser_theme(s):
     """Ajoute la feuille du thème et le script anti-clignotement, une seule fois."""
-    if LIEN not in s:
+    # ⚠️ ON CHERCHE LA FEUILLE, PAS UNE CHAINE EXACTE. 404.html l'appelle en
+    # `/assets/theme.css` : compare a `LIEN` — qui est relatif — elle passait
+    # pour depourvue de theme, et on lui en aurait ajoute un SECOND, relatif,
+    # donc introuvable depuis /une/adresse/profonde.
+    if not re.search(r'<link rel="stylesheet" href="/?assets/theme\.css', s):
         # Les pages derivees portent un `?v=` sur style.css : on repere le
         # lien par expression reguliere plutot que par egalite exacte.
-        m = re.search(r'<link rel="stylesheet" href="assets/style\.css[^"]*"\s*/?>', s)
+        #
+        # ⚠️ LA BARRE OBLIQUE DE TETE EST FACULTATIVE. 404.html doit appeler
+        # ses fichiers en chemin ABSOLU — elle est servie a n'importe quelle
+        # adresse, et un chemin relatif irait chercher la feuille de style dans
+        # /un/dossier/qui/n/existe/pas/assets/. Le motif, lui, n'acceptait que
+        # la forme relative : il ne voyait donc pas le lien de 404.html et n'y
+        # posait jamais le theme. La page restait en sombre, sans focus
+        # visible, sans reduced-motion — et le controle disait « vert », parce
+        # qu'il ne regardait pas cette page-la non plus.
+        m = re.search(r'<link rel="stylesheet" href="/?assets/style\.css[^"]*"\s*/?>', s)
         if m:
-            s = s[:m.end()] + "\n  " + LIEN + s[m.end():]
+            # Le lien pose EPOUSE la forme de celui qu'il suit : absolu sur une
+            # page servie a n'importe quelle adresse, relatif ailleurs.
+            lien = (LIEN.replace('href="assets/', 'href="/assets/')
+                    if '"/assets/style.css' in m.group(0) else LIEN)
+            s = s[:m.end()] + "\n  " + lien + s[m.end():]
     if 'localStorage.getItem("atmart_theme")' not in s:
         s = s.replace(LIEN, LIEN + "\n" + BASCULE, 1)
     return s

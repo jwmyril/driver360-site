@@ -356,3 +356,21 @@ if __name__ == "__main__":
         print("Sans eux le coach perd ses exercices ET sa traduction, sans rien casser")
         print("de visible. On sort en erreur plutot que d'annoncer un build vert.")
         sys.exit(1)
+
+    # ------------------------------------------------------------------
+    # Le balisage passe a l'anglais.
+    #
+    # Les pages sources naissent en francais et se traduisent au navigateur.
+    # Cela suffit a un visiteur, pas a un moteur d'indexation, pas a un
+    # lecteur d'ecran, et pas a quelqu'un dont le script ne charge pas : ceux
+    # la voyaient une page francaise annoncee <html lang="fr">, ou un voile
+    # qui ne se levait jamais.
+    #
+    # `rendre_en` rejoue applyLang() de la page en anglais, hors navigateur,
+    # et pose le resultat dans le balisage. La traduction vient donc de la
+    # page elle-meme — pas d'une expression reguliere qui devine.
+    print("")
+    print("balisage en anglais")
+    import rendre_en
+    for _src, dst, _cote, _nom, _ in PAGES:
+        rendre_en.rendre(os.path.join(RACINE, dst))
