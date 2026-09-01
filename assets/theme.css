@@ -242,3 +242,48 @@ footer a,
 footer a:hover,
 .lg a:hover,
 .jb-note a:hover { text-decoration-thickness: 2px; }
+
+/* ---------------------------------------------------------------- IMPRESSION
+ * LE PAPIER EST TOUJOURS BLANC.
+ *
+ * Les deux fonds du site vivent dans des jetons. A l'impression, le navigateur
+ * garde les valeurs du fond SOMBRE — c'est celui par defaut — et n'imprime pas
+ * les aplats de fond. Mesure du 30/08/2026 : le guide de l'accompagnateur
+ * sortait a 1,45:1, et les titres des pages legales a 1,00:1, c'est-a-dire
+ * blanc sur blanc. Quelqu'un qui imprimait les conditions obtenait des pages
+ * ou les titres manquaient.
+ *
+ * Le guide de l'accompagnateur est FAIT pour etre imprime : c'est la seule
+ * partie du produit qui vit sur papier, entre les mains de quelqu'un qui n'a
+ * pas le site sous les yeux.
+ *
+ * Le `!important` est legitime ici : il doit battre des styles ecrits en
+ * ligne, qu'aucune specificite ne bat autrement. */
+@media print {
+  html, body { background: #fff !important; }
+  * {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  /* Les bordures restent, sinon les cartes et les tableaux fondent ensemble. */
+  *, *::before, *::after { border-color: #999 !important; }
+
+  /* Un lien souligne se voit sur papier ; une couleur, non. Et son adresse
+     est ecrite en clair : sur une feuille, on ne peut pas cliquer. */
+  a { color: #000 !important; text-decoration: underline !important; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.82em; font-weight: 400; word-break: break-all;
+  }
+  a[href^="#"]::after, a[href^="mailto"]::after { content: ""; }
+
+  /* Ce qui n'a aucun sens sur une feuille. */
+  header, footer, nav, button, .no-print,
+  .lang-select, .lang-menu, .theme-btn, .cf-quick, .sd-quick { display: none !important; }
+
+  /* On ne coupe ni un titre de sa suite, ni une question de sa reponse. */
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  li, tr, .card, .cf-feat, .sd-feat { page-break-inside: avoid; break-inside: avoid; }
+}

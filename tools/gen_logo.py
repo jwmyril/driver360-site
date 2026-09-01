@@ -39,7 +39,7 @@ import math
 import os
 import sys
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MARQUE = os.path.join(RACINE, "assets", "brand")
@@ -209,6 +209,53 @@ def svg():
            fils="\n".join(fils))
 
 
+
+# --------------------------------------------------------------------------
+# L'image de partage.
+#
+# ⚠️ SANS ELLE, OPEN GRAPH NE SERT A RIEN. Le canal du produit est WhatsApp :
+# un lien colle dans une conversation s'affiche en texte nu tant que la page
+# n'annonce pas de vignette — et le plus grand fichier de la marque faisait
+# 512 px carre, c'est-a-dire une icone d'application, pas une vignette.
+#
+# 1200 x 630 est le format que lisent WhatsApp, Facebook et LinkedIn. On la
+# dessine ICI plutot que de la deposer a la main : elle suit la marque, et le
+# jour ou le logo change, elle change avec lui.
+CARTE = (1200, 630)
+
+
+def police(px, gras=True):
+    """Une police du systeme, ou celle de PIL si la machine n'en a aucune."""
+    for nom in (("segoeuib.ttf", "arialbd.ttf") if gras
+                else ("segoeui.ttf", "arial.ttf")):
+        for base in (r"C:\Windows\Fonts", "/usr/share/fonts/truetype/dejavu"):
+            p = os.path.join(base, nom)
+            if os.path.exists(p):
+                try:
+                    return ImageFont.truetype(p, px)
+                except Exception:
+                    pass
+    return ImageFont.load_default()
+
+
+def carte_sociale():
+    im = Image.new("RGBA", CARTE, (14, 34, 64, 255))
+    d = ImageDraw.Draw(im)
+
+    # une bande d'accent en bas : elle donne le ton meme en miniature
+    d.rectangle([0, CARTE[1] - 10, CARTE[0], CARTE[1]], fill=(46, 196, 182, 255))
+
+    marque = dessiner(360)
+    im.alpha_composite(marque, (96, (CARTE[1] - 360) // 2 - 10))
+
+    x = 96 + 360 + 64
+    d.text((x, 214), "Driver360", font=police(92), fill=(255, 255, 255, 255))
+    d.text((x, 322), "Driving jobs in Massachusetts",
+           font=police(38, False), fill=(200, 216, 232, 255))
+    d.text((x, 378), "Class D \u00b7 7D \u00b7 CDL \u2014 free driver pool",
+           font=police(34, False), fill=(46, 196, 182, 255))
+    return im.convert("RGB")
+
 def main():
     with io.open(os.path.join(MARQUE, "driver360-mark.svg"), "w",
                  encoding="utf-8", newline="\n") as f:
@@ -224,6 +271,10 @@ def main():
     ]:
         dessiner(taille, fond).save(os.path.join(MARQUE, nom), "PNG", optimize=True)
         print("  %-24s %d px" % (nom, taille))
+
+    carte_sociale().save(os.path.join(MARQUE, "share-1200x630.jpg"),
+                         "JPEG", quality=86, optimize=True)
+    print("  %-24s 1200x630" % "share-1200x630.jpg")
 
     dessiner(64).save(os.path.join(MARQUE, "favicon.ico"),
                       sizes=[(16, 16), (32, 32), (48, 48)])

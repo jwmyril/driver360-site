@@ -103,7 +103,7 @@ GARDE = re.compile(
     r'|@media\s+print\s*\{(?:[^{}]|\{[^{}]*\})*\}')
 
 
-LIEN = '<link rel="stylesheet" href="assets/theme.css?v=5" />'
+LIEN = '<link rel="stylesheet" href="assets/theme.css?v=6" />'
 
 # ⚠️ CE SCRIPT DOIT S'EXÉCUTER AVANT LE PREMIER AFFICHAGE.
 # Poser la classe depuis suite.js, chargé en bas de page, ferait apparaître la
@@ -255,7 +255,62 @@ def poser_theme(s):
     return s
 
 
-def traiter(s):
+SITE = "https://driver360.atmart.ltd"
+
+# ⚠️ 404.html N'A PAS DE CANONIQUE. Une page d'erreur est servie a des adresses
+# innombrables ; lui donner une URL canonique reviendrait a dire a un moteur
+# que toutes ces adresses sont la meme page valide.
+SANS_CANONIQUE = {"404.html"}
+
+
+def _entre(s, motif):
+    m = re.search(motif, s, re.S | re.I)
+    return (m.group(1).strip() if m else "")
+
+
+def poser_social(s, page):
+    """Open Graph, Twitter et lien canonique — une seule fois par page.
+
+    Le canal du produit est WhatsApp : sans ces balises, un lien partage
+    s'affiche en texte nu. Et les quatre pages derivees ont un jumeau encore
+    en ligne sur atmart.ltd, d'ou la canonique : sans elle, c'est l'original
+    qui garde le referencement du contenu qu'on a repris.
+    """
+    if 'property="og:title"' in s:
+        return s
+
+    url = SITE + ("/" if page == "index.html" else "/" + page)
+    titre = _entre(s, r"<title[^>]*>(.*?)</title>")
+    descr = _entre(s, r'<meta\s+name="description"[^>]*content="([^"]*)"')
+    image = SITE + "/assets/brand/share-1200x630.jpg"
+    langue = _entre(s, r'<html lang="([a-z-]+)"') or "en"
+
+    lignes = []
+    if 'rel="canonical"' not in s and page not in SANS_CANONIQUE:
+        lignes.append('<link rel="canonical" href="%s" />' % url)
+    lignes += [
+        '<meta property="og:type" content="website" />',
+        '<meta property="og:site_name" content="Driver360" />',
+        '<meta property="og:url" content="%s" />' % url,
+        '<meta property="og:title" content="%s" />' % titre,
+        '<meta property="og:description" content="%s" />' % descr,
+        '<meta property="og:image" content="%s" />' % image,
+        '<meta property="og:image:width" content="1200" />',
+        '<meta property="og:image:height" content="630" />',
+        '<meta property="og:locale" content="%s" />' % langue.replace("-", "_"),
+        '<meta name="twitter:card" content="summary_large_image" />',
+        '<meta name="twitter:title" content="%s" />' % titre,
+        '<meta name="twitter:description" content="%s" />' % descr,
+        '<meta name="twitter:image" content="%s" />' % image,
+    ]
+    bloc = "\n  " + "\n  ".join(lignes) + "\n"
+    i = s.lower().find("</head>")
+    if i < 0:
+        return s
+    return s[:i] + bloc + s[i:]
+
+
+def traiter(s, page=""):
     protege = []
 
     def mettre_de_cote(m):
@@ -269,7 +324,11 @@ def traiter(s):
         s = motif.sub(apres, s)
     for i, brut in enumerate(protege):
         s = s.replace("\x00%d\x00" % i, brut)
-    return poser_securite(poser_theme(s))
+    # ⚠️ L'ORDRE COMPTE : les balises sociales AVANT la securite, parce
+    # que `poser_securite` calcule les empreintes SHA-256 des scripts et
+    # pose la CSP. Inserer quoi que ce soit apres, et la CSP ne
+    # correspondrait plus a la page.
+    return poser_securite(poser_theme(poser_social(s, page)))
 
 
 RESTE = re.compile(r"#[0-9a-fA-F]{3,6}\b|rgba?\([0-9]")
@@ -284,7 +343,7 @@ def main():
             continue
         with io.open(chemin, encoding="utf-8") as f:
             avant = f.read()
-        apres = traiter(avant)
+        apres = traiter(avant, page)
         if apres != avant and not verifier:
             with io.open(chemin, "w", encoding="utf-8", newline="\n") as f:
                 f.write(apres)

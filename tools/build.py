@@ -41,7 +41,15 @@ ETAPES = [
     ("gen_emplois.py", [], "page des offres", True),
     ("gen_legal.py", [], "conditions et confidentialite", True),
     ("appliquer_theme.py", [], "jetons de couleur, theme, CSP", True),
+    # Le nom du cache se calcule APRES que tout est ecrit : il est l'empreinte
+    # de ce qui sera reellement servi. Oublier de le changer, c'est publier
+    # pour personne — les visiteurs deja venus gardent l'ancienne page. Ce
+    # garde-fou reposait sur ma memoire, et ma memoire a rate deux fois.
+    ("gen_sitemap.py", [], "sitemap et dates de derniere modification", True),
+    ("version_cache.py", [], "nom du cache du service worker", True),
     # --- a partir d'ici, on ne fabrique plus : on verifie ---
+    ("version_cache.py", ["--verifier"], "le cache correspond au contenu", True),
+    ("gen_sitemap.py", ["--verifier"], "le sitemap suit le contenu", True),
     ("appliquer_theme.py", ["--verifier"], "aucune couleur ecrite en dur", True),
     ("verif_actifs.py", [], "aucune reference locale sans fichier", True),
     ("verif_langue.py", [], "8 pages x 4 langues coherentes", True),
@@ -59,17 +67,29 @@ def lancer(script, args, quoi):
         for ligne in sortie.split("\n"):
             print("     " + ligne)
     if r.returncode != 0:
-        err = (r.stderr or "").strip()
+        # ⚠️ LA TRACE ENTIERE, PAS SA DERNIERE LIGNE. On n'imprimait que
+        # `err.split("\n")[-1]` : sur une trace Python, c'est le message
+        # (« KeyError: 'ex' ») et rien d'autre. Le fichier et le numero de
+        # ligne, qui sont au-dessus, etaient jetes — un build rouge ne disait
+        # donc pas ou regarder, et il fallait relancer l'etape a la main pour
+        # apprendre ce que le build savait deja.
+        err = (r.stderr or "").rstrip()
         if err:
-            print("     " + err.split("\n")[-1])
+            for ligne in err.split("\n"):
+                print("     | " + ligne)
     return r.returncode
 
 
 def main():
     echecs = []
-    for i, (script, args, quoi, bloquant) in enumerate(ETAPES, 1):
+    for i, (script, args, quoi, _) in enumerate(ETAPES, 1):
         print("[%d/%d] %s" % (i, len(ETAPES) + (1 if "--liens" in sys.argv else 0), quoi))
-        if lancer(script, args, quoi) != 0 and bloquant:
+        # Le 4e champ du tableau ne sert plus a rien : toutes les etapes
+        # sont bloquantes depuis longtemps. On le garde dans le tableau
+        # pour ne pas reecrire onze lignes, mais on ne le lit plus — un
+        # drapeau qu'on lit sans jamais le voir varier ment sur ce que le
+        # build peut faire.
+        if lancer(script, args, quoi) != 0:
             echecs.append(quoi)
 
     if "--liens" in sys.argv:

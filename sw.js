@@ -1,5 +1,5 @@
 // Driver360 — cache statique. Les appels au Worker passent toujours par le reseau.
-const CACHE = "driver360-v13";  // v6 : donnees du coach, offres elargies, telechargement
+const CACHE = "driver360-3d9bebc3";  // v6 : donnees du coach, offres elargies, telechargement
 const CORE = [
   "/", "/index.html", "/404.html", "/jobs.html", "/terms.html", "/privacy.html", "/wout.html", "/setdi.html", "/vivye.html", "/anplwaye.html",
   "/assets/style.css", "/assets/theme.css", "/assets/script.js",
@@ -40,8 +40,18 @@ self.addEventListener("fetch", (e) => {
     );
     return;
   }
+  // ⚠️ `ignoreSearch` : LE PRECACHE NE SERVAIT JAMAIS SANS LUI. CORE liste
+  // « /assets/style.css » ; la page demande « /assets/style.css?v=32 ».
+  // `caches.match` compare la query, donc aucune entree ne correspondait a
+  // une vraie requete : on payait le telechargement a l'installation, puis on
+  // le repayait a chaque visite.
+  //
+  // Ignorer la query serait dangereux si le cache gardait son nom — on
+  // servirait l'ancien fichier malgre un `?v=` neuf. Il ne le garde plus :
+  // depuis tools/version_cache.py, le nom du cache EST l'empreinte du
+  // contenu publie. Un octet change, le cache entier est purge.
   e.respondWith(
-    caches.match(e.request).then((r) => r || fetch(e.request).then((rep) => {
+    caches.match(e.request, { ignoreSearch: true }).then((r) => r || fetch(e.request).then((rep) => {
       if (rep.ok) { const c = rep.clone(); caches.open(CACHE).then((ch) => ch.put(e.request, c)); }
       return rep;
     }).catch(() => caches.match("/index.html")))
