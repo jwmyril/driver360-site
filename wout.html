@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-GZDe3lz7PG2SefflSvP4RASVR+jDoZ2cUsisQHiaY1A=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-Yv6xvlavbBIY8wd+GsSop0gE7grM8I7f8gaCEzvipo0=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
@@ -410,7 +410,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Préparation au test — basée sur vos séances notées par votre accompagnateur.",
         sess:"🚗 Séance avec sponsor",coach:"💬 Parler au coach",guide:"🖨 Guide du sponsor",res:"🏁 Résultat du test",
         ok:"✅ Bien fait",next:"Suivant ⏭",speak:"🔊 Voix de l'examinateur",
-        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",
+        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",confirmDel:"Effacer définitivement votre dossier ? Cette action ne s'annule pas.",
         good:"Parfait ! Manœuvre propre — on la refixera pour la stabilité.",
         badF:"⛔ Éliminatoire dans notre grille : ",badm:"⚠️ Erreur mineure dans notre grille : ",
         redo:"Corrigez et refaites-la maintenant, puis passez à la suite.",
@@ -427,7 +427,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Nivo preparasyon ou — baze sou seyans akonpayatè ou note yo.",
         sess:"🚗 Seyans ak sponsor",coach:"💬 Pale ak coach la",guide:"🖨 Gid sponsor a",res:"🏁 Rezilta tès la",
         ok:"✅ Byen fèt",next:"Pwochen ⏭",speak:"🔊 Vwa egzaminatè a",
-        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",
+        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",confirmDel:"Efase dosye w nèt ? Ou pa ka defèt aksyon sa a.",
         good:"Bravo ! Manèv la pwòp — n ap refè l pou li vin solid.",
         badF:"⛔ Eliminatwa nan gril pa nou an : ",badm:"⚠️ Ti erè nan gril pa nou an : ",
         redo:"Korije epi refè l kounye a, apre sa pase sou pwochen an.",
@@ -444,7 +444,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Test readiness — based on sessions scored by your sponsor.",
         sess:"🚗 Session with sponsor",coach:"💬 Talk to the coach",guide:"🖨 Sponsor guide",res:"🏁 Test result",
         ok:"✅ Well done",next:"Next ⏭",speak:"🔊 Examiner's voice",
-        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",
+        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",confirmDel:"Permanently erase your file? This cannot be undone.",
         good:"Great! Clean maneuver — we'll repeat it for stability.",
         badF:"⛔ Disqualifying in our grid: ",badm:"⚠️ Minor error in our grid: ",
         redo:"Correct it and redo it now, then move on.",
@@ -461,14 +461,14 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Preparación para el examen — según las sesiones calificadas por tu acompañante.",
         sess:"🚗 Sesión con sponsor",coach:"💬 Hablar con el coach",guide:"🖨 Guía del sponsor",res:"🏁 Resultado del examen",
         ok:"✅ Bien hecho",next:"Siguiente ⏭",speak:"🔊 Voz del examinador",
-        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",
+        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",confirmDel:"¿Borrar definitivamente tu expediente? Esto no se puede deshacer.",
         good:"¡Perfecto! Maniobra limpia — la repetiremos para afianzarla.",
         badF:"⛔ Eliminatorio en nuestra tabla: ",badm:"⚠️ Error menor en nuestra tabla: ",
         redo:"Corrígelo y repítelo ahora, luego sigue.",
         fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
         expired:"Acceso vencido. Escríbenos para un nuevo código gratis — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
         err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu Driver Coach. Dime dónde estás, o inicia una sesión con tu acompañante.",
-        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 25 preguntas, 18 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Driver360 desbloquea las 25 + el coach.",qzNext:"Siguiente ⏭",bg1:"🗣 4 idiomas",bg2:"🎯 13 maniobras de nuestra tabla",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",avantTxt:"<strong>Antes de conducir un solo metro — lo que manda a la gente a casa</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Llega unos <strong>15 minutos antes</strong>. Si llegas tarde, no hay examen.</li><li>Una solicitud de examen completa — con la sección de consentimiento parental si eres menor de 18 — y tu permiso de aprendiz.</li><li><strong>Un acompañante cualificado</strong>: 21 años o más, un año de experiencia y licencia válida de su propio estado. <strong>Una licencia extranjera no sirve.</strong> Sin acompañante, no hay examen.</li><li>Un vehículo que pase la inspección del examinador: matriculado, inspeccionado, seguro, con un asiento limpio y adecuado para el examinador y plaza trasera para tu acompañante.</li><li><strong>Un freno de mano accesible</strong> — el examinador debe poder detener el coche. Uno central es lo más seguro; algunas minivans se rechazan solo por esto.</li><li>Nada de rueda de repuesto <strong>de galleta</strong>. Ninguna placa « repair ». Ninguna placa « dealer », salvo que seas el concesionario, su cónyuge o vendedor allí.</li><li>Cámara de marcha atrás, sensores, aparcamiento automático, conducción guiada por GPS: <strong>desactivados</strong>.</li><li>Placa de otro estado: prueba de seguro con los mínimos de Massachusetts ($20,000/$40,000 daños corporales, $5,000 materiales). Un alquiler exige además el contrato y una carta de la empresa autorizando el examen.</li><li><strong>Ni niños ni mascotas.</strong> Se admiten animales de servicio. Solo van en el coche tú, el examinador y tu acompañante, y no puedes hablar con tu acompañante sin permiso.</li><li><strong>El intérprete no es un derecho.</strong> El manual dice que puede admitirse « si el examinador lo autoriza ». Pregúntalo al reservar — no lo des por hecho.</li><li>Menor de 18: historial de conducción limpio durante los <strong>seis meses</strong> previos a la solicitud, y debe seguir limpio hasta el día del examen.</li><li>Seis exámenes máximo en 12 meses. Los <strong>$35</strong> se cobran otra vez si suspendes, no estás preparado, te rechazan el vehículo, vienes sin acompañante, llegas tarde o no vienes, o cancelas con menos de 72 horas.</li></ul>",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Driver360",codeS:"Gratis (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",shareTxt:"📊 Y quiero que los empleadores vean <strong>en qué punto estoy</strong>: preparación, puntuación del examen escrito, resultados. Sin esta casilla no ven nada de eso.",poolTxt:"Cuando apruebe, quiero entrar al <strong>pool de choferes Driver360</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del Driver Pool: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='vivye.html' style='color:var(--d-accent)'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo.",aka:"Road Test MA",akaS:"el nombre que todos usan"}
+        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 25 preguntas, 18 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Driver360 desbloquea las 25 + el coach.",qzNext:"Siguiente ⏭",bg1:"🗣 4 idiomas",bg2:"🎯 13 maniobras de nuestra tabla",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",avantTxt:"<strong>Antes de conducir un solo metro — lo que manda a la gente a casa</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Llega unos <strong>15 minutos antes</strong>. Si llegas tarde, no hay examen.</li><li>Una solicitud de examen completa — con la sección de consentimiento parental si eres menor de 18 — y tu permiso de aprendiz.</li><li><strong>Un acompañante cualificado</strong>: 21 años o más, un año de experiencia y licencia válida de su propio estado. <strong>Una licencia extranjera no sirve.</strong> Sin acompañante, no hay examen.</li><li>Un vehículo que pase la inspección del examinador: matriculado, inspeccionado, seguro, con un asiento limpio y adecuado para el examinador y plaza trasera para tu acompañante.</li><li><strong>Un freno de mano accesible</strong> — el examinador debe poder detener el coche. Uno central es lo más seguro; algunas minivans se rechazan solo por esto.</li><li>Nada de rueda de repuesto <strong>de galleta</strong>. Ninguna placa « repair ». Ninguna placa « dealer », salvo que seas el concesionario, su cónyuge o vendedor allí.</li><li>Cámara de marcha atrás, sensores, aparcamiento automático, conducción guiada por GPS: <strong>desactivados</strong>.</li><li>Placa de otro estado: prueba de seguro con los mínimos de Massachusetts ($20,000/$40,000 daños corporales, $5,000 materiales). Un alquiler exige además el contrato y una carta de la empresa autorizando el examen.</li><li><strong>Ni niños ni mascotas.</strong> Se admiten animales de servicio. Solo van en el coche tú, el examinador y tu acompañante, y no puedes hablar con tu acompañante sin permiso.</li><li><strong>El intérprete no es un derecho.</strong> El manual dice que puede admitirse « si el examinador lo autoriza ». Pregúntalo al reservar — no lo des por hecho.</li><li>Menor de 18: historial de conducción limpio durante los <strong>seis meses</strong> previos a la solicitud, y debe seguir limpio hasta el día del examen.</li><li>Seis exámenes máximo en 12 meses. Los <strong>$35</strong> se cobran otra vez si suspendes, no estás preparado, te rechazan el vehículo, vienes sin acompañante, llegas tarde o no vienes, o cancelas con menos de 72 horas.</li></ul>",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Driver360",codeS:"Gratis (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",shareTxt:"📊 Y quiero que los empleadores vean <strong>en qué punto estoy</strong>: preparación, puntuación del examen escrito, resultados. Sin esta casilla no ven nada de eso.",poolTxt:"Cuando apruebe, quiero entrar al <strong>Driver Pool</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del Driver Pool: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='vivye.html' style='color:var(--d-accent)'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo.",aka:"Road Test MA",akaS:"el nombre que todos usan"}
   };
 
   function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"en";return L[l]?l:"en";}
@@ -672,9 +672,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
   // ---------- quiz Pemi ----------
   var QZ=null,qzIdx=0,qzScore=0,qzOrder=[],qzFreeMode=false,qzPass=18;
-  function qzFreeLeft(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+  var qzPos=[];
+  // ⚠️ LA JOURNEE DU VISITEUR, PAS CELLE DE GREENWICH.
+  // `toISOString()` donne la date UTC : le quota gratuit se remettait a
+  // zero a minuit UTC, c'est-a-dire a 20 h au Massachusetts. Quelqu'un
+  // qui revise apres le diner recevait cinq questions « du lendemain »
+  // a 20 h, puis plus rien de sa vraie soiree.
+  function jourLocal(){var d=new Date();return d.getFullYear()+"-"
+    +String(d.getMonth()+1).padStart(2,"0")+"-"
+    +String(d.getDate()).padStart(2,"0");}
+  function qzFreeLeft(){var k="pemi_free_"+jourLocal();
     return Math.max(0,5-parseInt(localStorage.getItem(k)||"0",10));}
-  function qzUseFree(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+  function qzUseFree(){var k="pemi_free_"+jourLocal();
     localStorage.setItem(k,String(parseInt(localStorage.getItem(k)||"0",10)+1));}
   function qzHasCode(){return !!localStorage.getItem("chofe360_code");}
   function startQuiz(free){
@@ -708,9 +717,14 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     // melanger les options en gardant la bonne reponse tracee
     var order=[0,1,2,3];
     for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tm=order[i];order[i]=order[j];order[j]=tm;}
+    qzPos=order;
     document.getElementById("qz-opts").innerHTML=order.map(function(oi,k){
       var o=q.opts[oi];
-      return '<button type="button" class="cf-chip" style="text-align:left" data-oi="'+oi+'"><strong>'+letters[k]+'.</strong> '+(o[l]||o.fr)+'</button>';
+      // ⚠️ PAS D'INDEX DANS LE DOM. On ecrivait `data-oi` — l'index
+      // d'ORIGINE de l'option — sur chaque bouton : melanger l'affichage ne
+      // servait alors a rien, il suffisait d'ouvrir l'inspecteur pour voir
+      // laquelle repondre. La correspondance reste en memoire, dans qzPos.
+      return '<button type="button" class="cf-chip" style="text-align:left"><strong>'+letters[k]+'.</strong> '+(o[l]||o.fr)+'</button>';
     }).join("");
     var fb=document.getElementById("qz-fb");fb.style.display="none";fb.textContent="";
     document.getElementById("qz-next").classList.add("cf-hide");
@@ -718,7 +732,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   document.getElementById("qz-opts").addEventListener("click",function(e){
     var b=e.target.closest(".cf-chip");if(!b||document.getElementById("qz-next").classList.contains("cf-hide")===false)return;
     var t=T(),l=lang(),q=QZ[qzOrder[qzIdx]];
-    var good=parseInt(b.dataset.oi,10)===q.a;
+    // la position du bouton clique donne l'index d'origine, via qzPos
+    var pos=Array.prototype.indexOf.call(b.parentNode.children,b);
+    var good=qzPos[pos]===q.a;
     if(good)qzScore++;
     if(qzFreeMode)qzUseFree();
     var fb=document.getElementById("qz-fb");
@@ -749,7 +765,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
   // ---------- efase ----------
   document.getElementById("cf-erase").addEventListener("click",function(){
-    if(!window.confirm("Efase dosye a ? / Effacer le dossier ?"))return;
+    if(!window.confirm(T().confirmDel))return;
     post({action:"delete"}).then(function(){location.reload();});
   });
 })();

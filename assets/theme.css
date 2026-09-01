@@ -331,3 +331,19 @@ p a.btn, li a.btn, p a.prod-card, li a.atm-item { text-decoration: none; }
     min-height: auto; height: auto; width: auto;
   }
 }
+
+/* A11 — LES APPELS SECONDAIRES REDEVIENNENT DES LIENS.
+ * La page des offres portait QUATRE boutons pleins ou cernes, dont deux
+ * s'adressaient a un employeur — sur une page faite pour des chauffeurs. Un
+ * bouton leur donnait le meme poids qu'a l'appel principal, et le visiteur ne
+ * savait plus ce qu'on attendait de lui. Un seul bouton reste : rejoindre le
+ * Driver Pool, qui est l'actif du site. */
+.lien-action {
+  color: var(--d-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0.4rem 0;
+}
+.lien-action:hover { color: var(--d-fort); }

@@ -478,8 +478,15 @@ def m_h3():
 
 def m_h4():
     """L'index de la bonne reponse, laisse dans le DOM."""
-    return zero(r"data-oi", ["wout.html", "setdi.html"],
-                "attribut(s) data-oi revelant la bonne reponse")
+    # /!\ L'ATTRIBUT, PAS LA PROSE. Le motif nu comptait aussi le commentaire
+    # qui EXPLIQUE pourquoi l'attribut a ete retire — la sentinelle accusait
+    # donc la page de son propre correctif. Meme defaut qu'en A3 et B4.
+    def sans_commentaires(t):
+        return re.sub(r"//[^\n]*", "", t)
+
+    return zero(r'data-oi\s*=', ["wout.html", "setdi.html"],
+                "attribut(s) data-oi revelant la bonne reponse",
+                filtre=sans_commentaires)
 
 
 def m_h7():
@@ -487,7 +494,13 @@ def m_h7():
     t = lire("anplwaye.html")
     if t is None:
         return None, "anplwaye.html introuvable"
-    n = len(re.findall(r"required", t))
+    # /!\ CE MOTIF NE POUVAIT RIEN TROUVER. Il contenait deux caracteres
+    # RETOUR ARRIERE (0x08) la ou quelqu'un voulait ecrire \b : un `\b` tape
+    # dans une chaine NON brute vaut le caractere backspace, et il a ete
+    # enregistre tel quel. Invisible a la relecture, invisible dans un diff,
+    # et la sentinelle accusait un formulaire correct — ce qu'elle a fait ce
+    # 31/08/2026, apres que les quatre `required` ont ete poses.
+    n = len(re.findall(r"\brequired\b", t))
     return n > 0, "%d champ(s) obligatoire(s) dans le formulaire employeur" % n
 
 

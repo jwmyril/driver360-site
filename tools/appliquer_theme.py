@@ -160,12 +160,29 @@ DIRECTIVES = [
     "default-src 'self'",
     # script-src est complete PAR PAGE avec les empreintes de ses blocs en
     # ligne : voir empreintes_scripts() et poser_securite().
-    "script-src 'self'",
+    # ⚠️ CLOUDFLARE WEB ANALYTICS EST OUVERT ICI, ET C'EST UN ARBITRAGE.
+    #
+    # La zone Cloudflare injecte son beacon dans CHAQUE page ; la CSP le
+    # refusait a chaque fois. Resultat mesure le 30/08/2026 : zero mesure
+    # d'audience, et une erreur de console sur les neuf pages. On ne savait
+    # donc pas si le site etait visite — sur un produit qui se propage de
+    # bouche a oreille, c'est la seule chose qu'on aurait voulu savoir.
+    #
+    # Deux issues seulement : couper la mesure dans le tableau de bord
+    # Cloudflare, ou l'autoriser. On l'autorise, et etroitement : UN hote
+    # pour le script, UN pour l'envoi. Cloudflare Web Analytics ne pose pas
+    # de cookie et ne suit personne d'un site a l'autre — c'est ce qui rend
+    # l'arbitrage tenable en face de la page de confidentialite.
+    #
+    # Si l'utilisateur prefere ne rien mesurer, la correction est de couper
+    # le beacon dans Cloudflare, PAS de le laisser bloque : une erreur de
+    # console repetee sur toutes les pages finit par masquer les vraies.
+    "script-src 'self' https://static.cloudflareinsights.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data:",
     # Le seul interlocuteur reseau autorise : notre Worker.
-    "connect-src 'self' https://atmart-chat.atmartllc.workers.dev",
+    "connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com",
     "form-action 'self'",
     "base-uri 'self'",
     "object-src 'none'",

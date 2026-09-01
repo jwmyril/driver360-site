@@ -41,7 +41,7 @@ demandent un permis lourd.
 
 # Date de la derniere verification collective des liens (toutes les URL
 # ci-dessous ont renvoye HTTP 200 ce jour-la).
-VERIFIE_LE = "2026-08-30"
+VERIFIE_LE = "2026-08-31"
 
 EMPLOYEURS = [
     # ---------------------------------------------------------- on cherche
@@ -177,7 +177,13 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="car", nom="Academy Bus", url="https://academybus.com/careers",
+        genre="car", nom="Academy Bus",
+        # ⚠️ /careers est une page de presentation, pas une liste de postes.
+        # Le vrai tableau d'offres est celui-ci — ouvert et verifie le
+        # 31/08/2026. La page promet « un lien direct vers leurs offres » :
+        # elle ne peut pas renvoyer sur une page qui parle de culture
+        # d'entreprise.
+        url="https://recruiting.ultipro.com/ACA1002ACAEX/JobBoard/5a85ab00-12d1-4789-9340-6f68ecef908a/",
         zone={"en": "Boston commuter lines", "es": "Líneas de cercanías de Boston",
               "ht": "Liy navèt Boston yo", "fr": "Lignes de banlieue de Boston"},
         quoi={
@@ -215,10 +221,10 @@ EMPLOYEURS = [
         zone={"en": "School districts", "es": "Distritos escolares",
               "ht": "Distri lekòl yo", "fr": "Districts scolaires"},
         quoi={
-            "en": "Where Massachusetts school districts post their own openings — including van and bus driver posts they never advertise elsewhere.",
-            "es": "Donde los distritos escolares de Massachusetts publican sus vacantes — incluidos puestos de conductor de van y autobús que no anuncian en ningún otro sitio.",
-            "ht": "Se la distri lekòl Massachusetts yo mete pòs pa yo — ak pòs chofè van ak bis yo pa janm anonse lòt kote.",
-            "fr": "C'est là que les districts scolaires du Massachusetts publient leurs postes — y compris des postes de chauffeur de van et de bus qu'ils n'affichent nulle part ailleurs.",
+            "en": "Where Massachusetts school districts post their own openings — including van and bus driver posts they never advertise elsewhere. ⚠️ It is a job board, not an employer: the link opens the search, and you type “bus driver” yourself. Deep links do not work on this site.",
+            "es": "Donde los distritos escolares de Massachusetts publican sus vacantes — incluidos puestos de conductor de van y autobús que no anuncian en ningún otro sitio. ⚠️ Es un portal de empleo, no un empleador: el enlace abre la búsqueda y tú escribes “bus driver”. Los enlaces directos no funcionan en este sitio.",
+            "ht": "Se la distri lekòl Massachusetts yo mete pòs pa yo — ak pòs chofè van ak bis yo pa janm anonse lòt kote. ⚠️ Se yon sit ofrè travay, se pa yon anplwayè : lyen an louvri rechèch la, epi se ou menm ki tape “bus driver”. Lyen dirèk pa mache sou sit sa a.",
+            "fr": "C'est là que les districts scolaires du Massachusetts publient leurs postes — y compris des postes de chauffeur de van et de bus qu'ils n'affichent nulle part ailleurs. ⚠️ C'est un site d'annonces, pas un employeur : le lien ouvre la recherche, et c'est vous qui tapez “bus driver”. Les liens directs ne fonctionnent pas sur ce site.",
         },
     ),
     # ------------------------------------------- poids lourd (CDL demande)

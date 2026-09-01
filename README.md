@@ -184,9 +184,23 @@ posait pas le bouton, et son `style="display:flex"` **écrit en ligne** battait
 le `display:none` de la feuille. Un attribut `style` gagne toujours contre une
 feuille : c'est exactement pourquoi il ne faut pas y mettre de mise en page.
 
-Vérifié à 375 px : aucun débordement horizontal, aucune cible tactile sous
-44 px, champs de formulaire à 16 px — en dessous, iOS zoome tout seul sur le
-champ et le visiteur se retrouve perdu dans une page agrandie.
+Vérifié à 375 px : aucun débordement horizontal, et champs de formulaire à
+16 px — en dessous, iOS zoome tout seul sur le champ et le visiteur se
+retrouve perdu dans une page agrandie.
+
+⚠️ **Ce paragraphe a longtemps affirmé « aucune cible tactile sous 44 px ».
+C'était faux**, et mesuré faux le 30/08/2026 : `.sd-tools button` faisait
+environ 21 px. La règle réelle, celle que le site applique, tient en deux
+seuils :
+
+- **44 px** pour ce qui se touche vraiment — boutons, options de menu, liens
+  de navigation. C'est la règle d'Apple, et Google demande 48.
+- **24 px** pour les boutons-texte qui vivent **dans une ligne de texte**.
+  Les porter à 44 casserait la ligne ; 24 px est ce que demande le SC 2.5.8,
+  et c'est le seuil qui s'applique à ce cas-là.
+
+Un README qui promet mieux que le code ne sert à rien : c'est lui qu'on lit
+avant de décider qu'un contrôle est inutile.
 
 ## Sécurité
 

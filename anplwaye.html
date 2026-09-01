@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rfoY12uPZEWfZuhMTXZrwQjsv+EV6+N4Jdh0hlp6Bxo=' 'sha256-C+9HprCclRmiiMK1Ou00L1BlR7+hPrUQP/OYPt/aZvc=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rfoY12uPZEWfZuhMTXZrwQjsv+EV6+N4Jdh0hlp6Bxo=' 'sha256-1Pv/LassMW9M9JmOd+K6zSMXAbampbZ85es/hSTjRkw=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -120,9 +120,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
       <form class="ep-card" id="ep-start">
         <label for="ep-code" id="L-code">🔑 Employer access code<small>EMP-XXXX-XXXX. No code yet? <a href="mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20founder%20code" style="color:var(--d-accent)">Ask for a founder code (free)</a></small></label>
-        <input type="text" id="ep-code" maxlength="24" autocomplete="off" placeholder="EMP-XXXX-XXXX" />
+        <input type="text" id="ep-code" maxlength="24" autocomplete="off" placeholder="EMP-XXXX-XXXX" required />
         <label for="ep-org" id="L-org">Your organisation</label>
-        <input type="text" id="ep-org" maxlength="120" placeholder="Ex. : ABC Student Transportation" />
+        <input type="text" id="ep-org" maxlength="120" placeholder="Ex. : ABC Student Transportation" required />
         <label for="ep-kind" id="L-kind">You are</label>
         <select id="ep-kind">
           <option value="school">🚌 School transport</option>
@@ -133,9 +133,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <option value="other">🚕 Other transport</option>
         </select>
         <label for="ep-contact" id="L-contact">Contact person</label>
-        <input type="text" id="ep-contact" maxlength="80" />
+        <input type="text" id="ep-contact" maxlength="80" required />
         <label for="ep-phone" id="L-phone">Phone</label>
-        <input type="text" id="ep-phone" maxlength="30" />
+        <input type="text" id="ep-phone" maxlength="30" required />
         <label for="ep-quota" id="L-quota">How many drivers are you looking for? <small>This is your selection quota: you will be able to reveal the contact details of that many candidates. Write to us to raise it later.</small></label>
         <input type="number" id="ep-quota" min="1" max="50" value="4" />
         <label for="ep-needs" id="L-needs">What you need (optional) <small>E.g.: 4 7D drivers for the new school year, Worcester area; profile sought…</small></label>
@@ -489,7 +489,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     fr: {
       ti: "Driver Employer — recruter des chauffeurs au Massachusetts | Atmart",
       kicker: "Recrutez des chauffeurs préparés — avec des résultats vérifiables.",
-      lead: "Le portail des compagnies de transport du Massachusetts — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) : recrutez dans le pool de chauffeurs Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont explicitement consenti à être contactés.",
+      lead: "Le portail des compagnies de transport du Massachusetts — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) : recrutez dans le Driver Pool Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont explicitement consenti à être contactés.",
       note: "Confidentialité : seuls les candidats ayant coché « entrer dans le pool » apparaissent ici — jamais les autres. Codes fondateurs gratuits pour les premières compagnies : sales@atmart.ltd.",
       Lcode: "🔑 Code d'accès employeur<small>EMP-XXXX-XXXX. Pas encore de code ? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20code%20fondateur\" style=\"color:var(--d-accent)\">Demander un code fondateur (gratuit)</a></small>",
       Lorg: "Votre organisation", orgPh: "Ex. : ABC Student Transportation",
@@ -527,7 +527,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       qNote: "sélectionner un candidat est définitif et révèle son contact.",
       cHired: "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste).",
       cRejected: "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.",
-      desc: "Le portail employeur de Driver360 : les compagnies de transport du Massachusetts recrutent dans le vivier de chauffeurs Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont consenti à être contactés.",
+      desc: "Le portail employeur de Driver360 : les compagnies de transport du Massachusetts recrutent dans le Driver Pool Class D, 7D et CDL — des candidats préparés ou déjà licenciés, qui ont consenti à être contactés.",
       oHired: "Embauché", oRejected: "Pas retenu", kLicensed: "🪪 Licencié",
       wUndeclared: "sélections sans résultat déclaré. Déclarez « Embauché » ou « Pas retenu » ci-dessous pour pouvoir continuer.",
       wNoCredit: "Plus de crédits de sélection. Écrivez à sales@atmart.ltd pour recharger (15 $ la sélection, ou abonnement 49 $/mois).",
@@ -630,7 +630,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     es: {
       ti: "Driver Employer — contrata conductores en Massachusetts | Atmart",
       kicker: "Contrata conductores preparados — con resultados que puedes verificar.",
-      lead: "El portal de las empresas de transporte de Massachusetts — transporte escolar, entrega de paquetes, transporte de personas mayores y médico, transporte regional (MART): contrata del registro de conductores Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron figurar en este registro.",
+      lead: "El portal de las empresas de transporte de Massachusetts — transporte escolar, entrega de paquetes, transporte de personas mayores y médico, transporte regional (MART): contrata del Driver Pool Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron figurar en este registro.",
       note: "Privacidad: aquí solo aparecen quienes marcaron «entrar al pool» — nadie más. Códigos fundadores gratis para las primeras empresas: sales@atmart.ltd.",
       Lcode: "🔑 Código de acceso de empleador<small>EMP-XXXX-XXXX. ¿Aún no tienes código? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20codigo%20fundador\" style=\"color:var(--d-accent)\">Pedir un código fundador (gratis)</a></small>",
       Lorg: "Tu organización", orgPh: "Ej.: ABC Student Transportation",
@@ -668,7 +668,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       qNote: "seleccionar a un candidato es definitivo y revela su contacto.",
       cHired: "¿Confirmas que CONTRATASTE a este candidato? Saldrá del registro para todos los empleadores (podrá volver él mismo si deja el puesto).",
       cRejected: "¿Confirmas que este candidato NO fue seleccionado? Sigue disponible para otros empleadores.",
-      desc: "El portal de empleadores de Driver360: las empresas de transporte de Massachusetts contratan del registro de conductores Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron ser contactadas.",
+      desc: "El portal de empleadores de Driver360: las empresas de transporte de Massachusetts contratan del Driver Pool Class D, 7D y CDL — personas preparadas o ya licenciadas que aceptaron ser contactadas.",
       oHired: "Contratado", oRejected: "No seleccionado", kLicensed: "🪪 Licenciado",
       wUndeclared: "selecciones sin resultado declarado. Declara «Contratado» o «No seleccionado» abajo para poder continuar.",
       wNoCredit: "Sin créditos de selección. Escribe a sales@atmart.ltd para recargar (15 $ por selección, o 49 $/mes).",

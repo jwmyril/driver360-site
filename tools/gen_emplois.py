@@ -165,9 +165,6 @@ TX = {
         "en": "Tell us about an employer", "fr": "Signaler un employeur",
         "ht": "Siyale yon anplwayè", "es": "Avisar de un empleador",
     },
-    "contact": {"en": "A question", "fr": "Une question", "ht": "Yon kesyon", "es": "Una pregunta"},
-    "droits": {"en": "All rights reserved.", "fr": "Tous droits réservés.",
-               "ht": "Tout dwa rezève.", "es": "Todos los derechos reservados."},
 }
 
 MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20job%20posting"
@@ -337,7 +334,7 @@ d.lang=l||"en";})();
       <h2 data-t="pub_t">%(pub_t)s</h2>
       <p data-t="pub_d">%(pub_d)s</p>
       <p style="margin-top:1.1rem">
-        <a class="btn btn-primary" href="%(mailto_pub)s" data-t="pub_b">%(pub_b)s</a>
+        <a class="lien-action" href="%(mailto_pub)s" data-t="pub_b">%(pub_b)s</a>
       </p>
       <p style="margin-top:.7rem;font-size:.84rem;color:#9db2c7" data-t="pub_n">%(pub_n)s</p>
     </div>
@@ -346,7 +343,7 @@ d.lang=l||"en";})();
       <h2 data-t="permis_t">%(permis_t)s</h2>
       <p data-t="permis_d">%(permis_d)s</p>
       <p style="margin-top:1.1rem">
-        <a class="btn btn-outline" href="wout.html" data-t="permis_b">%(permis_b)s</a>
+        <a class="lien-action" href="wout.html" data-t="permis_b">%(permis_b)s</a>
       </p>
     </div>
 
@@ -354,7 +351,7 @@ d.lang=l||"en";})();
       <h2 data-t="manque_t">%(manque_t)s</h2>
       <p data-t="manque_d">%(manque_d)s</p>
       <p style="margin-top:1.1rem">
-        <a class="btn btn-outline" href="%(mailto)s" data-t="manque_b">%(manque_b)s</a>
+        <a class="lien-action" href="%(mailto)s" data-t="manque_b">%(manque_b)s</a>
       </p>
     </div>
   </div>
