@@ -8,7 +8,7 @@ plus que le produit ne tient est pire que pas de politique du tout — c'est un
 engagement écrit qu'on ne respecte pas.
 
 ⚠️ UN TROU RESTE, signalé dans la page plutôt que rempli au hasard :
-l'adresse postale de la société.
+l'adresse postale de la société. — COMBLÉ le 31/08/2026.
 
 L'ÉTAT D'IMMATRICULATION EST COMBLÉ : Wyoming, confirmé par l'utilisateur le
 31/08/2026. La clause de droit applicable réserve expressément les protections
@@ -356,14 +356,19 @@ PRIVACY = {
     ],
 }
 
-# Ce bloc est affiché en bas des DEUX pages. Il dit ce qui manque plutôt que de
-# l'inventer : une adresse ou un État choisis au hasard seraient faux, et un
-# document juridique faux ne protège personne.
+# Ce bloc est affiché en bas des DEUX pages. Il a longtemps DIT ce qui manquait,
+# plutôt que de l'inventer — une adresse ou un État choisis au hasard auraient
+# été faux, et un document juridique faux ne protège personne.
+#
+# Il ne manque plus rien : l'État (Wyoming) et l'adresse ont été fournis les 30
+# et 31/08/2026. ⚠️ L'adresse est celle d'un AGENT ENREGISTRÉ, pas d'un bureau,
+# et la phrase le dit : personne ne doit croire qu'il y a un guichet à Sheridan.
+# Le nom de la variable reste MANQUE pour ne pas casser gen_legal.py.
 MANQUE = {
-    "en": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. A postal address and the state of incorporation, which decides the governing law, are still to be added here.",
-    "fr": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Une adresse postale et l'État d'immatriculation, qui décide du droit applicable, restent à ajouter ici.",
-    "ht": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Yon adrès postal ak Eta kote sosyete a anrejistre, ki deside ki lwa ki aplike, rete pou ajoute isit la.",
-    "es": "Atmart LLC — <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>. Falta añadir aquí una dirección postal y el estado de constitución, que decide la ley aplicable.",
+    "en": "Atmart LLC, a Wyoming limited liability company — 30 N Gould St Ste R, Sheridan, WY 82801, United States. That is the company's registered address, not a front desk: to reach a person, write to <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
+    "fr": "Atmart LLC, société à responsabilité limitée du Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, États-Unis. C'est l'adresse enregistrée de la société, pas un guichet : pour joindre quelqu'un, écrivez à <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
+    "ht": "Atmart LLC, yon konpayi a responsablite limite nan Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Etazini. Se adès legal konpayi a, se pa yon biwo kote ou ka pase : pou pale ak yon moun, ekri <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
+    "es": "Atmart LLC, sociedad de responsabilidad limitada de Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Estados Unidos. Es la dirección registrada de la empresa, no una oficina de atención: para hablar con una persona, escribe a <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
 }
 
 MAJ_LBL = {
