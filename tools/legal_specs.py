@@ -361,14 +361,21 @@ PRIVACY = {
 # été faux, et un document juridique faux ne protège personne.
 #
 # Il ne manque plus rien : l'État (Wyoming) et l'adresse ont été fournis les 30
-# et 31/08/2026. ⚠️ L'adresse est celle d'un AGENT ENREGISTRÉ, pas d'un bureau,
-# et la phrase le dit : personne ne doit croire qu'il y a un guichet à Sheridan.
+# et 31/08/2026.
+#
+# ⚠️ LE COURRIER Y ARRIVE VRAIMENT — l'utilisateur paie la réexpédition. Ma
+# première rédaction disait « not a front desk: to reach a person, write to
+# sales@ », ce qui détournait d'un canal QUI FONCTIONNE. Dans des pages qui
+# expliquent comment exercer ses droits, décourager l'écrit est le mauvais sens :
+# une lettre laisse une trace datée, un courriel finit dans les indésirables.
+# Ce qui reste vrai, c'est qu'on ne peut pas s'y présenter.
+#
 # Le nom de la variable reste MANQUE pour ne pas casser gen_legal.py.
 MANQUE = {
-    "en": "Atmart LLC, a Wyoming limited liability company — 30 N Gould St Ste R, Sheridan, WY 82801, United States. That is the company's registered address, not a front desk: to reach a person, write to <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
-    "fr": "Atmart LLC, société à responsabilité limitée du Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, États-Unis. C'est l'adresse enregistrée de la société, pas un guichet : pour joindre quelqu'un, écrivez à <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
-    "ht": "Atmart LLC, yon konpayi a responsablite limite nan Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Etazini. Se adès legal konpayi a, se pa yon biwo kote ou ka pase : pou pale ak yon moun, ekri <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
-    "es": "Atmart LLC, sociedad de responsabilidad limitada de Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Estados Unidos. Es la dirección registrada de la empresa, no una oficina de atención: para hablar con una persona, escribe a <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a>.",
+    "en": "Atmart LLC, a Wyoming limited liability company — 30 N Gould St Ste R, Sheridan, WY 82801, United States. <strong>Mail sent there reaches us.</strong> It is a registered address and not an office open to visitors, so please do not call in person; for anything urgent, <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a> is faster.",
+    "fr": "Atmart LLC, société à responsabilité limitée du Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, États-Unis. <strong>Le courrier envoyé là nous parvient.</strong> C'est une adresse d'immatriculation et non un bureau ouvert au public : ne vous y déplacez pas ; pour ce qui presse, <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a> va plus vite.",
+    "ht": "Atmart LLC, yon konpayi a responsablite limite nan Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Etazini. <strong>Lèt ou voye la rive jwenn nou.</strong> Se yon adès anrejistreman, se pa yon biwo ki ouvè pou piblik la : pa al la an pwòp ; si bagay la prese, <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a> pi rapid.",
+    "es": "Atmart LLC, sociedad de responsabilidad limitada de Wyoming — 30 N Gould St Ste R, Sheridan, WY 82801, Estados Unidos. <strong>El correo enviado allí nos llega.</strong> Es una dirección registrada y no una oficina abierta al público: no te presentes en persona; para lo urgente, <a href=\"mailto:sales@atmart.ltd\" style=\"color:#2ec4b6\">sales@atmart.ltd</a> es más rápido.",
 }
 
 MAJ_LBL = {
