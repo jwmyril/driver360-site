@@ -360,6 +360,64 @@ def poser_versions(s):
     return _APPEL.sub(un, s)
 
 
+# LES DONNEES STRUCTUREES (G12).
+#
+# ⚠️ CE QUI EST ICI EST FACTUEL, ET RIEN D'AUTRE. Un balisage schema.org est
+# lu par une machine qui le croit : c'est precisement pour cela qu'il ne faut
+# y mettre que ce qu'on peut prouver.
+#
+# CE QU'ON N'AJOUTE PAS, ET POURQUOI :
+#  · `JobPosting` — ce serait un FAUX. jobs.html ne republie aucune annonce :
+#    elle renvoie sur la page de chaque employeur. Declarer des offres qu'on
+#    n'heberge pas, c'est mentir a Google dans un format fait pour etre cru,
+#    et c'est la premiere chose qu'un moteur sanctionne.
+#  · `Course` sur les deux coachs — defendable, mais cela range le produit
+#    dans une categorie d'organisme de formation dont le site se tient a
+#    distance partout ailleurs (« non affilie au RMV, preparation
+#    independante »). C'est un arbitrage, pas une evidence : il attend
+#    l'utilisateur.
+#
+# L'adresse est celle de l'immatriculation, la meme que les pages legales.
+ORGANISATION = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Driver360",
+  "legalName": "Atmart LLC",
+  "url": "https://driver360.atmart.ltd/",
+  "logo": "https://driver360.atmart.ltd/assets/brand/icon-512.png",
+  "image": "https://driver360.atmart.ltd/assets/brand/share-1200x630.jpg",
+  "email": "sales@atmart.ltd",
+  "description": "Who is hiring drivers in Massachusetts, a free driver pool, and preparation for the Class D road test and the 7D exam.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "30 N Gould St Ste R",
+    "addressLocality": "Sheridan",
+    "addressRegion": "WY",
+    "postalCode": "82801",
+    "addressCountry": "US"
+  },
+  "areaServed": { "@type": "State", "name": "Massachusetts" },
+  "availableLanguage": ["en", "es", "ht", "fr"],
+  "knowsLanguage": ["en", "es", "ht", "fr"]
+}
+</script>"""
+
+
+def poser_donnees_structurees(s, page):
+    """Organization, sur l'accueil seulement.
+
+    Repeter le meme bloc sur neuf pages n'apprend rien de plus a un moteur et
+    multiplie par neuf le risque qu'une correction en oublie une.
+    """
+    if page != "index.html" or "application/ld+json" in s:
+        return s
+    i = s.lower().find("</head>")
+    if i < 0:
+        return s
+    return s[:i] + "  " + ORGANISATION + "\n" + s[i:]
+
+
 def traiter(s, page=""):
     protege = []
 
@@ -378,7 +436,8 @@ def traiter(s, page=""):
     # que `poser_securite` calcule les empreintes SHA-256 des scripts et
     # pose la CSP. Inserer quoi que ce soit apres, et la CSP ne
     # correspondrait plus a la page.
-    return poser_securite(poser_versions(poser_theme(poser_social(s, page))))
+    return poser_securite(poser_versions(poser_theme(
+        poser_donnees_structurees(poser_social(s, page), page))))
 
 
 RESTE = re.compile(r"#[0-9a-fA-F]{3,6}\b|rgba?\([0-9]")

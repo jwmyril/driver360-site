@@ -46,11 +46,17 @@ ETAPES = [
     # pour personne — les visiteurs deja venus gardent l'ancienne page. Ce
     # garde-fou reposait sur ma memoire, et ma memoire a rate deux fois.
     ("gen_sitemap.py", [], "sitemap et dates de derniere modification", True),
+    # ⚠️ La doctrine des coachs LLM part vers un AUTRE depot (le Worker).
+    # C'est le prix d'une source unique : les listes de manoeuvres et de
+    # commandes vivaient en double, et le Worker etait reste a 12 et 20
+    # quand le site en avait 13 et 21.
+    ("gen_doctrine.py", [], "doctrine des coachs LLM", True),
     ("version_cache.py", [], "nom du cache du service worker", True),
     # --- a partir d'ici, on ne fabrique plus : on verifie ---
     ("version_cache.py", ["--verifier"], "le cache correspond au contenu", True),
     ("gen_sitemap.py", ["--verifier"], "le sitemap suit le contenu", True),
     ("verif_versions.py", [], "une seule cle de cache par ressource", True),
+    ("gen_doctrine.py", ["--verifier"], "le Worker suit la doctrine du site", True),
     ("appliquer_theme.py", ["--verifier"], "aucune couleur ecrite en dur", True),
     ("verif_actifs.py", [], "aucune reference locale sans fichier", True),
     ("verif_langue.py", [], "8 pages x 4 langues coherentes", True),
