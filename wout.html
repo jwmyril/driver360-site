@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-Yv6xvlavbBIY8wd+GsSop0gE7grM8I7f8gaCEzvipo0=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-KFKXSyVBbHMnF3HC6TiaO5KxrBbc+j0sasUFLXRI7BQ=' 'sha256-rCe+lK2HC1coUkf3KXWZ0JZCX9cULJPONr6TF0P4Yjs=' 'sha256-q0mhvZGt6evzglS2Gt/xmtML7sN/AhFcfUe0cSu46LM=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
@@ -60,7 +60,11 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .cf-ok{background:var(--d-vert-fond);border:1px solid var(--d-accent);color:var(--d-fort);border-radius:10px;padding:0.7rem 1.4rem;font:inherit;font-size:1rem;font-weight:600;cursor:pointer}
     .cf-fb{border-radius:10px;padding:0.8rem 1rem;margin-top:0.8rem;font-size:0.92rem;line-height:1.55;display:none}
     .cf-fb.good{background:var(--d-accent-fond);border:1px solid var(--d-accent-bord)}
-    .cf-fb.bad{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-fond)}
+    .cf-fb.bad{
+    .faq-q{border:1px solid var(--d-ligne);border-radius:10px;padding:0.7rem 0.9rem;margin:0 0 0.5rem;background:var(--d-surface)}
+    .faq-q summary{cursor:pointer;font-weight:600;color:var(--d-fort);line-height:1.5}
+    .faq-q[open] summary{margin-bottom:0.5rem}
+    .faq-r{color:var(--d-texte);line-height:1.7;font-size:0.95rem}background:var(--d-alerte-fond);border:1px solid var(--d-alerte-fond)}
     .cf-prog{color:var(--d-doux);font-size:0.82rem}
     .cf-msgs{max-height:45vh;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;padding:0.3rem 0.1rem}
     .cf-m{max-width:88%;padding:0.65rem 0.9rem;border-radius:13px;font-size:0.93rem;line-height:1.55;white-space:pre-wrap}
@@ -84,6 +88,83 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .cf-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:var(--d-fort);margin:0 0 0.3rem}
     .cf-formsub{font-size:0.85rem;color:var(--d-doux);margin:0 0 1.2rem;line-height:1.5}
   </style>
+  <!-- donnees structurees : gen_faq.py -->
+  <script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Can I bring an interpreter to the road test?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not as a right. The manual says an interpreter “may also be allowed” if the examiner so authorizes. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who can be my sponsor?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. A foreign licence is not eligible — the manual is explicit. Without a sponsor you are not given a Class D road test."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What can stop the test before it even starts?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many times can I take the road test?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No more than six in a 12-month period for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does Driver Coach guarantee I will pass?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It is independent preparation and it is not affiliated with the RMV. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears."
+   }
+  }
+ ]
+}</script>
+  <script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "Course",
+ "name": "Driver Coach — Massachusetts Class D road test",
+ "description": "Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV. La grille de fautes ci-dessous est <strong>la nôtre</strong> : le RMV ne publie aucun barème..",
+ "url": "https://driver360.atmart.ltd/wout.html",
+ "provider": {
+  "@type": "Organization",
+  "name": "Atmart LLC",
+  "url": "https://driver360.atmart.ltd/"
+ },
+ "teaches": [
+  "Massachusetts Class D road test",
+  "the examiner's English commands",
+  "the written permit exam"
+ ],
+ "inLanguage": [
+  "en",
+  "es",
+  "ht",
+  "fr"
+ ],
+ "isAccessibleForFree": true,
+ "hasCourseInstance": {
+  "@type": "CourseInstance",
+  "courseMode": "online",
+  "courseWorkload": "PT30M"
+ }
+}</script>
+  <!-- donnees structurees : gen_faq.py -->
 
   <link rel="canonical" href="https://driver360.atmart.ltd/wout.html" />
   <meta property="og:type" content="website" />
@@ -310,7 +391,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   </div>
 </section>
 
-<footer>
+
+  <section style="padding:0.5rem 0 1.6rem"><div class="container"><div id="cf-faq" style="max-width:860px"><h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Questions people actually ask</h2><details class='faq-q'><summary>Can I bring an interpreter to the road test?</summary><div class='faq-r'>Not as a right. The manual says an interpreter “may also be allowed” <strong>if the examiner so authorizes</strong>. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it.</div></details><details class='faq-q'><summary>Who can be my sponsor?</summary><div class='faq-r'>Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. <strong>A foreign licence is not eligible</strong> — the manual is explicit. Without a sponsor you are not given a Class D road test.</div></details><details class='faq-q'><summary>What can stop the test before it even starts?</summary><div class='faq-r'>Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed.</div></details><details class='faq-q'><summary>How many times can I take the road test?</summary><div class='faq-r'>No more than <strong>six in a 12-month period</strong> for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice.</div></details><details class='faq-q'><summary>Does Driver Coach guarantee I will pass?</summary><div class='faq-r'>No. It is independent preparation and it is <strong>not affiliated with the RMV</strong>. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears.</div></details></div></div></section>
+  <footer>
   <div class="container">
     <p style="font-size:.85rem;color:var(--d-doux)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
     <span data-d3="f_question">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
@@ -410,7 +493,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Préparation au test — basée sur vos séances notées par votre accompagnateur.",
         sess:"🚗 Séance avec sponsor",coach:"💬 Parler au coach",guide:"🖨 Guide du sponsor",res:"🏁 Résultat du test",
         ok:"✅ Bien fait",next:"Suivant ⏭",speak:"🔊 Voix de l'examinateur",
-        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",confirmDel:"Effacer définitivement votre dossier ? Cette action ne s'annule pas.",
+        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",confirmDel:"Effacer définitivement votre dossier ? Cette action ne s'annule pas.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Les questions qu'on nous pose vraiment</h2><details class='faq-q'><summary>Puis-je amener un interprète au test de conduite ?</summary><div class='faq-r'>Pas de plein droit. Le manuel dit qu'un interprète « peut être admis » <strong>si l'examinateur l'autorise</strong>. Demandez-le en réservant, et ne le supposez pas — travaillez les commandes anglaises tous les jours pour ne pas en dépendre.</div></details><details class='faq-q'><summary>Qui peut être mon accompagnateur ?</summary><div class='faq-r'>Quelqu'un de 21 ans ou plus, avec au moins un an d'expérience, titulaire d'un permis valide de son propre État américain. <strong>Un permis étranger n'est pas accepté</strong> — le manuel est explicite. Sans accompagnateur, on ne vous fait pas passer le test Class D.</div></details><details class='faq-q'><summary>Qu'est-ce qui peut arrêter le test avant même qu'il commence ?</summary><div class='faq-r'>Arriver en retard. Une demande de test incomplète, ou l'absence d'autorisation parentale si vous avez moins de 18 ans. Un véhicule refusé par l'examinateur : frein à main inaccessible, roue galette, plaque « repair », ou aides à la conduite qu'on ne peut pas désactiver. Des enfants ou des animaux dans la voiture — les chiens d'assistance sont admis.</div></details><details class='faq-q'><summary>Combien de fois puis-je passer le test de conduite ?</summary><div class='faq-r'>Pas plus de <strong>six fois sur 12 mois</strong> pour un permis Class D. Les 35 $ sont redus si vous échouez, êtes mal préparé, êtes refusé pour le véhicule, venez sans accompagnateur, arrivez en retard ou pas du tout, ou annulez à moins de 72 heures.</div></details><details class='faq-q'><summary>Driver Coach garantit-il que je vais réussir ?</summary><div class='faq-r'>Non. C'est une préparation indépendante, <strong>non affiliée au RMV</strong>. Le RMV ne publie aucun barème : personne ne peut vous dire exactement ce que compte l'examinateur — notre grille de fautes est la nôtre, et nous l'écrivons partout où elle apparaît.</div></details>",
         good:"Parfait ! Manœuvre propre — on la refixera pour la stabilité.",
         badF:"⛔ Éliminatoire dans notre grille : ",badm:"⚠️ Erreur mineure dans notre grille : ",
         redo:"Corrigez et refaites-la maintenant, puis passez à la suite.",
@@ -427,7 +510,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Nivo preparasyon ou — baze sou seyans akonpayatè ou note yo.",
         sess:"🚗 Seyans ak sponsor",coach:"💬 Pale ak coach la",guide:"🖨 Gid sponsor a",res:"🏁 Rezilta tès la",
         ok:"✅ Byen fèt",next:"Pwochen ⏭",speak:"🔊 Vwa egzaminatè a",
-        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",confirmDel:"Efase dosye w nèt ? Ou pa ka defèt aksyon sa a.",
+        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",confirmDel:"Efase dosye w nèt ? Ou pa ka defèt aksyon sa a.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Kesyon moun poze nou tout bon</h2><details class='faq-q'><summary>Ès ke m ka vini ak yon entèprèt nan tès kondwi a ?</summary><div class='faq-r'>Se pa yon dwa. Manyèl la di yon entèprèt « ka aksepte » <strong>si egzaminatè a otorize l</strong>. Mande sa lè w ap pran randevou, epi pa sipoze l — travay kòmand angle yo chak jou pou w pa depann de li.</div></details><details class='faq-q'><summary>Kilès ki ka akonpaye m ?</summary><div class='faq-r'>Yon moun 21 an oswa plis, ak omwen yon ane eksperyans, ki gen yon pèmi valid nan pwòp Eta ameriken li. <strong>Yon pèmi etranje pa aksepte</strong> — manyèl la di l klè. San akonpayatè, yo p ap fè w pase tès Class D a.</div></details><details class='faq-q'><summary>Kisa ki ka kanpe tès la anvan menm li kòmanse ?</summary><div class='faq-r'>Rive an reta. Yon demann tès ki pa konplè, oswa san otorizasyon paran si w anba 18 an. Yon machin egzaminatè a refize : fren a men ki pa aksesib, yon kawotchou ti galèt, yon plak « repair », oswa èd kondwit ou pa ka dezaktive. Timoun oswa bèt nan machin nan — chen asistans aksepte.</div></details><details class='faq-q'><summary>Konbien fwa m ka pase tès kondwi a ?</summary><div class='faq-r'>Pa plis pase <strong>sis fwa nan 12 mwa</strong> pou yon pèmi Class D. 35 $ yo peye ankò si w echwe, si w pa prepare, si yo refize machin nan, si w vini san akonpayatè, si w an reta oswa ou pa vini, oswa si w anile a mwens pase 72 è.</div></details><details class='faq-q'><summary>Ès ke Driver Coach garanti m ap pase ?</summary><div class='faq-r'>Non. Se yon preparasyon endepandan, <strong>li pa afilye ak RMV la</strong>. RMV la pa pibliye okenn barèm : pèsòn pa ka di w egzakteman sa egzaminatè a konte — gril erè pa nou an se pa nou, epi nou di sa tout kote li parèt.</div></details>",
         good:"Bravo ! Manèv la pwòp — n ap refè l pou li vin solid.",
         badF:"⛔ Eliminatwa nan gril pa nou an : ",badm:"⚠️ Ti erè nan gril pa nou an : ",
         redo:"Korije epi refè l kounye a, apre sa pase sou pwochen an.",
@@ -444,7 +527,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Test readiness — based on sessions scored by your sponsor.",
         sess:"🚗 Session with sponsor",coach:"💬 Talk to the coach",guide:"🖨 Sponsor guide",res:"🏁 Test result",
         ok:"✅ Well done",next:"Next ⏭",speak:"🔊 Examiner's voice",
-        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",confirmDel:"Permanently erase your file? This cannot be undone.",
+        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",confirmDel:"Permanently erase your file? This cannot be undone.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Questions people actually ask</h2><details class='faq-q'><summary>Can I bring an interpreter to the road test?</summary><div class='faq-r'>Not as a right. The manual says an interpreter “may also be allowed” <strong>if the examiner so authorizes</strong>. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it.</div></details><details class='faq-q'><summary>Who can be my sponsor?</summary><div class='faq-r'>Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. <strong>A foreign licence is not eligible</strong> — the manual is explicit. Without a sponsor you are not given a Class D road test.</div></details><details class='faq-q'><summary>What can stop the test before it even starts?</summary><div class='faq-r'>Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed.</div></details><details class='faq-q'><summary>How many times can I take the road test?</summary><div class='faq-r'>No more than <strong>six in a 12-month period</strong> for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice.</div></details><details class='faq-q'><summary>Does Driver Coach guarantee I will pass?</summary><div class='faq-r'>No. It is independent preparation and it is <strong>not affiliated with the RMV</strong>. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears.</div></details>",
         good:"Great! Clean maneuver — we'll repeat it for stability.",
         badF:"⛔ Disqualifying in our grid: ",badm:"⚠️ Minor error in our grid: ",
         redo:"Correct it and redo it now, then move on.",
@@ -461,7 +544,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         ready:"Preparación para el examen — según las sesiones calificadas por tu acompañante.",
         sess:"🚗 Sesión con sponsor",coach:"💬 Hablar con el coach",guide:"🖨 Guía del sponsor",res:"🏁 Resultado del examen",
         ok:"✅ Bien hecho",next:"Siguiente ⏭",speak:"🔊 Voz del examinador",
-        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",confirmDel:"¿Borrar definitivamente tu expediente? Esto no se puede deshacer.",
+        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",confirmDel:"¿Borrar definitivamente tu expediente? Esto no se puede deshacer.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Las preguntas que de verdad nos hacen</h2><details class='faq-q'><summary>¿Puedo llevar un intérprete al examen de manejo?</summary><div class='faq-r'>No como derecho. El manual dice que un intérprete « puede ser admitido » <strong>si el examinador lo autoriza</strong>. Pregúntalo al reservar, y no lo des por hecho — practica las órdenes en inglés a diario para no depender de él.</div></details><details class='faq-q'><summary>¿Quién puede ser mi acompañante?</summary><div class='faq-r'>Alguien de 21 años o más, con al menos un año de experiencia y licencia válida de su propio estado. <strong>Una licencia extranjera no sirve</strong> — el manual es explícito. Sin acompañante no te hacen el examen Class D.</div></details><details class='faq-q'><summary>¿Qué puede parar el examen antes de empezar?</summary><div class='faq-r'>Llegar tarde. Una solicitud incompleta, o sin consentimiento parental si eres menor de 18. Un vehículo que el examinador rechaza: freno de mano inaccesible, rueda de galleta, placa « repair », o ayudas a la conducción que no se pueden desactivar. Niños o mascotas en el coche — los animales de servicio sí.</div></details><details class='faq-q'><summary>¿Cuántas veces puedo presentar el examen?</summary><div class='faq-r'>No más de <strong>seis en 12 meses</strong> para una licencia Class D. Los $35 se cobran otra vez si suspendes, no estás preparado, te rechazan el vehículo, vienes sin acompañante, llegas tarde o no vienes, o cancelas con menos de 72 horas.</div></details><details class='faq-q'><summary>¿Driver Coach garantiza que voy a aprobar?</summary><div class='faq-r'>No. Es una preparación independiente y <strong>no está afiliada al RMV</strong>. El RMV no publica ningún baremo: nadie puede decirte exactamente qué cuenta el examinador — nuestra tabla de faltas es nuestra, y lo decimos en cada pantalla donde aparece.</div></details>",
         good:"¡Perfecto! Maniobra limpia — la repetiremos para afianzarla.",
         badF:"⛔ Eliminatorio en nuestra tabla: ",badm:"⚠️ Error menor en nuestra tabla: ",
         redo:"Corrígelo y repítelo ahora, luego sigue.",
@@ -487,7 +570,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     var v7=document.getElementById("cf-vers7d"); if(v7&&t.vers7d) v7.innerHTML=t.vers7d;
     var sw=document.getElementById("cf-sponsor"); if(sw&&t.sponsorWarn) sw.innerHTML=t.sponsorWarn;
     document.getElementById("cf-note").textContent=t.note;
-    var av=document.getElementById("cf-avant"); if(av&&t.avantTxt) av.innerHTML=t.avantTxt;
+    var av=document.getElementById("cf-avant");
+    var fq=document.getElementById("cf-faq"); if(fq&&t.faqTxt) fq.innerHTML=t.faqTxt; if(av&&t.avantTxt) av.innerHTML=t.avantTxt;
     document.getElementById("cf-ready-label").textContent=t.ready;
     document.getElementById("cf-session-btn").textContent=t.sess;
     document.getElementById("cf-coach-btn").textContent=t.coach;

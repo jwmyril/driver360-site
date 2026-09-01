@@ -40,6 +40,9 @@ ETAPES = [
     ("regen.py", [], "pages derivees d'atmart.ltd + fichiers de donnees", True),
     ("gen_emplois.py", [], "page des offres", True),
     ("gen_legal.py", [], "conditions et confidentialite", True),
+    # Apres regen (donc apres le passage a l'anglais) et AVANT
+    # appliquer_theme : le balisage est deduit du texte VISIBLE.
+    ("gen_faq.py", [], "FAQ et Course, deduits du visible", True),
     ("appliquer_theme.py", [], "jetons de couleur, theme, CSP", True),
     # Le nom du cache se calcule APRES que tout est ecrit : il est l'empreinte
     # de ce qui sera reellement servi. Oublier de le changer, c'est publier
@@ -57,6 +60,7 @@ ETAPES = [
     ("gen_sitemap.py", ["--verifier"], "le sitemap suit le contenu", True),
     ("verif_versions.py", [], "une seule cle de cache par ressource", True),
     ("gen_doctrine.py", ["--verifier"], "le Worker suit la doctrine du site", True),
+    ("gen_faq.py", ["--verifier"], "le balisage FAQ suit la page", True),
     ("appliquer_theme.py", ["--verifier"], "aucune couleur ecrite en dur", True),
     ("verif_actifs.py", [], "aucune reference locale sans fichier", True),
     ("verif_langue.py", [], "8 pages x 4 langues coherentes", True),
