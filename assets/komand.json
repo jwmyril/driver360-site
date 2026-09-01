@@ -136,10 +136,11 @@
    "fr": "Au panneau stop, tournez à droite.",
    "ht": "Nan panno STOP la, vire adwat.",
    "es": "En la señal de alto, gire a la derecha.",
-   "do_fr": "Arrêt COMPLET avant la ligne. Les roues cessent de tourner. Comptez trois secondes.",
-   "do_ht": "Kanpe NÈT anvan liy lan. Wou yo sispann vire. Konte twa segonn.",
-   "do_en": "COMPLETE stop before the line. Wheels stop moving. Count three seconds.",
-   "do_es": "Alto TOTAL antes de la línea. Las ruedas se detienen. Cuente tres segundos."
+   "do_fr": "Arrêt COMPLET avant le passage piéton ou la ligne, puis cédez le passage. Le manuel est net : « ralentir ne suffit pas ». Compter jusqu'à trois est notre truc pour sentir l'arrêt — ce n'est pas une règle.",
+   "do_ht": "Kanpe NÈT anvan pasaj pyeton an oswa liy lan, epi bay pasaj. Manyèl la di l klè : « ralanti pa ase ». Konte jiska twa se ti mwayen pa nou pou w santi arè a — se pa yon règ.",
+   "do_en": "COMPLETE stop before the crosswalk or the stop line, then yield. The manual is blunt: “just slowing down is not enough”. Counting to three is our own trick to feel the stop — it is not a rule.",
+   "do_es": "Alto TOTAL antes del paso de peatones o la línea, y luego ceda el paso. El manual es tajante: « reducir no basta ». Contar hasta tres es un truco nuestro para sentir la parada — no es una regla.",
+   "verif": "a-relire-2026-08-31"
   },
   {
    "id": "k10",
@@ -175,10 +176,11 @@
    "fr": "Attention à votre vitesse. / Ralentissez.",
    "ht": "Veye vitès ou. / Ralanti.",
    "es": "Cuidado con la velocidad. / Reduzca.",
-   "do_fr": "Levez le pied tout de suite, sans freiner brusquement. C'est un avertissement, pas encore une faute.",
-   "do_ht": "Leve pye ou touswit, san frennen brip. Se yon avètisman, se poko yon fot.",
-   "do_en": "Ease off at once, no hard braking. It's a warning, not yet a failure.",
-   "do_es": "Levante el pie de inmediato, sin frenar bruscamente. Es un aviso, aún no una falta."
+   "do_fr": "Levez le pied tout de suite, sans freiner brusquement. C'est l'AVERTISSEMENT qui n'est pas la faute — dépasser la limite, si : c'est éliminatoire dans notre grille. N'attendez pas qu'on vous le dise deux fois.",
+   "do_ht": "Leve pye ou touswit, san frennen brip. Se AVÈTISMAN an ki pa yon fot — men depase limit la, wi : li eliminatwa nan gril pa nou an. Pa tann yo di w li de fwa.",
+   "do_en": "Ease off at once, no hard braking. The WARNING is not the fault — but going over the limit is disqualifying in our grid, so do not wait to be told twice.",
+   "do_es": "Levante el pie de inmediato, sin frenar bruscamente. El AVISO no es la falta — pero pasarse del límite sí: es eliminatorio en nuestra tabla. No espere a que se lo digan dos veces.",
+   "verif": "a-relire-2026-08-31"
   },
   {
    "id": "k13",
@@ -240,10 +242,11 @@
    "fr": "Faites un créneau derrière ce véhicule.",
    "ht": "Pake an paralèl dèyè machin sa a.",
    "es": "Estacione en paralelo detrás de ese vehículo.",
-   "do_fr": "Alignez vos rétroviseurs sur les siens, un mètre d'écart. Reculez en braquant à droite, puis redressez, puis à gauche.",
-   "do_ht": "Aliyen miwa ou yo ak pa l yo, yon mèt distans. Fè bak ap vire adwat, apre sa drese, apre sa agoch.",
-   "do_en": "Line your mirrors up with theirs, about three feet apart. Reverse turning right, straighten, then left.",
-   "do_es": "Alinee sus espejos con los suyos, a un metro. Retroceda girando a la derecha, enderece, luego izquierda."
+   "do_fr": "Placez-vous à côté, à DEUX OU TROIS pieds, pare-chocs arrière alignés. Puis regardez droit par la lunette arrière — le manuel dit N'UTILISEZ PAS VOS RÉTROVISEURS. Une fois garé, pas plus de 12 pouces du trottoir.",
+   "do_ht": "Mete w akote, a DE OSWA TWA pye, pa-chòk deyè yo aliyen. Apre sa gade dirèk nan vit deyè a — manyèl la di PA SÈVI AK RETWOVIZÈ OU YO. Lè w fin pake, pa plis pase 12 pous ak twotwa a.",
+   "do_en": "Pull up alongside, TWO OR THREE feet apart, rear bumpers level. Then look directly out your rear window — the manual says DO NOT USE YOUR MIRRORS. Once parked, no more than 12 inches from the curb.",
+   "do_es": "Colóquese al lado, a DOS O TRES pies, parachoques traseros alineados. Luego mire directamente por la luneta trasera — el manual dice NO USE LOS ESPEJOS. Ya estacionado, no más de 12 pulgadas de la acera.",
+   "verif": "a-relire-2026-08-31"
   },
   {
    "id": "k18",
@@ -253,10 +256,11 @@
    "fr": "Garez-vous dans la côte. Braquez vos roues.",
    "ht": "Pake nan mòn nan. Vire wou ou yo.",
    "es": "Estacione en la cuesta. Gire las ruedas.",
-   "do_fr": "En descente : roues VERS le trottoir. En montée avec trottoir : roues VERS L'EXTÉRIEUR. Toujours le frein à main.",
-   "do_ht": "Nan desann : wou yo VÈ twotwa a. Nan monte ak twotwa : wou yo VÈ DEYÒ. Toujou mete fren a men an.",
-   "do_en": "Downhill: wheels TOWARD the curb. Uphill with a curb: wheels AWAY. Always set the parking brake.",
-   "do_es": "Bajada: ruedas HACIA la acera. Subida con acera: ruedas HACIA AFUERA. Siempre el freno de mano."
+   "do_fr": "TROIS cas, et celui qu'on rate est le troisième. En descente contre un trottoir : roues vers le trottoir. En montée contre un trottoir : roues vers l'extérieur, vers la chaussée. SANS TROTTOIR, dans les deux sens : roues vers l'intérieur, vers le bord de la route. Automatique : frein à main ET position P.",
+   "do_ht": "TWA ka, epi sa moun rate a se twazyèm nan. Nan desann kont yon twotwa : wou yo vè twotwa a. Nan monte kont yon twotwa : wou yo vè deyò, vè lari a. SAN TWOTWA, nan de sans yo : wou yo vè anndan, vè bò wout la. Otomatik : fren a men AK pozisyon P.",
+   "do_en": "THREE cases, and the one people miss is the third. Downhill against a curb: wheels toward the curb. Uphill against a curb: wheels outward, toward the travel lane. NO CURB, either way: wheels inward, toward the edge of the road. Automatic: parking brake AND shift into P.",
+   "do_es": "TRES casos, y el que se falla es el tercero. Bajada contra la acera: ruedas hacia la acera. Subida contra la acera: ruedas hacia afuera, hacia la calzada. SIN ACERA, en ambos sentidos: ruedas hacia adentro, hacia el borde. Automático: freno de mano Y posición P.",
+   "verif": "a-relire-2026-08-31"
   },
   {
    "id": "k19",
@@ -283,6 +287,20 @@
    "do_ht": "Pèlen retou a : moun lage kò yo epi bliye yon siyal oswa yon STOP. Rete nan tès la jiskaske w kanpe nèt.",
    "do_en": "The return trap: people relax and miss a signal or a stop. Stay in test mode until you're fully parked.",
    "do_es": "La trampa del regreso: uno se relaja y olvida una señal o un alto. Siga en modo examen hasta parar del todo."
+  },
+  {
+   "id": "k21",
+   "m": "b8",
+   "p": "wout",
+   "en": "Stop here on the hill, then start again when it's safe.",
+   "fr": "Arrêtez-vous ici dans la côte, puis repartez quand c'est sûr.",
+   "ht": "Kanpe la nan mòn nan, epi redemare lè li san danje.",
+   "es": "Deténgase aquí en la cuesta, luego arranque cuando sea seguro.",
+   "do_en": "The examiner watches ONE thing: does the car roll back. Right foot brake to gas without a gap, or use the parking brake. Rolling into the car behind is the fault that counts.",
+   "do_fr": "L'examinateur regarde UNE chose : est-ce que la voiture recule. Passez du frein au gaz sans temps mort, ou servez-vous du frein à main. Reculer sur la voiture de derrière, c'est la faute qui compte.",
+   "do_ht": "Egzaminatè a ap gade YON sèl bagay : ès ke machin nan rekile. Sot sou fren an al sou gaz la san rete, oswa sèvi ak fren a men an. Rekile sou machin ki dèyè a, se fot ki konte a.",
+   "do_es": "El examinador mira UNA cosa: si el coche retrocede. Pase del freno al acelerador sin pausa, o use el freno de mano. Retroceder sobre el coche de atrás es la falta que cuenta.",
+   "verif": "a-relire-2026-08-31"
   }
  ]
 }
