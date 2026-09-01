@@ -14,7 +14,7 @@
   <meta name="description" content="Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=32" />
+  <link rel="stylesheet" href="assets/style.css?v=33" />
   <link rel="stylesheet" href="assets/theme.css?v=6" />
 <script>/* fond clair/sombre — avant le premier affichage */
 (function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
@@ -73,7 +73,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
     <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--d-accent);font-weight:600;text-decoration:none;font-size:.9rem">Driver Pool</a></li>
@@ -105,7 +105,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       </div>
 
       <form class="rj-card" id="rj-form">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t1">1. About you</h3>
+        <h2 style="font-size:1.17rem;margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t1">1. About you</h2>
         <label for="rj-name" id="L-name">Your full name</label>
         <input type="text" id="rj-name" maxlength="80" />
         <label for="rj-phone" id="L-phone">Phone (WhatsApp)</label>
@@ -122,7 +122,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <option value="pending">⏳ In process / applied</option>
         </select>
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t2">2. Your licenses</h3>
+        <h2 style="font-size:1.17rem;margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t2">2. Your licenses</h2>
         <label id="L-lic">Check what you already hold<small>At least one is required to join the pool.</small></label>
         <div class="rj-checks" id="rj-lic">
           <label class="rj-chk"><input type="checkbox" value="classd" /> <span>🚗 Class D</span></label>
@@ -134,7 +134,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <label for="rj-years" id="L-years">Years of professional driving experience</label>
         <input type="number" id="rj-years" min="0" max="60" />
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t3">3. What you are looking for</h3>
+        <h2 style="font-size:1.17rem;margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t3">3. What you are looking for</h2>
         <label id="L-seek">Types of transport that interest you</label>
         <div class="rj-checks" id="rj-seek">
           <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 School transport</span></label>
@@ -166,13 +166,13 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 I want my file sent straight to subscribed employers</span></label>
         </div>
 
-        <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem" id="rj-t5">4. Your CV (optional)</h3>
+        <h2 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem" id="rj-t5">4. Your CV (optional)</h2>
         <label for="rj-cv" id="L-cv">Link to your CV<small>A Google Drive, LinkedIn or Indeed link… An employer sees it only after selecting you. No CV? <a href="https://360.atmart.ltd/entevyou.html" target="_blank" rel="noopener" style="color:var(--d-accent)">Make one free with Entèvyou360</a>.</small></label>
         <input type="url" id="rj-cv" maxlength="300" placeholder="https://..." />
         <label for="rj-resume" id="L-resume">Or sum up your experience in a few lines<small>What you have driven, where, and for how long. Useful if you have no document yet.</small></label>
         <textarea id="rj-resume" maxlength="1200" style="min-height:80px"></textarea>
 
-        <div id="rj-pend" class="rj-hide" style="background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem">
+        <div id="rj-pend" class="rj-hide" style="background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem" role="log" aria-live="polite" aria-relevant="additions">
           <p style="margin:0 0 0.7rem;font-size:0.95rem;color:var(--d-fort);font-weight:600" id="rj-pend-t">Un employeur demande votre accord</p>
           <div id="rj-pend-list"></div>
         </div>
@@ -192,12 +192,12 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <button type="submit" class="btn btn-primary" id="rj-go">Join the pool (free)</button>
           <button type="button" class="btn btn-outline" id="rj-have">I already have a code</button>
         </div>
-        <p class="rj-status" id="rj-st"></p>
+        <p class="rj-status" id="rj-st" role="status" aria-live="polite"></p>
       </form>
 
       <!-- retrouver / modifier / retirer -->
       <form class="rj-card rj-hide" id="rj-manage">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t4">Edit or withdraw my registration</h3>
+        <h2 style="font-size:1.17rem;margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t4">Edit or withdraw my registration</h2>
         <label for="rj-code" id="L-code2">Your personal code</label>
         <input type="text" id="rj-code" maxlength="24" placeholder="DRV-XXXX-XXXX" />
         <div id="rj-statusbox" class="rj-hide" style="background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:10px;padding:1rem;margin-top:1rem">
@@ -213,7 +213,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <button type="button" class="btn btn-outline" id="rj-del" style="border-color:var(--d-alerte-fond)">🗑 Withdraw from the pool</button>
           <button type="button" class="btn btn-outline" id="rj-back">← Back</button>
         </div>
-        <p class="rj-status" id="rj-st2"></p>
+        <p class="rj-status" id="rj-st2" role="status" aria-live="polite"></p>
       </form>
 
     </div>
@@ -678,7 +678,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   });
 })();
 </script>
-<script src="assets/suite.js?v=5"></script>
+<script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

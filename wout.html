@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-NRyiM3CNDXfu9C38spWuUrdNe+HyMFA9XXFP2wvaFU8=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-GZDe3lz7PG2SefflSvP4RASVR+jDoZ2cUsisQHiaY1A=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
-  <link rel="stylesheet" href="assets/style.css?v=32" />
+  <link rel="stylesheet" href="assets/style.css?v=33" />
   <link rel="stylesheet" href="assets/theme.css?v=6" />
 <script>/* fond clair/sombre — avant le premier affichage */
 (function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
@@ -79,7 +79,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .cf-feat{background:var(--d-surface);border:1px solid var(--d-surface-2);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
     .cf-feat:hover{border-color:var(--d-accent-bord)}
     .cf-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
-    .cf-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.02rem}
+    .cf-feat h2{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.02rem}
     .cf-feat p{margin:0;font-size:0.87rem;color:var(--d-doux);line-height:1.55}
     .cf-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:var(--d-fort);margin:0 0 0.3rem}
     .cf-formsub{font-size:0.85rem;color:var(--d-doux);margin:0 0 1.2rem;line-height:1.5}
@@ -104,7 +104,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
     <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
@@ -139,13 +139,13 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
       <div class="cf-feats">
         <div class="cf-feat"><span class="ic">🚗</span>
-          <h4 id="cf-f1t">Session Mode</h4>
+          <h2 id="cf-f1t">Session Mode</h2>
           <p id="cf-f1d">The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.</p></div>
         <div class="cf-feat"><span class="ic">💬</span>
-          <h4 id="cf-f2t">Personal coach</h4>
+          <h2 id="cf-f2t">Personal coach</h2>
           <p id="cf-f2d">It remembers your sessions, targets your weak points and gives you one short drill every day.</p></div>
         <div class="cf-feat"><span class="ic">🖨</span>
-          <h4 id="cf-f3t">Sponsor's guide</h4>
+          <h2 id="cf-f3t">Sponsor's guide</h2>
           <p id="cf-f3d">Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.</p></div>
       <div class="cf-feat" style="grid-column:1/-1" id="cf-avant"><strong>Before you drive a single metre — what sends people home</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Arrive about <strong>15 minutes early</strong>. Late means no test.</li><li>A completed road test application — with the parental consent section filled in if you are under 18 — and your learner's permit.</li><li><strong>A qualified sponsor</strong>: 21 or over, one year of driving experience, and a valid licence from their own US state. <strong>A foreign licence is not eligible.</strong> No sponsor, no test.</li><li>A vehicle that passes the examiner's inspection: registered, inspected, safe, with a clean and adequate seat for the examiner and a rear seat for your sponsor.</li><li><strong>An accessible parking brake</strong> — the examiner must be able to stop the car. A centrally located one is safest; some minivans are rejected for this alone.</li><li>No <strong>donut</strong> spare tire. No repair plate. No dealer plate unless you are the dealer, their spouse, or a salesperson there.</li><li>Back-up camera, parking sensors, automatic parallel park, GPS-guided driving: <strong>turned off</strong>.</li><li>Out-of-state plates: proof of insurance at Massachusetts minimums ($20,000/$40,000 bodily injury, $5,000 property). A rental also needs the rental agreement and a letter from the company authorising a road test.</li><li><strong>No children, no pets.</strong> Service animals are allowed. Only you, the examiner and your sponsor are in the car, and you may not talk to your sponsor unless the examiner allows it.</li><li><strong>An interpreter is not a right.</strong> The manual says one may be allowed “if the examiner so authorizes”. Ask when you book — do not assume.</li><li>Under 18: a clean driving record for the <strong>six months</strong> before you apply, and it must stay clean until test day.</li><li>Six road tests maximum in 12 months. The <strong>$35</strong> is charged again if you fail, are unprepared, are refused over the vehicle, bring no sponsor, are late or absent, or cancel with less than 72 hours notice.</li></ul></div>
       </div>
@@ -177,7 +177,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <input type="text" id="cf-nat" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Open my coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Try 5 free questions</button></div>
-        <p class="cf-status" id="cf-st1"></p>
+        <p class="cf-status" id="cf-st1" role="status" aria-live="polite"></p>
       </form>
 
       <!-- ecran 2 : tableau de bord -->
@@ -212,17 +212,17 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <button class="btn btn-outline" id="cf-nextbtn">Next ⏭</button>
         </div>
         <div class="cf-fb" id="cf-fb"></div>
-        <p class="cf-status" id="cf-st3"></p>
+        <p class="cf-status" id="cf-st3" role="status" aria-live="polite"></p>
       </div>
 
       <!-- ecran 4 : chat coach -->
       <div class="cf-card cf-hide" id="cf-chat">
-        <div class="cf-msgs" id="cf-msgs"></div>
+        <div class="cf-msgs" id="cf-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>
         <div class="cf-row">
-          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…" aria-label="Votre message au coach"></textarea>
           <button class="btn btn-primary" id="cf-send">Send</button>
         </div>
-        <p class="cf-status" id="cf-st4"></p>
+        <p class="cf-status" id="cf-st4" role="status" aria-live="polite"></p>
       </div>
 
       <!-- ecran 5 : resultats officiels -->
@@ -237,7 +237,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <button class="btn btn-outline" data-k="road" data-r="pass">✅ Réussi</button>
           <button class="btn btn-outline" data-k="road" data-r="fail">❌ Échoué</button>
           <span class="cf-small" id="cf-out-r-state"></span></div>
-        <p class="cf-status" id="cf-st5"></p>
+        <p class="cf-status" id="cf-st5" role="status" aria-live="polite"></p>
         <p id="cf-bridge" class="cf-hide" style="background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:10px;padding:0.8rem 1rem;font-size:0.9rem;line-height:1.6">🎉 <span id="cf-bridge-txt">Congratulations! Next step: your first 90 days on the job.</span> <a href="https://atmart.ltd/karye360.html" style="color:var(--d-accent);font-weight:600">Career360 →</a></p>
       </div>
 
@@ -250,7 +250,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <div class="cf-actions">
           <button class="btn btn-primary cf-hide" id="qz-next">Next ⏭</button>
         </div>
-        <p class="cf-status" id="qz-st"></p>
+        <p class="cf-status" id="qz-st" role="status" aria-live="polite"></p>
       </div>
 
       <!-- guide sponsor imprimable -->
@@ -517,7 +517,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     setLabel("L-nat",t.nat,t.natS);
     setTxt("cf-go",t.go); setTxt("cf-try",t.tryb); setTxt("cf-quiz-btn",t.quizBtn);
     setTxt("cf-privacy",t.privacy); setTxt("cf-erase",t.erase); setTxt("cf-send",t.send);
-    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP;
+    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP; if(ip&&t.inputP) ip.setAttribute("aria-label",t.inputP);
     setTxt("L-out-title",t.outTitle); setTxt("L-out-sub",t.outSub);
     setTxt("L-out-w",t.outW); setTxt("L-out-r",t.outR);
     document.querySelectorAll("#cf-outcome button[data-r=pass]").forEach(function(b){b.textContent=t.bpass;});
@@ -959,7 +959,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   });
 })();
 </script>
-<script src="assets/suite.js?v=5"></script>
+<script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

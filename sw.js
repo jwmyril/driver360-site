@@ -1,5 +1,5 @@
 // Driver360 — cache statique. Les appels au Worker passent toujours par le reseau.
-const CACHE = "driver360-3d9bebc3";  // v6 : donnees du coach, offres elargies, telechargement
+const CACHE = "driver360-b2667270";  // v6 : donnees du coach, offres elargies, telechargement
 const CORE = [
   "/", "/index.html", "/404.html", "/jobs.html", "/terms.html", "/privacy.html", "/wout.html", "/setdi.html", "/vivye.html", "/anplwaye.html",
   "/assets/style.css", "/assets/theme.css", "/assets/script.js",

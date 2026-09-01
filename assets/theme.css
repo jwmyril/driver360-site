@@ -287,3 +287,47 @@ footer a:hover,
   h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
   li, tr, .card, .cf-feat, .sd-feat { page-break-inside: avoid; break-inside: avoid; }
 }
+
+/* ------------------------------------------------------------- LISIBILITE
+ * F10 — LES LIENS DE CONTENU SE SOULIGNENT.
+ *
+ * `a { text-decoration: none }` est pose globalement dans style.css. Mesure du
+ * 30/08/2026 : un lien dans une phrase ressort a 1,92:1 et 1,71:1 contre le
+ * texte qui l'entoure, la ou le SC 1.4.1 demande 3:1 pour distinguer par la
+ * couleur SEULE. Autrement dit, quelqu'un qui distingue mal le vert du gris ne
+ * voyait pas qu'il y avait un lien.
+ *
+ * On souligne donc les liens QUI VIVENT DANS UNE PHRASE, et eux seuls : la
+ * navigation, les boutons et les cartes cliquables se signalent autrement
+ * (position, fond, bordure), et les souligner ferait du bruit. */
+p a, li a, td a, dd a, .footer-note a, .trn a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: from-font;
+}
+p a.btn, li a.btn, p a.prod-card, li a.atm-item { text-decoration: none; }
+
+/* F13 — le cadre du retour « mauvaise reponse ».
+ * `.cf-fb.bad` posait la meme couleur en fond ET en bordure : le cadre
+ * disparaissait, et le bloc qui annonce une erreur se confondait avec la
+ * page. C'est precisement celui qu'il faut voir. */
+.cf-fb.bad { border-color: var(--d-alerte-bord) !important; }
+
+/* F11 — les boutons-texte des outils du coach.
+ * Mesure : environ 21 px de haut, sous les 24 px du SC 2.5.8. Ils vivent dans
+ * une ligne de texte : les porter a 44 px casserait la ligne, donc on vise 24
+ * — c'est le seuil que la norme demande vraiment pour ce cas. */
+.sd-tools button, .cf-tools button {
+  min-height: 24px; padding: 0.3rem 0.2rem;
+}
+
+@media (max-width: 700px) {
+  /* F15 — UNE CASE A COCHER N'EST PAS UN CHAMP DE SAISIE.
+   * La regle `input, select, textarea { min-height: 44px }` les attrapait
+   * aussi : une case devenait un rectangle de 44 px de haut colle a son
+   * etiquette, et un bouton radio un ovale. On les ressort de la regle ; leur
+   * zone tactile vient de l'etiquette, qui est cliquable et large. */
+  input[type="checkbox"], input[type="radio"] {
+    min-height: auto; height: auto; width: auto;
+  }
+}

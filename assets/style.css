@@ -28,6 +28,12 @@ body {
 
 h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; }
 
+/* ⚠️ Trois regles Lojik360 ont ete retirees d'ici le 31/08/2026 :
+   .newsletter-form input:focus, .search-form input:focus et .acp-input:focus.
+   Aucune de ces classes n'existait plus dans les 9 pages — mais les trois
+   posaient outline:none SANS RIEN METTRE A LA PLACE. Inertes aujourd'hui,
+   armees pour le jour ou quelqu'un reutiliserait la classe : le contour de
+   focus aurait disparu sans que personne ne l'ait decide. */
 a { color: var(--teal); text-decoration: none; }
 a:hover { color: var(--amber); }
 
@@ -194,7 +200,7 @@ section { padding: 3.5rem 0; }
   background: var(--navy); border: 1px solid var(--border); border-radius: 999px;
   padding: 0.65rem 1.2rem; color: var(--ink); min-width: 280px; font-family: var(--font-body);
 }
-.newsletter-form input:focus { outline: none; border-color: var(--teal); }
+
 
 /* ===== Footer ===== */
 footer { border-top: 1px solid var(--border); padding: 2.5rem 0; margin-top: 2rem; }
@@ -216,7 +222,7 @@ footer a, footer p { color: var(--ink-dim); font-size: 0.88rem; }
   flex: 1; background: transparent; border: none; padding: 0.9rem 1.4rem;
   color: var(--ink); font-size: 1rem; font-family: var(--font-body);
 }
-.search-form input:focus { outline: none; }
+
 .search-form button {
   background: var(--teal); color: var(--navy); border: none; padding: 0 1.6rem;
   font-weight: 700; font-size: 1rem; cursor: pointer; font-family: var(--font-body);
@@ -574,7 +580,7 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .acp-typing{opacity:.6;font-size:1.2rem;letter-spacing:.15em}
 .acp-form{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--border)}
 .acp-input{flex:1;background:var(--navy);border:1px solid var(--border);border-radius:10px;color:var(--ink);padding:.55rem .7rem;font-size:.92rem;font-family:inherit}
-.acp-input:focus{outline:none;border-color:var(--teal)}
+
 .acp-send{background:var(--teal);color:var(--navy);border:none;border-radius:10px;padding:0 1rem;font-weight:600;cursor:pointer}
 .acp-send:hover{background:var(--amber)}
 .acp-disc{padding:.4rem 1rem .7rem;color:var(--ink-dim);font-size:.7rem;text-align:center}

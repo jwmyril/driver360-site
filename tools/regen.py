@@ -146,7 +146,7 @@ def entete(actif, cote=None):
     return ('<header>' + NL + '  <nav class="nav" style="display:flex;align-items:center;'
             'justify-content:space-between;flex-wrap:wrap;gap:.6rem">' + NL
             + '    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" '
-              'alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>' + NL
+              'alt="" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>' + NL
             + '    <button type="button" class="nav-toggle" id="d3-menu" '
               'aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">\u2630</button>' + NL
             + '    <ul class="nav-links" id="d3-nav">' + NL
@@ -220,7 +220,7 @@ def transformer(src_nom, dst_nom, cote):
     # etre charge sur TOUTES les pages, sinon la page reste dans la langue
     # ecrite en dur pendant que son corps change — le melange exact que
     # l'utilisateur a signale le 30/08/2026.
-    s = s.replace("</body>", '<script src="assets/suite.js?v=5"></script>\n'
+    s = s.replace("</body>", '<script src="assets/suite.js?v=6"></script>\n'
                   '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>\n</body>')
 
     # 3. les liens internes : ceux de la suite deviennent relatifs, les autres
@@ -289,7 +289,17 @@ def transformer(src_nom, dst_nom, cote):
 
     # 4. la porte employeur dit la verite avant de montrer des viviers vides
     if cote == "employeur":
-        s = s.replace("</header>", "</header>" + chr(10) + APPEL_EMPLOYEUR, 1)
+        # ⚠️ APRES LE HERO, PAS AVANT. Insere juste apres </header>, ce
+        # bandeau posait un <h2> AVANT le <h1> de la page : la table des
+        # matieres qu'un lecteur d'ecran construit commencait au niveau 2,
+        # puis remontait au niveau 1. Il reste tout en haut du contenu — il
+        # dit une chose que l'employeur doit lire avant de cliquer — mais
+        # apres le titre qui annonce de quelle page il s'agit.
+        m1 = re.search(r"</section>", s)
+        if m1:
+            s = s[:m1.end()] + chr(10) + APPEL_EMPLOYEUR + s[m1.end():]
+        else:
+            s = s.replace("</header>", "</header>" + chr(10) + APPEL_EMPLOYEUR, 1)
 
     # 5. le manifeste de la suite
     s = s.replace('<link rel="manifest" href="manifest.webmanifest" />',

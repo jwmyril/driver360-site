@@ -50,6 +50,7 @@ ETAPES = [
     # --- a partir d'ici, on ne fabrique plus : on verifie ---
     ("version_cache.py", ["--verifier"], "le cache correspond au contenu", True),
     ("gen_sitemap.py", ["--verifier"], "le sitemap suit le contenu", True),
+    ("verif_versions.py", [], "une seule cle de cache par ressource", True),
     ("appliquer_theme.py", ["--verifier"], "aucune couleur ecrite en dur", True),
     ("verif_actifs.py", [], "aucune reference locale sans fichier", True),
     ("verif_langue.py", [], "8 pages x 4 langues coherentes", True),

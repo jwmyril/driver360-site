@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-OtZnu3L+HBHUtf/EBktDZshqHThifDrjmtnXGsluY9o=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-XNWhcXRlm/LfNuTLnptJrQKNQO0BXzLN903Z5HsC2hg=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -14,7 +14,7 @@
   <meta name="description" content="7D Pro: prepare for the Massachusetts school pupil transport (7D) written exam, built on the official RMV manual. It quizzes you one question at a time and knows the classic traps. Not affiliated with the RMV." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=32" />
+  <link rel="stylesheet" href="assets/style.css?v=33" />
   <link rel="stylesheet" href="assets/theme.css?v=6" />
 <script>/* fond clair/sombre — avant le premier affichage */
 (function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
@@ -59,7 +59,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .sd-feat{background:var(--d-surface);border:1px solid var(--d-surface-2);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
     .sd-feat:hover{border-color:var(--d-accent-bord)}
     .sd-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
-    .sd-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.02rem}
+    .sd-feat h2{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.02rem}
     .sd-feat p{margin:0;font-size:0.87rem;color:var(--d-doux);line-height:1.55}
     .sd-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:var(--d-fort);margin:0 0 0.3rem}
     .sd-formsub{font-size:0.85rem;color:var(--d-doux);margin:0 0 1.2rem;line-height:1.5}
@@ -84,7 +84,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
     <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
@@ -117,13 +117,13 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
       <div class="sd-feats">
         <div class="sd-feat"><span class="ic">📘</span>
-          <h4 id="sd-f1t">The official manual, distilled</h4>
+          <h2 id="sd-f1t">The official manual, distilled</h2>
           <p id="sd-f1d">Every rule and number comes from the official RMV guide — never invented.</p></div>
         <div class="sd-feat"><span class="ic">💬</span>
-          <h4 id="sd-f2t">It quizzes you, it does not make you read</h4>
+          <h2 id="sd-f2t">It quizzes you, it does not make you read</h2>
           <p id="sd-f2d">The official manual exists in your language, and it is free — read it. Forty pages are not a revision method: the coach quizzes you on it, one question at a time, and corrects you instantly.</p></div>
         <div class="sd-feat"><span class="ic">🎯</span>
-          <h4 id="sd-f3t">The classic traps</h4>
+          <h2 id="sd-f3t">The classic traps</h2>
           <p id="sd-f3d">8 pupils maximum, post-trip inspection, renewal, medical exam — what makes people fail.</p></div>
       <div class="sd-feat" style="grid-column:1/-1" id="sd-dossier"><strong>Before you even apply — what the RMV asks for</strong> <ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'> <li>21 or over, with a Class A, B, C or D licence held <strong>3 continuous years</strong>.</li> <li>A transportation company named on the form — name, address, phone, e-mail. You must already work there, or expect to.</li> <li>CORI and SORI checks. The CORI form is two pages and travels with the application; a new one is required at every renewal.</li> <li>The RMV medical form, completed by a <strong>medical doctor (MD or DO) licensed in Massachusetts</strong>. A nurse practitioner or physician assistant is <strong>not accepted</strong>, and the exam must be dated <strong>within 90 days</strong> of the application.</li> <li>Vision: at least <strong>120°</strong> combined peripheral field, and you must tell red, green and amber apart.</li> <li><strong>2 hours</strong> of pre-service training with your employer — then the written exam.</li> <li><strong>$15.00</strong> for a one-year certificate ($7.50 for six months if you are 70+, an insulin-dependent diabetic, or have had a hypoglycemic episode).</li> <li>Coming from another state or country: a certified out-of-state driving record <em>and</em> criminal record, each dated within 90 days.</li> <li>Originals only — no copies. The application is signed under the penalties of perjury.</li> </ul> <p style='margin:0.7rem 0 0'><strong>Immigration status.</strong> Since 1 July 2023 the Work and Family Mobility Act lets Massachusetts residents obtain a Standard Class D licence regardless of immigration status, and the RMV's own 7D checklist lists no proof-of-lawful-presence document. We have <strong>not</strong> been able to confirm whether the 7D certificate itself adds one — so ask before you spend anything: RMV Vehicle Safety &amp; Compliance Services, <strong>857-368-8130</strong>.</p></div>
       </div>
@@ -152,11 +152,11 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <input type="text" id="sd-nat" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="sd-go">Open my 7D coach</button></div>
-        <p class="sd-status" id="sd-st1"></p>
+        <p class="sd-status" id="sd-st1" role="status" aria-live="polite"></p>
       </form>
 
       <div class="sd-card sd-hide" id="sd-chat">
-        <div class="sd-msgs" id="sd-msgs"></div>
+        <div class="sd-msgs" id="sd-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>
         <div class="sd-quick" id="sd-quick">
           <button data-q="drill" id="sd-q1">📝 Quiz me</button>
           <button data-q="cert" id="sd-q2">🪪 Certificate rules</button>
@@ -164,10 +164,10 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <button data-q="ops" id="sd-q4">🧒 Pupil transport rules</button>
         </div>
         <div class="sd-row">
-          <textarea id="sd-input" maxlength="4000" placeholder="Écrivez à votre coach 7D…"></textarea>
+          <textarea id="sd-input" maxlength="4000" placeholder="Écrivez à votre coach 7D…" aria-label="Votre message au coach 7D"></textarea>
           <button class="btn btn-primary" id="sd-send">Send</button>
         </div>
-        <p class="sd-status" id="sd-st2"></p>
+        <p class="sd-status" id="sd-st2" role="status" aria-live="polite"></p>
         <div class="sd-tools">
           <span id="sd-privacy">🔒 Anonymous file tied to your code.</span>
           <span><button type="button" id="sd-passed">🏁 I passed the exam!</button> · <button type="button" id="sd-erase">Erase my file</button></span>
@@ -198,16 +198,16 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       <p style="margin:0" id="trn-warn"><b>Read this first:</b> in-person training is <b>mandatory</b> and 7D Pro does not replace it. The RMV requires <b>2 hours of pre-service training</b> before a first application, and <b>8 hours of in-service training</b> at every renewal. 7D Pro prepares you for the <b>written exam</b> in your language — the two go together.</p>
     </div>
     <div class="trn-grid">
-      <div class="trn"><span class="cty">Plymouth</span><h4>POWEFOLK Transportation</h4><p>11 Milton Street, Brockton, MA 02301</p></div>
-      <div class="trn"><span class="cty">Plymouth</span><h4>Bradburys Driving</h4><p>145 South Main Street, Carver, MA</p></div>
-      <div class="trn"><span class="cty">Essex</span><h4>Be Safe Transportation</h4><p>100 Cummings Center, Suite 340E, Beverly, MA 01915</p></div>
-      <div class="trn"><span class="cty">Bristol</span><h4>Tremblay Bus</h4></div>
-      <div class="trn"><span class="cty">Bristol</span><h4>Tremblay Bus</h4></div>
-      <div class="trn"><span class="cty">Bristol</span><h4>VHS Transportation</h4></div>
-      <div class="trn"><span class="cty">Bristol</span><h4>VHS Transportation</h4></div>
-      <div class="trn"><span class="cty">Norfolk</span><h4>TimPat Transportation</h4><p>8 Malcolm Road, Stoughton, MA 02072</p></div>
-      <div class="trn"><span class="cty">Worcester</span><h4>Massachusetts Association of Pupil Transportation</h4></div>
-      <div class="trn"><span class="cty">Berkshire</span><h4>Dufour</h4></div>
+      <div class="trn"><span class="cty">Plymouth</span><h3>POWEFOLK Transportation</h3><p>11 Milton Street, Brockton, MA 02301</p></div>
+      <div class="trn"><span class="cty">Plymouth</span><h3>Bradburys Driving</h3><p>145 South Main Street, Carver, MA</p></div>
+      <div class="trn"><span class="cty">Essex</span><h3>Be Safe Transportation</h3><p>100 Cummings Center, Suite 340E, Beverly, MA 01915</p></div>
+      <div class="trn"><span class="cty">Bristol</span><h3>Tremblay Bus</h4></div>
+      <div class="trn"><span class="cty">Bristol</span><h3>Tremblay Bus</h4></div>
+      <div class="trn"><span class="cty">Bristol</span><h3>VHS Transportation</h4></div>
+      <div class="trn"><span class="cty">Bristol</span><h3>VHS Transportation</h4></div>
+      <div class="trn"><span class="cty">Norfolk</span><h3>TimPat Transportation</h3><p>8 Malcolm Road, Stoughton, MA 02072</p></div>
+      <div class="trn"><span class="cty">Worcester</span><h3>Massachusetts Association of Pupil Transportation</h4></div>
+      <div class="trn"><span class="cty">Berkshire</span><h3>Dufour</h4></div>
     </div>
     <p id="trn-foot" style="color:var(--d-faible);font-size:0.78rem;margin-top:1rem;font-style:italic">Source: “School Pupil (7D) Training Locations”, Massachusetts RMV — retrieved 21 July 2026. The RMV updates this list without notice: check mass.gov before travelling. Each trainer's contact details are on the RMV's own list — we do not copy them here: they change, and copying them hands them to address harvesters.</p>
   </div>
@@ -278,7 +278,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     setLab("L-name",t.name); setLab("L-phone",t.phone);
     setLab("L-city",t.city,t.cityS);   // ⚠️ pas de L-langs : le champ « langues parlees » a ete retire
     setLab("L-nat",t.nat,t.natS);
-    var ip=document.getElementById("sd-input"); if(ip)ip.placeholder=t.inputP;
+    var ip=document.getElementById("sd-input"); if(ip)ip.placeholder=t.inputP; if(ip&&t.inputP) ip.setAttribute("aria-label",t.inputP);
     setTxt("sd-aka",t.aka); setTxt("sd-aka-s",t.akaS);
     setTxt("trn-title",t.trnT); setTxt("trn-sub",t.trnS); setH("trn-warn",t.trnW); setTxt("trn-foot",t.trnF);
     setTxt("sd-b2b-t",t.b2bT); setTxt("sd-b2b-d",t.b2bD); setTxt("sd-b2b-c",t.b2bC);
@@ -345,7 +345,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   });
 })();
 </script>
-<script src="assets/suite.js?v=5"></script>
+<script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

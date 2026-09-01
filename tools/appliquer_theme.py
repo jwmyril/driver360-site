@@ -310,6 +310,39 @@ def poser_social(s, page):
     return s[:i] + bloc + s[i:]
 
 
+# LES CLES DE CACHE DU NAVIGATEUR, DECLAREES UNE FOIS.
+#
+# ⚠️ ELLES VIVAIENT A QUATRE ENDROITS : dans les pages ecrites a la main, dans
+# `regen.py`, dans `gen_emplois.py`, dans `gen_legal.py`. Rien ne garantissait
+# qu'ils disent la meme chose, et deux fois ils ne l'ont pas dit :
+#   · `suite.js` a gagne des cles de traduction en gardant `?v=4` — j'ai cru
+#     dix minutes que le menu de langue etait casse ;
+#   · `style.css` etait appele sans cle sur cinq pages et avec `?v=32` sur
+#     quatre : apres une modification du CSS, la moitie du site servait
+#     l'ancienne feuille. Perime a moitie, c'est plus dur a voir qu'en panne.
+#
+# On les declare ici, et le build les REECRIT sur les neuf pages. Bumper, c'est
+# desormais changer un chiffre a un seul endroit.
+VERSIONS = {
+    "style.css": "33",
+    "theme.css": "6",
+    "suite.js": "6",
+    "script.js": "2",
+}
+
+_APPEL = re.compile(r'((?:href|src)="/?assets/)([A-Za-z0-9_.-]+)(\?v=[0-9]+)?(")')
+
+
+def poser_versions(s):
+    """Chaque ressource versionnee porte la cle declaree, et une seule."""
+    def un(m):
+        nom = m.group(2)
+        if nom not in VERSIONS:
+            return m.group(0)
+        return "%s%s?v=%s%s" % (m.group(1), nom, VERSIONS[nom], m.group(4))
+    return _APPEL.sub(un, s)
+
+
 def traiter(s, page=""):
     protege = []
 
@@ -328,7 +361,7 @@ def traiter(s, page=""):
     # que `poser_securite` calcule les empreintes SHA-256 des scripts et
     # pose la CSP. Inserer quoi que ce soit apres, et la CSP ne
     # correspondrait plus a la page.
-    return poser_securite(poser_theme(poser_social(s, page)))
+    return poser_securite(poser_versions(poser_theme(poser_social(s, page))))
 
 
 RESTE = re.compile(r"#[0-9a-fA-F]{3,6}\b|rgba?\([0-9]")

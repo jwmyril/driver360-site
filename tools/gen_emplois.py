@@ -290,7 +290,7 @@ PAGE = """<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css?v=33" />
 <script>/* langue automatique, avant le premier affichage */
 (function(){var S={ht:1,fr:1,en:1,es:1},d=document.documentElement,s=null;
 try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -383,7 +383,7 @@ appliquer();
 new MutationObserver(appliquer).observe(document.documentElement,
   {attributes:true, attributeFilter:["lang"]});
 </script>
-<script src="assets/suite.js?v=5"></script>
+<script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

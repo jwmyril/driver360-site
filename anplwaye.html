@@ -14,7 +14,7 @@
   <meta name="description" content="The Driver360 employer portal: Massachusetts transport companies hire from the pool of Class D, 7D and CDL drivers — people who are trained or already licensed and who agreed to appear in this pool." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=32" />
+  <link rel="stylesheet" href="assets/style.css?v=33" />
   <link rel="stylesheet" href="assets/theme.css?v=6" />
 <script>/* fond clair/sombre — avant le premier affichage */
 (function(){var c=null;try{c=localStorage.getItem("atmart_theme")}catch(e){}
@@ -75,7 +75,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
 <header>
   <nav class="nav" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem">
-    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Driver360" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="" class="logo-img" />Driver<span>360</span><small>by Atmart</small></a>
     <button type="button" class="nav-toggle" id="d3-menu" aria-label="Menu" aria-expanded="false" aria-controls="d3-nav">☰</button>
     <ul class="nav-links" id="d3-nav">
         <li><a href="vivye.html" style="color:var(--ink);text-decoration:none;font-size:.9rem">Driver Pool</a></li>
@@ -85,6 +85,15 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     </ul>
   </nav>
 </header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="ep-kicker">Hire drivers who are ready — with results you can check.</p>
+    <h1>Driver <em>Employer</em></h1>
+    <p class="lead" id="ep-lead">The portal for Massachusetts transport companies — school transport, package delivery, senior and medical transport, regional transit (MART): hire from the pool of Class D, 7D and CDL drivers, people who are trained or already licensed and who agreed to appear in this pool.</p>
+    <p style="color:var(--d-doux);font-size:0.88rem" id="ep-note">Privacy: only drivers who ticked “join the pool” appear here — never anyone else. Free founder codes for the first companies: sales@atmart.ltd.</p>
+  </div>
+</section>
 
 <section style="padding:1.6rem 0 .4rem">
   <div class="container">
@@ -104,15 +113,6 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   </div>
 </section>
 
-
-<section class="hero" style="padding-bottom:1rem">
-  <div class="container">
-    <p class="kreyol" id="ep-kicker">Hire drivers who are ready — with results you can check.</p>
-    <h1>Driver <em>Employer</em></h1>
-    <p class="lead" id="ep-lead">The portal for Massachusetts transport companies — school transport, package delivery, senior and medical transport, regional transit (MART): hire from the pool of Class D, 7D and CDL drivers, people who are trained or already licensed and who agreed to appear in this pool.</p>
-    <p style="color:var(--d-doux);font-size:0.88rem" id="ep-note">Privacy: only drivers who ticked “join the pool” appear here — never anyone else. Free founder codes for the first companies: sales@atmart.ltd.</p>
-  </div>
-</section>
 
 <section style="padding-top:0.5rem">
   <div class="container">
@@ -142,7 +142,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <textarea id="ep-needs" maxlength="400" style="min-height:70px"></textarea>
         <div style="margin-top:1.1rem"><p data-d3="f_avant_envoi" style="font-size:.82rem;color:var(--d-faible);margin:.9rem 0 0;line-height:1.55">En envoyant ce formulaire, vous acceptez nos <a href="terms.html" style="color:var(--d-accent)">conditions d'utilisation</a> et notre <a href="privacy.html" style="color:var(--d-accent)">politique de confidentialité</a>.</p>
         <button type="submit" class="btn btn-primary" id="ep-go">Open the pool</button></div>
-        <p class="ep-status" id="ep-st1"></p>
+        <p class="ep-status" id="ep-st1" role="status" aria-live="polite"></p>
       </form>
 
       <div class="ep-card ep-hide" id="ep-dash">
@@ -182,7 +182,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         </table></div>
         <p class="ep-empty ep-hide" id="ep-empty-cd">No Class D candidate in the pool yet.</p>
 
-        <p class="ep-status" id="ep-st2"></p>
+        <p class="ep-status" id="ep-st2" role="status" aria-live="polite"></p>
         <p style="font-size:0.78rem;color:var(--d-doux);border-top:1px dashed var(--d-ligne);margin-top:1.2rem;padding-top:0.8rem" id="ep-foot">You see the whole pool, but a candidate's name and contact details appear only when you <strong>select</strong> them — and a selection is <strong>final</strong>. Everyone here agreed to appear in this pool. Some asked to give their agreement BEFORE any contact: the 🔒 badge shows it, and your selection then sends them a request. Please treat them with respect: this pool lives on their trust. To equip your recruits in their own language: <a href="mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues" style="color:var(--d-accent)">code packs</a>. Do you know drivers who are already licensed? Send them the <a href="vivye.html" style="color:var(--d-accent)">free pool registration link</a>.</p>
       </div>
 
@@ -727,7 +727,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   });
 })();
 </script>
-<script src="assets/suite.js?v=5"></script>
+<script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

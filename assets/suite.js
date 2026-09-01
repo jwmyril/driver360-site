@@ -40,6 +40,7 @@
       t_sombre: "Dark",
       t_titre: "Background: %s. Click to change.",
       ariaLang: "Language",
+      evitement: "Skip to content",
       n_jobs: "Job Postings",
       f_service: 'Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "A question",
@@ -58,6 +59,7 @@
       t_sombre: "Sombre",
       t_titre: "Fond : %s. Cliquez pour changer.",
       ariaLang: "Langue",
+      evitement: "Aller au contenu",
       n_jobs: "Offres d'emploi",
       f_service: 'Driver360 — un service <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Une question",
@@ -76,6 +78,7 @@
       t_sombre: "Fonse",
       t_titre: "Fon : %s. Klike pou chanje.",
       ariaLang: "Lang",
+      evitement: "Ale nan kontni an",
       n_jobs: "Òf travay",
       f_service: 'Driver360 — yon sèvis <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Yon kesyon",
@@ -94,6 +97,7 @@
       t_sombre: "Oscuro",
       t_titre: "Fondo: %s. Haz clic para cambiar.",
       ariaLang: "Idioma",
+      evitement: "Ir al contenido",
       n_jobs: "Ofertas de empleo",
       f_service: 'Driver360 — un servicio de <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.',
       f_question: "Una pregunta",
@@ -126,6 +130,8 @@
     }
     var btnL = document.querySelector(".lang-current");
     if (btnL) btnL.setAttribute("aria-label", d.ariaLang || "Language");
+    var ev = document.querySelector(".lien-evitement");
+    if (ev && d.evitement) ev.textContent = d.evitement;
     var cur = document.querySelector(".lang-current");
     if (cur) cur.textContent = "🌐 " + courante().toUpperCase();
     if (document.querySelector(".theme-btn")) appliquerTheme(themeChoisi());
@@ -143,6 +149,35 @@
   // LA LANGUE RESTE AUTOMATIQUE : le petit script en tete de chaque page lit
   // `navigator.languages` et pose `lang` AVANT le premier affichage. Ce menu
   // ne sert qu'a contredire la detection, et ce choix-la est memorise.
+
+  // --- le lien d'evitement ------------------------------------------------
+  //
+  // ⚠️ LA REGLE CSS EXISTAIT DEPUIS UNE REFONTE, LE LIEN N'A JAMAIS ETE POSE.
+  // `.lien-evitement` est defini dans style.css et n'apparaissait sur aucune
+  // des neuf pages : quelqu'un qui navigue au clavier traversait l'entete
+  // entiere — logo, cinq liens, langue, theme — avant d'atteindre le contenu,
+  // et cela A CHAQUE PAGE.
+  //
+  // Il est pose ici plutot que dans chaque page : les neuf pages chargent ce
+  // fichier, et une seule d'entre elles aurait fini par l'oublier.
+  function evitement() {
+    if (document.querySelector(".lien-evitement")) return;
+    var cible = document.querySelector("main") || document.querySelector("section");
+    if (!cible) return;
+    if (!cible.id) cible.id = "contenu";
+    var a = document.createElement("a");
+    a.className = "lien-evitement";
+    a.href = "#" + cible.id;
+    a.textContent = (D[courante()] || {}).evitement || "Skip to content";
+    a.addEventListener("click", function () {
+      // Un ancrage ne donne pas le focus a une balise non focalisable :
+      // sans `tabindex`, le clavier repartirait du haut malgre le saut.
+      cible.setAttribute("tabindex", "-1");
+      cible.focus();
+    });
+    document.body.insertBefore(a, document.body.firstChild);
+  }
+
   function menu() {
     var nav = document.querySelector(".nav-links");
     if (!nav || document.querySelector(".lang-select")) return;
@@ -171,22 +206,62 @@
         // l'observent tous les deux.
         document.documentElement.lang = code;
         boite.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "🌐 " + code.toUpperCase();
+        // On rend le focus au bouton : le visiteur repart d'ou il etait, et
+        // le lecteur d'ecran relit l'etiquette, donc la langue choisie.
+        btn.focus();
       });
       boite.appendChild(o);
     });
 
+    // ⚠️ CE MENU EST CELUI PAR LEQUEL PASSE TOUT VISITEUR NON ANGLOPHONE,
+    // c'est-a-dire le public du produit — et c'etait le moins bien fait du
+    // lot. Le menu ☰ du telephone annonce son etat, se ferme a Echap et rend
+    // le focus ; celui-ci ne faisait rien de tout cela. Un lecteur d'ecran
+    // disait « bouton » sans dire s'il etait ouvert, et apres avoir choisi une
+    // langue le focus se perdait dans la page.
+    boite.id = "lang-menu-" + Math.random().toString(36).slice(2, 8);
+    btn.setAttribute("aria-haspopup", "true");
+    btn.setAttribute("aria-controls", boite.id);
+    btn.setAttribute("aria-expanded", "false");
+
+    function ouvrir(oui) {
+      boite.classList.toggle("open", oui);
+      btn.setAttribute("aria-expanded", oui ? "true" : "false");
+    }
+
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
-      boite.classList.toggle("open");
+      ouvrir(!boite.classList.contains("open"));
+      if (boite.classList.contains("open")) {
+        var p = boite.querySelector(".lang-opt");
+        if (p) p.focus();
+      }
     });
-    document.addEventListener("click", function () { boite.classList.remove("open"); });
+    document.addEventListener("click", function () { ouvrir(false); });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") boite.classList.remove("open");
+      if (e.key !== "Escape" || !boite.classList.contains("open")) return;
+      ouvrir(false);
+      // Le focus revient d'ou il vient. Sans cette ligne, Echap laisse le
+      // clavier au milieu de nulle part et il faut repartir du haut de page.
+      btn.focus();
+    });
+    // Les fleches parcourent les langues, comme dans n'importe quel menu.
+    boite.addEventListener("keydown", function (e) {
+      var opts = Array.prototype.slice.call(boite.querySelectorAll(".lang-opt"));
+      var i = opts.indexOf(document.activeElement);
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        var j = (i + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
+        opts[j < 0 ? 0 : j].focus();
+      }
     });
 
     li.appendChild(btn);
     li.appendChild(boite);
     nav.appendChild(li);
+    evitement();
     poser();
   }
 
