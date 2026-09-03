@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rfoY12uPZEWfZuhMTXZrwQjsv+EV6+N4Jdh0hlp6Bxo=' 'sha256-1Pv/LassMW9M9JmOd+K6zSMXAbampbZ85es/hSTjRkw=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rfoY12uPZEWfZuhMTXZrwQjsv+EV6+N4Jdh0hlp6Bxo=' 'sha256-eR8yDf4c7RfSJ1NSfj/K7gQJxNfVW9f4O5McuQO2Kho=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -54,6 +54,29 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .ep-b.mid{background:var(--d-alerte-fond);color:var(--d-alerte)}
     .ep-empty{color:var(--d-doux);font-size:0.88rem;padding:0.8rem 0}
     .ep-wrap{overflow-x:auto}
+    /* L'exemple et les trois etapes. Ils passent AVANT le formulaire : on ne
+       demande pas cinq champs a quelqu'un qui n'a pas encore vu le produit. */
+    .ep-demo{border:1px solid var(--d-ligne);border-radius:12px;padding:1rem 1.1rem;
+      margin:0 0 1.1rem;background:var(--d-surface)}
+    .ep-demo h2{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;
+      color:var(--d-fort);margin:0 0 0.15rem}
+    .ep-demo .ex{display:inline-block;background:var(--d-alerte-fond);
+      color:var(--d-alerte-texte);border:1px solid var(--d-alerte-bord);
+      border-radius:6px;padding:0.1rem 0.5rem;font-size:0.72rem;font-weight:700;
+      margin-left:0.45rem;vertical-align:middle}
+    .ep-demo .sous{color:var(--d-doux);font-size:0.86rem;margin:0.35rem 0 0.8rem}
+    .ep-demo table{width:100%;border-collapse:collapse;font-size:0.86rem}
+    .ep-demo th{text-align:left;color:var(--d-doux);font-weight:600;
+      font-size:0.78rem;padding:0.35rem 0.5rem;border-bottom:1px solid var(--d-ligne)}
+    .ep-demo td{padding:0.5rem;border-bottom:1px solid var(--d-ligne);
+      color:var(--d-texte)}
+    .ep-demo tr:last-child td{border-bottom:0}
+    .ep-etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:0.7rem;margin-top:0.9rem}
+    .ep-etape{background:var(--d-fond);border:1px solid var(--d-ligne);
+      border-radius:10px;padding:0.7rem 0.85rem}
+    .ep-etape b{display:block;color:var(--d-fort);font-size:0.9rem;margin-bottom:0.2rem}
+    .ep-etape span{color:var(--d-doux);font-size:0.83rem;line-height:1.6}
   </style>
 
   <link rel="canonical" href="https://driver360.atmart.ltd/anplwaye.html" />
@@ -118,6 +141,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   <div class="container">
     <div class="ep-app">
 
+      <div class="ep-demo" id="ep-demo"><h2>What you see, before you pay anything<span class='ex'>EXAMPLE</span></h2> <p class='sous'>Two example rows, in the columns of the real table. <strong>These are not real people</strong> — the pool is empty today, and we would rather show you the shape of it than invent candidates for you.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licence</th><th>Experience</th><th>Town / area</th><th>Available</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 years</td><td>Fitchburg</td><td>Immediately</td><td>Select</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 years</td><td>Worcester</td><td>Within 2 weeks</td><td>🔒 Request</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Search</b><span>Filter by licence, town and availability. No names and no phone numbers at this stage — and nothing to read: it is a table.</span></div> <div class='ep-etape'><b>2 · Select — one click</b><span>You get the name, the phone number and the CV. It uses one place from your quota, and <strong>it is final</strong>: we do not refund a candidate you have already seen.</span></div> <div class='ep-etape'><b>3 · 🔒 Or request</b><span>Some drivers want to agree before any contact. Your selection sends them a request; if they decline, your place is given back.</span></div> </div></div>
+
       <form class="ep-card" id="ep-start">
         <label for="ep-code" id="L-code">🔑 Employer access code<small>EMP-XXXX-XXXX. No code yet? <a href="mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20founder%20code" style="color:var(--d-accent)">Ask for a founder code (free)</a></small></label>
         <input type="text" id="ep-code" maxlength="24" autocomplete="off" placeholder="EMP-XXXX-XXXX" required />
@@ -125,12 +150,13 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <input type="text" id="ep-org" maxlength="120" placeholder="Ex. : ABC Student Transportation" required />
         <label for="ep-kind" id="L-kind">You are</label>
         <select id="ep-kind">
-          <option value="school">🚌 School transport</option>
-          <option value="district">🏫 District / school</option>
-          <option value="delivery">📦 Package delivery</option>
-          <option value="senior">🧓 Senior / medical transport</option>
-          <option value="transit">🚍 Regional transit (MART, RTA)</option>
-          <option value="other">🚕 Other transport</option>
+          <option value="school">🚌 Transport scolaire</option>
+          <option value="district">🏫 District / école</option>
+          <option value="delivery">📦 Livraison de colis</option>
+          <option value="dsp">📦 DSP Amazon</option>
+          <option value="senior">🧓 Transport de personnes âgées / médical</option>
+          <option value="transit">🚍 Transport régional (MART, RTA)</option>
+          <option value="other">🚕 Autre transport</option>
         </select>
         <label for="ep-contact" id="L-contact">Contact person</label>
         <input type="text" id="ep-contact" maxlength="80" required />
@@ -494,7 +520,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lcode: "🔑 Code d'accès employeur<small>EMP-XXXX-XXXX. Pas encore de code ? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20code%20fondateur\" style=\"color:var(--d-accent)\">Demander un code fondateur (gratuit)</a></small>",
       Lorg: "Votre organisation", orgPh: "Ex. : ABC Student Transportation",
       Lkind: "Vous êtes",
-      k1: "🚌 Transport scolaire", k2: "🏫 District / école", k3: "📦 Livraison de colis",
+      demo: "<h2>Ce que vous voyez, avant de payer quoi que ce soit<span class='ex'>EXEMPLE</span></h2> <p class='sous'>Deux lignes d'exemple, dans les colonnes du vrai tableau. <strong>Ce ne sont pas des personnes réelles</strong> — le vivier est vide aujourd'hui, et nous préférons vous montrer la forme que vous inventer des candidats.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Réf.</th><th>Permis</th><th>Expérience</th><th>Ville / zone</th><th>Dispo.</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 ans</td><td>Fitchburg</td><td>Immédiate</td><td>Sélectionner</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 ans</td><td>Worcester</td><td>Sous 2 semaines</td><td>🔒 Demander</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Chercher</b><span>Vous filtrez par permis, ville et disponibilité. Aucun nom, aucun téléphone à ce stade — et rien à lire : c'est un tableau.</span></div> <div class='ep-etape'><b>2 · Sélectionner — un clic</b><span>Vous obtenez le nom, le téléphone et le CV. Cela consomme une place de votre quota, et <strong>c'est définitif</strong> : nous ne remboursons pas un candidat que vous avez déjà vu.</span></div> <div class='ep-etape'><b>3 · 🔒 Ou demander</b><span>Certains chauffeurs veulent donner leur accord avant tout contact. Votre sélection leur envoie une demande ; s'ils refusent, votre place vous est rendue.</span></div> </div>",
+      k1: "🚌 Transport scolaire", k2: "🏫 District / école", k3: "📦 Livraison de colis", k3b: "📦 DSP Amazon",
       k4: "🧓 Transport de personnes âgées / médical", k5: "🚍 Transport régional (MART, RTA)", k6: "🚕 Autre transport",
       Lcontact: "Personne de contact", Lphone: "Téléphone",
       Lquota: "Combien de chauffeurs recherchez-vous ? <small>C'est votre quota de sélection : vous pourrez révéler le contact de ce nombre de candidats. Pour l'augmenter plus tard, écrivez-nous.</small>",
@@ -541,7 +568,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lcode: "🔑 Employer access code<small>EMP-XXXX-XXXX. No code yet? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20founder%20code\" style=\"color:var(--d-accent)\">Ask for a founder code (free)</a></small>",
       Lorg: "Your organisation", orgPh: "E.g.: ABC Student Transportation",
       Lkind: "You are",
-      k1: "🚌 School transport", k2: "🏫 District / school", k3: "📦 Package delivery",
+      demo: "<h2>What you see, before you pay anything<span class='ex'>EXAMPLE</span></h2> <p class='sous'>Two example rows, in the columns of the real table. <strong>These are not real people</strong> — the pool is empty today, and we would rather show you the shape of it than invent candidates for you.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licence</th><th>Experience</th><th>Town / area</th><th>Available</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 years</td><td>Fitchburg</td><td>Immediately</td><td>Select</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 years</td><td>Worcester</td><td>Within 2 weeks</td><td>🔒 Request</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Search</b><span>Filter by licence, town and availability. No names and no phone numbers at this stage — and nothing to read: it is a table.</span></div> <div class='ep-etape'><b>2 · Select — one click</b><span>You get the name, the phone number and the CV. It uses one place from your quota, and <strong>it is final</strong>: we do not refund a candidate you have already seen.</span></div> <div class='ep-etape'><b>3 · 🔒 Or request</b><span>Some drivers want to agree before any contact. Your selection sends them a request; if they decline, your place is given back.</span></div> </div>",
+      k1: "🚌 School transport", k2: "🏫 District / school", k3: "📦 Package delivery", k3b: "📦 Amazon DSP",
       k4: "🧓 Senior / medical transport", k5: "🚍 Regional transit (MART, RTA)", k6: "🚕 Other transport",
       Lcontact: "Contact person", Lphone: "Phone",
       Lquota: "How many drivers are you looking for? <small>This is your selection quota: you will be able to reveal the contact details of that many candidates. Write to us to raise it later.</small>",
@@ -588,7 +616,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lcode: "🔑 Kòd aksè anplwayè<small>EMP-XXXX-XXXX. Ou poko gen kòd ? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20kod%20fondate\" style=\"color:var(--d-accent)\">Mande yon kòd fondatè (gratis)</a></small>",
       Lorg: "Òganizasyon w", orgPh: "Egz. : ABC Student Transportation",
       Lkind: "Ou se",
-      k1: "🚌 Transpò lekòl", k2: "🏫 Distri / lekòl", k3: "📦 Livrezon pake",
+      demo: "<h2>Sa w wè, anvan w peye anyen<span class='ex'>EGZANP</span></h2> <p class='sous'>De liy egzanp, nan kolòn tablo reyèl la. <strong>Se pa moun reyèl</strong> — vivye a vid jodi a, epi nou pito montre w fòm nan pase envante kandida pou ou.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Pèmi</th><th>Eksperyans</th><th>Vil / zòn</th><th>Disponib</th><th>Aksyon</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 ane</td><td>Fitchburg</td><td>Kounye a</td><td>Chwazi</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 ane</td><td>Worcester</td><td>Nan 2 semèn</td><td>🔒 Mande</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Chèche</b><span>Ou filtre selon pèmi, vil ak disponiblite. Pa gen non, pa gen telefòn nan etap sa a — epi pa gen anyen pou li : se yon tablo.</span></div> <div class='ep-etape'><b>2 · Chwazi — yon klik</b><span>Ou jwenn non an, telefòn nan ak CV a. Sa pran yon plas nan kota w, epi <strong>li final</strong> : nou pa remèt lajan pou yon kandida ou deja wè.</span></div> <div class='ep-etape'><b>3 · 🔒 Oswa mande</b><span>Gen chofè ki vle bay otorizasyon anvan nenpòt kontak. Seleksyon w lan voye yon demann ba yo ; si yo refize, yo remèt ou plas ou.</span></div> </div>",
+      k1: "🚌 Transpò lekòl", k2: "🏫 Distri / lekòl", k3: "📦 Livrezon pake", k3b: "📦 DSP Amazon",
       k4: "🧓 Transpò granmoun / medikal", k5: "🚍 Transpò rejyonal (MART, RTA)", k6: "🚕 Lòt transpò",
       Lcontact: "Moun pou kontakte", Lphone: "Telefòn",
       Lquota: "Konbyen chofè w ap chèche ? <small>Se kota seleksyon w : w ap ka wè kontak kantite kandida sa a. Pou monte l pita, ekri nou.</small>",
@@ -635,7 +664,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lcode: "🔑 Código de acceso de empleador<small>EMP-XXXX-XXXX. ¿Aún no tienes código? <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20codigo%20fundador\" style=\"color:var(--d-accent)\">Pedir un código fundador (gratis)</a></small>",
       Lorg: "Tu organización", orgPh: "Ej.: ABC Student Transportation",
       Lkind: "Eres",
-      k1: "🚌 Transporte escolar", k2: "🏫 Distrito / escuela", k3: "📦 Entrega de paquetes",
+      demo: "<h2>Lo que ves, antes de pagar nada<span class='ex'>EJEMPLO</span></h2> <p class='sous'>Dos filas de ejemplo, en las columnas de la tabla real. <strong>No son personas reales</strong> — el registro está vacío hoy, y preferimos enseñarte la forma antes que inventarte candidatos.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licencia</th><th>Experiencia</th><th>Ciudad / zona</th><th>Disponible</th><th>Acción</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 años</td><td>Fitchburg</td><td>Inmediata</td><td>Seleccionar</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 años</td><td>Worcester</td><td>En 2 semanas</td><td>🔒 Solicitar</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Buscar</b><span>Filtras por licencia, ciudad y disponibilidad. Ningún nombre ni teléfono en esta fase — y nada que leer: es una tabla.</span></div> <div class='ep-etape'><b>2 · Seleccionar — un clic</b><span>Obtienes el nombre, el teléfono y el CV. Consume un lugar de tu cuota, y <strong>es definitivo</strong>: no reembolsamos un candidato que ya has visto.</span></div> <div class='ep-etape'><b>3 · 🔒 O solicitar</b><span>Algunos conductores quieren dar su acuerdo antes de cualquier contacto. Tu selección les envía una solicitud; si la rechazan, te devolvemos el lugar.</span></div> </div>",
+      k1: "🚌 Transporte escolar", k2: "🏫 Distrito / escuela", k3: "📦 Entrega de paquetes", k3b: "📦 DSP de Amazon",
       k4: "🧓 Transporte de mayores / médico", k5: "🚍 Transporte regional (MART, RTA)", k6: "🚕 Otro transporte",
       Lcontact: "Persona de contacto", Lphone: "Teléfono",
       Lquota: "¿Cuántos conductores buscas? <small>Es tu cuota de selección: podrás ver el contacto de esa cantidad de candidatos. Escríbenos para ampliarla más adelante.</small>",
@@ -705,7 +735,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     html("L-quota", v("Lquota")); html("L-needs", v("Lneeds"));
     var org = document.getElementById("ep-org"); if (org) org.placeholder = v("orgPh");
     var kd = document.getElementById("ep-kind");
-    if (kd) for (var i = 0; i < 6 && i < kd.options.length; i++) kd.options[i].text = v("k" + (i + 1));
+    // ⚠️ ON TRADUIT PAR VALEUR, PAS PAR INDICE. La version d'origine faisait
+    // `kd.options[i].text = v("k"+(i+1))` : inserer « Amazon DSP » en 4e
+    // position aurait colle l'etiquette « transport de personnes agees » sur
+    // la valeur `dsp`. L'employeur aurait lu une chose et envoye une autre —
+    // et la donnee aurait dit le contraire de ce qu'il a choisi.
+    var KIND = {school:"k1", district:"k2", delivery:"k3", dsp:"k3b",
+                senior:"k4", transit:"k5", other:"k6"};
+    if (kd) for (var i = 0; i < kd.options.length; i++) {
+      var lbl = v(KIND[kd.options[i].value]);
+      if (lbl) kd.options[i].text = lbl;
+    }
+    var dm = document.getElementById("ep-demo"); if (dm && v("demo")) dm.innerHTML = v("demo");
     txt("ep-go", v("go")); txt("ep-refresh", v("refresh"));
     txt("ep-credits-lbl", v("credits")); txt("ep-showall-lbl", v("showall"));
     txt("ep-h-sel", v("hSel")); txt("ep-h-lic", v("hLic"));
