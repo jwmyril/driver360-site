@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-7BRg6A2dkEyxevGCV/Ahq7CLikWopJSWFk8zI+xM9Tw=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-p2FcdaGOpvQQRE+kwehr33iL99GoLiOyPZhqcius3zA=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -159,11 +159,10 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <option value="both">Either</option>
         </select>
 
-        <label id="L-ctc">How an employer can reach you<small>Three ways, and you choose.</small></label>
+        <label id="L-ctc">How an employer can reach you<small>Two ways, and you choose.</small></label>
         <div id="rj-ctc" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="direct" checked /> <span id="C-direct">✅ An employer may contact me</span></label>
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="approval" /> <span id="C-approval">🔒 An employer must have my permission before contacting me</span></label>
-          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 I want my file sent straight to subscribed employers</span></label>
         </div>
 
         <h2 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem" id="rj-t5">4. Your CV (optional)</h2>
@@ -264,10 +263,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       resume:"Ou résumez votre parcours en quelques lignes",
       resumes:"Ce que vous avez conduit, où, et combien de temps. Utile si vous n'avez pas encore de document.",
       ctc:"Comment un employeur peut vous joindre",
-      ctcs:"Trois façons, et c'est vous qui choisissez.",
+      ctcs:"Deux façons, et c'est vous qui choisissez.",
       cDirect:"✅ Un employeur a l'autorisation de me contacter",
       cApproval:"🔒 Je dois donner mon autorisation pour qu'un employeur me contacte",
-      cPush:"📨 Je veux envoyer mon dossier directement à des employeurs abonnés",
       pendT:"Un employeur demande votre accord pour vous contacter",
       pendYes:"✅ J'accepte",
       pendNo:"❌ Je refuse",
@@ -312,10 +310,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       resume:"Oswa rakonte pakou w an de twa liy",
       resumes:"Ki machin ou te kondi, ki kote, epi konbyen tan. Sa itil si w poko gen yon dokiman.",
       ctc:"Kijan yon anplwayè ka jwenn ou",
-      ctcs:"Twa fason, epi se ou ki chwazi.",
+      ctcs:"De fason, epi se ou ki chwazi.",
       cDirect:"✅ Yon anplwayè gen dwa kontakte m",
       cApproval:"🔒 Fok mwen bay otorizasyon m anvan yon anplwayè kontakte m",
-      cPush:"📨 Mwen vle voye dosye m dirèk bay anplwayè ki abone",
       pendT:"Yon anplwayè mande otorizasyon w pou l kontakte w",
       pendYes:"✅ Mwen dakò",
       pendNo:"❌ Mwen refize",
@@ -360,10 +357,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       resume:"Or sum up your experience in a few lines",
       resumes:"What you have driven, where, and for how long. Useful if you have no document yet.",
       ctc:"How an employer can reach you",
-      ctcs:"Three ways, and you choose.",
+      ctcs:"Two ways, and you choose.",
       cDirect:"✅ An employer may contact me",
       cApproval:"🔒 An employer must have my permission before contacting me",
-      cPush:"📨 I want my file sent straight to subscribed employers",
       pendT:"An employer is asking your permission to contact you",
       pendYes:"✅ I agree",
       pendNo:"❌ I refuse",
@@ -408,10 +404,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       resume:"O resume tu trayectoria en unas líneas",
       resumes:"Qué has conducido, dónde y durante cuánto tiempo. Útil si aún no tienes un documento.",
       ctc:"Cómo puede contactarte un empleador",
-      ctcs:"Tres formas, y decides tú.",
+      ctcs:"Dos formas, y decides tú.",
       cDirect:"✅ Un empleador puede contactarme",
       cApproval:"🔒 Un empleador necesita mi permiso antes de contactarme",
-      cPush:"📨 Quiero enviar mi expediente directamente a empleadores suscritos",
       pendT:"Un empleador pide tu permiso para contactarte",
       pendYes:"✅ Acepto",
       pendNo:"❌ Rechazo",
@@ -457,7 +452,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     var md=document.querySelector('meta[name="description"]'); if(md&&t.descr) md.setAttribute("content",t.descr);
     setT("rj-t5",t.t5); setL("L-cv",t.cv,t.cvs); setL("L-resume",t.resume,t.resumes);
     setL("L-ctc",t.ctc,t.ctcs);
-    setT("C-direct",t.cDirect); setT("C-approval",t.cApproval); setT("C-push",t.cPush);
+    setT("C-direct",t.cDirect); setT("C-approval",t.cApproval);
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
