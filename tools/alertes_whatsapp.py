@@ -326,6 +326,33 @@ def action_stop(fiches, code):
     return 0
 
 
+def action_tel_ok(fiches, quoi):
+    """Le telephone repond : c'est R7 de DSP-ready, la seule mesure que pose
+    l'operateur (Driver360_site/docs/SPEC_DSP_READY.md).
+
+    POURQUOI PAR ICI ET PAS PAR LA PAGE. `phoneOk` est le seul critere
+    DSP-ready qui soit MESURE plutot que declare — et il ne vaut quelque chose
+    que parce que le chauffeur ne peut pas se l'attribuer. Le Worker ne le lit
+    jamais d'une requete ; il ne survit a une modification de fiche que si le
+    numero n'a pas change.
+
+    Le geste, tant que WhatsApp est manuel : ouvrir le lien wa.me de la fiche,
+    envoyer « Reponds OK pour confirmer ce numero », attendre la reponse, puis
+    lancer ceci. La mesure est manuelle, mais c'est une OBSERVATION — quelqu'un
+    a vu ce numero repondre — pas une case cochee.
+    """
+    f = trouver(fiches, quoi)
+    if not f:
+        raise SystemExit("Ni code ni numero connu : %s" % quoi)
+    code = f.get("_code") or quoi.upper()
+    f["phoneOk"] = True
+    f["phoneOkAt"] = date.today().isoformat()
+    ecrire_fiche(f)
+    print("Telephone verifie pour %s (%s)." % (code, date.today().isoformat()))
+    print("Le badge DSP-ready se calcule a la lecture : rien d'autre a faire ici.")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="Alertes WhatsApp Driver360")
     ap.add_argument("--liste", action="store_true", help="qui est joignable aujourd'hui")
@@ -337,9 +364,13 @@ def main():
     ap.add_argument("--marquer", metavar="CODE", help="enregistrer un envoi effectue")
     ap.add_argument("--stop", metavar="CODE_OU_TEL",
                     help="couper les alertes — accepte un code DRV- ou un numero,\ncar un STOP arrive par WhatsApp, donc avec un numero")
+    ap.add_argument("--tel-ok", metavar="CODE_OU_TEL",
+                    help="marquer le telephone comme VERIFIE (DSP-ready, R7) : a lancer\n"
+                         "apres que le chauffeur a repondu sur WhatsApp. Ni la page ni\n"
+                         "l'API ne peuvent poser ce drapeau — seulement cette commande.")
     args = ap.parse_args()
 
-    if not any([args.liste, args.preparer, args.marquer, args.stop]):
+    if not any([args.liste, args.preparer, args.marquer, args.stop, args.tel_ok]):
         ap.print_help()
         return 1
 
@@ -348,6 +379,8 @@ def main():
         return action_marquer(fiches, args.marquer)
     if args.stop:
         return action_stop(fiches, args.stop)
+    if args.tel_ok:
+        return action_tel_ok(fiches, args.tel_ok)
     if args.preparer:
         return action_preparer(fiches, args)
     return action_liste(fiches)

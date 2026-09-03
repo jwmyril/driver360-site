@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-p2FcdaGOpvQQRE+kwehr33iL99GoLiOyPZhqcius3zA=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-MBbcXvnlDose7OLPc0m1NtiH4BdKPCm+pUKTGrPgBUU=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -40,13 +40,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .rj-card label{display:block;font-weight:600;font-size:0.88rem;margin:1rem 0 0.3rem}
     .rj-card label:first-of-type{margin-top:0}
     .rj-card label small{display:block;font-weight:400;color:var(--d-doux);margin-top:0.15rem;line-height:1.4}
-    .rj-card input[type=text],.rj-card input[type=number],.rj-card select,.rj-card textarea{width:100%;background:var(--d-fond);color:var(--d-fort);border:1px solid var(--d-ligne);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:16px}
+    .rj-card input[type=text],.rj-card input[type=number],.rj-card input[type=datetime-local],.rj-card select,.rj-card textarea{width:100%;background:var(--d-fond);color:var(--d-fort);border:1px solid var(--d-ligne);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:16px}
     .rj-status{color:var(--d-alerte);font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
     .rj-hide{display:none}
     .rj-checks{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.4rem}
     .rj-chk{display:flex;align-items:center;gap:0.4rem;background:var(--d-fond);border:1px solid var(--d-ligne);border-radius:99px;padding:0.45rem 0.9rem;cursor:pointer;font-size:0.88rem}
     .rj-chk input{width:auto;margin:0}
     .rj-chk.on{border-color:var(--d-accent);background:var(--d-accent-fond)}
+    .rj-dsp{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:10px;padding:0.9rem 1.1rem;margin:0 0 1rem;font-size:0.95rem}
+    .rj-dsp.ok{background:var(--d-accent-fond);border-color:var(--d-accent-bord)}
+    .rj-dsp .rj-dsp-t{margin:0 0 0.4rem;font-weight:600;color:var(--d-fort)}
+    .rj-dsp ul{margin:0 0 0.5rem;padding-left:1.2rem;line-height:1.6}
+    .rj-dsp .rj-dsp-s{margin:0;font-size:0.85rem;opacity:0.85}
     .rj-consent{display:flex;gap:0.6rem;align-items:flex-start;background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:10px;padding:0.9rem 1rem;margin-top:1.2rem;font-size:0.88rem;line-height:1.5;cursor:pointer}
     .rj-consent input{width:auto;margin-top:0.2rem}
     .rj-code{background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:12px;padding:1.3rem;text-align:center;margin-bottom:1rem}
@@ -98,6 +103,10 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     <div class="rj-app">
 
       <!-- code affiche apres inscription -->
+      <!-- DSP-ready, vu par le CHAUFFEUR : « pret », ou « presque » avec ce qui
+           manque. C'est la seule page qui recoit `missing` — un employeur ne voit
+           que le badge (Driver360_site/docs/SPEC_DSP_READY.md, § 4). -->
+      <div class="rj-dsp rj-hide" id="rj-dspbox" role="status" aria-live="polite"></div>
       <div class="rj-code rj-hide" id="rj-codebox">
         <p style="margin:0" id="rj-code-lbl">✅ You are in the pool! Here is your personal code:</p>
         <p class="big" id="rj-code-val"></p>
@@ -158,6 +167,26 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <option value="parttime">Part time</option>
           <option value="both">Either</option>
         </select>
+
+        <h2 style="font-size:1.17rem;margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort)" id="rj-t6">For delivery jobs (Amazon DSPs and others)</h2>
+        <label id="L-dsp">Check what is true for you<small>These are the five things a delivery employer checks before calling you. All five checked, you show as “DSP-ready” — none of them is ever shown on its own.</small></label>
+        <!-- DSP-ready : cinq ATTESTATIONS (Driver360_site/docs/SPEC_DSP_READY.md, § 2).
+             Pas de date de naissance, pas de numero de permis : on reste hors de
+             201 CMR 17.00. Le Worker ne renvoie jamais ces cases une a une a un
+             employeur — seulement le badge, calcule chez lui. -->
+        <div class="rj-checks" id="rj-dsp" style="flex-direction:column;gap:0.5rem;margin-top:0.4rem">
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="age21" /> <span id="D-age21">I am 21 or older</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="licUS" /> <span id="D-licUS">My licence was issued by a US state and is not suspended</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="recordClean" /> <span id="D-recordClean">My driving record is clean: no suspension, no at-fault accident, no more than 2 minor violations in 3 years</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="screenOk" /> <span id="D-screenOk">I agree to a background check and a drug screen</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="lift50" /> <span id="D-lift50">I can lift 50 lb (23 kg) repeatedly</span></label>
+        </div>
+        <label id="L-slots">Three interview slots<small>Within the next three days. They refresh each time you confirm you are available.</small></label>
+        <div id="rj-slots" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.5rem;margin-top:0.4rem">
+          <input type="datetime-local" id="rj-slot1" aria-label="Créneau 1" />
+          <input type="datetime-local" id="rj-slot2" aria-label="Créneau 2" />
+          <input type="datetime-local" id="rj-slot3" aria-label="Créneau 3" />
+        </div>
 
         <label id="L-ctc">How an employer can reach you<small>Two ways, and you choose.</small></label>
         <div id="rj-ctc" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
@@ -273,6 +302,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNoMsg:"Refusé. Cet employeur n'a pas votre contact, et son crédit lui est rendu.",
       stConfirmer:"Confirmez que vous êtes toujours disponible pour rester dans le vivier.",
       cvErr:"Le lien de votre CV doit commencer par http:// ou https://.",
+      dspOk:"DSP-ready — confirmé le %s", dspOkS:"Un employeur de livraison vous voit avec ce badge, sans aucune de vos réponses en détail. Il expire après 14 jours : confirmez votre disponibilité pour le garder.",
+      dspAlmost:"Presque DSP-ready — il manque :", dspAlmostS:"Rien de cette liste n'est visible d'un employeur. Seul le badge l'est, quand tout y est.",
+      mAttest:"Cochez les cinq points de la section livraison.", mClassd:"Cochez Class D dans vos licences.", mAuth:"Indiquez que vous êtes autorisé(e) à travailler aux États-Unis.",
+      mPhone:"Votre numéro n'est pas encore vérifié : nous vous envoyons un message WhatsApp, vous répondez OK. Rien d'autre à faire.", mSlot:"Choisissez un créneau d'entretien dans les trois prochains jours.", mFresh:"Confirmez que vous êtes toujours disponible — bouton « Je suis disponible » après avoir chargé votre inscription.",
+      t6:"Pour les postes de livraison (DSP Amazon et autres)",
+      dspT:"Cochez ce qui est vrai pour vous", dspS:"Ce sont les cinq points qu'un employeur de livraison vérifie avant de vous appeler. Tous cochés, vous apparaissez « DSP-ready » — aucun n'est affiché séparément.",
+      dAge21:"J'ai 21 ans ou plus",
+      dLicUS:"Mon permis a été délivré par un État américain et n'est pas suspendu",
+      dRecord:"Mon dossier de conduite est propre : aucune suspension, aucun accident responsable, pas plus de 2 infractions mineures en 3 ans",
+      dScreen:"J'accepte un contrôle d'antécédents et un dépistage de drogues",
+      dLift:"Je peux porter 50 lb (23 kg) de façon répétée",
+      slotsT:"Trois créneaux pour un entretien", slotsS:"Dans les trois prochains jours. Ils se renouvellent chaque fois que vous confirmez votre disponibilité.", slot:"Créneau %d",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne. Les messages viennent d'Atmart LLC. Cocher n'est pas obligatoire pour entrer dans le vivier, et votre opérateur peut facturer la réception selon votre forfait.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -320,6 +361,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNoMsg:"Ou refize. Anplwayè a pa gen kontak ou, epi yo remet li kredi l.",
       stConfirmer:"Konfime ou toujou disponib pou w rete nan vivye a.",
       cvErr:"Lyen CV ou a dwe kòmanse ak http:// oswa https://.",
+      dspOk:"DSP-ready — konfime %s", dspOkS:"Yon anplwayè livrezon wè w ak badj sa a, san okenn nan repons ou yo an detay. Li ekspire apre 14 jou : konfime ou disponib pou w kenbe l.",
+      dspAlmost:"Prèske DSP-ready — sa ki manke :", dspAlmostS:"Anyen nan lis sa a pa parèt pou yon anplwayè. Se badj la sèlman li wè, lè tout bagay la.",
+      mAttest:"Tcheke senk pwen seksyon livrezon an.", mClassd:"Tcheke Class D nan lisans ou yo.", mAuth:"Di ke ou otorize pou travay Ozetazini.",
+      mPhone:"Nimewo w poko verifye : n ap voye yon mesaj WhatsApp ba ou, ou reponn OK. Pa gen anyen lòt pou w fè.", mSlot:"Chwazi yon moman pou entèvyou nan twa jou k ap vini yo.", mFresh:"Konfime ou toujou disponib — bouton « Mwen disponib » la, apre w chaje enskripsyon w.",
+      t6:"Pou djòb livrezon (DSP Amazon ak lòt yo)",
+      dspT:"Tcheke sa ki vre pou ou", dspS:"Se senk bagay sa yo yon anplwayè livrezon verifye anvan li rele w. Si tout tcheke, ou parèt « DSP-ready » — yo pa janm parèt youn pa youn.",
+      dAge21:"Mwen gen 21 an oswa plis",
+      dLicUS:"Se yon eta Ozetazini ki ban m lisans mwen, e li pa sispann",
+      dRecord:"Dosye kondwi m pwòp : pa gen sispansyon, pa gen aksidan kote se mwen ki responsab, pa plis pase 2 ti enfraksyon nan 3 dènye ane yo",
+      dScreen:"Mwen dakò pou yo tcheke dosye m (background check) ak pou yo fè m yon tès dwòg",
+      dLift:"Mwen ka leve 50 liv (23 kg) plizyè fwa",
+      slotsT:"Twa moman pou yon entèvyou", slotsS:"Nan twa jou k ap vini yo. Yo renouvle chak fwa ou konfime ou disponib.", slot:"Moman %d",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen. Se Atmart LLC ki voye mesaj yo. Ou pa oblije koche pou w antre nan vivye a, epi konpayi telefòn ou ka fè w peye pou resevwa yo, selon plan w.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -367,6 +420,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNoMsg:"Refused. This employer does not have your contact details, and their credit is given back.",
       stConfirmer:"Confirm you are still available to stay in the pool.",
       cvErr:"Your CV link must start with http:// or https://.",
+      dspOk:"DSP-ready — confirmed %s", dspOkS:"A delivery employer sees you with this badge, and none of your answers in detail. It expires after 14 days: confirm you are available to keep it.",
+      dspAlmost:"Almost DSP-ready — missing:", dspAlmostS:"Nothing on this list is visible to an employer. Only the badge is, once everything is in.",
+      mAttest:"Check the five points in the delivery section.", mClassd:"Tick Class D under your licences.", mAuth:"State that you are authorized to work in the US.",
+      mPhone:"Your number is not verified yet: we send you one WhatsApp message, you reply OK. Nothing else to do.", mSlot:"Pick an interview slot within the next three days.", mFresh:"Confirm you are still available — the “I am available” button after loading your registration.",
+      t6:"For delivery jobs (Amazon DSPs and others)",
+      dspT:"Check what is true for you", dspS:"These are the five things a delivery employer checks before calling you. All five checked, you show as “DSP-ready” — none of them is ever shown on its own.",
+      dAge21:"I am 21 or older",
+      dLicUS:"My licence was issued by a US state and is not suspended",
+      dRecord:"My driving record is clean: no suspension, no at-fault accident, no more than 2 minor violations in 3 years",
+      dScreen:"I agree to a background check and a drug screen",
+      dLift:"I can lift 50 lb (23 kg) repeatedly",
+      slotsT:"Three interview slots", slotsS:"Within the next three days. They refresh each time you confirm you are available.", slot:"Slot %d",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them. Today these messages are written and sent by hand, by a person. The messages come from Atmart LLC. Ticking is not required to join the pool, and your carrier may charge you to receive them, depending on your plan.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -414,6 +479,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNoMsg:"Rechazado. Este empleador no tiene tus datos, y se le devuelve su crédito.",
       stConfirmer:"Confirma que sigues disponible para permanecer en el registro.",
       cvErr:"El enlace de tu CV debe empezar por http:// o https://.",
+      dspOk:"DSP-ready — confirmado el %s", dspOkS:"Un empleador de reparto te ve con esta insignia, sin ninguna de tus respuestas en detalle. Caduca a los 14 días: confirma que estás disponible para mantenerla.",
+      dspAlmost:"Casi DSP-ready — falta:", dspAlmostS:"Nada de esta lista es visible para un empleador. Solo la insignia lo es, cuando todo está.",
+      mAttest:"Marca los cinco puntos de la sección de reparto.", mClassd:"Marca Class D en tus licencias.", mAuth:"Indica que estás autorizado para trabajar en EE. UU.",
+      mPhone:"Tu número aún no está verificado: te enviamos un mensaje de WhatsApp, respondes OK. Nada más que hacer.", mSlot:"Elige un horario de entrevista en los próximos tres días.", mFresh:"Confirma que sigues disponible: el botón «Estoy disponible» tras cargar tu inscripción.",
+      t6:"Para empleos de reparto (DSP de Amazon y otros)",
+      dspT:"Marca lo que es cierto para ti", dspS:"Son las cinco cosas que un empleador de reparto verifica antes de llamarte. Con las cinco marcadas apareces como «DSP-ready»; ninguna se muestra por separado.",
+      dAge21:"Tengo 21 años o más",
+      dLicUS:"Mi licencia fue emitida por un estado de EE. UU. y no está suspendida",
+      dRecord:"Mi historial de manejo está limpio: sin suspensiones, sin accidentes con culpa, no más de 2 infracciones menores en 3 años",
+      dScreen:"Acepto una verificación de antecedentes y una prueba de drogas",
+      dLift:"Puedo cargar 50 lb (23 kg) de forma repetida",
+      slotsT:"Tres horarios para una entrevista", slotsS:"En los próximos tres días. Se renuevan cada vez que confirmas que estás disponible.", slot:"Horario %d",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos. Hoy estos mensajes los escribe y los envía una persona, a mano. Los mensajes vienen de Atmart LLC. Marcar no es obligatorio para entrar en el registro, y tu operador puede cobrarte por recibirlos, según tu plan.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -438,6 +515,11 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     setL("L-nat",t.nat,t.nats); setL("L-auth",t.auth);
     setL("L-lic",t.lic,t.lics); setL("L-years",t.years); setL("L-seek",t.seek); setL("L-avail",t.avail);
     setL("L-code2",t.code2); setL("L-flex",t.flexT,t.flexS);
+    setT("rj-t6",t.t6); setL("L-dsp",t.dspT,t.dspS);
+    setT("D-age21",t.dAge21); setT("D-licUS",t.dLicUS); setT("D-recordClean",t.dRecord); setT("D-screenOk",t.dScreen); setT("D-lift50",t.dLift);
+    setL("L-slots",t.slotsT,t.slotsS);
+    if(lastDsp)showDsp(lastDsp);
+    [1,2,3].forEach(function(i){var s=document.getElementById("rj-slot"+i);if(s)s.setAttribute("aria-label",t.slot.replace("%d",i));});
     setT("F-any",t.fAny); setT("F-prefer",t.fPrefer); setT("F-only",t.fOnly);
     setT("B-available",t.bAvail); setT("B-hired",t.bHired); setT("B-paused",t.bPaused);
     var au=document.getElementById("rj-auth").options;
@@ -522,7 +604,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       wa:document.getElementById("rj-wa").checked,
       contact:(document.querySelector('input[name=ctc]:checked')||{}).value||"direct",
       cv:lienSur(document.getElementById("rj-cv").value),
-      resume:document.getElementById("rj-resume").value};
+      resume:document.getElementById("rj-resume").value,
+      dsp:checked("#rj-dsp"),
+      slots:[1,2,3].map(function(i){return document.getElementById("rj-slot"+i).value;}).filter(Boolean)};
   }
   function fill(p){
     document.getElementById("rj-name").value=p.name||"";
@@ -537,6 +621,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       cb.checked=(p.licenses||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
     document.querySelectorAll("#rj-seek input").forEach(function(cb){
       cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+    document.querySelectorAll("#rj-dsp input").forEach(function(cb){
+      cb.checked=(p.dsp||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+    [1,2,3].forEach(function(i){document.getElementById("rj-slot"+i).value=(p.slots||[])[i-1]||"";});
     document.getElementById("rj-consent").checked=true;
     document.getElementById("rj-wa").checked=(p.wa===true);
     var ct=p.contact||"direct";
@@ -550,6 +637,22 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
       l.classList.toggle("on",l.querySelector("input").checked);});
     showStatus(p.status||"available");
+  }
+  // Le verdict DSP-ready vient du Worker (`dsp` sur register / update / get /
+  // avail) : la page ne le recalcule jamais, elle le montre. `lastDsp` sert a
+  // le redessiner quand la langue change.
+  var lastDsp=null;
+  function showDsp(d){
+    var box=document.getElementById("rj-dspbox"); if(!box||!d)return;
+    var t=T(), MSG={attest:t.mAttest,classd:t.mClassd,auth:t.mAuth,phone:t.mPhone,slot:t.mSlot,fresh:t.mFresh};
+    lastDsp=d;
+    if(d.ready){
+      box.className="rj-dsp ok";
+      box.innerHTML='<p class="rj-dsp-t">\u2714 '+t.dspOk.replace("%s",d.since||"")+'</p><p class="rj-dsp-s">'+t.dspOkS+'</p>';
+    }else{
+      box.className="rj-dsp";
+      box.innerHTML='<p class="rj-dsp-t">'+t.dspAlmost+'</p><ul>'+(d.missing||[]).map(function(k){return "<li>"+(MSG[k]||k)+"</li>";}).join("")+'</ul><p class="rj-dsp-s">'+t.dspAlmostS+'</p>';
+    }
   }
   function showStatus(st){
     var t=T();
@@ -570,6 +673,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       busy=false;
       if(!res.ok){st.textContent=emsg(res.body&&res.body.error);return;}
       st.textContent="";
+      showDsp(res.body.dsp);
       if(editCode){st.textContent=t.updated;return;}
       document.getElementById("rj-code-val").textContent=res.body.code;
       document.getElementById("rj-codebox").classList.remove("rj-hide");
@@ -596,6 +700,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
       st2.textContent="";
       editCode=c; fill(res.body.profile||{}); montrerDemandes(res.body.pend||[]);
+      showDsp(res.body.dsp);
       document.getElementById("rj-manage").classList.add("rj-hide");
       document.getElementById("rj-form").classList.remove("rj-hide");
       document.getElementById("rj-go").textContent=T().save;
@@ -659,7 +764,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     if(!c){st2.textContent=t.invalid;return;}
     post({action:"status",code:c,status:b.dataset.st}).then(function(res){
       if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
-      showStatus(res.body.status); st2.textContent=t.stOk;
+      showStatus(res.body.status); st2.textContent=t.stOk; showDsp(res.body.dsp);
     }).catch(function(){st2.textContent=t.err;});
   });
 

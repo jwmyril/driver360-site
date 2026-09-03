@@ -1,0 +1,342 @@
+<title>P1 Logistics Founding Pilot</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f3f5f6;
+    --surface: #ffffff;
+    --ink: #14273d;
+    --text: #253649;
+    --muted: #5c6b78;
+    --rule: #d3dae0;
+    --accent: #0b7d73;
+    --accent-soft: #e2f1ee;
+    --signal: #b8720e;
+    --signal-soft: #fbf1df;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0f1c2b;
+      --surface: #16273a;
+      --ink: #eef3f7;
+      --text: #dfe7ee;
+      --muted: #94a5b3;
+      --rule: #2c3f53;
+      --accent: #4fc3b6;
+      --accent-soft: #163b3a;
+      --signal: #e6a53c;
+      --signal-soft: #3a2c12;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0f1c2b;
+    --surface: #16273a;
+    --ink: #eef3f7;
+    --text: #dfe7ee;
+    --muted: #94a5b3;
+    --rule: #2c3f53;
+    --accent: #4fc3b6;
+    --accent-soft: #163b3a;
+    --signal: #e6a53c;
+    --signal-soft: #3a2c12;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  h1, h2 {
+    font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    color: var(--ink);
+    text-wrap: balance;
+    line-height: 1.05;
+    margin: 0;
+  }
+  h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -0.01em; }
+  h2 { font-size: 1.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+  p { margin: 0; max-width: 62ch; }
+  a { color: var(--accent); }
+  strong { color: var(--ink); font-weight: 600; }
+  .mono {
+    font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* manifest strip */
+  .manifest {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    padding: 0.7rem 0;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .manifest b { color: var(--ink); font-weight: 500; }
+
+  header { display: flex; flex-direction: column; gap: 1.2rem; }
+  .lede { font-size: 1.15rem; color: var(--text); }
+  blockquote {
+    margin: 0;
+    padding: 0.2rem 0 0.2rem 1rem;
+    border-left: 3px solid var(--signal);
+    font-style: italic;
+    color: var(--muted);
+  }
+  blockquote cite { font-style: normal; font-size: 0.85rem; display: block; margin-top: 0.3rem; }
+
+  section { display: flex; flex-direction: column; gap: 1rem; }
+
+  /* send / get / pay */
+  .terms { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+  .term {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .term .k {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 0.25rem;
+  }
+  .term .v { display: flex; flex-direction: column; gap: 0.35rem; }
+  .term .v .big {
+    font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .term.pay .big { color: var(--signal); }
+  .term .v small { color: var(--muted); font-size: 0.9rem; }
+
+  /* clock */
+  .clock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    padding-top: 1.1rem;
+  }
+  .clock::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0.45rem;
+    height: 2px;
+    background: var(--rule);
+  }
+  .stop { display: flex; flex-direction: column; gap: 0.3rem; padding-right: 0.8rem; position: relative; }
+  .stop::before {
+    content: "";
+    position: absolute;
+    top: -1rem; left: 0;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+  }
+  .stop .t { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+  .stop .w { font-size: 0.92rem; color: var(--text); }
+  @media (max-width: 520px) {
+    .clock { grid-template-columns: 1fr 1fr; row-gap: 1.6rem; }
+    .clock::before { display: none; }
+    .stop::before { display: none; }
+  }
+
+  /* checklist table */
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.55rem 0.6rem 0.55rem 0; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  th {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .tag.you { background: var(--signal-soft); color: var(--signal); }
+
+  /* honest status */
+  .status {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--signal);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .status .k { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--signal); font-weight: 500; }
+
+  .ask { display: flex; flex-direction: column; gap: 0.6rem; }
+  .ask ol { margin: 0; padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .num { display: flex; flex-direction: column; gap: 0.15rem; border-top: 2px solid var(--ink); padding-top: 0.5rem; }
+  .num .n { font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--ink); line-height: 1; }
+  .num .l { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 520px) { .numbers { grid-template-columns: 1fr 1fr; } }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  footer .who { color: var(--ink); font-weight: 500; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main class="page">
+
+  <div class="manifest mono">
+    <span><b>Pilot</b> · Founding DSP</span>
+    <span><b>P1 Logistics</b> · DKO1 Littleton, MA</span>
+    <span><b>30 days</b></span>
+    <span><b>$0</b> to try</span>
+    <span>Sept 2026</span>
+  </div>
+
+  <header>
+    <h1>Send one message. Get drivers who show up.</h1>
+    <p class="lede">A 30-day pilot between P1 Logistics and Driver360, built by one of your own delivery associates. You pay nothing to try it, and afterwards you only ever pay for a candidate who sat down in front of you.</p>
+    <blockquote>
+      “Time is my most precious commodity in logistics. Money often comes second. I would rather risk losing money on something that doesn’t work than losing time.”
+      <cite>— Ari, Sept 2. This pilot is designed around that sentence.</cite>
+    </blockquote>
+  </header>
+
+  <section>
+    <h2>The deal</h2>
+    <div class="terms">
+      <div class="term">
+        <div class="k">You send</div>
+        <div class="v">
+          <div class="big">One message.</div>
+          <p>WhatsApp or email: <span class="mono">“5 DAs, Littleton, start Monday.”</span> No portal, no login, no job post to write.</p>
+        </div>
+      </div>
+      <div class="term">
+        <div class="k">You get</div>
+        <div class="v">
+          <div class="big">A short list within 48 hours.</div>
+          <p>Name, phone, and an interview slot <strong>the driver has already confirmed</strong>. Every name on it is DSP-ready — the checklist below is done before you see them.</p>
+          <small>A no-show is replaced within 24 hours without you asking again.</small>
+        </div>
+      </div>
+      <div class="term pay">
+        <div class="k">You pay</div>
+        <div class="v">
+          <div class="big">Only for a candidate who shows up.</div>
+          <p>During the pilot: nothing. After: a flat fee per interview actually held, and a second one if the hire is still driving at day 30. No subscription, no fee for a list, no fee for a no-show.</p>
+          <small>We’ll set the two amounts against what Indeed costs you <em>per hire that lasted</em> — the only honest comparison.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The 48-hour clock</h2>
+    <div class="clock">
+      <div class="stop"><span class="t mono">0 h</span><span class="w">Your message lands. Acknowledged within the hour.</span></div>
+      <div class="stop"><span class="t mono">&lt; 12 h</span><span class="w">DSP-ready drivers within 25 mi of DKO1 get the request, in their language.</span></div>
+      <div class="stop"><span class="t mono">&lt; 48 h</span><span class="w">Short list to you, slots confirmed by each driver.</span></div>
+      <div class="stop"><span class="t mono">Interview</span><span class="w">One tap from you: showed / no-show. That’s the whole reporting.</span></div>
+    </div>
+    <p><small style="color:var(--muted)">These three times — acknowledgement, short list, show-up rate — will be published on the Driver360 employer page, recalculated nightly. If they’re bad, they’re bad in public.</small></p>
+  </section>
+
+  <section>
+    <h2>What “DSP-ready” means</h2>
+    <p>The checks you do today before you pick up the phone. We do them first; you only get drivers who pass all eight.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>How Driver360 knows</th><th>Still yours</th></tr></thead>
+        <tbody>
+          <tr><td>21 or older</td><td>Driver attests at sign-up</td><td><span class="tag you">ID at hire</span></td></tr>
+          <tr><td>Valid US licence, Class D</td><td>Attested: issued by a US state, not suspended</td><td><span class="tag you">MVR</span></td></tr>
+          <tr><td>Authorized to work in the US</td><td>Attested</td><td><span class="tag you">I-9</span></td></tr>
+          <tr><td>Clean driving record</td><td>Attested: no suspension, no at-fault accident, ≤ 2 minor violations in 3 yrs</td><td><span class="tag you">MVR</span></td></tr>
+          <tr><td>Background check &amp; drug screen</td><td>Driver agrees up front</td><td><span class="tag you">You run it</span></td></tr>
+          <tr><td>Lifts 50 lb repeatedly</td><td>Attested</td><td>—</td></tr>
+          <tr><td>Phone actually answers</td><td><span class="tag">Measured</span> — verified by a code the driver sends back</td><td>—</td></tr>
+          <tr><td>Free for an interview within 72 h</td><td>Three slots chosen by the driver, refreshed every 14 days</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><small style="color:var(--muted)">Driver360 does not pull MVRs, run background checks, or guarantee a hire. It guarantees you won’t run those checks on someone who was never eligible.</small></p>
+  </section>
+
+  <section>
+    <h2>What Indeed can’t see</h2>
+    <p>Driver360 also runs a road-test coach in English, Spanish, Haitian Creole and French. The people using it <strong>don’t have a licence yet</strong> — so they don’t exist on any job board. We know their test date. From the pilot onward you get a line like <em>“9 candidates within 25 mi of DKO1 pass their road test in the next 30 days”</em> and a button to be first in line when they do.</p>
+  </section>
+
+  <section class="ask">
+    <h2>What we ask of you</h2>
+    <ol>
+      <li><strong>Declare four things, one tap each</strong>: showed / no-show at interview, hired / not, and still driving at day 30. That data is what makes the next list better than the first — and it’s what no one else has.</li>
+      <li><strong>Tell us your real checklist.</strong> If “DSP-ready” means something beyond the eight rows above — a specific document, a minimum tenure, a shift pattern — say so and it goes in before the first list.</li>
+      <li><strong>One 20-minute call</strong>, then messages only.</li>
+    </ol>
+  </section>
+
+  <div class="status">
+    <div class="k">Honest status, Sept 3</div>
+    <p>The platform is live at <a href="https://driver360.atmart.ltd">driver360.atmart.ltd</a>. The driver pool is being seeded now against the checklist above — the first list to you goes out when there are <strong>20 DSP-ready drivers within 25 miles of Littleton</strong>, not before. We’d rather send you nothing than send you a list you have to screen.</p>
+  </div>
+
+  <section>
+    <h2>The pilot in numbers</h2>
+    <div class="numbers">
+      <div class="num"><span class="n mono">3</span><span class="l">founding DSPs, 90 days free</span></div>
+      <div class="num"><span class="n mono">48 h</span><span class="l">request to short list, steady state</span></div>
+      <div class="num"><span class="n mono">&gt; 80 %</span><span class="l">show-up rate target</span></div>
+      <div class="num"><span class="n mono">$0</span><span class="l">for the driver, ever</span></div>
+      <div class="num"><span class="n mono">1</span><span class="l">metric that decides it: your message → first interview held</span></div>
+      <div class="num"><span class="n mono">0</span><span class="l">portals you have to log into</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="who">Jean Myril · Driver360, a service by Atmart LLC</span>
+    <span>Reply to this email, or WhatsApp — same message as you’d send for drivers: <span class="mono">“Yes, let’s try it.”</span></span>
+    <span>Independent of Amazon and of the Massachusetts RMV. Employers pay; drivers never do.</span>
+  </footer>
+
+</main>

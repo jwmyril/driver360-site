@@ -504,6 +504,83 @@ def m_h7():
     return n > 0, "%d champ(s) obligatoire(s) dans le formulaire employeur" % n
 
 
+
+# ------------------------------------------------------- I · DSP-ready
+WORKER = os.path.join(os.path.dirname(RACINE), "Atmart_chat_worker")
+
+
+def m_i1():
+    """Les champs DSP-ready dans la page publiee, et dans les 4 langues."""
+    t = lire("vivye.html")
+    if t is None:
+        return None, "vivye.html introuvable"
+    cases = len(re.findall(r'value="(?:age21|licUS|recordClean|screenOk|lift50)"', t))
+    slots = len(re.findall(r'id="rj-slot[123]"', t))
+    envoie = bool(re.search(r'dsp:checked\("#rj-dsp"\)', t)) and "slots:[1,2,3]" in t
+    dicos = len(re.findall(r"\bdAge21:", t))
+    bon = cases == 5 and slots == 3 and envoie and dicos == 4
+    return bon, "%d/5 attestations · %d/3 creneaux · profile() %s · %d/4 dictionnaires" % (
+        cases, slots, "envoie dsp+slots" if envoie else "N'ENVOIE PAS", dicos)
+
+
+def m_i2():
+    """Le test comportemental du Worker, rejoue tel quel."""
+    test = os.path.join(WORKER, "tests", "dsp-ready.js")
+    if not os.path.exists(test):
+        return None, "tests/dsp-ready.js introuvable dans Atmart_chat_worker"
+    r = subprocess.run(["node", test], cwd=WORKER, capture_output=True,
+                       text=True, encoding="utf-8", errors="replace")
+    out = (r.stdout or "") + (r.stderr or "")
+    ok_n = out.count("\u2705")
+    ko_n = out.count("\u274c")
+    return r.returncode == 0, "%d assertion(s) vertes, %d rouge(s)" % (ok_n, ko_n)
+
+
+def m_i3():
+    """La seule voie qui pose phoneOk."""
+    src = lire("tools/alertes_whatsapp.py")
+    if src is None:
+        return None, "alertes_whatsapp.py introuvable"
+    a = "def action_tel_ok(" in src
+    b = '"--tel-ok"' in src
+    c = "action_tel_ok(fiches, args.tel_ok)" in src
+    return a and b and c, "fonction %s · option %s · dispatch %s" % (
+        "ok" if a else "ABSENTE", "ok" if b else "ABSENTE", "ok" if c else "ABSENT")
+
+
+
+def m_i4():
+    """Le chauffeur voit son verdict, dans les 4 langues."""
+    t = lire("vivye.html")
+    if t is None:
+        return None, "vivye.html introuvable"
+    boite = 'id="rj-dspbox"' in t
+    fn = "function showDsp(" in t
+    branches = t.count("showDsp(res.body")
+    cles = len(re.findall(r"\bmPhone:", t))
+    bon = boite and fn and branches >= 3 and cles == 4
+    return bon, "boite %s · showDsp %s · %d branchement(s) · %d/4 dictionnaires" % (
+        "ok" if boite else "ABSENTE", "ok" if fn else "ABSENT", branches, cles)
+
+
+def m_i5():
+    """L'employeur filtre sur le badge, et ne voit que le badge."""
+    t = lire("anplwaye.html")
+    if t is None:
+        return None, "anplwaye.html introuvable"
+    case = 'id="ep-dsp"' in t
+    envoi = bool(re.search(r'dsp:\s*document\.getElementById\("ep-dsp"\)\.checked', t))
+    badge = "function dspBadge(" in t and "dspBadge(e)" in t
+    cles = len(re.findall(r"\bdspFilter:", t))
+    # le badge remplace les colonnes : aucune colonne « attestation » ne doit
+    # apparaitre dans l'en-tete du vivier libre
+    colonne = bool(re.search(r"<th[^>]*>[^<]*(?:21|MVR|50 lb|dépistage|drug)", t, re.I))
+    bon = case and envoi and badge and cles == 4 and not colonne
+    return bon, "case %s · requete %s · badge %s · %d/4 dictionnaires · colonne critere %s" % (
+        "ok" if case else "ABSENTE", "ok" if envoi else "ABSENTE", "ok" if badge else "ABSENT",
+        cles, "AJOUTEE" if colonne else "aucune")
+
+
 # --------------------------------------------------------------- le tableau
 MESURES = {
     "A2": m_a2, "A3": m_a3, "A4": m_a4, "A5": m_a5, "A7": m_a7,
@@ -514,6 +591,7 @@ MESURES = {
     "F2": m_f2, "F3": m_f3, "F4": m_f4,
     "G1": m_g1, "G2": m_g2, "G3": m_g3, "G4": m_g4,
     "H1": m_h1, "H3": m_h3, "H4": m_h4, "H7": m_h7,
+    "I1": m_i1, "I2": m_i2, "I3": m_i3, "I4": m_i4, "I5": m_i5,
 }
 
 # « fait » déclaré = le contrôle DOIT passer. Toute autre valeur n'engage
@@ -527,7 +605,7 @@ def declares():
         raise SystemExit("registre introuvable : %s" % REGISTRE)
     out = {}
     for ligne in io.open(REGISTRE, encoding="utf-8"):
-        m = re.match(r"\|\s*([A-H]\d{1,2})\s*\|([^|]*)\|([^|]*)\|([^|]*)\|",
+        m = re.match(r"\|\s*([A-I]\d{1,2})\s*\|([^|]*)\|([^|]*)\|([^|]*)\|",
                      ligne)
         if m:
             out[m.group(1)] = (m.group(2).strip(),

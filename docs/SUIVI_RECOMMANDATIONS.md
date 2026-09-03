@@ -158,6 +158,7 @@ passe, soit il ne passe pas, soit il n'existe pas.
 | G10 | Retirer le drapeau `bloquant` mort de `build.py` et garder la trace d'erreur complète | 🟠 | **vérifié** | la trace **entière** est imprimée. On n'affichait que `err.split("\n")[-1]` : sur une trace Python, c'est le message, et le fichier et la ligne sont au-dessus — un build rouge ne disait donc pas où regarder. Le drapeau `bloquant` n'est plus lu : toutes les étapes le portaient à True |
 | G11 | Décider du modèle d'URL par langue (`/en/wout.html`) ou assumer la perte de référencement | 🔵 | **à arbitrer — humain** | aucun `hreflang` n'est possible avec 4 langues sur une URL |
 | G12 | Ajouter `Organization` en données structurées ; arbitrer `Course`/`FAQPage` | 🔵 | **vérifié** | **fait en entier.** `Organization` sur l'accueil ; `FAQPage` **et** `Course` sur les deux coachs, avec 5 vraies questions par page dans les 4 langues, toutes sourcées dans le manuel du RMV et le formulaire 7D. ⚠️ Le balisage est **déduit du bloc visible de la page construite**, jamais écrit à côté : Google exige que le contenu soit visible, et `tools/gen_faq.py --verifier` casse le build si les deux divergent — prouvé par la panne. ⚠️ **Il a produit le faux qu'il existe pour empêcher, à sa première exécution** : le motif attrapait les quatre traductions rangées dans le dictionnaire JavaScript, soit **50 questions annoncées au lieu de 10**. On retire les `<script>` avant de chercher. `Course` ne déclare PAS `educationalCredentialAwarded` — ces coachs ne délivrent aucun titre, c'est le RMV qui délivre le permis. `JobPosting` reste absent, et doit le rester |
+| G13 | Rendre la chaîne idempotente : après un changement de source, le PREMIER `build.py` sort rouge sur quatre contrôles (sitemap, clé de cache, FAQ, couleurs) qui passent tous au second passage | 🟠 | **à faire** | constaté le 03/09 : les quatre scripts rendent 0 en direct et 0 au 2ᵉ et 3ᵉ passage ; c'est l'ORDRE des étapes (une fabrication qui suit sa vérification) qui rougit le 1ᵉʳ. Un build qu'on doit lancer deux fois finit par n'être lancé qu'une fois — et lu comme rouge pour rien, ou vert pour rien |
 ## H — Parcours réel (site exercé au navigateur)
 
 Cette section vient de la seule revue qui a **exercé** le produit en ligne
@@ -188,6 +189,25 @@ remesurés en compositant les fonds translucides, ne montrent **aucun échec AA*
 Le bouton « Suivant » resté en français — le défaut qui a fait naître
 `verif_ids_traduits.py` — **ne se reproduit pas** dans le quiz. Le même défaut
 vit ailleurs : sur le portail employeur (B2).
+
+
+## I — DSP-ready (chantier ouvert le 03/09/2026)
+
+Ce chantier ne vient pas de la relecture : il vient du courriel d'Ari Polivy
+(P1 Logistics) du 02/09 — *« Indeed produces results, for a fee. Your platform
+doesn't have the results. »* Doctrine et lot par lot : `docs/SPEC_DSP_READY.md`.
+Cible commerciale depuis le 03/09 : Ryan Rappoport, programme DSP Amazon (Ari
+ferme P1).
+
+| # | Recommandation | Gravité | État | Preuve |
+|---|---|---|---|---|
+| I1 | Les cinq attestations DSP-ready et les trois créneaux d'entretien dans le formulaire du vivier, dans les 4 langues (source `Atmart_website/rejistre.html`) | 🟠 | **fait** 03/09 | mesuré : `#rj-dsp` avec 5 cases, `#rj-slot1..3`, `profile()` envoie `dsp` et `slots`, clés `dAge21…slot` dans les 4 dictionnaires, balisage anglais rendu |
+| I2 | `dspReady` calculé côté Worker **à la lecture**, jamais stocké ; `phoneOk` jamais lu d'une requête ; la réponse `list` ne porte que le booléen et sa date | 🟠 | **fait** 03/09 | `Atmart_chat_worker/tests/dsp-ready.js` — 23 assertions, rejouées par `etat_suivi.py`. ⚠️ Non déployé : voir I7 |
+| I3 | `--tel-ok CODE_OU_TEL` dans `tools/alertes_whatsapp.py` : la seule voie qui pose `phoneOk` (R7, mesuré) | 🟠 | **fait** 03/09 | l'option est dans `--help` ; passe par `trouver()` (code ou numéro) ; un numéro qui change perd sa vérification côté Worker |
+| I4 | Page du chauffeur : afficher « Presque » avec ce qui manque, et le geste « Confirmer mon téléphone » | 🟠 | **fait** 03/09 | mesuré : `#rj-dspbox` + `showDsp()` branché sur inscription, modification, chargement par code et lien de reconfirmation ; 10 clés × 4 langues. Le geste téléphone est honnête : « nous vous envoyons un message WhatsApp, vous répondez OK » — le chauffeur n'a rien à initier, puisque `phoneOk` se pose par `--tel-ok` |
+| I5 | Page employeur : filtre « DSP-ready seulement » et badge daté à la place des colonnes | 🟠 | **fait** 03/09 | mesuré : case `#ep-dsp` envoyée comme `dsp:true` dans `list`, `dspBadge()` dans la ligne du vivier libre (booléen + âge de la confirmation, jamais ce qui manque), 2 clés × 4 langues. Aucune colonne ajoutée |
+| I6 | Réadresser le one-pager du pilote au programme DSP / Ryan | 🟠 | **à faire — humain** | `docs/PILOTE_P1_LOGISTICS.html` est écrit pour P1, qui ferme |
+| I7 | Déployer le Worker (`npx wrangler deploy`) puis pousser le site | 🟠 | **à faire — humain** | `--dry-run` vert le 03/09 ; tant que le Worker n'est pas déployé, il ignore `dsp` et `slots` (liste blanche) — la page ne casse pas, elle collecte pour rien |
 
 ---
 
