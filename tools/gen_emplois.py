@@ -39,6 +39,30 @@ LANGUES = ["en", "fr", "ht", "es"]
 # NOTE KREYOL. Traduit a partir du SENS, jamais mot a mot. A relire par
 # l'utilisateur, qui est l'autorite sur cette langue.
 TX = {
+    "lead_court":  {'en': 'Twenty employers who actually hire drivers here, each linking straight to their own openings. Filter by the licence you already have.', 'fr': 'Vingt employeurs qui recrutent vraiment des chauffeurs ici, chacun renvoyant droit à ses propres offres. Filtrez selon le permis que vous avez déjà.', 'ht': 'Ven anplwayè ki anbochte chofè tout bon isit la, chak youn voye w dirèk sou pwòp òf pa l. Filtre selon pèmi ou genyen deja.', 'es': 'Veinte empleadores que de verdad contratan choferes aquí, cada uno enlazando directo a sus propias vacantes. Filtra según la licencia que ya tienes.'},
+    "lead_plus":   {'en': 'How this list works, and what it does not promise', 'fr': "Comment cette liste fonctionne, et ce qu'elle ne promet pas", 'ht': 'Kijan lis sa a mache, ak sa li pa pwomèt', 'es': 'Cómo funciona esta lista, y lo que no promete'},
+    "f_titre":   {'en': 'Filter by what you have today', 'fr': "Filtrez selon ce que vous avez aujourd'hui", 'ht': 'Filtre selon sa ou genyen jodi a', 'es': 'Filtra según lo que tienes hoy'},
+    "f_tous":    {'en': 'All', 'fr': 'Tous', 'ht': 'Tout', 'es': 'Todos'},
+    "f_aucun":   {'en': 'No CDL needed', 'fr': 'Sans CDL', 'ht': 'San CDL', 'es': 'Sin CDL'},
+    "f_7d":      {'en': '7D', 'fr': '7D', 'ht': '7D', 'es': '7D'},
+    "f_cdlb":    {'en': 'CDL-B', 'fr': 'CDL-B', 'ht': 'CDL-B', 'es': 'CDL-B'},
+    "f_cdla":    {'en': 'CDL-A', 'fr': 'CDL-A', 'ht': 'CDL-A', 'es': 'CDL-A'},
+    "f_forme":   {'en': 'They train you', 'fr': 'Ils vous forment', 'ht': 'Yo fòme w', 'es': 'Te forman'},
+    "f_rech":    {'en': 'Search an employer or a town…', 'fr': 'Cherchez un employeur ou une ville…', 'ht': 'Chèche yon anplwayè oswa yon vil…', 'es': 'Busca un empleador o una ciudad…'},
+    "f_compte":  {'en': 'employers shown', 'fr': 'employeurs affichés', 'ht': 'anplwayè parèt', 'es': 'empleadores mostrados'},
+    "f_rien":    {'en': 'Nothing matches that. Clear a filter and try again.', 'fr': 'Rien ne correspond. Retirez un filtre et réessayez.', 'ht': 'Anyen pa koresponn. Retire yon filtè epi eseye ankò.', 'es': 'Nada coincide. Quita un filtro e inténtalo de nuevo.'},
+    "f_note":    {'en': 'These labels come from what each employer says on its own page, read by hand on the date below. They are a guide, not a promise — the employer decides.', 'fr': "Ces étiquettes viennent de ce que chaque employeur dit sur sa propre page, lu à la main à la date ci-dessous. Ce sont des repères, pas des promesses — c'est l'employeur qui décide.", 'ht': 'Etikèt sa yo soti nan sa chak anplwayè di sou pwòp paj pa l, li alamen nan dat anba a. Se repè, se pa pwomès — se anplwayè a ki deside.', 'es': 'Estas etiquetas vienen de lo que cada empleador dice en su propia página, leído a mano en la fecha de abajo. Son referencias, no promesas — decide el empleador.'},
+    "p_aucun":   {'en': 'No CDL needed', 'fr': 'Sans CDL', 'ht': 'San CDL', 'es': 'Sin CDL'},
+    "p_7d":      {'en': '7D', 'fr': '7D', 'ht': '7D', 'es': '7D'},
+    "p_cdlb":    {'en': 'CDL-B', 'fr': 'CDL-B', 'ht': 'CDL-B', 'es': 'CDL-B'},
+    "p_cdla":    {'en': 'CDL-A', 'fr': 'CDL-A', 'ht': 'CDL-A', 'es': 'CDL-A'},
+    "p_varie":   {'en': 'Varies by role', 'fr': 'Selon le poste', 'ht': 'Depann de pòs la', 'es': 'Según el puesto'},
+    "p_forme":   {'en': 'Trains you for the licence', 'fr': 'Vous forme au permis', 'ht': 'Fòme w pou pèmi a', 'es': 'Te forma para la licencia'},
+    "p_syndic":  {'en': 'Unionised', 'fr': 'Syndiqué', 'ht': 'Sendika', 'es': 'Sindicato'},
+    "p_public":  {'en': 'Public sector', 'fr': 'Secteur public', 'ht': 'Sektè piblik', 'es': 'Sector público'},
+    "p_soir":    {'en': 'Home every night', 'fr': 'À la maison le soir', 'ht': 'Lakay chak swa', 'es': 'En casa cada noche'},
+    "p_21":      {'en': '21 or over', 'fr': '21 ans et plus', 'ht': '21 an ak plis', 'es': '21 años o más'},
+
     "ti": {
         "en": "Driving jobs in Massachusetts — Driver360",
         "fr": "Emplois de chauffeur au Massachusetts — Driver360",
@@ -198,6 +222,66 @@ CSS = """
     .d3-lang button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
       color:#c9d8e6;border-radius:99px;padding:.3rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit}
     .d3-lang button.actif{border-color:#2ec4b6;color:#2ec4b6;font-weight:600}
+
+    /* La barre de filtres. Elle colle en haut quand on defile : sur vingt
+       cartes on perd sinon le moyen de changer d'avis sans remonter. */
+    /* ⚠️ `top` VAUT LA HAUTEUR DE L'EN-TETE, PAS ZERO. L'en-tete du site est
+       lui aussi `sticky; top:0` (z-index 50) : avec `top:0` ici, les deux se
+       superposaient et le logo passait PAR-DESSUS le champ de recherche —
+       mesure au telephone le 03/09/2026, l'en-tete fait 69 px. On se colle
+       dessous, et le z-index reste inferieur au sien pour que l'ordre
+       d'empilement dise la meme chose que la geometrie. */
+    .jb-filtres{position:sticky;top:69px;z-index:20;background:var(--d-fond);
+      border-bottom:1px solid var(--d-ligne);padding:0.7rem 0;margin-bottom:1.2rem}
+    .jb-f-rech{width:100%;max-width:420px;background:var(--d-surface);
+      color:var(--d-fort);border:1px solid var(--d-ligne);border-radius:9px;
+      padding:0.6rem 0.85rem;font:inherit;font-size:16px;min-height:44px}
+    .jb-f-lig{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem}
+    .jb-f{background:var(--d-surface);color:var(--d-texte);
+      border:1px solid var(--d-ligne);border-radius:999px;
+      padding:0.45rem 0.85rem;font:inherit;font-size:0.86rem;cursor:pointer;
+      min-height:44px}
+    .jb-f:hover{border-color:var(--d-accent-bord)}
+    .jb-f[aria-pressed="true"]{background:var(--d-accent);
+      color:var(--d-accent-encre);border-color:var(--d-accent);font-weight:600}
+    .jb-compte{color:var(--d-doux);font-size:0.85rem;margin-top:0.55rem}
+    /* Les pastilles d'une carte. */
+    .jb-tags{display:flex;flex-wrap:wrap;gap:0.32rem;margin:0.5rem 0 0}
+    .jb-tag{background:var(--d-surface-2);color:var(--d-texte);
+      border-radius:6px;padding:0.16rem 0.5rem;font-size:0.76rem;
+      white-space:nowrap}
+    .jb-tag.cle{background:var(--d-accent-fond);color:var(--d-accent);
+      border:1px solid var(--d-accent-bord);font-weight:600}
+    .jb-tag.paye{background:var(--d-vert-fond);color:var(--d-vert);
+      border:1px solid var(--d-vert-bord);font-weight:600}
+    .jb-vide{color:var(--d-doux);padding:1.4rem 0}
+    .jb-sec.off{display:none}
+    /* ⚠️ LA MISE EN GARDE PASSE DERRIERE UN DEPLIANT, ELLE NE DISPARAIT PAS.
+       Mesure au telephone le 03/09/2026 : on defilait un ecran ENTIER de
+       prose avant d'atteindre quoi que ce soit d'actionnable. Sur un produit
+       dont un employeur nous a dit que « le temps coute plus cher que
+       l'argent », c'est le defaut le plus cher de la page. Tout le texte est
+       toujours la, a un clic — mais il ne barre plus la porte. */
+    .jb-plus{margin-top:.6rem;max-width:760px}
+    .jb-plus summary{cursor:pointer;color:var(--d-accent);font-size:.9rem;
+      padding:.4rem 0;min-height:44px;display:flex;align-items:center}
+    .jb-plus p{margin:.3rem 0 0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* ⚠️ SUR TELEPHONE, LES FILTRES TIENNENT SUR UNE SEULE LIGNE QUI DEFILE.
+       Mesure du 03/09/2026 : a 375 px les six pastilles passaient sur deux
+       lignes et la barre collante occupait 233 px, soit 29 % de l'ecran, en
+       permanence. On regarde des offres a travers une meurtriere. Une ligne
+       qui defile horizontalement est ce que fait Indeed sur mobile, et pour
+       cette raison-la. */
+    @media (max-width:700px){
+      .jb-filtres{padding:0.55rem 0}
+      .jb-f-lig{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+        scrollbar-width:none;padding-bottom:0.2rem}
+      .jb-f-lig::-webkit-scrollbar{display:none}
+      .jb-f{flex:0 0 auto}
+      .jb-compte{margin-top:0.35rem;font-size:0.8rem}
+    }
 """
 
 
@@ -205,13 +289,40 @@ def t(cle, lg="en"):
     return TX[cle][lg]
 
 
+def pastilles(e):
+    """Les pastilles d'une fiche, dans l'ordre ou elles servent.
+
+    ⚠️ ORDRE VOULU : le permis d'abord, parce que c'est la question qui decide
+    si la personne peut postuler aujourd'hui ou dans six mois. Le salaire
+    ensuite. Le reste apres.
+    """
+    out = []
+    for p in e.get("permis", []):
+        cl = "jb-tag cle" if p in ("aucun", "7d") else "jb-tag"
+        out.append('<span class="%s" data-t="p_%s">%s</span>' % (cl, p, t("p_" + p)))
+    if e.get("forme"):
+        out.append('<span class="jb-tag cle" data-t="p_forme">%s</span>' % t("p_forme"))
+    if e.get("paye"):
+        # ⚠️ PAS DE data-t : un montant en dollars ne se traduit pas, et lui
+        # donner une cle le ferait effacer par le dictionnaire des trois
+        # autres langues.
+        out.append('<span class="jb-tag paye">%s</span>' % e["paye"])
+    for a in e.get("atouts", []):
+        out.append('<span class="jb-tag" data-t="p_%s">%s</span>' % (a, t("p_" + a)))
+    return "".join(out)
+
+
 def carte(e):
     return (
-        '      <a class="jb" href="%s" target="_blank" rel="noopener">\n'
+        '      <a class="jb" href="%s" target="_blank" rel="noopener"'
+        ' data-permis="%s" data-forme="%s">\n'
         '        <span class="n"><h3>%s</h3><span class="z" data-t="z_%s">%s</span></span>\n'
+        '        <span class="jb-tags">%s</span>\n'
         '        <p data-t="q_%s">%s</p>\n'
         '        <span class="v" data-t="voir">%s</span>\n'
-        '      </a>' % (e["url"], e["nom"], cle(e), e["zone"]["en"],
+        '      </a>' % (e["url"], " ".join(e.get("permis", [])),
+                        "1" if e.get("forme") else "0",
+                        e["nom"], cle(e), e["zone"]["en"], pastilles(e),
                         cle(e), e["quoi"]["en"], t("voir"))
     )
 
@@ -259,8 +370,37 @@ def offres():
             '      <div class="jb-liste">\n%s\n      </div>\n    </div>\n'
             % (t("offres_t"), t("offres_d"), "\n".join(cartes)))
 
+FILTRES = [("tous", "f_tous"), ("aucun", "f_aucun"), ("7d", "f_7d"),
+           ("cdlb", "f_cdlb"), ("cdla", "f_cdla"), ("forme", "f_forme")]
+
+
+def barre():
+    """La barre de filtres.
+
+    ⚠️ « Ils vous forment » EST LE FILTRE QUI JUSTIFIE LA PAGE. Indeed ne sait
+    pas le proposer : l'information n'est dans aucune annonce, elle est dans la
+    connaissance du secteur. C'est la seule chose qu'on offre et qu'un
+    agregateur ne peut pas offrir.
+    """
+    b = "".join(
+        '<button type="button" class="jb-f" data-f="%s" data-t="%s"'
+        ' aria-pressed="%s">%s</button>' % (f, k, "true" if f == "tous" else "false", t(k))
+        for f, k in FILTRES)
+    return (
+        '    <div class="jb-filtres">\n'
+        '      <label class="sr-only" for="jb-rech" data-t="f_rech">%s</label>\n'
+        '      <input id="jb-rech" class="jb-f-rech" type="search"'
+        ' placeholder="%s" data-tp="f_rech" />\n'
+        '      <div class="jb-f-lig" role="group" aria-label="%s">%s</div>\n'
+        '      <p class="jb-compte" id="jb-compte">%d <span data-t="f_compte">%s</span></p>\n'
+        '    </div>\n'
+        '    <p class="jb-vide" id="jb-vide" data-t="f_rien" style="display:none">%s</p>'
+        % (t("f_rech"), t("f_rech"), t("f_titre"), b,
+           len(EMPLOYEURS), t("f_compte"), t("f_rien")))
+
+
 def construire():
-    corps = []
+    corps = [barre()]
     for genre, titres in SECTIONS:
         gens = [e for e in EMPLOYEURS if e["genre"] == genre]
         if not gens:
@@ -307,7 +447,11 @@ d.lang=l||"en";})();
   <div class="container">
     <p class="kreyol" data-t="fil">%(fil)s</p>
     <h1 data-t="titre">%(titre)s</h1>
-    <p class="lead" data-t="lead">%(lead)s</p>
+    <p class="lead" data-t="lead_court">%(lead_court)s</p>
+    <details class="jb-plus">
+      <summary data-t="lead_plus">%(lead_plus)s</summary>
+      <p data-t="lead">%(lead)s</p>
+    </details>
     <p style="font-size:.83rem;color:#7f93a7;margin-top:.6rem" data-t="verifie">%(verifie)s</p>
   </div>
 </section>
@@ -382,6 +526,48 @@ new MutationObserver(appliquer).observe(document.documentElement,
 </script>
 <script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+
+  <script>
+  (function(){
+    var champ=document.getElementById("jb-rech");
+    var btns=[].slice.call(document.querySelectorAll(".jb-f"));
+    var cartes=[].slice.call(document.querySelectorAll(".jb"));
+    var compte=document.getElementById("jb-compte");
+    var vide=document.getElementById("jb-vide");
+    if(!champ||!cartes.length) return;
+    var actif="tous";
+    function filtrer(){
+      var q=(champ.value||"").trim().toLowerCase(), n=0;
+      cartes.forEach(function(c){
+        var permis=(c.dataset.permis||"").split(" ");
+        var okP = actif==="tous"
+          || (actif==="forme" ? c.dataset.forme==="1" : permis.indexOf(actif)>=0);
+        var okQ = !q || (c.textContent||"").toLowerCase().indexOf(q)>=0;
+        var ok = okP && okQ;
+        c.style.display = ok ? "" : "none";
+        if(ok) n++;
+      });
+      // une section dont toutes les cartes sont masquees ne doit pas laisser
+      // son titre orphelin en haut d'un vide
+      [].slice.call(document.querySelectorAll(".jb-sec")).forEach(function(s){
+        var v=[].slice.call(s.querySelectorAll(".jb"))
+                .some(function(c){return c.style.display!=="none"});
+        s.classList.toggle("off",!v);
+      });
+      if(compte) compte.firstChild.nodeValue=n+" ";
+      if(vide) vide.style.display = n ? "none" : "";
+    }
+    btns.forEach(function(b){
+      b.addEventListener("click",function(){
+        actif=b.dataset.f;
+        btns.forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false")});
+        filtrer();
+      });
+    });
+    champ.addEventListener("input",filtrer);
+    filtrer();
+  })();
+  </script>
 </body>
 </html>
 """

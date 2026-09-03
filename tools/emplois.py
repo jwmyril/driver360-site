@@ -34,6 +34,18 @@ postes de livreur Amazon DSP etaient annonces au Massachusetts, SANS CDL,
 contre une centaine de postes scolaires. La livraison de colis passe donc
 devant, et le scolaire devient une section parmi sept.
 
+⚠️ LES ATTRIBUTS (`permis`, `forme`, `atouts`, `paye`) NE S'INVENTENT PAS.
+Chacun est deduit du texte DEJA VERIFIE de la fiche : « No CDL needed »,
+« CDL training is provided », « home every night », « unionised ». Si la
+description ne le dit pas, l'attribut n'y est pas — une pastille est lue comme
+une promesse.
+
+Ils existent pour une raison precise : Indeed ne sait filtrer ni sur « cet
+employeur me forme au permis », ni sur « 7D ». Ces informations ne sont pas
+dans une annonce, elles sont dans la connaissance du secteur, et nous les
+avons relevees a la main. C'est donc le seul filtre qu'un agregateur ne peut
+pas offrir.
+
 `genre` decide de la section. Ordre voulu : on cherche d'abord soi-meme, puis
 les secteurs SANS CDL (accessibles avec un simple Class D), puis ceux qui
 demandent un permis lourd.
@@ -46,7 +58,7 @@ VERIFIE_LE = "2026-08-31"
 EMPLOYEURS = [
     # ---------------------------------------------------------- on cherche
     dict(
-        genre="board", nom="MassHire JobQuest", url="https://jobquest.mass.gov/",
+        genre="board", nom="MassHire JobQuest", permis=['varie'], forme=False, url="https://jobquest.mass.gov/",
         zone={"en": "Statewide, every sector", "es": "Todo el estado, todos los sectores",
               "ht": "Tout eta a, tout sektè", "fr": "Tout l'État, tous secteurs"},
         quoi={
@@ -58,7 +70,7 @@ EMPLOYEURS = [
     ),
     # ------------------------------------------- livraison (aucun CDL exige)
     dict(
-        genre="livraison", nom="Amazon", url="https://hiring.amazon.com",
+        genre="livraison", nom="Amazon", permis=['aucun'], forme=False, atouts=['21'], paye='$17–26/h', url="https://hiring.amazon.com",
         zone={"en": "Depots across the state", "es": "Centros en todo el estado",
               "ht": "Depo toupatou nan eta a", "fr": "Dépôts dans tout l'État"},
         quoi={
@@ -69,7 +81,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="livraison", nom="FedEx", url="https://careers.fedex.com",
+        genre="livraison", nom="FedEx", permis=['aucun', 'cdlb'], forme=False, url="https://careers.fedex.com",
         zone={"en": "Statewide", "es": "Todo el estado", "ht": "Tout eta a", "fr": "Tout l'État"},
         quoi={
             "en": "Package delivery and line haul. Some routes take a Class D, the heavier ones a CDL.",
@@ -79,7 +91,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="livraison", nom="UPS", url="https://www.jobs-ups.com",
+        genre="livraison", nom="UPS", permis=['varie'], forme=False, atouts=['syndic'], url="https://www.jobs-ups.com",
         zone={"en": "Statewide", "es": "Todo el estado", "ht": "Tout eta a", "fr": "Tout l'État"},
         quoi={
             "en": "Delivery and warehouse work, unionised, with seasonal hiring peaks. Some driving posts are filled from inside the warehouse.",
@@ -90,7 +102,7 @@ EMPLOYEURS = [
     ),
     # --------------------------------------- medical, personnes agees, adapte
     dict(
-        genre="medical", nom="Modivcare", url="https://www.modivcare.com/company/careers/",
+        genre="medical", nom="Modivcare", permis=['aucun'], forme=False, url="https://www.modivcare.com/company/careers/",
         zone={"en": "Statewide", "es": "Todo el estado", "ht": "Tout eta a", "fr": "Tout l'État"},
         quoi={
             "en": "Non-emergency medical transport: taking people to their appointments. Class D is usually enough; a first-aid certificate is often asked for.",
@@ -100,7 +112,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="medical", nom="Transdev", url="https://transdevna.jobs/",
+        genre="medical", nom="Transdev", permis=['aucun'], forme=False, url="https://transdevna.jobs/",
         zone={"en": "Greater Boston and beyond", "es": "Gran Boston y alrededores",
               "ht": "Gran Boston ak pi lwen", "fr": "Grand Boston et au-delà"},
         quoi={
@@ -111,7 +123,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="medical", nom="MART", url="https://www.mrta.us/job-postings/",
+        genre="medical", nom="MART", permis=['varie'], forme=False, url="https://www.mrta.us/job-postings/",
         zone={"en": "Fitchburg, Leominster, Gardner", "es": "Fitchburg, Leominster, Gardner",
               "ht": "Fitchburg, Leominster, Gardner", "fr": "Fitchburg, Leominster, Gardner"},
         quoi={
@@ -123,7 +135,7 @@ EMPLOYEURS = [
     ),
     # ------------------------------------------------------ transport public
     dict(
-        genre="transit", nom="MBTA", url="https://www.mbta.com/careers",
+        genre="transit", nom="MBTA", permis=['cdlb'], forme=True, atouts=['syndic', 'public'], url="https://www.mbta.com/careers",
         zone={"en": "Greater Boston", "es": "Gran Boston", "ht": "Gran Boston", "fr": "Grand Boston"},
         quoi={
             "en": "Buses, the RIDE and support roles. Public-sector pay, benefits and a union. CDL training is provided for bus operators.",
@@ -133,7 +145,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="transit", nom="WRTA", url="https://therta.com/about-us/careers/",
+        genre="transit", nom="WRTA", permis=['varie'], forme=False, atouts=['public'], url="https://therta.com/about-us/careers/",
         zone={"en": "Worcester area", "es": "Zona de Worcester", "ht": "Zòn Worcester", "fr": "Région de Worcester"},
         quoi={
             "en": "The Worcester regional authority. Bus operators and paratransit drivers.",
@@ -143,7 +155,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="transit", nom="PVTA", url="https://www.pvta.us/site/business-opportunites/career-opportunities/",
+        genre="transit", nom="PVTA", permis=['varie'], forme=False, atouts=['public'], url="https://www.pvta.us/site/business-opportunites/career-opportunities/",
         zone={"en": "Springfield & the Valley", "es": "Springfield y el valle",
               "ht": "Springfield ak vale a", "fr": "Springfield et la vallée"},
         quoi={
@@ -155,7 +167,7 @@ EMPLOYEURS = [
     ),
     # ------------------------------------------------------------- autocars
     dict(
-        genre="car", nom="Peter Pan Bus Lines", url="https://www.peterpanbus.com/employment/",
+        genre="car", nom="Peter Pan Bus Lines", permis=['cdlb'], forme=False, url="https://www.peterpanbus.com/employment/",
         zone={"en": "Springfield, Boston, Worcester", "es": "Springfield, Boston, Worcester",
               "ht": "Springfield, Boston, Worcester", "fr": "Springfield, Boston, Worcester"},
         quoi={
@@ -166,7 +178,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="car", nom="DATTCO", url="https://dattco.com/join-our-team/",
+        genre="car", nom="DATTCO", permis=['cdlb'], forme=True, url="https://dattco.com/join-our-team/",
         zone={"en": "Massachusetts and New England", "es": "Massachusetts y Nueva Inglaterra",
               "ht": "Massachusetts ak New England", "fr": "Massachusetts et Nouvelle-Angleterre"},
         quoi={
@@ -177,7 +189,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="car", nom="Academy Bus",
+        genre="car", nom="Academy Bus", permis=['cdlb'], forme=False,
         # ⚠️ /careers est une page de presentation, pas une liste de postes.
         # Le vrai tableau d'offres est celui-ci — ouvert et verifie le
         # 31/08/2026. La page promet « un lien direct vers leurs offres » :
@@ -195,7 +207,7 @@ EMPLOYEURS = [
     ),
     # ------------------------------------------------------------- scolaire
     dict(
-        genre="ecole", nom="NRT Bus", url="https://nrtbus.com/careers/",
+        genre="ecole", nom="NRT Bus", permis=['7d', 'cdlb'], forme=True, url="https://nrtbus.com/careers/",
         zone={"en": "Eastern & Central MA", "es": "Este y centro de Massachusetts",
               "ht": "Lès ak sant Massachusetts", "fr": "Est et centre du Massachusetts"},
         quoi={
@@ -206,7 +218,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="ecole", nom="First Student", url="https://firststudentinc.com/careers/",
+        genre="ecole", nom="First Student", permis=['7d', 'cdlb'], forme=True, paye='$27–32/h', url="https://firststudentinc.com/careers/",
         zone={"en": "Depots across MA", "es": "Bases en todo Massachusetts",
               "ht": "Depo toupatou nan Massachusetts", "fr": "Dépôts partout au Massachusetts"},
         quoi={
@@ -217,7 +229,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="ecole", nom="SchoolSpring", url="https://www.schoolspring.com/",
+        genre="ecole", nom="SchoolSpring", permis=['varie'], forme=False, url="https://www.schoolspring.com/",
         zone={"en": "School districts", "es": "Distritos escolares",
               "ht": "Distri lekòl yo", "fr": "Districts scolaires"},
         quoi={
@@ -229,7 +241,7 @@ EMPLOYEURS = [
     ),
     # ------------------------------------------- poids lourd (CDL demande)
     dict(
-        genre="cdl", nom="Sysco", url="https://jobs.sysco.com",
+        genre="cdl", nom="Sysco", permis=['cdla'], forme=False, url="https://jobs.sysco.com",
         zone={"en": "Plympton distribution centre", "es": "Centro de distribución de Plympton",
               "ht": "Sant distribisyon Plympton", "fr": "Centre de distribution de Plympton"},
         quoi={
@@ -240,7 +252,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="cdl", nom="US Foods", url="https://careers.usfoods.com/us/en",
+        genre="cdl", nom="US Foods", permis=['cdla'], forme=False, url="https://careers.usfoods.com/us/en",
         zone={"en": "Seabrook & Peabody area", "es": "Zona de Seabrook y Peabody",
               "ht": "Zòn Seabrook ak Peabody", "fr": "Région de Seabrook et Peabody"},
         quoi={
@@ -251,7 +263,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="cdl", nom="WM", url="https://careers.wm.com",
+        genre="cdl", nom="WM", permis=['cdlb'], forme=True, atouts=['soir'], url="https://careers.wm.com",
         zone={"en": "Statewide", "es": "Todo el estado", "ht": "Tout eta a", "fr": "Tout l'État"},
         quoi={
             "en": "Waste collection. CDL-B, local routes, home every night — and they train people who do not have the licence yet.",
@@ -261,7 +273,7 @@ EMPLOYEURS = [
         },
     ),
     dict(
-        genre="cdl", nom="Republic Services", url="https://jobs.republicservices.com",
+        genre="cdl", nom="Republic Services", permis=['cdlb'], forme=True, atouts=['soir'], url="https://jobs.republicservices.com",
         zone={"en": "Statewide", "es": "Todo el estado", "ht": "Tout eta a", "fr": "Tout l'État"},
         quoi={
             "en": "The other big waste operator. Same idea: local routes, fixed hours, licence training available.",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-amyFoFs/71o8Lg0PQt0hgz+qYJeksndvM0v+aHoxUOw=' 'sha256-0Hs7GU14+ydEex9k4DuQbiqwv/fWoQF0fXq8cI/BbQY=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-amyFoFs/71o8Lg0PQt0hgz+qYJeksndvM0v+aHoxUOw=' 'sha256-HyxMdCyR39xj4U5Q69OnGHS3trjOYjGzrxDNGGWIFfc=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c=' 'sha256-GTacnp83CATtSw/YJs4/sLjzca3NofFwlNrH33bGJ7Q='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
@@ -59,6 +59,66 @@ d.lang=l||"en";})();
     .d3-lang button{background:var(--d-surface);border:1px solid var(--d-ligne);
       color:var(--d-texte);border-radius:99px;padding:.3rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit}
     .d3-lang button.actif{border-color:var(--d-accent);color:var(--d-accent);font-weight:600}
+
+    /* La barre de filtres. Elle colle en haut quand on defile : sur vingt
+       cartes on perd sinon le moyen de changer d'avis sans remonter. */
+    /* ⚠️ `top` VAUT LA HAUTEUR DE L'EN-TETE, PAS ZERO. L'en-tete du site est
+       lui aussi `sticky; top:0` (z-index 50) : avec `top:0` ici, les deux se
+       superposaient et le logo passait PAR-DESSUS le champ de recherche —
+       mesure au telephone le 03/09/2026, l'en-tete fait 69 px. On se colle
+       dessous, et le z-index reste inferieur au sien pour que l'ordre
+       d'empilement dise la meme chose que la geometrie. */
+    .jb-filtres{position:sticky;top:69px;z-index:20;background:var(--d-fond);
+      border-bottom:1px solid var(--d-ligne);padding:0.7rem 0;margin-bottom:1.2rem}
+    .jb-f-rech{width:100%;max-width:420px;background:var(--d-surface);
+      color:var(--d-fort);border:1px solid var(--d-ligne);border-radius:9px;
+      padding:0.6rem 0.85rem;font:inherit;font-size:16px;min-height:44px}
+    .jb-f-lig{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem}
+    .jb-f{background:var(--d-surface);color:var(--d-texte);
+      border:1px solid var(--d-ligne);border-radius:999px;
+      padding:0.45rem 0.85rem;font:inherit;font-size:0.86rem;cursor:pointer;
+      min-height:44px}
+    .jb-f:hover{border-color:var(--d-accent-bord)}
+    .jb-f[aria-pressed="true"]{background:var(--d-accent);
+      color:var(--d-accent-encre);border-color:var(--d-accent);font-weight:600}
+    .jb-compte{color:var(--d-doux);font-size:0.85rem;margin-top:0.55rem}
+    /* Les pastilles d'une carte. */
+    .jb-tags{display:flex;flex-wrap:wrap;gap:0.32rem;margin:0.5rem 0 0}
+    .jb-tag{background:var(--d-surface-2);color:var(--d-texte);
+      border-radius:6px;padding:0.16rem 0.5rem;font-size:0.76rem;
+      white-space:nowrap}
+    .jb-tag.cle{background:var(--d-accent-fond);color:var(--d-accent);
+      border:1px solid var(--d-accent-bord);font-weight:600}
+    .jb-tag.paye{background:var(--d-vert-fond);color:var(--d-vert);
+      border:1px solid var(--d-vert-bord);font-weight:600}
+    .jb-vide{color:var(--d-doux);padding:1.4rem 0}
+    .jb-sec.off{display:none}
+    /* ⚠️ LA MISE EN GARDE PASSE DERRIERE UN DEPLIANT, ELLE NE DISPARAIT PAS.
+       Mesure au telephone le 03/09/2026 : on defilait un ecran ENTIER de
+       prose avant d'atteindre quoi que ce soit d'actionnable. Sur un produit
+       dont un employeur nous a dit que « le temps coute plus cher que
+       l'argent », c'est le defaut le plus cher de la page. Tout le texte est
+       toujours la, a un clic — mais il ne barre plus la porte. */
+    .jb-plus{margin-top:.6rem;max-width:760px}
+    .jb-plus summary{cursor:pointer;color:var(--d-accent);font-size:.9rem;
+      padding:.4rem 0;min-height:44px;display:flex;align-items:center}
+    .jb-plus p{margin:.3rem 0 0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* ⚠️ SUR TELEPHONE, LES FILTRES TIENNENT SUR UNE SEULE LIGNE QUI DEFILE.
+       Mesure du 03/09/2026 : a 375 px les six pastilles passaient sur deux
+       lignes et la barre collante occupait 233 px, soit 29 % de l'ecran, en
+       permanence. On regarde des offres a travers une meurtriere. Une ligne
+       qui defile horizontalement est ce que fait Indeed sur mobile, et pour
+       cette raison-la. */
+    @media (max-width:700px){
+      .jb-filtres{padding:0.55rem 0}
+      .jb-f-lig{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+        scrollbar-width:none;padding-bottom:0.2rem}
+      .jb-f-lig::-webkit-scrollbar{display:none}
+      .jb-f{flex:0 0 auto}
+      .jb-compte{margin-top:0.35rem;font-size:0.8rem}
+    }
 </style>
 
   <meta property="og:type" content="website" />
@@ -94,18 +154,30 @@ d.lang=l||"en";})();
   <div class="container">
     <p class="kreyol" data-t="fil">Massachusetts is short of drivers — package delivery, medical transport, transit, school runs, trucking. For most of these jobs the licence is the only thing in the way.</p>
     <h1 data-t="titre">Driving jobs in Massachusetts</h1>
-    <p class="lead" data-t="lead">We do not host job adverts and we do not copy them. Below is the list of employers who actually hire drivers here, with a link straight to their own openings — so you apply in the right place. The <em>links</em> do not go stale; the <em>requirements</em> can. Anything we state about age, licence or checks was taken from an official source on the date below, and each employer sets its own rules and changes them without telling us. Read their page before you count on ours.</p>
+    <p class="lead" data-t="lead_court">Twenty employers who actually hire drivers here, each linking straight to their own openings. Filter by the licence you already have.</p>
+    <details class="jb-plus">
+      <summary data-t="lead_plus">How this list works, and what it does not promise</summary>
+      <p data-t="lead">We do not host job adverts and we do not copy them. Below is the list of employers who actually hire drivers here, with a link straight to their own openings — so you apply in the right place. The <em>links</em> do not go stale; the <em>requirements</em> can. Anything we state about age, licence or checks was taken from an official source on the date below, and each employer sets its own rules and changes them without telling us. Read their page before you count on ours.</p>
+    </details>
     <p style="font-size:.83rem;color:var(--d-faible);margin-top:.6rem" data-t="verifie">Every link below was opened and checked on 2026-08-31.</p>
   </div>
 </section>
 
 <section style="padding-top:.4rem;padding-bottom:2.6rem">
   <div class="container">
+    <div class="jb-filtres">
+      <label class="sr-only" for="jb-rech" data-t="f_rech">Search an employer or a town…</label>
+      <input id="jb-rech" class="jb-f-rech" type="search" placeholder="Search an employer or a town…" data-tp="f_rech" />
+      <div class="jb-f-lig" role="group" aria-label="Filter by what you have today"><button type="button" class="jb-f" data-f="tous" data-t="f_tous" aria-pressed="true">All</button><button type="button" class="jb-f" data-f="aucun" data-t="f_aucun" aria-pressed="false">No CDL needed</button><button type="button" class="jb-f" data-f="7d" data-t="f_7d" aria-pressed="false">7D</button><button type="button" class="jb-f" data-f="cdlb" data-t="f_cdlb" aria-pressed="false">CDL-B</button><button type="button" class="jb-f" data-f="cdla" data-t="f_cdla" aria-pressed="false">CDL-A</button><button type="button" class="jb-f" data-f="forme" data-t="f_forme" aria-pressed="false">They train you</button></div>
+      <p class="jb-compte" id="jb-compte">20 <span data-t="f_compte">employers shown</span></p>
+    </div>
+    <p class="jb-vide" id="jb-vide" data-t="f_rien" style="display:none">Nothing matches that. Clear a filter and try again.</p>
     <div class="jb-sec">
       <h2 data-t="s_board">Start here — search every opening yourself</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://jobquest.mass.gov/" target="_blank" rel="noopener">
+      <a class="jb" href="https://jobquest.mass.gov/" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>MassHire JobQuest</h3><span class="z" data-t="z_masshirejobquest">Statewide, every sector</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span></span>
         <p data-t="q_masshirejobquest">The state of Massachusetts runs its own job board. Search “driver” and your town: school, delivery, medical, transit, trucking — everything is there, including employers who never appear on the big commercial sites.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -114,18 +186,21 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_livraison">Package and courier delivery — no CDL needed</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://hiring.amazon.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://hiring.amazon.com" target="_blank" rel="noopener" data-permis="aucun" data-forme="0">
         <span class="n"><h3>Amazon</h3><span class="z" data-t="z_amazon">Depots across the state</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_aucun">No CDL needed</span><span class="jb-tag paye">$17–26/h</span><span class="jb-tag" data-t="p_21">21 or over</span></span>
         <p data-t="q_amazon">Delivery vans, through Amazon's partner companies. <strong>No CDL needed</strong> — but you must be <strong>21 or over</strong>, with a Class D licence and a clean record. It is the biggest single source of driving work in the state right now.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://careers.fedex.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://careers.fedex.com" target="_blank" rel="noopener" data-permis="aucun cdlb" data-forme="0">
         <span class="n"><h3>FedEx</h3><span class="z" data-t="z_fedex">Statewide</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_aucun">No CDL needed</span><span class="jb-tag" data-t="p_cdlb">CDL-B</span></span>
         <p data-t="q_fedex">Package delivery and line haul. Some routes take a Class D, the heavier ones a CDL.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://www.jobs-ups.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.jobs-ups.com" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>UPS</h3><span class="z" data-t="z_ups">Statewide</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span><span class="jb-tag" data-t="p_syndic">Unionised</span></span>
         <p data-t="q_ups">Delivery and warehouse work, unionised, with seasonal hiring peaks. Some driving posts are filled from inside the warehouse.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -134,18 +209,21 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_medical">Medical, senior and door-to-door transport</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://www.modivcare.com/company/careers/" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.modivcare.com/company/careers/" target="_blank" rel="noopener" data-permis="aucun" data-forme="0">
         <span class="n"><h3>Modivcare</h3><span class="z" data-t="z_modivcare">Statewide</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_aucun">No CDL needed</span></span>
         <p data-t="q_modivcare">Non-emergency medical transport: taking people to their appointments. Class D is usually enough; a first-aid certificate is often asked for.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://transdevna.jobs/" target="_blank" rel="noopener">
+      <a class="jb" href="https://transdevna.jobs/" target="_blank" rel="noopener" data-permis="aucun" data-forme="0">
         <span class="n"><h3>Transdev</h3><span class="z" data-t="z_transdev">Greater Boston and beyond</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_aucun">No CDL needed</span></span>
         <p data-t="q_transdev">Operates paratransit and shuttle services under contract, including part of the MBTA's door-to-door service.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://www.mrta.us/job-postings/" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.mrta.us/job-postings/" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>MART</h3><span class="z" data-t="z_mart">Fitchburg, Leominster, Gardner</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span></span>
         <p data-t="q_mart">The Montachusett authority: fixed routes and door-to-door medical transport in north-central Massachusetts. It is also the state's broker for MassHealth rides.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -154,18 +232,21 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_transit">Public transit authorities</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://www.mbta.com/careers" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.mbta.com/careers" target="_blank" rel="noopener" data-permis="cdlb" data-forme="1">
         <span class="n"><h3>MBTA</h3><span class="z" data-t="z_mbta">Greater Boston</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span><span class="jb-tag" data-t="p_syndic">Unionised</span><span class="jb-tag" data-t="p_public">Public sector</span></span>
         <p data-t="q_mbta">Buses, the RIDE and support roles. Public-sector pay, benefits and a union. CDL training is provided for bus operators.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://therta.com/about-us/careers/" target="_blank" rel="noopener">
+      <a class="jb" href="https://therta.com/about-us/careers/" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>WRTA</h3><span class="z" data-t="z_wrta">Worcester area</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span><span class="jb-tag" data-t="p_public">Public sector</span></span>
         <p data-t="q_wrta">The Worcester regional authority. Bus operators and paratransit drivers.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://www.pvta.us/site/business-opportunites/career-opportunities/" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.pvta.us/site/business-opportunites/career-opportunities/" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>PVTA</h3><span class="z" data-t="z_pvta">Springfield & the Valley</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span><span class="jb-tag" data-t="p_public">Public sector</span></span>
         <p data-t="q_pvta">The Pioneer Valley authority, in the west of the state.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -174,18 +255,21 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_car">Motorcoach, shuttles and charter</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://www.peterpanbus.com/employment/" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.peterpanbus.com/employment/" target="_blank" rel="noopener" data-permis="cdlb" data-forme="0">
         <span class="n"><h3>Peter Pan Bus Lines</h3><span class="z" data-t="z_peterpanbuslines">Springfield, Boston, Worcester</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span></span>
         <p data-t="q_peterpanbuslines">A Massachusetts motorcoach company: intercity lines and charters. CDL with a passenger endorsement.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://dattco.com/join-our-team/" target="_blank" rel="noopener">
+      <a class="jb" href="https://dattco.com/join-our-team/" target="_blank" rel="noopener" data-permis="cdlb" data-forme="1">
         <span class="n"><h3>DATTCO</h3><span class="z" data-t="z_dattco">Massachusetts and New England</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span></span>
         <p data-t="q_dattco">Motorcoach, school transport and shuttles across the region. Trains people who do not yet have a CDL.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://recruiting.ultipro.com/ACA1002ACAEX/JobBoard/5a85ab00-12d1-4789-9340-6f68ecef908a/" target="_blank" rel="noopener">
+      <a class="jb" href="https://recruiting.ultipro.com/ACA1002ACAEX/JobBoard/5a85ab00-12d1-4789-9340-6f68ecef908a/" target="_blank" rel="noopener" data-permis="cdlb" data-forme="0">
         <span class="n"><h3>Academy Bus</h3><span class="z" data-t="z_academybus">Boston commuter lines</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span></span>
         <p data-t="q_academybus">Commuter coaches and corporate shuttles into Boston.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -194,18 +278,21 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_ecole">School and student transport</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://nrtbus.com/careers/" target="_blank" rel="noopener">
+      <a class="jb" href="https://nrtbus.com/careers/" target="_blank" rel="noopener" data-permis="7d cdlb" data-forme="1">
         <span class="n"><h3>NRT Bus</h3><span class="z" data-t="z_nrtbus">Eastern & Central MA</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_7d">7D</span><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span></span>
         <p data-t="q_nrtbus">School bus and 7D van routes across dozens of towns. Trains people who do not yet have a CDL.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://firststudentinc.com/careers/" target="_blank" rel="noopener">
+      <a class="jb" href="https://firststudentinc.com/careers/" target="_blank" rel="noopener" data-permis="7d cdlb" data-forme="1">
         <span class="n"><h3>First Student</h3><span class="z" data-t="z_firststudent">Depots across MA</span></span>
+        <span class="jb-tags"><span class="jb-tag cle" data-t="p_7d">7D</span><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span><span class="jb-tag paye">$27–32/h</span></span>
         <p data-t="q_firststudent">The largest school bus operator in North America. Paid licence training is part of the job.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://www.schoolspring.com/" target="_blank" rel="noopener">
+      <a class="jb" href="https://www.schoolspring.com/" target="_blank" rel="noopener" data-permis="varie" data-forme="0">
         <span class="n"><h3>SchoolSpring</h3><span class="z" data-t="z_schoolspring">School districts</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_varie">Varies by role</span></span>
         <p data-t="q_schoolspring">Where Massachusetts school districts post their own openings — including van and bus driver posts they never advertise elsewhere. ⚠️ It is a job board, not an employer: the link opens the search, and you type “bus driver” yourself. Deep links do not work on this site.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -214,23 +301,27 @@ d.lang=l||"en";})();
     <div class="jb-sec">
       <h2 data-t="s_cdl">Trucking, food distribution and waste — CDL</h2>
       <div class="jb-liste">
-      <a class="jb" href="https://jobs.sysco.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://jobs.sysco.com" target="_blank" rel="noopener" data-permis="cdla" data-forme="0">
         <span class="n"><h3>Sysco</h3><span class="z" data-t="z_sysco">Plympton distribution centre</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdla">CDL-A</span></span>
         <p data-t="q_sysco">Food distribution to restaurants. CDL-A, early starts, among the best-paid driving work in the state.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://careers.usfoods.com/us/en" target="_blank" rel="noopener">
+      <a class="jb" href="https://careers.usfoods.com/us/en" target="_blank" rel="noopener" data-permis="cdla" data-forme="0">
         <span class="n"><h3>US Foods</h3><span class="z" data-t="z_usfoods">Seabrook & Peabody area</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdla">CDL-A</span></span>
         <p data-t="q_usfoods">The other big food distributor serving New England. CDL-A, with delivery routes rather than long haul.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://careers.wm.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://careers.wm.com" target="_blank" rel="noopener" data-permis="cdlb" data-forme="1">
         <span class="n"><h3>WM</h3><span class="z" data-t="z_wm">Statewide</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span><span class="jb-tag" data-t="p_soir">Home every night</span></span>
         <p data-t="q_wm">Waste collection. CDL-B, local routes, home every night — and they train people who do not have the licence yet.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
-      <a class="jb" href="https://jobs.republicservices.com" target="_blank" rel="noopener">
+      <a class="jb" href="https://jobs.republicservices.com" target="_blank" rel="noopener" data-permis="cdlb" data-forme="1">
         <span class="n"><h3>Republic Services</h3><span class="z" data-t="z_republicservices">Statewide</span></span>
+        <span class="jb-tags"><span class="jb-tag" data-t="p_cdlb">CDL-B</span><span class="jb-tag cle" data-t="p_forme">Trains you for the licence</span><span class="jb-tag" data-t="p_soir">Home every night</span></span>
         <p data-t="q_republicservices">The other big waste operator. Same idea: local routes, fixed hours, licence training available.</p>
         <span class="v" data-t="voir">See their openings →</span>
       </a>
@@ -291,6 +382,29 @@ d.lang=l||"en";})();
 <script>
 var T = {
  "fr": {
+  "lead_court": "Vingt employeurs qui recrutent vraiment des chauffeurs ici, chacun renvoyant droit à ses propres offres. Filtrez selon le permis que vous avez déjà.",
+  "lead_plus": "Comment cette liste fonctionne, et ce qu'elle ne promet pas",
+  "f_titre": "Filtrez selon ce que vous avez aujourd'hui",
+  "f_tous": "Tous",
+  "f_aucun": "Sans CDL",
+  "f_7d": "7D",
+  "f_cdlb": "CDL-B",
+  "f_cdla": "CDL-A",
+  "f_forme": "Ils vous forment",
+  "f_rech": "Cherchez un employeur ou une ville…",
+  "f_compte": "employeurs affichés",
+  "f_rien": "Rien ne correspond. Retirez un filtre et réessayez.",
+  "f_note": "Ces étiquettes viennent de ce que chaque employeur dit sur sa propre page, lu à la main à la date ci-dessous. Ce sont des repères, pas des promesses — c'est l'employeur qui décide.",
+  "p_aucun": "Sans CDL",
+  "p_7d": "7D",
+  "p_cdlb": "CDL-B",
+  "p_cdla": "CDL-A",
+  "p_varie": "Selon le poste",
+  "p_forme": "Vous forme au permis",
+  "p_syndic": "Syndiqué",
+  "p_public": "Secteur public",
+  "p_soir": "À la maison le soir",
+  "p_21": "21 ans et plus",
   "ti": "Emplois de chauffeur au Massachusetts — Driver360",
   "titre": "Emplois de chauffeur au Massachusetts",
   "fil": "Le Massachusetts manque de chauffeurs — livraison de colis, transport médical, transport public, circuits scolaires, camion. Pour la plupart de ces postes, le permis est le seul obstacle.",
@@ -364,6 +478,29 @@ var T = {
   "s_cdl": "Camion, distribution alimentaire et déchets — CDL"
  },
  "ht": {
+  "lead_court": "Ven anplwayè ki anbochte chofè tout bon isit la, chak youn voye w dirèk sou pwòp òf pa l. Filtre selon pèmi ou genyen deja.",
+  "lead_plus": "Kijan lis sa a mache, ak sa li pa pwomèt",
+  "f_titre": "Filtre selon sa ou genyen jodi a",
+  "f_tous": "Tout",
+  "f_aucun": "San CDL",
+  "f_7d": "7D",
+  "f_cdlb": "CDL-B",
+  "f_cdla": "CDL-A",
+  "f_forme": "Yo fòme w",
+  "f_rech": "Chèche yon anplwayè oswa yon vil…",
+  "f_compte": "anplwayè parèt",
+  "f_rien": "Anyen pa koresponn. Retire yon filtè epi eseye ankò.",
+  "f_note": "Etikèt sa yo soti nan sa chak anplwayè di sou pwòp paj pa l, li alamen nan dat anba a. Se repè, se pa pwomès — se anplwayè a ki deside.",
+  "p_aucun": "San CDL",
+  "p_7d": "7D",
+  "p_cdlb": "CDL-B",
+  "p_cdla": "CDL-A",
+  "p_varie": "Depann de pòs la",
+  "p_forme": "Fòme w pou pèmi a",
+  "p_syndic": "Sendika",
+  "p_public": "Sektè piblik",
+  "p_soir": "Lakay chak swa",
+  "p_21": "21 an ak plis",
   "ti": "Travay chofè nan Massachusetts — Driver360",
   "titre": "Travay chofè nan Massachusetts",
   "fil": "Massachusetts manke chofè — livrezon pake, transpò medikal, transpò piblik, wout lekòl, kamyon. Pou pifò nan travay sa yo, se pèmi a ki sèl bagay k ap bare wout la.",
@@ -437,6 +574,29 @@ var T = {
   "s_cdl": "Kamyon, distribisyon manje ak fatra — CDL"
  },
  "es": {
+  "lead_court": "Veinte empleadores que de verdad contratan choferes aquí, cada uno enlazando directo a sus propias vacantes. Filtra según la licencia que ya tienes.",
+  "lead_plus": "Cómo funciona esta lista, y lo que no promete",
+  "f_titre": "Filtra según lo que tienes hoy",
+  "f_tous": "Todos",
+  "f_aucun": "Sin CDL",
+  "f_7d": "7D",
+  "f_cdlb": "CDL-B",
+  "f_cdla": "CDL-A",
+  "f_forme": "Te forman",
+  "f_rech": "Busca un empleador o una ciudad…",
+  "f_compte": "empleadores mostrados",
+  "f_rien": "Nada coincide. Quita un filtro e inténtalo de nuevo.",
+  "f_note": "Estas etiquetas vienen de lo que cada empleador dice en su propia página, leído a mano en la fecha de abajo. Son referencias, no promesas — decide el empleador.",
+  "p_aucun": "Sin CDL",
+  "p_7d": "7D",
+  "p_cdlb": "CDL-B",
+  "p_cdla": "CDL-A",
+  "p_varie": "Según el puesto",
+  "p_forme": "Te forma para la licencia",
+  "p_syndic": "Sindicato",
+  "p_public": "Sector público",
+  "p_soir": "En casa cada noche",
+  "p_21": "21 años o más",
   "ti": "Empleos de conductor en Massachusetts — Driver360",
   "titre": "Empleos de conductor en Massachusetts",
   "fil": "A Massachusetts le faltan conductores — reparto de paquetes, transporte médico, transporte público, rutas escolares, camión. Para la mayoría de estos puestos la licencia es el único obstáculo.",
@@ -531,5 +691,47 @@ new MutationObserver(appliquer).observe(document.documentElement,
 </script>
 <script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+
+  <script>
+  (function(){
+    var champ=document.getElementById("jb-rech");
+    var btns=[].slice.call(document.querySelectorAll(".jb-f"));
+    var cartes=[].slice.call(document.querySelectorAll(".jb"));
+    var compte=document.getElementById("jb-compte");
+    var vide=document.getElementById("jb-vide");
+    if(!champ||!cartes.length) return;
+    var actif="tous";
+    function filtrer(){
+      var q=(champ.value||"").trim().toLowerCase(), n=0;
+      cartes.forEach(function(c){
+        var permis=(c.dataset.permis||"").split(" ");
+        var okP = actif==="tous"
+          || (actif==="forme" ? c.dataset.forme==="1" : permis.indexOf(actif)>=0);
+        var okQ = !q || (c.textContent||"").toLowerCase().indexOf(q)>=0;
+        var ok = okP && okQ;
+        c.style.display = ok ? "" : "none";
+        if(ok) n++;
+      });
+      // une section dont toutes les cartes sont masquees ne doit pas laisser
+      // son titre orphelin en haut d'un vide
+      [].slice.call(document.querySelectorAll(".jb-sec")).forEach(function(s){
+        var v=[].slice.call(s.querySelectorAll(".jb"))
+                .some(function(c){return c.style.display!=="none"});
+        s.classList.toggle("off",!v);
+      });
+      if(compte) compte.firstChild.nodeValue=n+" ";
+      if(vide) vide.style.display = n ? "none" : "";
+    }
+    btns.forEach(function(b){
+      b.addEventListener("click",function(){
+        actif=b.dataset.f;
+        btns.forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false")});
+        filtrer();
+      });
+    });
+    champ.addEventListener("input",filtrer);
+    filtrer();
+  })();
+  </script>
 </body>
 </html>
