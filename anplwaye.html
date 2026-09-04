@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rhu9VF5gf9BjalunNiF2J2DhfKcZY4ohh5xtkgTMl4g=' 'sha256-RKvHZnj4Qn2DPItcwk54DZqWtkxiNgGhF0wCqFCrBFk=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rhu9VF5gf9BjalunNiF2J2DhfKcZY4ohh5xtkgTMl4g=' 'sha256-n/QNZw2KvxCQiJZKhCf0YjbczADdRiFZqDLZ1QINfmQ=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -77,6 +77,25 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       border-radius:10px;padding:0.7rem 0.85rem}
     .ep-etape b{display:block;color:var(--d-fort);font-size:0.9rem;margin-bottom:0.2rem}
     .ep-etape span{color:var(--d-doux);font-size:0.83rem;line-height:1.6}
+    /* L'aiguillage. Deux cartes, jamais un menu : on doit VOIR les deux
+       chemins pour comprendre qu'on a le choix. */
+    .ep-voies{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:0.8rem;margin:0 0 1.1rem}
+    .ep-voie{background:var(--d-surface);border:1px solid var(--d-ligne);
+      border-radius:12px;padding:1rem 1.1rem;cursor:pointer;text-align:left;
+      font:inherit;color:var(--d-texte);transition:border-color .15s}
+    .ep-voie:hover{border-color:var(--d-accent-bord)}
+    .ep-voie[aria-pressed="true"]{border-color:var(--d-accent);
+      background:var(--d-accent-fond)}
+    .ep-voie b{display:block;color:var(--d-fort);font-size:1rem;margin-bottom:0.3rem}
+    .ep-voie .prix{display:inline-block;font-size:0.74rem;font-weight:700;
+      border-radius:6px;padding:0.1rem 0.5rem;margin-bottom:0.45rem}
+    .ep-voie .gratuit{background:var(--d-vert-fond);color:var(--d-vert);
+      border:1px solid var(--d-vert-bord)}
+    .ep-voie .quota{background:var(--d-accent-fond);color:var(--d-accent);
+      border:1px solid var(--d-accent-bord)}
+    .ep-voie span{display:block;color:var(--d-doux);font-size:0.86rem;line-height:1.6}
+    .ep-conseil{color:var(--d-doux);font-size:0.85rem;margin:-0.5rem 0 1rem}
   </style>
 
   <link rel="canonical" href="https://driver360.atmart.ltd/anplwaye.html" />
@@ -142,6 +161,26 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     <div class="ep-app">
 
       <div class="ep-demo" id="ep-demo"><h2>What you see, before you pay anything<span class='ex'>EXAMPLE</span></h2> <p class='sous'>Two example rows, in the columns of the real table. <strong>These are not real people</strong> — the pool is empty today, and we would rather show you the shape of it than invent candidates for you.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licence</th><th>Experience</th><th>Town / area</th><th>Available</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 years</td><td>Fitchburg</td><td>Immediately</td><td>Select</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 years</td><td>Worcester</td><td>Within 2 weeks</td><td>🔒 Request</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Search</b><span>Filter by licence, town and availability. No names and no phone numbers at this stage — and nothing to read: it is a table.</span></div> <div class='ep-etape'><b>2 · Select — one click</b><span>You get the name, the phone number and the CV. It uses one place from your quota, and <strong>it is final</strong>: we do not refund a candidate you have already seen.</span></div> <div class='ep-etape'><b>3 · 🔒 Or request</b><span>Some drivers want to agree before any contact. Your selection sends them a request; if they decline, your place is given back.</span></div> </div></div>
+
+      <div class="ep-voies" id="ep-voies"><button type='button' class='ep-voie' data-voie='pool' aria-pressed='true'><span class='prix quota'>Access code · quota</span><b>Select from the pool</b><span>What you lack is qualified candidates, now. You search, you select, you get the name and phone number. For a replacement, a DSP, an urgent need.</span></button><button type='button' class='ep-voie' data-voie='offre' aria-pressed='false'><span class='prix gratuit'>Free</span><b>Post an opening and have drivers told</b><span>What you lack is volume. We publish your opening on the jobs page and send a WhatsApp message to drivers in your area who asked for one. They call you, you keep your own process. For a school year, a seasonal hire.</span></button></div>
+      <p class="ep-conseil" id="ep-conseil">School districts and school transport companies usually start with the second: at the start of the year you need to see forty candidates to keep twelve. Both stay open to you.</p>
+
+      <div class="ep-card ep-hide" id="ep-offre">
+        <p class="ep-formhead" id="eo-h">Post an opening — free</p>
+        <p class="ep-formsub" id="eo-sub">We check the opening, publish it on the jobs page, and tell the drivers in that area who asked to be told. There is no account to create. A person reads every posting before it goes up: allow one working day.</p>
+        <label for="eo-org" id="L-eo-org">Your organisation</label>
+        <input type="text" id="eo-org" maxlength="120" />
+        <label for="eo-poste" id="L-eo-poste">The role</label>
+        <input type="text" id="eo-poste" maxlength="120" />
+        <label for="eo-zone" id="L-eo-zone">Town / area</label>
+        <input type="text" id="eo-zone" maxlength="120" />
+        <label for="eo-lien" id="L-eo-lien">Where to apply (link or phone)</label>
+        <input type="text" id="eo-lien" maxlength="200" />
+        <label for="eo-plus" id="L-eo-plus">Worth knowing (optional)</label>
+        <textarea id="eo-plus" rows="3" maxlength="600"></textarea>
+        <button class="btn" type="button" id="eo-go">Send the opening</button>
+        <p class="ep-formsub" id="eo-note">The button opens your mail app with the opening already written. Nothing is sent until you send it.</p>
+      </div>
 
       <form class="ep-card" id="ep-start">
         <label for="ep-code" id="L-code">🔑 Employer access code<small>EMP-XXXX-XXXX. No code yet? <a href="mailto:sales@atmart.ltd?subject=Driver360%20Employer%20-%20founder%20code" style="color:var(--d-accent)">Ask for a founder code (free)</a></small></label>
@@ -576,6 +615,27 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lorg: "Votre organisation", orgPh: "Ex. : ABC Student Transportation",
       Lkind: "Vous êtes",
       demo: "<h2>Ce que vous voyez, avant de payer quoi que ce soit<span class='ex'>EXEMPLE</span></h2> <p class='sous'>Deux lignes d'exemple, dans les colonnes du vrai tableau. <strong>Ce ne sont pas des personnes réelles</strong> — le vivier est vide aujourd'hui, et nous préférons vous montrer la forme que vous inventer des candidats.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Réf.</th><th>Permis</th><th>Expérience</th><th>Ville / zone</th><th>Dispo.</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 ans</td><td>Fitchburg</td><td>Immédiate</td><td>Sélectionner</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 ans</td><td>Worcester</td><td>Sous 2 semaines</td><td>🔒 Demander</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Chercher</b><span>Vous filtrez par permis, ville et disponibilité. Aucun nom, aucun téléphone à ce stade — et rien à lire : c'est un tableau.</span></div> <div class='ep-etape'><b>2 · Sélectionner — un clic</b><span>Vous obtenez le nom, le téléphone et le CV. Cela consomme une place de votre quota, et <strong>c'est définitif</strong> : nous ne remboursons pas un candidat que vous avez déjà vu.</span></div> <div class='ep-etape'><b>3 · 🔒 Ou demander</b><span>Certains chauffeurs veulent donner leur accord avant tout contact. Votre sélection leur envoie une demande ; s'ils refusent, votre place vous est rendue.</span></div> </div>",
+      voies: "<button type='button' class='ep-voie' data-voie='pool' aria-pressed='true'><span class='prix quota'>Code d'accès · quota</span><b>Sélectionner dans le vivier</b><span>Il vous manque des candidats qualifiés, maintenant. Vous cherchez, vous sélectionnez, vous obtenez le nom et le téléphone. Pour un remplacement, une DSP, un besoin urgent.</span></button><button type='button' class='ep-voie' data-voie='offre' aria-pressed='false'><span class='prix gratuit'>Gratuit</span><b>Publier une offre et faire prévenir les chauffeurs</b><span>Il vous manque du volume. Nous publions votre offre sur la page des emplois et prévenons par WhatsApp les chauffeurs de votre zone qui l'ont demandé. Ils vous appellent, vous gardez votre process. Pour une rentrée scolaire, un recrutement saisonnier.</span></button>",
+      conseil: "Les districts et les compagnies de transport scolaire commencent en général par le second : à la rentrée, il faut voir quarante candidats pour en garder douze. Les deux restent ouverts.",
+      eoManque: "Il manque l'organisation ou le poste.",
+      eoOrg: "Organisation",
+      eoPoste: "Poste",
+      eoZone: "Ville / zone",
+      eoLien: "Où postuler",
+      eoH: "Publier une offre — gratuit",
+      eoSub: "Nous vérifions l'offre, nous la publions sur la page des emplois, et nous prévenons les chauffeurs de la zone qui ont demandé à l'être. Il n'y a pas de compte à créer. Une personne relit chaque offre avant publication : comptez un jour ouvré.",
+      eoLOrg: "Votre organisation",
+      eoLPoste: "Le poste",
+      eoLZone: "Ville / zone",
+      eoLLien: "Où postuler (lien ou téléphone)",
+      eoLPlus: "À savoir (facultatif)",
+      eoGo: "Envoyer l'offre",
+      eoNote: "Le bouton ouvre votre logiciel de courrier avec l'offre déjà écrite. Rien ne part sans que vous l'envoyiez.",
+      eoPOrg: "Ex. : ABC Student Transportation",
+      eoPPoste: "Ex. : chauffeur 7D, temps partiel",
+      eoPZone: "Ex. : Worcester et alentours",
+      eoPLien: "https://… ou 508-555-0100",
+      eoPPlus: "Permis exigé, horaires, salaire annoncé, formation payée…",
       k1: "🚌 Transport scolaire", k2: "🏫 District / école", k3: "📦 Livraison de colis", k3b: "📦 DSP Amazon",
       k4: "🧓 Transport de personnes âgées / médical", k5: "🚍 Transport régional (MART, RTA)", k6: "🚕 Autre transport",
       Lcontact: "Personne de contact", Lphone: "Téléphone",
@@ -626,6 +686,27 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lorg: "Your organisation", orgPh: "E.g.: ABC Student Transportation",
       Lkind: "You are",
       demo: "<h2>What you see, before you pay anything<span class='ex'>EXAMPLE</span></h2> <p class='sous'>Two example rows, in the columns of the real table. <strong>These are not real people</strong> — the pool is empty today, and we would rather show you the shape of it than invent candidates for you.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licence</th><th>Experience</th><th>Town / area</th><th>Available</th><th>Action</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 years</td><td>Fitchburg</td><td>Immediately</td><td>Select</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 years</td><td>Worcester</td><td>Within 2 weeks</td><td>🔒 Request</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Search</b><span>Filter by licence, town and availability. No names and no phone numbers at this stage — and nothing to read: it is a table.</span></div> <div class='ep-etape'><b>2 · Select — one click</b><span>You get the name, the phone number and the CV. It uses one place from your quota, and <strong>it is final</strong>: we do not refund a candidate you have already seen.</span></div> <div class='ep-etape'><b>3 · 🔒 Or request</b><span>Some drivers want to agree before any contact. Your selection sends them a request; if they decline, your place is given back.</span></div> </div>",
+      voies: "<button type='button' class='ep-voie' data-voie='pool' aria-pressed='true'><span class='prix quota'>Access code · quota</span><b>Select from the pool</b><span>What you lack is qualified candidates, now. You search, you select, you get the name and phone number. For a replacement, a DSP, an urgent need.</span></button><button type='button' class='ep-voie' data-voie='offre' aria-pressed='false'><span class='prix gratuit'>Free</span><b>Post an opening and have drivers told</b><span>What you lack is volume. We publish your opening on the jobs page and send a WhatsApp message to drivers in your area who asked for one. They call you, you keep your own process. For a school year, a seasonal hire.</span></button>",
+      conseil: "School districts and school transport companies usually start with the second: at the start of the year you need to see forty candidates to keep twelve. Both stay open to you.",
+      eoManque: "The organisation or the role is missing.",
+      eoOrg: "Organisation",
+      eoPoste: "Role",
+      eoZone: "Town / area",
+      eoLien: "Where to apply",
+      eoH: "Post an opening — free",
+      eoSub: "We check the opening, publish it on the jobs page, and tell the drivers in that area who asked to be told. There is no account to create. A person reads every posting before it goes up: allow one working day.",
+      eoLOrg: "Your organisation",
+      eoLPoste: "The role",
+      eoLZone: "Town / area",
+      eoLLien: "Where to apply (link or phone)",
+      eoLPlus: "Worth knowing (optional)",
+      eoGo: "Send the opening",
+      eoNote: "The button opens your mail app with the opening already written. Nothing is sent until you send it.",
+      eoPOrg: "E.g.: ABC Student Transportation",
+      eoPPoste: "E.g.: 7D driver, part-time",
+      eoPZone: "E.g.: Worcester and around",
+      eoPLien: "https://… or 508-555-0100",
+      eoPPlus: "Licence required, hours, advertised pay, paid training…",
       k1: "🚌 School transport", k2: "🏫 District / school", k3: "📦 Package delivery", k3b: "📦 Amazon DSP",
       k4: "🧓 Senior / medical transport", k5: "🚍 Regional transit (MART, RTA)", k6: "🚕 Other transport",
       Lcontact: "Contact person", Lphone: "Phone",
@@ -676,6 +757,27 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lorg: "Òganizasyon w", orgPh: "Egz. : ABC Student Transportation",
       Lkind: "Ou se",
       demo: "<h2>Sa w wè, anvan w peye anyen<span class='ex'>EGZANP</span></h2> <p class='sous'>De liy egzanp, nan kolòn tablo reyèl la. <strong>Se pa moun reyèl</strong> — vivye a vid jodi a, epi nou pito montre w fòm nan pase envante kandida pou ou.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Pèmi</th><th>Eksperyans</th><th>Vil / zòn</th><th>Disponib</th><th>Aksyon</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 ane</td><td>Fitchburg</td><td>Kounye a</td><td>Chwazi</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 ane</td><td>Worcester</td><td>Nan 2 semèn</td><td>🔒 Mande</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Chèche</b><span>Ou filtre selon pèmi, vil ak disponiblite. Pa gen non, pa gen telefòn nan etap sa a — epi pa gen anyen pou li : se yon tablo.</span></div> <div class='ep-etape'><b>2 · Chwazi — yon klik</b><span>Ou jwenn non an, telefòn nan ak CV a. Sa pran yon plas nan kota w, epi <strong>li final</strong> : nou pa remèt lajan pou yon kandida ou deja wè.</span></div> <div class='ep-etape'><b>3 · 🔒 Oswa mande</b><span>Gen chofè ki vle bay otorizasyon anvan nenpòt kontak. Seleksyon w lan voye yon demann ba yo ; si yo refize, yo remèt ou plas ou.</span></div> </div>",
+      voies: "<button type='button' class='ep-voie' data-voie='pool' aria-pressed='true'><span class='prix quota'>Kòd aksè · kota</span><b>Chwazi nan vivye a</b><span>Sa ki manke w se kandida ki kalifye, kounye a. Ou chèche, ou chwazi, ou jwenn non an ak telefòn nan. Pou yon ranplasman, yon DSP, yon bezwen prese.</span></button><button type='button' class='ep-voie' data-voie='offre' aria-pressed='false'><span class='prix gratuit'>Gratis</span><b>Pibliye yon òf epi fè yo avèti chofè yo</b><span>Sa ki manke w se kantite. Nou pibliye òf ou a sou paj travay la epi nou voye yon mesaj WhatsApp bay chofè nan zòn ou ki te mande sa. Se yo ki rele w, ou kenbe pwòp fason w. Pou yon rantre lekòl, yon rekritman sezonye.</span></button>",
+      conseil: "Distri ak konpayi transpò lekòl yo souvan kòmanse ak dezyèm nan : nan rantre a, fòk ou wè karant kandida pou w kenbe douz. De chemen yo rete ouvè.",
+      eoManque: "Konpayi an oswa pòs la manke.",
+      eoOrg: "Konpayi",
+      eoPoste: "Pòs",
+      eoZone: "Vil / zòn",
+      eoLien: "Kote pou aplike",
+      eoH: "Pibliye yon òf — gratis",
+      eoSub: "Nou verifye òf la, nou pibliye l sou paj travay la, epi nou avèti chofè nan zòn nan ki te mande sa. Pa gen kont pou w kreye. Yon moun li chak òf anvan li parèt : konte yon jou ouvrab.",
+      eoLOrg: "Konpayi w",
+      eoLPoste: "Pòs la",
+      eoLZone: "Vil / zòn",
+      eoLLien: "Kote pou aplike (lyen oswa telefòn)",
+      eoLPlus: "Bon pou konnen (opsyonèl)",
+      eoGo: "Voye òf la",
+      eoNote: "Bouton an ouvri lojisyèl imel ou ak òf la deja ekri. Anyen pa pati toutotan ou pa voye l.",
+      eoPOrg: "Egz. : ABC Student Transportation",
+      eoPPoste: "Egz. : chofè 7D, tan pasyèl",
+      eoPZone: "Egz. : Worcester ak alantou",
+      eoPLien: "https://… oswa 508-555-0100",
+      eoPPlus: "Pèmi ki egzije, orè, salè, fòmasyon peye…",
       k1: "🚌 Transpò lekòl", k2: "🏫 Distri / lekòl", k3: "📦 Livrezon pake", k3b: "📦 DSP Amazon",
       k4: "🧓 Transpò granmoun / medikal", k5: "🚍 Transpò rejyonal (MART, RTA)", k6: "🚕 Lòt transpò",
       Lcontact: "Moun pou kontakte", Lphone: "Telefòn",
@@ -726,6 +828,27 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       Lorg: "Tu organización", orgPh: "Ej.: ABC Student Transportation",
       Lkind: "Eres",
       demo: "<h2>Lo que ves, antes de pagar nada<span class='ex'>EJEMPLO</span></h2> <p class='sous'>Dos filas de ejemplo, en las columnas de la tabla real. <strong>No son personas reales</strong> — el registro está vacío hoy, y preferimos enseñarte la forma antes que inventarte candidatos.</p> <div style='overflow-x:auto'><table> <thead><tr><th>Ref.</th><th>Licencia</th><th>Experiencia</th><th>Ciudad / zona</th><th>Disponible</th><th>Acción</th></tr></thead> <tbody> <tr><td>DRV-0000-0000</td><td>🪪 Class D</td><td>3 años</td><td>Fitchburg</td><td>Inmediata</td><td>Seleccionar</td></tr> <tr><td>DRV-0000-0001</td><td>🪪 7D · Class D</td><td>6 años</td><td>Worcester</td><td>En 2 semanas</td><td>🔒 Solicitar</td></tr> </tbody></table></div> <div class='ep-etapes'> <div class='ep-etape'><b>1 · Buscar</b><span>Filtras por licencia, ciudad y disponibilidad. Ningún nombre ni teléfono en esta fase — y nada que leer: es una tabla.</span></div> <div class='ep-etape'><b>2 · Seleccionar — un clic</b><span>Obtienes el nombre, el teléfono y el CV. Consume un lugar de tu cuota, y <strong>es definitivo</strong>: no reembolsamos un candidato que ya has visto.</span></div> <div class='ep-etape'><b>3 · 🔒 O solicitar</b><span>Algunos conductores quieren dar su acuerdo antes de cualquier contacto. Tu selección les envía una solicitud; si la rechazan, te devolvemos el lugar.</span></div> </div>",
+      voies: "<button type='button' class='ep-voie' data-voie='pool' aria-pressed='true'><span class='prix quota'>Código de acceso · cuota</span><b>Seleccionar del registro</b><span>Lo que te falta son candidatos cualificados, ahora. Buscas, seleccionas, obtienes el nombre y el teléfono. Para una sustitución, una DSP, una necesidad urgente.</span></button><button type='button' class='ep-voie' data-voie='offre' aria-pressed='false'><span class='prix gratuit'>Gratis</span><b>Publicar una vacante y avisar a los conductores</b><span>Lo que te falta es volumen. Publicamos tu vacante en la página de empleos y avisamos por WhatsApp a los conductores de tu zona que lo pidieron. Ellos te llaman, tú mantienes tu proceso. Para un inicio de curso, una contratación de temporada.</span></button>",
+      conseil: "Los distritos y las compañías de transporte escolar suelen empezar por la segunda: al inicio del curso hay que ver cuarenta candidatos para quedarse con doce. Las dos siguen abiertas.",
+      eoManque: "Falta la organización o el puesto.",
+      eoOrg: "Organización",
+      eoPoste: "Puesto",
+      eoZone: "Ciudad / zona",
+      eoLien: "Dónde postular",
+      eoH: "Publicar una vacante — gratis",
+      eoSub: "Verificamos la vacante, la publicamos en la página de empleos y avisamos a los conductores de la zona que lo pidieron. No hay cuenta que crear. Una persona lee cada publicación antes de subirla: cuenta con un día hábil.",
+      eoLOrg: "Tu organización",
+      eoLPoste: "El puesto",
+      eoLZone: "Ciudad / zona",
+      eoLLien: "Dónde postular (enlace o teléfono)",
+      eoLPlus: "Conviene saber (opcional)",
+      eoGo: "Enviar la vacante",
+      eoNote: "El botón abre tu programa de correo con la vacante ya escrita. Nada se envía hasta que tú lo envíes.",
+      eoPOrg: "Ej.: ABC Student Transportation",
+      eoPPoste: "Ej.: conductor 7D, media jornada",
+      eoPZone: "Ej.: Worcester y alrededores",
+      eoPLien: "https://… o 508-555-0100",
+      eoPPlus: "Licencia exigida, horarios, salario anunciado, formación pagada…",
       k1: "🚌 Transporte escolar", k2: "🏫 Distrito / escuela", k3: "📦 Entrega de paquetes", k3b: "📦 DSP de Amazon",
       k4: "🧓 Transporte de mayores / médico", k5: "🚍 Transporte regional (MART, RTA)", k6: "🚕 Otro transporte",
       Lcontact: "Persona de contacto", Lphone: "Teléfono",
@@ -810,6 +933,21 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       if (lbl) kd.options[i].text = lbl;
     }
     var dm = document.getElementById("ep-demo"); if (dm && v("demo")) dm.innerHTML = v("demo");
+    var vo = document.getElementById("ep-voies"); if (vo) vo.innerHTML = v("voies");
+    txt("ep-conseil", v("conseil"));
+    // ⚠️ ELEMENT PAR ELEMENT, JAMAIS LE BLOC ENTIER. Remplacer l'innerHTML de
+    // #ep-offre effacait les identifiants a l'interieur et les recreait :
+    // l'ecouteur du bouton, attache au chargement, pointait vers un element
+    // detruit, et le formulaire cessait de fonctionner au premier changement
+    // de langue — sans message.
+    txt("eo-h", v("eoH")); txt("eo-sub", v("eoSub")); txt("eo-note", v("eoNote"));
+    txt("L-eo-org", v("eoLOrg")); txt("L-eo-poste", v("eoLPoste"));
+    txt("L-eo-zone", v("eoLZone")); txt("L-eo-lien", v("eoLLien"));
+    txt("L-eo-plus", v("eoLPlus")); txt("eo-go", v("eoGo"));
+    [["eo-org","eoPOrg"],["eo-poste","eoPPoste"],["eo-zone","eoPZone"],
+     ["eo-lien","eoPLien"],["eo-plus","eoPPlus"]].forEach(function (p) {
+      var el = document.getElementById(p[0]); if (el) el.placeholder = v(p[1]);
+    });
     txt("ep-go", v("go")); txt("ep-refresh", v("refresh"));
     txt("ep-credits-lbl", v("credits")); txt("ep-showall-lbl", v("showall"));
     txt("ep-dsp-lbl", v("dspFilter"));
@@ -838,6 +976,51 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     attributes: true, attributeFilter: ["lang"]
   });
 })();
+
+  // ----------------------------------------------------------- l'aiguillage
+  // Deux besoins differents, deux chemins. On met en avant celui qui
+  // correspond, on ne cache JAMAIS l'autre : une compagnie scolaire a le
+  // droit de vouloir selectionner aussi.
+  (function () {
+    var voies = document.getElementById("ep-voies");
+    var formPool = document.getElementById("ep-start");
+    var formOffre = document.getElementById("ep-offre");
+    if (!voies || !formPool || !formOffre) return;
+    function choisir(v) {
+      [].slice.call(voies.querySelectorAll(".ep-voie")).forEach(function (b) {
+        b.setAttribute("aria-pressed", b.dataset.voie === v ? "true" : "false");
+      });
+      formPool.classList.toggle("ep-hide", v !== "pool");
+      formOffre.classList.toggle("ep-hide", v !== "offre");
+    }
+    voies.addEventListener("click", function (e) {
+      var b = e.target.closest(".ep-voie");
+      if (b) choisir(b.dataset.voie);
+    });
+    choisir("pool");
+
+    document.getElementById("eo-go").addEventListener("click", function () {
+      // ⚠️ UN COURRIEL, PAS UN ENVOI AU WORKER. Une offre ne se publie
+      // qu'apres verification humaine (emplois.py : sans `verifie`, elle ne
+      // s'affiche pas). Ecrire dans le KV creerait une file que personne ne
+      // lit, et la page promettrait une publication qui n'arriverait jamais.
+      function val(id) { return (document.getElementById(id).value || "").trim(); }
+      var org = val("eo-org"), poste = val("eo-poste");
+      var note = document.getElementById("eo-note");
+      if (!org || !poste) { note.textContent = EPT("eoManque"); return; }
+      var corps = [
+        EPT("eoOrg") + " : " + org,
+        EPT("eoPoste") + " : " + poste,
+        EPT("eoZone") + " : " + val("eo-zone"),
+        EPT("eoLien") + " : " + val("eo-lien"),
+        "",
+        val("eo-plus")
+      ].join("\n");
+      location.href = "mailto:sales@atmart.ltd?subject="
+        + encodeURIComponent("Driver360 - offre a publier - " + org)
+        + "&body=" + encodeURIComponent(corps);
+    });
+  })();
 </script>
 <script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
