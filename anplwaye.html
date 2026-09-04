@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-o0swFsgTvcnYk7Ne8MkK/ePGgpyZLpWoNchczGyvC1Y=' 'sha256-4RocDB4p5G9RFOnozcGpau4ufZmiYfijXB8dU0jj1jQ=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-rhu9VF5gf9BjalunNiF2J2DhfKcZY4ohh5xtkgTMl4g=' 'sha256-RKvHZnj4Qn2DPItcwk54DZqWtkxiNgGhF0wCqFCrBFk=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -193,6 +193,14 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <tbody></tbody>
         </table></div>
         <p class="ep-empty" id="ep-empty-sel">No selection yet — browse the pools below and pick your candidates. A selection is final and reveals the contact details.</p>
+
+        <h3 class="ep-h" style="margin-top:1.8rem" id="ep-h-dsp">🚚 DSP pool — nothing to check before you call</h3>
+        <p class="ep-sub" id="ep-sub-dsp" style="color:var(--d-doux);font-size:0.86rem;margin:-0.4rem 0 0.6rem">These drivers ticked the five things a delivery employer checks, hold a Class D, are authorized to work, have a verified number and an interview slot within 72 hours.</p>
+        <div class="ep-wrap"><table class="ep-t" id="ep-t-dsp">
+          <thead><tr><th id="thd1">Ref.</th><th id="thd2">Licences</th><th id="thd3">Experience</th><th id="thd5">Looking for</th><th id="thd6">Availability</th><th id="thd8">City / area</th><th id="thd9">Action</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <p class="ep-empty ep-hide" id="ep-empty-dsp">No DSP-ready driver yet. A badge expires after 14 days, so some registered drivers may simply be waiting to reconfirm.</p>
 
         <h3 class="ep-h" style="margin-top:1.8rem" id="ep-h-lic">🪪 Already-licensed driver pool</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-lic">
@@ -410,8 +418,10 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     // `sponsor` = le chauffeur aura besoin d'un parrainage. `no` reste pour les
       // fiches d'avant le 31/08/2026, quand l'option voulait dire « pas encore ».
       var AUTHLBL = { yes: '<span class="ep-b pass">✅</span>', sponsor: '<span class="ep-b mid">🛂</span>', pending: '<span class="ep-b mid">⏳</span>', no: '<span class="ep-b fail">❌</span>' };
-    var tl = document.querySelector("#ep-t-lic tbody");
-    tl.innerHTML = (data.licensed || []).map(function (e) {
+    // ⚠️ UNE SEULE FABRIQUE DE LIGNE pour les deux bassins. En dupliquer
+    // une seconde, c'est garantir qu'une colonne ajoutee un jour n'existera
+    // que d'un cote.
+    function ligneChauffeur(e) {
       var lic = (e.licenses || []).map(function (l) { return '<span class="ep-b pass" style="margin-right:0.2rem">' + (LICLBL[l] || l) + "</span>"; }).join("");
       var seek = (e.seeking || []).map(function (x) { return SEEKLBL[x] || ""; }).join(" ");
       return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + " " + dspBadge(e) + (e.hasCv ? ' <span class="ep-b" style="color:var(--d-accent)" title="' + EPT("cvHas") + '">📄</span>' : "") + (e.contact === "approval" ? ' <span class="ep-b" style="color:var(--d-alerte)" title="' + EPT("ctcApproval") + '">🔒</span>' : "") + (e.contact === "push" ? ' <span class="ep-b pass" title="' + EPT("ctcPush") + '">📨</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
@@ -419,9 +429,31 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         "<td>" + (seek || "—") + "</td>" +
         "<td>" + (AVLBL[e.avail] || "—") + "</td>" +
         "<td>" + esc(e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
-    }).join("");
-    document.getElementById("ep-empty-lic").classList.toggle("ep-hide", (data.licensed || []).length > 0);
-    document.getElementById("ep-t-lic").classList.toggle("ep-hide", (data.licensed || []).length === 0);
+    }
+
+    var licencies = data.licensed || [];
+    // Le bassin DSP est une VUE, pas un stockage : on partitionne ce que le
+    // Worker a deja renvoye. Un chauffeur DSP-ready RESTE dans le bassin
+    // licencie — etre qualifie pour la livraison ne disqualifie de rien, et
+    // l'en sortir l'aurait rendu invisible a un transporteur scolaire.
+    var pretsDsp = licencies.filter(function (e) { return e.dspReady === true; });
+
+    document.querySelector("#ep-t-lic tbody").innerHTML = licencies.map(ligneChauffeur).join("");
+    document.getElementById("ep-empty-lic").classList.toggle("ep-hide", licencies.length > 0);
+    document.getElementById("ep-t-lic").classList.toggle("ep-hide", licencies.length === 0);
+
+    document.querySelector("#ep-t-dsp tbody").innerHTML = pretsDsp.map(ligneChauffeur).join("");
+    // ⚠️ ON NE MONTRE PAS UN TITRE VIDE A QUI N'EN A QUE FAIRE. Pour un
+    // district scolaire sans aucun chauffeur DSP-ready, ce bassin n'est que du
+    // bruit. Il apparait si l'employeur livre, ou s'il y a quelqu'un dedans.
+    var kd2 = document.getElementById("ep-kind");
+    var livreur = kd2 && (kd2.value === "dsp" || kd2.value === "delivery");
+    var montrerDsp = livreur || pretsDsp.length > 0;
+    ["ep-h-dsp", "ep-sub-dsp"].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.classList.toggle("ep-hide", !montrerDsp);
+    });
+    document.getElementById("ep-t-dsp").classList.toggle("ep-hide", !montrerDsp || pretsDsp.length === 0);
+    document.getElementById("ep-empty-dsp").classList.toggle("ep-hide", !montrerDsp || pretsDsp.length > 0);
 
     // pool 7D
     var t7 = document.querySelector("#ep-t-7d tbody");
@@ -555,6 +587,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       hSel: "⭐ Mes candidats sélectionnés",
       ths1: "Candidat", ths2: "Contact", ths3: "Ville / zone", ths4: "Type", ths5: "Résultat",
       emptySel: "Aucune sélection encore — parcourez les pools ci-dessous et sélectionnez vos candidats. Une sélection est définitive et révèle le contact.",
+      hDsp: "🚚 Pool DSP — rien à vérifier avant d'appeler", subDsp: "Ces chauffeurs ont coché les cinq points qu'un employeur de livraison vérifie, ont un Class D, sont autorisés à travailler, ont un numéro vérifié et un créneau d'entretien sous 72 h.", emptyDsp: "Aucun chauffeur DSP-ready pour l'instant. Un badge expire au bout de 14 jours : il se peut que des inscrits soient simplement à reconfirmer.",
       hLic: "🪪 Pool chauffeurs déjà licenciés",
       thl1: "Réf.", thl2: "Licences", thl3: "Expérience", thl4: "Langues", thl5: "Recherche",
       thl6: "Dispo.", thl7: "Autorisé", thl8: "Ville / zone", thl9: "Action",
@@ -604,6 +637,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       hSel: "⭐ My selected candidates",
       ths1: "Candidate", ths2: "Contact", ths3: "City / area", ths4: "Type", ths5: "Outcome",
       emptySel: "No selection yet — browse the pools below and pick your candidates. A selection is final and reveals the contact details.",
+      hDsp: "🚚 DSP pool — nothing to check before you call", subDsp: "These drivers ticked the five things a delivery employer checks, hold a Class D, are authorized to work, have a verified number and an interview slot within 72 hours.", emptyDsp: "No DSP-ready driver yet. A badge expires after 14 days, so some registered drivers may simply be waiting to reconfirm.",
       hLic: "🪪 Already-licensed driver pool",
       thl1: "Ref.", thl2: "Licences", thl3: "Experience", thl4: "Languages", thl5: "Looking for",
       thl6: "Availability", thl7: "Authorised", thl8: "City / area", thl9: "Action",
@@ -653,6 +687,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       hSel: "⭐ Kandida mwen chwazi yo",
       ths1: "Kandida", ths2: "Kontak", ths3: "Vil / zòn", ths4: "Tip", ths5: "Rezilta",
       emptySel: "Ou poko chwazi pèsonn — gade vivye anba yo epi chwazi kandida w yo. Yon seleksyon final epi li montre kontak la.",
+      hDsp: "🚚 Pool DSP — pa gen anyen pou verifye anvan w rele", subDsp: "Chofè sa yo koche senk pwen yon anplwayè livrezon verifye yo, yo gen yon Class D, yo otorize pou travay, yo gen yon nimewo verifye ak yon moman pou entèvyou anba 72 è.", emptyDsp: "Poko gen chofè DSP-ready. Yon badj ekspire apre 14 jou : gen moun ki enskri ki ka jis bezwen konfime ankò.",
       hLic: "🪪 Vivye chofè ki gen pèmi deja",
       thl1: "Ref.", thl2: "Pèmi", thl3: "Eksperyans", thl4: "Lang", thl5: "L ap chèche",
       thl6: "Disponiblite", thl7: "Otorize", thl8: "Vil / zòn", thl9: "Aksyon",
@@ -702,6 +737,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       hSel: "⭐ Mis candidatos seleccionados",
       ths1: "Candidato", ths2: "Contacto", ths3: "Ciudad / zona", ths4: "Tipo", ths5: "Resultado",
       emptySel: "Todavía no has seleccionado a nadie — recorre los registros de abajo y elige a tus candidatos. Una selección es definitiva y revela el contacto.",
+      hDsp: "🚚 Pool DSP — nada que verificar antes de llamar", subDsp: "Estos conductores marcaron los cinco puntos que un empleador de reparto verifica, tienen Class D, están autorizados a trabajar, tienen número verificado y un horario de entrevista en menos de 72 h.", emptyDsp: "Todavía no hay conductores DSP-ready. Una insignia caduca a los 14 días: puede que algunos inscritos solo tengan que reconfirmar.",
       hLic: "🪪 Registro de conductores ya licenciados",
       thl1: "Ref.", thl2: "Licencias", thl3: "Experiencia", thl4: "Idiomas", thl5: "Busca",
       thl6: "Disponib.", thl7: "Autorizado", thl8: "Ciudad / zona", thl9: "Acción",
@@ -778,11 +814,18 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     txt("ep-credits-lbl", v("credits")); txt("ep-showall-lbl", v("showall"));
     txt("ep-dsp-lbl", v("dspFilter"));
     txt("ep-h-sel", v("hSel")); txt("ep-h-lic", v("hLic"));
+    txt("ep-h-dsp", v("hDsp")); txt("ep-sub-dsp", v("subDsp")); txt("ep-empty-dsp", v("emptyDsp"));
     txt("ep-h-7d", v("h7d")); txt("ep-h-cd", v("hCd"));
     txt("ep-empty-sel", v("emptySel")); txt("ep-empty-lic", v("emptyLic"));
     txt("ep-empty-7d", v("empty7d")); txt("ep-empty-cd", v("emptyCd"));
     ["ths1","ths2","ths3","ths4","ths5","thl1","thl2","thl3","thl5","thl6",
      "thl8","thl9","th7v","thcv"].forEach(function (k) { txt(k, v(k)); });
+    // Le bassin DSP a les MEMES colonnes que le bassin licencie : on
+    // reutilise ses cles au lieu d'en creer six qui diraient la meme
+    // chose dans quatre langues — et qui divergeraient un jour.
+    [["thd1","thl1"],["thd2","thl2"],["thd3","thl3"],["thd5","thl5"],
+     ["thd6","thl6"],["thd8","thl8"],["thd9","thl9"]]
+      .forEach(function (paire) { txt(paire[0], v(paire[1])); });
     txt("th-n1", v("thn1")); txt("th-w1", v("thw1")); txt("th-c1", v("thc1"));
     txt("th-n2", v("thn2")); txt("th-r2", v("thr2")); txt("th-e2", v("the2"));
     txt("th-o2", v("tho2")); txt("th-c2", v("thc2"));
