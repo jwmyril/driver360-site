@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-MBbcXvnlDose7OLPc0m1NtiH4BdKPCm+pUKTGrPgBUU=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-BB2Rp4q2wB+dvYR/KJmEZmXZdPRQfAKe5TeYE/pqyBs=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -181,6 +181,11 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="screenOk" /> <span id="D-screenOk">I agree to a background check and a drug screen</span></label>
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="checkbox" value="lift50" /> <span id="D-lift50">I can lift 50 lb (23 kg) repeatedly</span></label>
         </div>
+        <label for="rj-dspyears" id="L-dspyears">Years spent driving for a delivery DSP (Amazon or another)</label>
+        <input type="number" id="rj-dspyears" min="0" max="40" step="1" />
+        <label for="rj-dspco" id="L-dspco">Which one? (optional)</label>
+        <input type="text" id="rj-dspco" maxlength="80" />
+        <p class="rj-sub" id="rj-dspco-note">An employer sees only the number of years until they select you. The name appears with your phone number, after selection. If you still work there, leave it blank.</p>
         <label id="L-slots">Three interview slots<small>Within the next three days. They refresh each time you confirm you are available.</small></label>
         <div id="rj-slots" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.5rem;margin-top:0.4rem">
           <input type="datetime-local" id="rj-slot1" aria-label="Créneau 1" />
@@ -300,6 +305,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Je refuse",
       pendOkMsg:"Accord donné : cet employeur a maintenant votre contact.",
       pendNoMsg:"Refusé. Cet employeur n'a pas votre contact, et son crédit lui est rendu.",
+      dspYears:"Années passées à conduire pour une DSP de livraison (Amazon ou autre)",
+      dspCo:"Laquelle ? (facultatif)",
+      dspCoNote:"Un employeur ne voit que le nombre d'années tant qu'il ne vous a pas sélectionné. Le nom n'apparaît qu'avec votre numéro, après sélection. Si vous y travaillez encore, ne le renseignez pas.",
       stConfirmer:"Confirmez que vous êtes toujours disponible pour rester dans le vivier.",
       cvErr:"Le lien de votre CV doit commencer par http:// ou https://.",
       dspOk:"DSP-ready — confirmé le %s", dspOkS:"Un employeur de livraison vous voit avec ce badge, sans aucune de vos réponses en détail. Il expire après 14 jours : confirmez votre disponibilité pour le garder.",
@@ -359,6 +367,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Mwen refize",
       pendOkMsg:"Ou bay otorizasyon an : anplwayè sa a gen kontak ou kounye a.",
       pendNoMsg:"Ou refize. Anplwayè a pa gen kontak ou, epi yo remet li kredi l.",
+      dspYears:"Konbyen ane ou pase ap kondwi pou yon DSP livrezon (Amazon oswa yon lòt)",
+      dspCo:"Kilès? (opsyonèl)",
+      dspCoNote:"Yon anplwayè wè sèlman kantite ane a toutotan li pa chwazi w. Non an parèt ak nimewo w, apre seleksyon an. Si w ap travay la toujou, pa mete l.",
       stConfirmer:"Konfime ou toujou disponib pou w rete nan vivye a.",
       cvErr:"Lyen CV ou a dwe kòmanse ak http:// oswa https://.",
       dspOk:"DSP-ready — konfime %s", dspOkS:"Yon anplwayè livrezon wè w ak badj sa a, san okenn nan repons ou yo an detay. Li ekspire apre 14 jou : konfime ou disponib pou w kenbe l.",
@@ -418,6 +429,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ I refuse",
       pendOkMsg:"Granted: this employer now has your contact details.",
       pendNoMsg:"Refused. This employer does not have your contact details, and their credit is given back.",
+      dspYears:"Years spent driving for a delivery DSP (Amazon or another)",
+      dspCo:"Which one? (optional)",
+      dspCoNote:"An employer sees only the number of years until they select you. The name appears with your phone number, after selection. If you still work there, leave it blank.",
       stConfirmer:"Confirm you are still available to stay in the pool.",
       cvErr:"Your CV link must start with http:// or https://.",
       dspOk:"DSP-ready — confirmed %s", dspOkS:"A delivery employer sees you with this badge, and none of your answers in detail. It expires after 14 days: confirm you are available to keep it.",
@@ -477,6 +491,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       pendNo:"❌ Rechazo",
       pendOkMsg:"Concedido: este empleador ya tiene tus datos de contacto.",
       pendNoMsg:"Rechazado. Este empleador no tiene tus datos, y se le devuelve su crédito.",
+      dspYears:"Años conduciendo para una DSP de reparto (Amazon u otra)",
+      dspCo:"¿Cuál? (opcional)",
+      dspCoNote:"Un empleador solo ve el número de años hasta que te selecciona. El nombre aparece con tu teléfono, tras la selección. Si aún trabajas allí, déjalo en blanco.",
       stConfirmer:"Confirma que sigues disponible para permanecer en el registro.",
       cvErr:"El enlace de tu CV debe empezar por http:// o https://.",
       dspOk:"DSP-ready — confirmado el %s", dspOkS:"Un empleador de reparto te ve con esta insignia, sin ninguna de tus respuestas en detalle. Caduca a los 14 días: confirma que estás disponible para mantenerla.",
@@ -534,7 +551,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     var md=document.querySelector('meta[name="description"]'); if(md&&t.descr) md.setAttribute("content",t.descr);
     setT("rj-t5",t.t5); setL("L-cv",t.cv,t.cvs); setL("L-resume",t.resume,t.resumes);
     setL("L-ctc",t.ctc,t.ctcs);
-    setT("C-direct",t.cDirect); setT("C-approval",t.cApproval);
+    setT("C-direct",t.cDirect); setT("L-dspyears",t.dspYears); setT("L-dspco",t.dspCo); setT("rj-dspco-note",t.dspCoNote); setT("C-approval",t.cApproval);
     setT("rj-load",t.load); setT("rj-del",t.del); setT("rj-back",t.back);
     setT("rj-code-lbl",t.codeLbl); setT("rj-code-note",t.codeNote);
   }
@@ -606,9 +623,13 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       cv:lienSur(document.getElementById("rj-cv").value),
       resume:document.getElementById("rj-resume").value,
       dsp:checked("#rj-dsp"),
+      dspYears:document.getElementById("rj-dspyears").value,
+      dspCo:document.getElementById("rj-dspco").value.trim(),
       slots:[1,2,3].map(function(i){return document.getElementById("rj-slot"+i).value;}).filter(Boolean)};
   }
   function fill(p){
+    var dy=document.getElementById("rj-dspyears"); if(dy) dy.value = (p.dspYears===null||p.dspYears===undefined)?"":p.dspYears;
+    var dc=document.getElementById("rj-dspco"); if(dc) dc.value = p.dspCo||"";
     document.getElementById("rj-name").value=p.name||"";
     document.getElementById("rj-phone").value=p.phone||"";
     document.getElementById("rj-city").value=p.city||"";
