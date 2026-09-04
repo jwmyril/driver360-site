@@ -65,6 +65,7 @@ ETAPES = [
     ("verif_actifs.py", [], "aucune reference locale sans fichier", True),
     ("verif_langue.py", [], "8 pages x 4 langues coherentes", True),
     ("verif_ids_traduits.py", [], "aucun texte fige que rien ne traduit", True),
+    ("verif_exemple.py", [], "l'exemple employeur decrit le vrai tableau", True),
     ("verif_contraste.py", [], "contrastes AA dans les deux fonds", True),
 ]
 
