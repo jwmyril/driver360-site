@@ -59,6 +59,7 @@
   --d-vert-bord: rgba(37, 211, 102, 0.38);
 
   --d-danger: #ff8a94;          /* #e63946 est illisible sur fond sombre */
+  --d-video: #000;
   --d-ombre: rgba(0, 0, 0, 0.35);
   --d-entete: rgba(10, 26, 47, 0.92);
 }

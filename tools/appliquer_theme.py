@@ -181,6 +181,13 @@ DIRECTIVES = [
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data:",
+    # ⚠️ `blob:` POUR LA REPETITION FILMEE, ET RIEN D'AUTRE. Le coach permet
+    # de s'enregistrer pour se revoir — les signes du bras, le rituel d'avant
+    # depart, les commandes anglaises. La video reste DANS LE TELEPHONE : elle
+    # vit dans un Blob que la page relit, et `connect-src` ne permet de
+    # l'envoyer nulle part. Cette ligne autorise la RELECTURE locale, pas
+    # l'envoi : les deux directives disent ensemble « filme-toi, garde-le ».
+    "media-src 'self' blob:",
     # Le seul interlocuteur reseau autorise : notre Worker.
     "connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com",
     "form-action 'self'",
