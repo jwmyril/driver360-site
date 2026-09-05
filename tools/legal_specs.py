@@ -280,6 +280,26 @@ PRIVACY = {
             },
         },
         {
+            "t": {"en": "The camera in Driver Coach",
+                  "fr": "La cam\u00e9ra de Driver Coach",
+                  "ht": "Kamera Driver Coach la",
+                  "es": "La c\u00e1mara de Driver Coach"},
+            "p": {
+                "en": ["Driver Coach can film you while you rehearse. <strong>That video never leaves your device.</strong> Your browser records it, your browser plays it back, and it is gone when you close the page. There is no upload, no copy on any server, and no way for us to see it — not even if we wanted to.",
+                       "<strong>We do not score it either.</strong> Other products rate your eye contact, your posture, your “confidence”. We refuse to. Those signals differ from one culture to the next, so scoring them would measure how far you sit from a norm rather than how well you drive. The camera is a mirror, not a jury.",
+                       "Your browser asks your permission before the camera opens, and you can say no — the rest of the coach works without it. We stop the camera when you leave the page."],
+                "fr": ["Driver Coach peut vous filmer pendant que vous répétez. <strong>Cette vidéo ne quitte jamais votre appareil.</strong> Votre navigateur l'enregistre, votre navigateur la relit, et elle disparaît quand vous fermez la page. Aucun envoi, aucune copie sur un serveur, aucun moyen pour nous de la voir — même si nous le voulions.",
+                       "<strong>Nous ne la notons pas non plus.</strong> D'autres produits notent votre contact visuel, votre posture, votre « confiance ». Nous refusons. Ces signaux changent d'une culture à l'autre : les noter mesurerait votre écart à une norme, pas votre conduite. La caméra est un miroir, pas un jury.",
+                       "Votre navigateur vous demande l'autorisation avant d'ouvrir la caméra, et vous pouvez refuser — le reste du coach fonctionne sans. Nous coupons la caméra quand vous quittez la page."],
+                "ht": ["Driver Coach ka filme w pandan w ap repete. <strong>Videyo sa a pa janm kite aparèy ou.</strong> Se navigatè w ki anrejistre l, se navigatè w ki jwe l, epi li disparèt lè w fèmen paj la. Pa gen anyen ki voye, pa gen kopi sou okenn sèvè, epi nou pa gen okenn mwayen pou nou wè l — menm si nou ta vle.",
+                       "<strong>Nou pa bay li nòt non plis.</strong> Lòt pwodwi bay nòt pou kote je w ap gade, pou posti w, pou « konfyans » ou. Nou refize. Siy sa yo chanje depi yon kilti rive nan yon lòt : bay yo nòt ta mezire distans ant ou ak yon nòm, se pa jan w kondwi. Kamera a se yon glas, se pa yon jiri.",
+                       "Navigatè w mande w otorizasyon anvan kamera a louvri, epi ou ka di non — rès coach la mache san li. Nou koupe kamera a lè w kite paj la."],
+                "es": ["Driver Coach puede grabarte mientras ensayas. <strong>Ese vídeo nunca sale de tu dispositivo.</strong> Lo graba tu navegador, lo reproduce tu navegador, y desaparece cuando cierras la página. No hay envío, ni copia en ningún servidor, ni forma de que lo veamos — ni aunque quisiéramos.",
+                       "<strong>Tampoco lo puntuamos.</strong> Otros productos puntúan tu contacto visual, tu postura, tu «confianza». Nos negamos. Esas señales cambian de una cultura a otra: puntuarlas mediría cuánto te alejas de una norma, no cómo conduces. La cámara es un espejo, no un jurado.",
+                       "Tu navegador te pide permiso antes de abrir la cámara, y puedes negarte — el resto del coach funciona sin ella. Cortamos la cámara cuando sales de la página."],
+            },
+        },
+        {
             "t": {"en": "WhatsApp alerts", "fr": "Les alertes WhatsApp",
                   "ht": "Alèt WhatsApp yo", "es": "Los avisos por WhatsApp"},
             "p": {

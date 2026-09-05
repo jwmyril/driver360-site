@@ -67,6 +67,11 @@ ETAPES = [
     ("verif_ids_traduits.py", [], "aucun texte fige que rien ne traduit", True),
     ("verif_exemple.py", [], "l'exemple employeur decrit le vrai tableau", True),
     ("verif_contraste.py", [], "contrastes AA dans les deux fonds", True),
+    # ⚠️ La camera promet deux choses : la video ne part pas, et on ne la
+    # NOTE pas. La seconde est la plus facile a trahir sans le vouloir —
+    # noter le « contact visuel » parait utile, et personne ne remarque que
+    # ca revient a mesurer l'ecart d'un immigrant a une norme americaine.
+    ("verif_camera.py", [], "la camera reste un miroir, pas un jury", True),
 ]
 
 
