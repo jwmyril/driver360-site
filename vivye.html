@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-QqENa2fmjOLnUWoaGUlFq/9+HJdbozsjulau0VYL0LU=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-1tHVk3qK+zWGb7O60MgK908W1syQQKs7VCn20cG4qC0=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -191,7 +191,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <label for="rj-dspco" id="L-dspco">Which one? (optional)</label>
         <input type="text" id="rj-dspco" maxlength="80" />
         <p class="rj-sub" id="rj-dspco-note">An employer sees only the number of years until they select you. The name appears with your phone number, after selection. If you still work there, leave it blank.</p>
-        <label id="L-slots">Three interview slots<small>Within the next three days. They refresh each time you confirm you are available.</small></label>
+        <label id="L-slots">Three interview slots<small>Within the next three days. To offer new ones, open your registration with your code, pick new slots and save.</small></label>
         <div id="rj-slots" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.5rem;margin-top:0.4rem">
           <input type="datetime-local" id="rj-slot1" aria-label="Créneau 1" />
           <input type="datetime-local" id="rj-slot2" aria-label="Créneau 2" />
@@ -315,7 +315,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dspCoNote:"Un employeur ne voit que le nombre d'années tant qu'il ne vous a pas sélectionné. Le nom n'apparaît qu'avec votre numéro, après sélection. Si vous y travaillez encore, ne le renseignez pas.",
       stConfirmer:"Confirmez que vous êtes toujours disponible pour rester dans le vivier.",
       cvErr:"Le lien de votre CV doit commencer par http:// ou https://.",
-      dspOk:"DSP-ready — confirmé le %s", dspOkS:"Un employeur de livraison vous voit avec ce badge, sans aucune de vos réponses en détail. Il expire après 14 jours : confirmez votre disponibilité pour le garder.",
+      dspOk:"DSP-ready — confirmé le %s", dspOkS:"Un employeur de livraison vous voit avec ce badge, sans aucune de vos réponses en détail. Il demande un créneau d'entretien dans les 72 heures et une mise à jour dans les 14 derniers jours : pour le garder, rouvrez votre inscription avec votre code, choisissez de nouveaux créneaux et enregistrez.",
       dspAlmost:"Presque DSP-ready — il manque :", dspAlmostS:"Rien de cette liste n'est visible d'un employeur. Seul le badge l'est, quand tout y est.",
       mAttest:"Cochez les cinq points de la section livraison.", mClassd:"Cochez Class D dans vos licences.", mAuth:"Indiquez que vous êtes autorisé(e) à travailler aux États-Unis.",
       mPhone:"Votre numéro n'est pas encore vérifié : nous vous envoyons un message WhatsApp, vous répondez OK. Rien d'autre à faire.", mSlot:"Choisissez un créneau d'entretien dans les trois prochains jours.", mFresh:"Confirmez que vous êtes toujours disponible — bouton « Je suis disponible » après avoir chargé votre inscription.",
@@ -326,7 +326,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dRecord:"Mon dossier de conduite est propre : aucune suspension, aucun accident responsable, pas plus de 2 infractions mineures en 3 ans",
       dScreen:"J'accepte un contrôle d'antécédents et un dépistage de drogues",
       dLift:"Je peux porter 50 lb (23 kg) de façon répétée",
-      slotsT:"Trois créneaux pour un entretien", slotsS:"Dans les trois prochains jours. Ils se renouvellent chaque fois que vous confirmez votre disponibilité.", slot:"Créneau %d",
+      slotsT:"Trois créneaux pour un entretien", slotsS:"Dans les trois prochains jours. Pour en proposer de nouveaux, rouvrez votre inscription avec votre code, choisissez d'autres créneaux et enregistrez.", slot:"Créneau %d",
       wa:"💬 <strong>Facultatif</strong> — prévenez-moi par WhatsApp quand une offre de chauffeur s'ouvre près de chez moi. Deux messages par semaine au maximum. Je peux répondre STOP à tout moment pour ne plus rien recevoir. Aujourd'hui ces messages sont écrits et envoyés à la main, par une personne. Les messages viennent d'Atmart LLC. Cocher n'est pas obligatoire pour entrer dans le vivier, et votre opérateur peut facturer la réception selon votre forfait.",
       go:"M'inscrire au pool (gratuit)", have:"J'ai déjà un code", code2:"Votre code personnel",
       load:"Charger mon inscription", del:"🗑 Me retirer du pool", back:"← Retour",
@@ -377,7 +377,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dspCoNote:"Yon anplwayè wè sèlman kantite ane a toutotan li pa chwazi w. Non an parèt ak nimewo w, apre seleksyon an. Si w ap travay la toujou, pa mete l.",
       stConfirmer:"Konfime ou toujou disponib pou w rete nan vivye a.",
       cvErr:"Lyen CV ou a dwe kòmanse ak http:// oswa https://.",
-      dspOk:"DSP-ready — konfime %s", dspOkS:"Yon anplwayè livrezon wè w ak badj sa a, san okenn nan repons ou yo an detay. Li ekspire apre 14 jou : konfime ou disponib pou w kenbe l.",
+      dspOk:"DSP-ready — konfime %s", dspOkS:"Yon anplwayè livrezon wè w ak badj sa a, san okenn nan repons ou yo an detay. Li mande yon lè pou entèvyou nan 72 èdtan ki vini yo ak yon mizajou nan 14 dènye jou yo : pou w kenbe l, louvri enskripsyon w ak kòd ou, chwazi lòt moman pou entèvyou epi anrejistre.",
       dspAlmost:"Prèske DSP-ready — sa ki manke :", dspAlmostS:"Anyen nan lis sa a pa parèt pou yon anplwayè. Se badj la sèlman li wè, lè tout bagay la.",
       mAttest:"Tcheke senk pwen seksyon livrezon an.", mClassd:"Tcheke Class D nan lisans ou yo.", mAuth:"Di ke ou otorize pou travay Ozetazini.",
       mPhone:"Nimewo w poko verifye : n ap voye yon mesaj WhatsApp ba ou, ou reponn OK. Pa gen anyen lòt pou w fè.", mSlot:"Chwazi yon moman pou entèvyou nan twa jou k ap vini yo.", mFresh:"Konfime ou toujou disponib — bouton « Mwen disponib » la, apre w chaje enskripsyon w.",
@@ -388,7 +388,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dRecord:"Dosye kondwi m pwòp : pa gen sispansyon, pa gen aksidan kote se mwen ki responsab, pa plis pase 2 ti enfraksyon nan 3 dènye ane yo",
       dScreen:"Mwen dakò pou yo tcheke dosye m (background check) ak pou yo fè m yon tès dwòg",
       dLift:"Mwen ka leve 50 liv (23 kg) plizyè fwa",
-      slotsT:"Twa moman pou yon entèvyou", slotsS:"Nan twa jou k ap vini yo. Yo renouvle chak fwa ou konfime ou disponib.", slot:"Moman %d",
+      slotsT:"Twa moman pou yon entèvyou", slotsS:"Nan twa jou k ap vini yo. Pou w mete lòt, louvri enskripsyon w ak kòd ou, chwazi lòt moman epi anrejistre.", slot:"Moman %d",
       wa:"💬 <strong>Si w vle</strong> — avèti m sou WhatsApp lè yon travay chofè louvri toupre lakay mwen. De mesaj pa semèn, pa plis. Mwen ka reponn STOP nenpòt kilè pou m pa resevwa anyen ankò. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen. Se Atmart LLC ki voye mesaj yo. Ou pa oblije koche pou w antre nan vivye a, epi konpayi telefòn ou ka fè w peye pou resevwa yo, selon plan w.",
       go:"Enskri m nan pool la (gratis)", have:"Mwen gen yon kòd deja", code2:"Kòd pèsonèl ou",
       load:"Chaje enskripsyon m", del:"🗑 Retire m nan pool la", back:"← Tounen",
@@ -439,7 +439,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dspCoNote:"An employer sees only the number of years until they select you. The name appears with your phone number, after selection. If you still work there, leave it blank.",
       stConfirmer:"Confirm you are still available to stay in the pool.",
       cvErr:"Your CV link must start with http:// or https://.",
-      dspOk:"DSP-ready — confirmed %s", dspOkS:"A delivery employer sees you with this badge, and none of your answers in detail. It expires after 14 days: confirm you are available to keep it.",
+      dspOk:"DSP-ready — confirmed %s", dspOkS:"A delivery employer sees you with this badge, and none of your answers in detail. It needs an interview slot in the next 72 hours and an update in the last 14 days: to keep it, open your registration with your code, pick new interview slots and save.",
       dspAlmost:"Almost DSP-ready — missing:", dspAlmostS:"Nothing on this list is visible to an employer. Only the badge is, once everything is in.",
       mAttest:"Check the five points in the delivery section.", mClassd:"Tick Class D under your licences.", mAuth:"State that you are authorized to work in the US.",
       mPhone:"Your number is not verified yet: we send you one WhatsApp message, you reply OK. Nothing else to do.", mSlot:"Pick an interview slot within the next three days.", mFresh:"Confirm you are still available — the “I am available” button after loading your registration.",
@@ -450,7 +450,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dRecord:"My driving record is clean: no suspension, no at-fault accident, no more than 2 minor violations in 3 years",
       dScreen:"I agree to a background check and a drug screen",
       dLift:"I can lift 50 lb (23 kg) repeatedly",
-      slotsT:"Three interview slots", slotsS:"Within the next three days. They refresh each time you confirm you are available.", slot:"Slot %d",
+      slotsT:"Three interview slots", slotsS:"Within the next three days. To offer new ones, open your registration with your code, pick new slots and save.", slot:"Slot %d",
       wa:"💬 <strong>Optional</strong> — text me on WhatsApp when a driving job opens near me. Two messages a week at most. I can reply STOP at any time to stop receiving them. Today these messages are written and sent by hand, by a person. The messages come from Atmart LLC. Ticking is not required to join the pool, and your carrier may charge you to receive them, depending on your plan.",
       go:"Join the pool (free)", have:"I already have a code", code2:"Your personal code",
       load:"Load my registration", del:"🗑 Withdraw from the pool", back:"← Back",
@@ -501,7 +501,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dspCoNote:"Un empleador solo ve el número de años hasta que te selecciona. El nombre aparece con tu teléfono, tras la selección. Si aún trabajas allí, déjalo en blanco.",
       stConfirmer:"Confirma que sigues disponible para permanecer en el registro.",
       cvErr:"El enlace de tu CV debe empezar por http:// o https://.",
-      dspOk:"DSP-ready — confirmado el %s", dspOkS:"Un empleador de reparto te ve con esta insignia, sin ninguna de tus respuestas en detalle. Caduca a los 14 días: confirma que estás disponible para mantenerla.",
+      dspOk:"DSP-ready — confirmado el %s", dspOkS:"Un empleador de reparto te ve con esta insignia, sin ninguna de tus respuestas en detalle. Requiere un horario de entrevista en las próximas 72 horas y una actualización en los últimos 14 días: para mantenerla, abre tu inscripción con tu código, elige nuevos horarios de entrevista y guarda.",
       dspAlmost:"Casi DSP-ready — falta:", dspAlmostS:"Nada de esta lista es visible para un empleador. Solo la insignia lo es, cuando todo está.",
       mAttest:"Marca los cinco puntos de la sección de reparto.", mClassd:"Marca Class D en tus licencias.", mAuth:"Indica que estás autorizado para trabajar en EE. UU.",
       mPhone:"Tu número aún no está verificado: te enviamos un mensaje de WhatsApp, respondes OK. Nada más que hacer.", mSlot:"Elige un horario de entrevista en los próximos tres días.", mFresh:"Confirma que sigues disponible: el botón «Estoy disponible» tras cargar tu inscripción.",
@@ -512,7 +512,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       dRecord:"Mi historial de manejo está limpio: sin suspensiones, sin accidentes con culpa, no más de 2 infracciones menores en 3 años",
       dScreen:"Acepto una verificación de antecedentes y una prueba de drogas",
       dLift:"Puedo cargar 50 lb (23 kg) de forma repetida",
-      slotsT:"Tres horarios para una entrevista", slotsS:"En los próximos tres días. Se renuevan cada vez que confirmas que estás disponible.", slot:"Horario %d",
+      slotsT:"Tres horarios para una entrevista", slotsS:"En los próximos tres días. Para ofrecer otros, abre tu inscripción con tu código, elige nuevos horarios y guarda.", slot:"Horario %d",
       wa:"💬 <strong>Opcional</strong> — avísame por WhatsApp cuando se abra un empleo de conductor cerca de mí. Dos mensajes por semana como máximo. Puedo responder STOP en cualquier momento para dejar de recibirlos. Hoy estos mensajes los escribe y los envía una persona, a mano. Los mensajes vienen de Atmart LLC. Marcar no es obligatorio para entrar en el registro, y tu operador puede cobrarte por recibirlos, según tu plan.",
       go:"Unirme al pool (gratis)", have:"Ya tengo un código", code2:"Tu código personal",
       load:"Cargar mi registro", del:"🗑 Retirarme del pool", back:"← Volver",
@@ -638,7 +638,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     document.getElementById("rj-name").value=p.name||"";
     document.getElementById("rj-phone").value=p.phone||"";
     document.getElementById("rj-city").value=p.city||"";
-    document.getElementById("rj-langs").value=p.langs||"";
+    /* ⚠️ rj-langs a ete retire du formulaire le 31/08, mais cette fonction continuait
+       d'y ecrire : l'exception faisait echouer « Charger mon inscription » a chaque
+       fois (J28, Driver360). Un champ qui disparait emporte ses lignes. */
     document.getElementById("rj-nat").value=p.nat||"";
     document.getElementById("rj-auth").value=p.auth||"";
     document.getElementById("rj-years").value=(p.years===null||p.years===undefined)?"":p.years;

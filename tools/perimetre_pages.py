@@ -95,6 +95,10 @@ VIVYE = {
           "fr": "Vous livrez, ou voulez livrer, pour un DSP d'Amazon ? Inscrivez-vous gratuitement : les DSP du Massachusetts peuvent vous trouver — et ne vous contactent que si vous êtes d'accord. Driver360 est indépendant et non affilié à Amazon.",
           "ht": "W ap livre, oswa ou vle livre, pou yon DSP Amazon ? Enskri gratis : DSP nan Massachusetts ka jwenn ou — epi yo kontakte w sèlman si w dakò. Driver360 endepandan epi li pa afilye ak Amazon.",
           "es": "¿Repartes, o quieres repartir, para un DSP de Amazon? Regístrate gratis: los DSP de Massachusetts pueden encontrarte — y solo te contactan si estás de acuerdo. Driver360 es independiente y no está afiliado a Amazon."},
+ "dspOkS": {"en": "A delivery employer sees you with this badge, and none of your answers in detail. It needs an interview slot in the next 72 hours and an update in the last 14 days: to keep it, open your registration with your code, pick new interview slots and save.",
+            "fr": "Un employeur de livraison vous voit avec ce badge, sans aucune de vos réponses en détail. Il demande un créneau d'entretien dans les 72 heures et une mise à jour dans les 14 derniers jours : pour le garder, rouvrez votre inscription avec votre code, choisissez de nouveaux créneaux et enregistrez.",
+            "ht": "Yon anplwayè livrezon wè w ak badj sa a, san okenn nan repons ou yo an detay. Li mande yon lè pou entèvyou nan 72 èdtan ki vini yo ak yon mizajou nan 14 dènye jou yo : pou w kenbe l, louvri enskripsyon w ak kòd ou, chwazi lòt moman pou entèvyou epi anrejistre.",
+            "es": "Un empleador de reparto te ve con esta insignia, sin ninguna de tus respuestas en detalle. Requiere un horario de entrevista en las próximas 72 horas y una actualización en los últimos 14 días: para mantenerla, abre tu inscripción con tu código, elige nuevos horarios de entrevista y guarda."},
 }
 
 # La valeur d'une cle JS entre guillemets doubles, echappements compris.

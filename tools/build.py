@@ -80,6 +80,7 @@ ETAPES = [
     ("verif_camera.py", [], "la camera reste un miroir, pas un jury", True),
     ("mesure_locale.py", ["--verifier"], "chaque page compte pour driver360", True),
     ("verif_publication.py", [], "docs/ et tools/ hors du site, documents internes hors du depot", True),
+    ("verif_ids_js.py", [], "chaque getElementById vise un id present dans sa page", True),
 ]
 
 

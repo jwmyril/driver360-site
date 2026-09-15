@@ -20,12 +20,17 @@ des morceaux du produit précédent — une page à moitié dans un produit, à
 moitié dans l'autre. On fabrique donc une page propre. La source d'atmart.ltd
 n'est pas touchée : le coach du test de route y reste entier.
 
-CE QUE LE COACH FAIT — et c'est la présentation à Ryan qui le définit
-  1. mettre l'expérience en mots (postes, dates, véhicules, formations) ;
-  2. préparer un nouveau DSP ;
-  3. une pause, et le retour ;
-  4. l'étape suivante (référent, formateur, répartition, certification DOT) ;
-  5. répéter devant la caméra — un miroir, pas un jury.
+CE QUE LE COACH FAIT — cinq rôles précis (précisé le 15/09/2026)
+Amazon et chaque DSP forment déjà les chauffeurs au métier : sécurité,
+procédures de livraison, appareils, tournées. Le coach NE DOUBLE PAS cette
+formation et renvoie ces questions vers le DSP. Son rôle est la place du
+chauffeur dans le réseau :
+  1. devenir DSP-ready (la liste, honnêtement, et ce que le DSP vérifiera) ;
+  2. tenir le dossier à jour (déclaration du chauffeur ; statut à 14 jours) ;
+  3. une pause, et le retour (seul le DSP dit ce qui est à refaire) ;
+  4. lire une offre avant de dire oui ;
+  5. rencontrer un DSP — répéter, caméra comprise : un miroir, pas un jury.
+Jamais la promesse qu'un DSP va embaucher.
 
 ⚠️ CE QU'IL NE PRÉTEND PAS. La présentation classe le dossier portable,
 le partage avec des DSP et l'échange d'expérience en « proposed
@@ -54,54 +59,74 @@ MAILTO_CODE = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%2
 
 # (en, fr, ht, es)
 TX = {
- "ti": ("Driver Coach — your career as a DSP delivery driver | Driver360",
-        "Driver Coach — votre carrière de chauffeur livreur DSP | Driver360",
-        "Driver Coach — karyè w kòm chofè livrezon DSP | Driver360",
-        "Driver Coach — tu carrera como conductor de reparto DSP | Driver360"),
- "descr": ("A career coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: put your experience into words, prepare for a new DSP or a return after a break, and think through your next step. Independent — not affiliated with Amazon.",
-           "Un coach de carrière pour les chauffeurs livreurs des partenaires de livraison d'Amazon au Massachusetts : mettre son expérience en mots, préparer un nouveau DSP ou un retour après une pause, réfléchir à l'étape suivante. Indépendant — non affilié à Amazon.",
-           "Yon coach karyè pou chofè livrezon patnè livrezon Amazon yo nan Massachusetts : mete eksperyans ou an mo, prepare yon nouvo DSP oswa yon retou apre yon poz, reflechi sou pwochen etap la. Endepandan — pa afilye ak Amazon.",
-           "Un coach de carrera para conductores de reparto de los socios de entrega de Amazon en Massachusetts: poner tu experiencia en palabras, prepararte para un nuevo DSP o para volver tras una pausa, y pensar tu siguiente paso. Independiente — sin afiliación con Amazon."),
+ "ti": ("Driver Coach — stay DSP-ready as a delivery driver | Driver360",
+        "Driver Coach — rester DSP-ready comme chauffeur livreur | Driver360",
+        "Driver Coach — rete DSP-ready kòm chofè livrezon | Driver360",
+        "Driver Coach — seguir DSP-ready como conductor de reparto | Driver360"),
+ "descr": ("A coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: get DSP-ready, keep your record current, take a break and come back, read a job opening, and prepare to meet a DSP. Independent — not affiliated with Amazon.",
+        "Un coach pour les chauffeurs livreurs des partenaires de livraison d'Amazon au Massachusetts : devenir DSP-ready, tenir votre dossier à jour, faire une pause et revenir, lire une offre, préparer la rencontre avec un DSP. Indépendant — non affilié à Amazon.",
+        "Yon coach pou chofè livrezon patnè livrezon Amazon yo nan Massachusetts : vin DSP-ready, kenbe dosye w ajou, pran yon poz epi retounen, li yon òf travay, prepare w pou rankontre yon DSP. Endepandan — pa afilye ak Amazon.",
+        "Un coach para conductores de reparto de los socios de entrega de Amazon en Massachusetts: estar DSP-ready, mantener tu historial al día, tomar una pausa y volver, leer una oferta y prepararte para conocer a un DSP. Independiente — sin afiliación con Amazon."),
  "fil": ("For delivery drivers at Amazon's Delivery Service Partners",
          "Pour les chauffeurs livreurs des partenaires de livraison d'Amazon",
          "Pou chofè livrezon patnè livrezon Amazon yo",
          "Para conductores de reparto de los socios de entrega de Amazon"),
- "lead": ("A delivery job is a start. This coach helps you turn it into a career that lasts longer than one DSP — in your language, at your pace.",
-          "Un emploi de livreur, c'est un début. Ce coach vous aide à en faire une carrière qui dure plus longtemps qu'un seul DSP — dans votre langue, à votre rythme.",
-          'Yon travay livrezon se yon kòmansman. Coach sa a ede w fè l tounen yon karyè ki dire pi lontan pase yon sèl DSP — nan lang pa w, san prese.',
-          "Un empleo de repartidor es un comienzo. Este coach te ayuda a convertirlo en una carrera que dure más que un solo DSP — en tu idioma, a tu ritmo."),
+ "lead": ("Amazon and your DSP train you for the job. This coach does what one DSP cannot do for you: it helps you stay ready and current — from one DSP to the next, through a break and back.",
+        "Amazon et votre DSP vous forment au métier. Ce coach fait ce qu'un seul DSP ne peut pas faire pour vous : vous aider à rester prêt et à jour — d'un DSP à l'autre, pendant une pause et au retour.",
+        "Amazon ak DSP ou fòme w pou travay la. Coach sa a fè sa yon sèl DSP pa ka fè pou ou : li ede w rete pare epi ajou — soti nan yon DSP rive nan yon lòt, pandan yon poz ak lè w retounen.",
+        "Amazon y tu DSP te forman para el trabajo. Este coach hace lo que un solo DSP no puede hacer por ti: ayudarte a seguir listo y al día — de un DSP al siguiente, durante una pausa y a la vuelta."),
  "indep": ("Driver360 is independent. It is not affiliated with Amazon, and Amazon does not endorse it.",
            "Driver360 est indépendant. Il n'est pas affilié à Amazon, et Amazon ne l'approuve pas.",
            "Driver360 endepandan. Li pa afilye ak Amazon, epi Amazon pa apwouve l.",
            "Driver360 es independiente. No está afiliado a Amazon, y Amazon no lo avala."),
 
- "c1_t": ("Your experience, in words", "Votre expérience, en mots", "Eksperyans ou, an mo", "Tu experiencia, en palabras"),
- "c1_d": ("Roles, dates, vehicles, the kinds of routes you ran, the training you finished — written plainly, in a form you can take to the next DSP.",
-          "Postes, dates, véhicules, types de tournées, formations terminées — écrit simplement, sous une forme que vous emportez au prochain DSP.",
-          "Pòs, dat, machin, kalite wout ou te fè, fòmasyon ou te fini — ekri senp, yon fason ou ka pote l bay pwochen DSP a.",
-          "Puestos, fechas, vehículos, tipos de rutas, formación terminada — escrito con sencillez, de una forma que puedas llevar al próximo DSP."),
- "c2_t": ("A new DSP", "Un nouveau DSP", "Yon nouvo DSP", "Un nuevo DSP"),
- "c2_d": ("What to ask before you accept — pay, hours, days, station, commute, paid training — and what a first week is likely to look like.",
-          "Ce qu'il faut demander avant d'accepter — salaire, heures, jours, station, trajet, formation payée — et à quoi ressemble souvent une première semaine.",
-          "Kisa pou w mande anvan w aksepte — salè, èdtan, jou, estasyon, trajè, fòmasyon ki peye — ak kijan yon premye semèn souvan pase.",
-          "Qué preguntar antes de aceptar — pago, horas, días, estación, trayecto, formación pagada — y cómo suele ser una primera semana."),
- "c3_t": ("A break, and coming back", "Une pause, et le retour", "Yon poz, epi retou a", "Una pausa, y la vuelta"),
- "c3_d": ("What to keep while you are away, and how to come back without starting from zero. Only the DSP can say which checks or trainings start again — the coach helps you ask.",
-          "Ce qu'il faut garder pendant votre absence, et comment revenir sans repartir de zéro. Seul le DSP peut dire quels contrôles ou formations sont à refaire — le coach vous aide à le demander.",
-          "Kisa pou w kenbe pandan w pa la, ak kijan pou w retounen san w pa rekòmanse a zewo. Se sèlman DSP a ki ka di ki kontwòl oswa fòmasyon ki pou refèt — coach la ede w mande sa.",
-          "Qué conservar mientras estás fuera, y cómo volver sin empezar de cero. Solo el DSP puede decir qué comprobaciones o formaciones se repiten — el coach te ayuda a preguntarlo."),
- "c4_t": ("Your next step", "L'étape suivante", "Pwochen etap ou", "Tu siguiente paso"),
- "c4_d": ("Lead driver, trainer, dispatch, a different vehicle, a DOT certification: what the role involves and how to ask for it. Amazon's own page for DSP drivers mentions advancement and DOT certification.",
-          "Chauffeur référent, formateur, répartition, un autre véhicule, une certification DOT : ce que le poste demande et comment le demander. La page d'Amazon pour les chauffeurs DSP mentionne elle-même l'évolution et la certification DOT.",
-          "Chofè lidè, fòmatè, dispatch, yon lòt machin, yon sètifikasyon DOT : sa pòs la mande ak kijan pou w mande l. Paj Amazon an pou chofè DSP yo li menm pale de monte ak sètifikasyon DOT.",
-          "Conductor líder, formador, despacho, otro vehículo, una certificación DOT: qué exige el puesto y cómo pedirlo. La propia página de Amazon para conductores DSP menciona el ascenso y la certificación DOT."),
+ "c1_t": ("Get DSP-ready",
+        "Devenir DSP-ready",
+        "Vin DSP-ready",
+        "Estar DSP-ready"),
+ "c1_d": ("Go through the checklist one item at a time — 21 or older, licence, work authorization, driving record, checks, lifting 50 lb, a phone that answers, an interview slot. Honestly, and knowing what the DSP will still check at hiring.",
+        "Passer la liste point par point — 21 ans ou plus, permis, autorisation de travail, dossier de conduite, contrôles, porter 50 lb, un téléphone qui répond, un créneau d'entretien. En toute honnêteté, et en sachant ce que le DSP vérifiera encore à l'embauche.",
+        "Pase lis la youn pa youn — 21 an oswa plis, pèmi, otorizasyon travay, dosye kondwi, kontwòl, leve 50 liv, yon telefòn ki reponn, yon lè pou entèvyou. Avèk onètete, epi konnen sa DSP a ap toujou tcheke lè l ap anboche.",
+        "Repasar la lista punto por punto — 21 años o más, licencia, autorización de trabajo, historial de manejo, comprobaciones, levantar 50 lb, un teléfono que contesta, un horario de entrevista. Con honestidad, y sabiendo lo que el DSP seguirá comprobando al contratar."),
+ "c2_t": ("Keep your record current",
+        "Tenir votre dossier à jour",
+        "Kenbe dosye w ajou",
+        "Mantener tu historial al día"),
+ "c2_d": ("Roles, dates, stations, vehicles, trainings completed — written plainly as your own statement, in a text you keep — and references who agreed to be named. A reminder too: DSP-ready needs an interview slot in the next 72 hours and an update in the last 14 days — to keep it, open your registration and pick new slots.",
+        "Postes, dates, stations, véhicules, formations terminées — écrits simplement comme votre propre déclaration, dans un texte que vous gardez — et des références qui ont accepté d'être nommées. Et un rappel : DSP-ready demande un créneau d'entretien dans les 72 heures et une mise à jour dans les 14 derniers jours — pour le garder, rouvrez votre inscription et choisissez de nouveaux créneaux.",
+        "Pòs, dat, estasyon, machin, fòmasyon ou fini — ekri senp kòm pwòp deklarasyon pa w, nan yon tèks ou kenbe — ak referans ki dakò pou yo site non yo. Epi yon rapèl : DSP-ready mande yon lè pou entèvyou nan 72 èdtan ki vini yo ak yon mizajou nan 14 dènye jou yo — pou w kenbe l, louvri enskripsyon w epi chwazi lòt moman.",
+        "Puestos, fechas, estaciones, vehículos, formación terminada — escrito con sencillez como tu propia declaración, en un texto que guardas — y referencias que aceptaron ser nombradas. Y un recordatorio: DSP-ready requiere un horario de entrevista en las próximas 72 horas y una actualización en los últimos 14 días — para mantenerlo, abre tu inscripción y elige nuevos horarios."),
+ "c3_t": ("A break, and coming back",
+        "Une pause, et le retour",
+        "Yon poz, epi retou a",
+        "Una pausa, y la vuelta"),
+ "c3_d": ("Pause your profile so DSPs stop seeing you, keep what you will need, and prepare your return — your profile is erased 90 days after its last update, even on pause. Only the DSP can say which checks or trainings start again — the coach helps you ask.",
+        "Mettre votre profil en pause pour que les DSP ne vous voient plus, garder ce dont vous aurez besoin, préparer le retour — votre fiche est effacée 90 jours après sa dernière mise à jour, même en pause. Seul le DSP peut dire quels contrôles ou formations sont à refaire — le coach vous aide à le demander.",
+        "Mete pwofil ou an pòz pou DSP yo pa wè w ankò, kenbe sa w ap bezwen, epi prepare retou w — pwofil ou efase 90 jou apre dènye mizajou li, menm lè l an pòz. Se sèlman DSP a ki ka di ki kontwòl oswa fòmasyon ki pou refèt — coach la ede w mande sa.",
+        "Pausar tu perfil para que los DSP dejen de verte, guardar lo que vas a necesitar y preparar la vuelta — tu perfil se borra 90 días después de su última actualización, incluso en pausa. Solo el DSP puede decir qué comprobaciones o formaciones se repiten — el coach te ayuda a preguntarlo."),
+ "c4_t": ("Read an opening",
+        "Lire une offre",
+        "Li yon òf travay",
+        "Leer una oferta"),
+ "c4_d": ("Pay, stated hours, days, station, commute, whether training is paid — what the posting says, what it leaves out, and what to ask before you say yes.",
+        "Salaire, heures annoncées, jours, station, trajet, formation payée ou non — ce que dit l'offre, ce qu'elle ne dit pas, et ce qu'il faut demander avant de dire oui.",
+        "Salè, èdtan yo anonse, jou, estasyon, trajè, si fòmasyon an peye — sa òf la di, sa li pa di, ak sa pou w mande anvan w di wi.",
+        "Pago, horas anunciadas, días, estación, trayecto, si la formación es pagada — lo que dice la oferta, lo que no dice y qué preguntar antes de decir que sí."),
+ "c5_t": ("Meet a DSP",
+        "Rencontrer un DSP",
+        "Rankontre yon DSP",
+        "Conocer a un DSP"),
+ "c5_d": ("Rehearse how you present your experience in about 60 seconds, in your language, then in English if you want. Feedback on your words — never on your accent or appearance.",
+        "Répéter comment vous présentez votre expérience en une minute environ, dans votre langue, puis en anglais si vous le souhaitez. Des retours sur vos mots — jamais sur votre accent ni votre apparence.",
+        "Repete kijan w prezante eksperyans ou nan anviwon 60 segonn, nan lang pa w, epi an anglè si w vle. Kòmantè sou mo w yo — pa janm sou aksan w oswa sou aparans ou.",
+        "Ensayar cómo presentas tu experiencia en unos 60 segundos, en tu idioma, y luego en inglés si quieres. Comentarios sobre tus palabras — nunca sobre tu acento ni tu apariencia."),
 
  "h_t": ("What this coach is, and is not", "Ce qu'est ce coach, et ce qu'il n'est pas",
          "Sa coach sa a ye, ak sa li pa ye", "Lo que es este coach, y lo que no es"),
- "h_d": ("It helps you think, write and rehearse. It does <strong>not</strong> store a professional record or send anything to a DSP — that part is not built yet. What you write together is yours to copy and keep. It will never give you a score, and it will never invent a pay rate or a requirement: when it does not know, it tells you to ask the DSP.",
-         "Il vous aide à réfléchir, écrire et répéter. Il ne conserve <strong>pas</strong> de dossier professionnel et n'envoie rien à aucun DSP — cette partie n'est pas encore construite. Ce que vous écrivez ensemble vous appartient : copiez-le et gardez-le. Il ne vous donnera jamais de note, et il n'inventera jamais un salaire ou une condition : quand il ne sait pas, il vous dit de demander au DSP.",
-         "Li ede w reflechi, ekri epi repete. Li <strong>pa</strong> kenbe okenn dosye pwofesyonèl epi li pa voye anyen bay okenn DSP — pati sa a poko bati. Sa nou ekri ansanm se pou ou : kopye l epi kenbe l. Li p ap janm ba w yon nòt, epi li p ap janm envante yon salè oswa yon kondisyon : lè li pa konnen, li di w mande DSP a.",
-         'Te ayuda a pensar, escribir y ensayar. <strong>No</strong> guarda un expediente profesional ni envía nada a ningún DSP — esa parte todavía no está construida. Lo que escribimos juntos es tuyo: cópialo y guárdalo. Nunca te pondrá una nota, y nunca se inventará un salario o un requisito: cuando no lo sabe, te dice que se lo preguntes al DSP.'),
+ "h_d": ("It does <strong>not</strong> repeat the training Amazon and your DSP give you: safety, delivery procedures, devices, routes and station rules are theirs, and the coach sends those questions back to your DSP. It does not store a professional record or send anything to a DSP — that part is not built yet. What you write together is yours to copy and keep. It will never give you a score, and it will never invent a pay rate or a requirement: when it does not know, it tells you to ask the DSP.",
+        "Il ne <strong>refait pas</strong> la formation qu'Amazon et votre DSP vous donnent : la sécurité, les procédures de livraison, les appareils, les tournées et les règles de la station leur appartiennent, et le coach vous renvoie vers votre DSP pour ces questions. Il ne conserve pas de dossier professionnel et n'envoie rien à aucun DSP — cette partie n'est pas encore construite. Ce que vous écrivez ensemble vous appartient : copiez-le et gardez-le. Il ne vous donnera jamais de note, et il n'inventera jamais un salaire ou une condition : quand il ne sait pas, il vous dit de demander au DSP.",
+        "Li <strong>pa</strong> refè fòmasyon Amazon ak DSP ou ba ou : sekirite, fason pou livre, aparèy, wout ak règ estasyon an se pou yo, epi coach la voye w bay DSP ou pou kesyon sa yo. Li pa kenbe okenn dosye pwofesyonèl epi li pa voye anyen bay okenn DSP — pati sa a poko bati. Sa nou ekri ansanm se pou ou : kopye l epi kenbe l. Li p ap janm ba w yon nòt, epi li p ap janm envante yon salè oswa yon kondisyon : lè li pa konnen, li di w mande DSP a.",
+        "<strong>No</strong> repite la formación que te dan Amazon y tu DSP: la seguridad, los procedimientos de entrega, los dispositivos, las rutas y las normas de la estación son suyos, y el coach te remite a tu DSP para esas preguntas. No guarda un expediente profesional ni envía nada a ningún DSP — esa parte todavía no está construida. Lo que escribimos juntos es tuyo: cópialo y guárdalo. Nunca te pondrá una nota, y nunca se inventará un salario o un requisito: cuando no lo sabe, te dice que se lo preguntes al DSP."),
 
  "code_l": ("Your coach code", "Votre code du coach", "Kòd coach ou", "Tu código del coach"),
  "code_s": ("Free (WOUT-XXXX-XXXX). No code yet? <a href='%s'>Request one — free</a>" % MAILTO_CODE,
@@ -110,14 +135,30 @@ TX = {
             "Gratis (WOUT-XXXX-XXXX). ¿Aún sin código? <a href='%s'>Pídelo — gratis</a>" % MAILTO_CODE),
 
  "chat_t": ("Talk to your coach", "Parler à votre coach", "Pale ak coach ou", "Habla con tu coach"),
- "hello": ("Hi — I'm your Driver Coach. We can work on your experience, a new DSP, a break, or your next step. Where would you like to start?",
-           "Bonjour — je suis votre Driver Coach. Nous pouvons travailler votre expérience, un nouveau DSP, une pause, ou l'étape suivante. Par où voulez-vous commencer ?",
-           "Bonjou — se mwen ki Driver Coach ou. Nou ka travay sou eksperyans ou, yon nouvo DSP, yon poz, oswa pwochen etap ou. Kote ou vle kòmanse ?",
-           "Hola — soy tu Driver Coach. Podemos trabajar tu experiencia, un nuevo DSP, una pausa o tu siguiente paso. ¿Por dónde quieres empezar?"),
- "q1": ("Help me write down my experience", "Aidez-moi à écrire mon expérience", "Ede m ekri eksperyans mwen", "Ayúdame a escribir mi experiencia"),
- "q2": ("I'm starting at a new DSP — what should I ask?", "Je commence dans un nouveau DSP — que dois-je demander ?", "M ap kòmanse nan yon nouvo DSP — kisa pou m mande ?", "Empiezo en un nuevo DSP — ¿qué debo preguntar?"),
- "q3": ("I'm taking a break. What should I keep?", "Je fais une pause. Que dois-je garder ?", "M ap pran yon poz. Kisa pou m kenbe ?", "Me tomo una pausa. ¿Qué debo conservar?"),
- "q4": ("What could my next step be?", "Quelle pourrait être mon étape suivante ?", "Ki pwochen etap mwen ta ka ye ?", "¿Cuál podría ser mi siguiente paso?"),
+ "hello": ("Hi — I'm your Driver Coach. We can get you DSP-ready, update your record, plan a break or a return, read a job opening, or prepare to meet a DSP. Where would you like to start?",
+        "Bonjour — je suis votre Driver Coach. Nous pouvons vous rendre DSP-ready, mettre votre dossier à jour, préparer une pause ou un retour, lire une offre, ou préparer une rencontre avec un DSP. Par où voulez-vous commencer ?",
+        "Bonjou — se mwen ki Driver Coach ou. Nou ka fè w vin DSP-ready, mete dosye w ajou, prepare yon poz oswa yon retou, li yon òf travay, oswa prepare w pou rankontre yon DSP. Kote ou vle kòmanse ?",
+        "Hola — soy tu Driver Coach. Podemos dejarte DSP-ready, actualizar tu historial, preparar una pausa o una vuelta, leer una oferta o prepararte para conocer a un DSP. ¿Por dónde quieres empezar?"),
+ "q1": ("Go through the DSP-ready checklist with me",
+        "Passons la liste DSP-ready ensemble",
+        "Ann pase lis DSP-ready a ansanm",
+        "Repasemos juntos la lista DSP-ready"),
+ "q2": ("Help me update my record",
+        "Aidez-moi à mettre mon dossier à jour",
+        "Ede m mete dosye m ajou",
+        "Ayúdame a actualizar mi historial"),
+ "q3": ("I'm taking a break — how do I come back?",
+        "Je fais une pause — comment revenir ?",
+        "M ap pran yon poz — kijan pou m retounen ?",
+        "Me tomo una pausa — ¿cómo vuelvo?"),
+ "q4": ("Help me read a job opening",
+        "Aidez-moi à lire une offre",
+        "Ede m li yon òf travay",
+        "Ayúdame a leer una oferta"),
+ "q5": ("Help me prepare to meet a DSP",
+        "Aidez-moi à préparer une rencontre avec un DSP",
+        "Ede m prepare m pou m rankontre yon DSP",
+        "Ayúdame a prepararme para conocer a un DSP"),
  "ph": ("Write to your coach…", "Écrivez à votre coach…", "Ekri coach ou…", "Escribe a tu coach…"),
  "send": ("Send", "Envoyer", "Voye", "Enviar"),
  "think": ("Your coach is thinking…", "Votre coach réfléchit…", "Coach ou ap reflechi…", "Tu coach está pensando…"),
@@ -166,26 +207,26 @@ EXOS = {
          ["How long you have delivered, and where", "The vehicles and kinds of routes you know", "One day that went well because of you"]],
         ["pause", "A break", "Explain a break in your work history.", "Plainly, without apologising.",
          ["That you took a break, and roughly when", "What you did during it", "Why you are ready now"]],
-        ["dur", "A hard day", "Describe a hard day on a route and what you did.", "No customer names or addresses — ever.",
-         ["What happened", "What you did, following your DSP's rules", "What you would do the same way again"]]],
+        ["ask", "Your questions", "Ask a DSP about the opening, before you say yes.", "Calmly — asking shows you take the job seriously.",
+         ["Pay, and the hours they state", "Days, station and commute", "Whether training is paid, and what the next step is"]]],
  "fr": [["exp", "60 secondes", "Présentez votre expérience à un DSP en 60 secondes.", "Postes, dates, véhicules — et une chose dont vous êtes fier.",
          ["Depuis combien de temps vous livrez, et où", "Les véhicules et les types de tournées que vous connaissez", "Une journée qui s'est bien passée grâce à vous"]],
         ["pause", "Une pause", "Expliquez une pause dans votre parcours.", "Simplement, sans vous excuser.",
          ["Que vous avez fait une pause, et à peu près quand", "Ce que vous avez fait pendant", "Pourquoi vous êtes prêt maintenant"]],
-        ["dur", "Une journée difficile", "Racontez une journée difficile sur une tournée et ce que vous avez fait.", "Jamais de nom ni d'adresse de client.",
-         ["Ce qui s'est passé", "Ce que vous avez fait, en suivant les règles de votre DSP", "Ce que vous referiez de la même façon"]]],
+        ["ask", "Vos questions", "Posez vos questions à un DSP sur l'offre, avant de dire oui.", "Calmement — demander montre que vous prenez l'emploi au sérieux.",
+         ["Le salaire, et les heures annoncées", "Les jours, la station et le trajet", "Si la formation est payée, et quelle est l'étape suivante"]]],
  "ht": [["exp", "60 segonn", "Prezante eksperyans ou bay yon DSP nan 60 segonn.", 'Pòs, dat, machin — ak yon bagay ki fè w fyè.',
          ["Depi konbyen tan w ap livre, ak ki kote", "Machin ak kalite wout ou konnen", "Yon jou ki te pase byen gras a ou"]],
         ["pause", "Yon poz", "Esplike yon poz nan pakou travay ou.", "Senp, san w pa mande eskiz.",
          ['Ou te pran yon poz, ak apeprè kilè', "Kisa w te fè pandan tan an", "Poukisa w pare kounye a"]],
-        ["dur", "Yon jou difisil", "Rakonte yon jou difisil sou yon wout ak kisa w te fè.", 'Pa janm bay non oswa adrès yon kliyan.',
-         ["Kisa ki te pase", "Kisa w te fè, dapre règ DSP ou", "Kisa w ta refè menm jan an"]]],
+        ["ask", "Kesyon w yo", "Poze yon DSP kesyon sou òf la, anvan w di wi.", "Trankil — lè w poze kesyon, sa montre w pran travay la oserye.",
+         ["Salè a, ak èdtan yo anonse", "Jou yo, estasyon an ak trajè a", "Si fòmasyon an peye, ak ki pwochen etap la"]]],
  "es": [["exp", "60 segundos", "Presenta tu experiencia a un DSP en 60 segundos.", "Puestos, fechas, vehículos — y algo de lo que estés orgulloso.",
          ["Cuánto tiempo llevas repartiendo, y dónde", "Los vehículos y tipos de rutas que conoces", "Un día que salió bien gracias a ti"]],
         ["pause", "Una pausa", "Explica una pausa en tu trayectoria.", "Con sencillez, sin disculparte.",
          ["Que te tomaste una pausa, y más o menos cuándo", "Qué hiciste durante ella", "Por qué estás listo ahora"]],
-        ["dur", "Un día difícil", "Cuenta un día difícil en una ruta y qué hiciste.", "Nunca nombres ni direcciones de clientes.",
-         ["Qué pasó", "Qué hiciste, siguiendo las reglas de tu DSP", "Qué volverías a hacer igual"]]],
+        ["ask", "Tus preguntas", "Pregúntale a un DSP por la oferta, antes de decir que sí.", "Con calma — preguntar demuestra que te tomas el empleo en serio.",
+         ["El pago, y las horas que anuncian", "Los días, la estación y el trayecto", "Si la formación es pagada, y cuál es el siguiente paso"]]],
 }
 
 CSS = """
@@ -287,6 +328,7 @@ d.lang=l||"en";})();
       <div class="co-carte"><h2 data-t="c2_t">%(c2_t)s</h2><p data-t="c2_d">%(c2_d)s</p></div>
       <div class="co-carte"><h2 data-t="c3_t">%(c3_t)s</h2><p data-t="c3_d">%(c3_d)s</p></div>
       <div class="co-carte"><h2 data-t="c4_t">%(c4_t)s</h2><p data-t="c4_d">%(c4_d)s</p></div>
+      <div class="co-carte"><h2 data-t="c5_t">%(c5_t)s</h2><p data-t="c5_d">%(c5_d)s</p></div>
     </div>
 
     <div class="co-note">
@@ -306,6 +348,7 @@ d.lang=l||"en";})();
         <button type="button" data-t="q2">%(q2)s</button>
         <button type="button" data-t="q3">%(q3)s</button>
         <button type="button" data-t="q4">%(q4)s</button>
+        <button type="button" data-t="q5">%(q5)s</button>
       </div>
       <div class="co-saisie">
         <label for="co-input" class="sr-only" data-t="ph">%(ph)s</label>

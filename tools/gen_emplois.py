@@ -277,14 +277,14 @@ TX_DSP = {
         "ht": "Ou deja ap kondwi pou yon DSP ?", "es": "\u00bfYa conduces para un DSP?",
     },
     "permis_d": {
-        "en": "Delivering for a DSP takes a regular <strong>Class D</strong> licence \u2014 no CDL \u2014 and you must be <strong>21 or over</strong> with a clean record. Amazon's own page lists <strong>advancement opportunities</strong> and the chance to obtain <strong>DOT certification</strong>. Driver Coach helps with what comes after the first job: putting your experience into words, getting ready for a new DSP, taking a break and coming back.",
-        "fr": "Livrer pour un DSP demande un permis <strong>Class D</strong> ordinaire \u2014 aucun CDL \u2014 et il faut avoir <strong>21 ans ou plus</strong> avec un dossier propre. La page d'Amazon cite elle-m\u00eame des <strong>possibilit\u00e9s d'\u00e9volution</strong> et la possibilit\u00e9 d'obtenir la <strong>certification DOT</strong>. Driver Coach vous aide pour la suite : mettre votre exp\u00e9rience en mots, vous pr\u00e9parer \u00e0 un nouveau DSP, faire une pause et revenir.",
-        "ht": "Livre pou yon DSP mande yon p\u00e8mi <strong>Class D</strong> n\u00f2mal \u2014 pa bezwen CDL \u2014 epi f\u00f2k ou gen <strong>21 an oswa plis</strong> ak yon dosye pw\u00f2p. Paj Amazon an li menm pale de <strong>chans pou monte</strong> ak posiblite pou jwenn <strong>s\u00e8tifikasyon DOT</strong>. Driver Coach ede w pou sa ki vini apre premye travay la : mete eksperyans ou an mo, prepare w pou yon l\u00f2t DSP, pran yon poz epi retounen.",
-        "es": "Repartir para un DSP pide una licencia <strong>Class D</strong> normal \u2014 sin CDL \u2014 y hay que tener <strong>21 a\u00f1os o m\u00e1s</strong> con historial limpio. La propia p\u00e1gina de Amazon menciona <strong>oportunidades de ascenso</strong> y la posibilidad de obtener la <strong>certificaci\u00f3n DOT</strong>. Driver Coach te ayuda con lo que viene despu\u00e9s del primer empleo: poner tu experiencia en palabras, prepararte para un nuevo DSP, tomar una pausa y volver.",
+        "en": "Delivering for a DSP takes a regular <strong>Class D</strong> licence — no CDL. DSP postings commonly also ask for <strong>21 or over</strong> and a clean driving record; each DSP sets its own requirements. Amazon's own page lists <strong>advancement opportunities</strong> and the chance to obtain <strong>DOT certification</strong>. Driver Coach does not repeat your DSP's training: it helps you get DSP-ready, keep your record current, take a break and come back, read an opening and prepare to meet a DSP.",
+        "fr": "Livrer pour un DSP demande un permis <strong>Class D</strong> ordinaire — aucun CDL. Les offres des DSP demandent souvent aussi <strong>21 ans ou plus</strong> et un dossier de conduite propre ; chaque DSP fixe ses propres conditions. La page d'Amazon cite elle-même des <strong>possibilités d'évolution</strong> et la possibilité d'obtenir la <strong>certification DOT</strong>. Driver Coach ne refait pas la formation de votre DSP : il vous aide à devenir DSP-ready, tenir votre dossier à jour, faire une pause et revenir, lire une offre et préparer la rencontre avec un DSP.",
+        "ht": "Livre pou yon DSP mande yon pèmi <strong>Class D</strong> nòmal — pa bezwen CDL. Òf DSP yo souvan mande tou <strong>21 an oswa plis</strong> ak yon dosye kondwi pwòp ; chak DSP fikse pwòp kondisyon pa l. Paj Amazon an li menm pale de <strong>chans pou monte</strong> ak posiblite pou jwenn <strong>sètifikasyon DOT</strong>. Driver Coach pa refè fòmasyon DSP ou a : li ede w vin DSP-ready, kenbe dosye w ajou, pran yon poz epi retounen, li yon òf travay epi prepare w pou rankontre yon DSP.",
+        "es": "Repartir para un DSP pide una licencia <strong>Class D</strong> normal — sin CDL. Las ofertas de los DSP suelen pedir además <strong>21 años o más</strong> y un historial de manejo limpio; cada DSP fija sus propios requisitos. La propia página de Amazon menciona <strong>oportunidades de ascenso</strong> y la posibilidad de obtener la <strong>certificación DOT</strong>. Driver Coach no repite la formación de tu DSP: te ayuda a estar DSP-ready, mantener tu historial al día, tomar una pausa y volver, leer una oferta y prepararte para conocer a un DSP.",
     },
     "permis_b": {
-        "en": "Work on my career with Driver Coach \u2192", "fr": "Travailler ma carri\u00e8re avec Driver Coach \u2192",
-        "ht": "Travay sou kary\u00e8 m ak Driver Coach \u2192", "es": "Trabajar mi carrera con Driver Coach \u2192",
+        "en": "Get DSP-ready with Driver Coach \u2192", "fr": "Devenir DSP-ready avec Driver Coach \u2192",
+        "ht": "Vin DSP-ready ak Driver Coach \u2192", "es": "Estar DSP-ready con Driver Coach \u2192",
     },
     "manque_t": {
         "en": "A DSP opening we have missed?", "fr": "Un poste DSP qui manque ?",
@@ -685,6 +685,7 @@ new MutationObserver(appliquer).observe(document.documentElement,
 
   <script>
   (function(){
+    /* ids-facultatifs: jb-rech jb-compte jb-vide — la barre de filtres est absente en perimetre DSP */
     var champ=document.getElementById("jb-rech");
     var btns=[].slice.call(document.querySelectorAll(".jb-f"));
     var cartes=[].slice.call(document.querySelectorAll(".jb"));
