@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Le périmètre de Driver360 — UN SEUL interrupteur pour tout le site.
 
-DÉCISION DU 15/09/2026 (l'utilisateur, la veille de la rencontre avec Ryan
-Rappoport, Amazon DSP DA Services Partner) :
+DÉCISION DU 15/09/2026 (l'utilisateur, la veille de sa rencontre avec le référent Amazon du
+programme DSP) :
 
   « Pour le moment, Driver360 sera mis en œuvre SEULEMENT pour les DSP
     d'Amazon. Mettez en pause les postes qui concernent les autres types de

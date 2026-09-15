@@ -1,10 +1,9 @@
 # Spécification « DSP-ready » — Driver360
 
-Écrite le 03/09/2026, en réponse au courriel d'Ari Polivy (P1 Logistics,
-DKO1 Littleton) du 02/09 : *« Time is my most precious commodity in logistics.
-Money often comes second. »* et *« Indeed produces results, for a fee. Your
-platform may cost less but doesn't have the results an employer like me
-needs. »*
+Écrite le 03/09/2026, en réponse au retour d'un propriétaire de DSP du
+Massachusetts (courriel privé du 02/09, volontairement non cité ici) : pour un
+exploitant, le temps compte plus que l'argent, et un outil moins cher qui ne
+produit pas de candidats ne remplace pas celui qui en produit.
 
 Il a raison. Ce document dit ce qu'on construit pour qu'il ait tort dans
 soixante jours.
@@ -37,7 +36,7 @@ Trois principes qui commandent tout le reste :
 
 Source : les annonces publiées par les DSP du Massachusetts (ZipRecruiter,
 Indeed, 09/2026). Elles sont stables d'un DSP à l'autre parce qu'elles viennent
-du programme Amazon. **À confirmer avec Ari et Ryan Rappoport** — la liste
+du programme Amazon. **À confirmer avec le programme DSP d'Amazon** — la liste
 ci-dessous est ce que les annonces disent, pas ce qu'Amazon impose en interne.
 
 | # | Exigence DSP | Comment Driver360 le sait | Nature | Champ |
@@ -105,7 +104,7 @@ l'alerte WhatsApp (« Toujours disponible ? Oui → 3 créneaux »).
 ## 5. Le score de fiabilité — mesuré, jamais déclaré
 
 > ⚠️ **CONTREDIT PAR LA DÉCISION DU 15/09/2026 — NE PAS CONSTRUIRE EN L'ÉTAT.**
-> La présentation à Ryan Rappoport (« Driver360 Professional Continuity »,
+> La présentation au référent Amazon du programme DSP (« Driver360 Professional Continuity »,
 > 16/09/2026) écrit : *« Aucun score de fiabilité, classement de personnes »*
 > (diapo 5) et *« We propose no shared blacklist or opaque driver score »*
 > (diapo 9). Le score n'a jamais été codé (vérifié dans le Worker le 15/09) ;
@@ -147,9 +146,9 @@ Ari ne veut pas de portail. Le portail existe et reste pour ceux qui le
 veulent ; **le chemin principal devient un message.**
 
 ```
-DSP  →  WhatsApp / e-mail : « 5 DAs, Littleton, start Monday »
+DSP  →  WhatsApp / e-mail : « 5 DAs, [station], start Monday »
         ─ accusé sous 1 h (heure de réception publiée)
-Driver360 filtre : DSP-ready · rayon 25 mi autour de DKO1 · dispo lundi
+Driver360 filtre : DSP-ready · rayon 25 mi autour de la station · dispo lundi
         ─ alerte aux N premiers, par langue, avec les créneaux du DSP
 Chauffeurs confirment un créneau depuis WhatsApp (un tap)
         ─ liste courte au DSP sous 48 h : nom, téléphone, créneau confirmé
@@ -176,7 +175,7 @@ Driver Coach prépare des gens qui **n'ont pas encore leur permis**. Sur
 Indeed, ils n'existent pas. Driver360 connaît leur `testDate`.
 
 Le produit, pour un DSP : une ligne dans sa vue — *« 9 candidats à moins de
-25 mi de DKO1 passent leur test de route dans les 30 jours »* — et un bouton
+25 mi de la station passent leur test de route dans les 30 jours »* — et un bouton
 **Réserver** qui pose une alerte : le jour où `road === "pass"` est déclaré,
 le chauffeur reçoit la demande du DSP en premier, avant tout autre.
 

@@ -193,11 +193,10 @@ vit ailleurs : sur le portail employeur (B2).
 
 ## I — DSP-ready (chantier ouvert le 03/09/2026)
 
-Ce chantier ne vient pas de la relecture : il vient du courriel d'Ari Polivy
-(P1 Logistics) du 02/09 — *« Indeed produces results, for a fee. Your platform
-doesn't have the results. »* Doctrine et lot par lot : `docs/SPEC_DSP_READY.md`.
-Cible commerciale depuis le 03/09 : Ryan Rappoport, programme DSP Amazon (Ari
-ferme P1).
+Ce chantier ne vient pas de la relecture : il vient du retour d'un propriétaire de DSP (courriel
+privé du 02/09, non cité ici) : un outil qui ne produit pas de candidats ne
+remplace pas Indeed, même moins cher. Doctrine et lot par lot : `docs/SPEC_DSP_READY.md`.
+Cible commerciale depuis le 03/09 : le programme DSP d'Amazon.
 
 | # | Recommandation | Gravité | État | Preuve |
 |---|---|---|---|---|
@@ -206,13 +205,13 @@ ferme P1).
 | I3 | `--tel-ok CODE_OU_TEL` dans `tools/alertes_whatsapp.py` : la seule voie qui pose `phoneOk` (R7, mesuré) | 🟠 | **fait** 03/09 | l'option est dans `--help` ; passe par `trouver()` (code ou numéro) ; un numéro qui change perd sa vérification côté Worker |
 | I4 | Page du chauffeur : afficher « Presque » avec ce qui manque, et le geste « Confirmer mon téléphone » | 🟠 | **fait** 03/09 | mesuré : `#rj-dspbox` + `showDsp()` branché sur inscription, modification, chargement par code et lien de reconfirmation ; 10 clés × 4 langues. Le geste téléphone est honnête : « nous vous envoyons un message WhatsApp, vous répondez OK » — le chauffeur n'a rien à initier, puisque `phoneOk` se pose par `--tel-ok` |
 | I5 | Page employeur : filtre « DSP-ready seulement » et badge daté à la place des colonnes | 🟠 | **fait** 03/09 | mesuré : case `#ep-dsp` envoyée comme `dsp:true` dans `list`, `dspBadge()` dans la ligne du vivier libre (booléen + âge de la confirmation, jamais ce qui manque), 2 clés × 4 langues. Aucune colonne ajoutée |
-| I6 | Réadresser le one-pager du pilote au programme DSP / Ryan | 🟠 | **fait** 04/09 | `docs/PILOTE_DSP_AMAZON.html` écrit pour le programme DSP. P1 devient l'ORIGINE et non le client : la station DKO1 ferme, mais c'est son propriétaire qui a fait l'introduction — le document le dit au lieu de le cacher. Le pilote s'adresse à une DSP que Ryan désigne, et l'ask est en trois points arrêtables. ⚠️ **Les deux one-pagers n'avaient ni doctype ni `<meta charset>`** : ouverts hors serveur, tous les tirets cadratins devenaient « â€” ». Corrigé sur les deux, vérifié au navigateur |
+| I6 | Réadresser le one-pager du pilote au programme DSP | 🟠 | **fait** 04/09 | `docs/PILOTE_DSP_AMAZON.html` écrit pour le programme DSP. le DSP d'origine devient l'ORIGINE et non le client : la station d'origine ferme, mais c'est son propriétaire qui a fait l'introduction — le document le dit au lieu de le cacher. Le pilote s'adresse à une DSP que le programme DSP désigne, et l'ask est en trois points arrêtables. ⚠️ **Les deux one-pagers n'avaient ni doctype ni `<meta charset>`** : ouverts hors serveur, tous les tirets cadratins devenaient « â€” ». Corrigé sur les deux, vérifié au navigateur |
 | I7 | Déployer le Worker (`npx wrangler deploy`) puis pousser le site | 🟠 | **fait** 04/09 | Worker déployé (version c51807ed) AVANT de pousser les pages, dans cet ordre : tant qu'il ignore `dsp` et `slots` par liste blanche, la page collecte pour rien. Les 4 suites de tests vertes et le build vert avant le déploiement. Les trois dépôts poussés |
 ---
 
 ## J — Périmètre DSP (décision et relecture critique du 15/09/2026)
 
-Décision de l'utilisateur, la veille de la rencontre avec Ryan Rappoport : Driver360
+Décision de l'utilisateur, la veille de la rencontre avec le référent Amazon du programme DSP : Driver360
 seulement pour les DSP d'Amazon ; offres des autres chauffeurs en pause ; coach
 orienté carrière. Première relecture critique : **BLOQUÉ** (3 bloquants). Tout ce
 qui suit a été corrigé avant publication.
