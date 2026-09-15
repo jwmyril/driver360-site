@@ -87,6 +87,12 @@ TX = {
         "ht": "Nou pa gen anons lakay nou epi nou pa kopye okenn. Men lis anplwayè ki tout bon ap chèche chofè nan Massachusetts, ak yon lyen dirèk sou òf pa yo — konsa ou aplike nan bon kote a. Se <em>lyen</em> yo ki pa vin vye ; <em>kondisyon</em> yo, wi. Sa nou di sou yon laj, yon pèmi oswa yon kontòl soti nan yon sous ofisyèl nan dat ki anba a, epi chak anplwayè mete pwòp règ pa l epi chanje yo san avèti nou. Li paj pa yo anvan w konte sou pa nou.",
         "es": "No alojamos anuncios ni los copiamos. Esta es la lista de empleadores que de verdad contratan conductores en Massachusetts, con un enlace directo a sus propias vacantes — así postulas en el sitio correcto. Son los <em>enlaces</em> los que no caducan; los <em>requisitos</em>, sí. Lo que decimos sobre una edad, una licencia o un control viene de una fuente oficial en la fecha de abajo, y cada empleador fija sus propias reglas y las cambia sin avisarnos. Lee su página antes de fiarte de la nuestra.",
     },
+    "descr": {
+        "en": "Who actually hires drivers in Massachusetts: school transport, regional transit authorities and the state job board. Checked links, straight to each employer's own openings. Free WhatsApp alerts when a new one opens.",
+        "fr": "Qui recrute vraiment des chauffeurs au Massachusetts : transport scolaire, r\u00e9gies de transport et site d'emploi de l'\u00c9tat. Des liens v\u00e9rifi\u00e9s, droit vers les offres de chaque employeur. Alertes WhatsApp gratuites.",
+        "ht": "Kil\u00e8s ki anbochte chof\u00e8 tout bon nan Massachusetts : transp\u00f2 lek\u00f2l, konpayi transp\u00f2 piblik ak sit travay Eta a. Lyen verifye, dir\u00e8k sou \u00f2f chak anplway\u00e8. Al\u00e8t WhatsApp gratis.",
+        "es": "Qui\u00e9n contrata de verdad conductores en Massachusetts: transporte escolar, autoridades de transporte y el portal de empleo del estado. Enlaces verificados, directo a las vacantes de cada empleador. Avisos de WhatsApp gratis.",
+    },
     "verifie": {
         "en": "Every link below was opened and checked on %s." % VERIFIE_LE,
         "fr": "Chaque lien ci-dessous a été ouvert et vérifié le %s." % VERIFIE_LE,
@@ -189,6 +195,145 @@ TX = {
         "en": "Tell us about an employer", "fr": "Signaler un employeur",
         "ht": "Siyale yon anplwayè", "es": "Avisar de un empleador",
     },
+}
+
+
+# ============================================================================
+# LE PERIMETRE DSP (decide le 15/09/2026) — ces textes REMPLACENT ceux du
+# dessus quand `portee.PORTEE == "dsp"`. Les textes d'avant restent intacts
+# au-dessus : rallumer le perimetre complet ne demande aucune reecriture.
+#
+# ⚠️ AUCUNE PHRASE NE DIT QUE DRIVER360 TRAVAILLE AVEC AMAZON. La presentation
+# a Ryan le dit elle-meme : « No Amazon integration or endorsement is
+# assumed. » Le site non plus, et il l'ecrit.
+# ============================================================================
+TX_DSP = {
+    "ti": {
+        "en": "Amazon DSP delivery driver jobs in Massachusetts \u2014 Driver360",
+        "fr": "Emplois de chauffeur livreur DSP Amazon au Massachusetts \u2014 Driver360",
+        "ht": "Travay chof\u00e8 livrezon DSP Amazon nan Massachusetts \u2014 Driver360",
+        "es": "Empleos de conductor de reparto DSP de Amazon en Massachusetts \u2014 Driver360",
+    },
+    "descr": {
+        "en": "Delivery driver jobs with Amazon Delivery Service Partners in Massachusetts: where DSPs post their openings, what the work asks for, and what it pays. Independent \u2014 not affiliated with Amazon.",
+        "fr": "Emplois de chauffeur livreur chez les partenaires de livraison d'Amazon au Massachusetts : o\u00f9 les DSP publient leurs postes, ce que le travail demande et ce qu'il paie. Ind\u00e9pendant \u2014 non affili\u00e9 \u00e0 Amazon.",
+        "ht": "Travay chof\u00e8 livrezon ak patn\u00e8 livrezon Amazon yo nan Massachusetts : kote DSP yo pibliye p\u00f2s yo, sa travay la mande ak konbyen li peye. Endepandan \u2014 pa afilye ak Amazon.",
+        "es": "Empleos de conductor de reparto con los socios de entrega de Amazon en Massachusetts: d\u00f3nde publican los DSP sus vacantes, qu\u00e9 pide el trabajo y cu\u00e1nto paga. Independiente \u2014 sin afiliaci\u00f3n con Amazon.",
+    },
+    "titre": {
+        "en": "Delivery driver jobs with Amazon DSPs",
+        "fr": "Emplois de chauffeur livreur chez les DSP d'Amazon",
+        "ht": "Travay chof\u00e8 livrezon nan DSP Amazon yo",
+        "es": "Empleos de conductor de reparto en los DSP de Amazon",
+    },
+    "fil": {
+        "en": "For now, Driver360 is focused on one kind of work: delivering for Amazon through its Delivery Service Partners \u2014 the independent companies that hire the drivers.",
+        "fr": "Pour le moment, Driver360 se concentre sur un seul m\u00e9tier : livrer pour Amazon via ses partenaires de livraison \u2014 les entreprises ind\u00e9pendantes qui embauchent les chauffeurs.",
+        "ht": "Pou kounye a, Driver360 konsantre sou yon s\u00e8l kalite travay : livre pou Amazon atrav\u00e8 patn\u00e8 livrezon li yo \u2014 konpayi endepandan ki anbochte chof\u00e8 yo.",
+        "es": "Por ahora, Driver360 se centra en un solo tipo de trabajo: repartir para Amazon a trav\u00e9s de sus socios de entrega \u2014 las empresas independientes que contratan a los conductores.",
+    },
+    "lead_court": {
+        "en": "Every DSP is its own employer. Amazon lists their openings in one place \u2014 start there, near where you live.",
+        "fr": "Chaque DSP est un employeur \u00e0 part enti\u00e8re. Amazon liste leurs postes en un seul endroit \u2014 commencez l\u00e0, pr\u00e8s de chez vous.",
+        "ht": "Chak DSP se pwòp anplway\u00e8 pa l. Amazon mete p\u00f2s yo tout nan yon s\u00e8l kote \u2014 k\u00f2manse la, toupre kote w rete.",
+        "es": "Cada DSP es su propio empleador. Amazon re\u00fane sus vacantes en un solo lugar \u2014 empieza ah\u00ed, cerca de donde vives.",
+    },
+    "lead": {
+        "en": "We do not host job adverts and we do not copy them. Amazon contracts with Delivery Service Partners; each one is an independent company that hires, pays and schedules its own drivers. Amazon lists their openings on its official DSP driver page, searchable by location \u2014 that is the link below, and you apply there, directly with the DSP. Anything we say about age, licence or pay was read on an official page or a job board on the date below, and each DSP sets its own terms: read the posting before you count on ours. <strong>Driver360 is independent and is not affiliated with or endorsed by Amazon.</strong>",
+        "fr": "Nous n'h\u00e9bergeons pas d'annonces et nous n'en recopions aucune. Amazon sous-traite \u00e0 des partenaires de livraison ; chacun est une entreprise ind\u00e9pendante qui embauche, paie et planifie ses propres chauffeurs. Amazon liste leurs postes sur sa page officielle des chauffeurs DSP, avec recherche par lieu \u2014 c'est le lien ci-dessous, et c'est l\u00e0 que vous postulez, directement aupr\u00e8s du DSP. Ce que nous disons d'un \u00e2ge, d'un permis ou d'un salaire a \u00e9t\u00e9 lu sur une page officielle ou un site d'emploi \u00e0 la date ci-dessous, et chaque DSP fixe ses conditions : lisez l'offre avant de compter sur la n\u00f4tre. <strong>Driver360 est ind\u00e9pendant, ni affili\u00e9 \u00e0 Amazon ni approuv\u00e9 par Amazon.</strong>",
+        "ht": "Nou pa gen anons lakay nou epi nou pa kopye okenn. Amazon bay patn\u00e8 livrezon yo kontra ; chak se yon konpayi endepandan ki anbochte, peye epi f\u00e8 or\u00e8 pwòp chof\u00e8 pa l. Amazon mete p\u00f2s yo sou paj ofisy\u00e8l chof\u00e8 DSP li a, ou ka ch\u00e8che selon kote w ye \u2014 se lyen ki anba a, epi se la ou aplike, dir\u00e8k ak DSP a. Sa nou di sou laj, p\u00e8mi oswa sal\u00e8 nou li l sou yon paj ofisy\u00e8l oswa yon sit travay nan dat ki anba a, epi chak DSP mete pwòp kondisyon pa l : li \u00f2f la anvan w konte sou pa nou. <strong>Driver360 endepandan, li pa afilye ak Amazon epi Amazon pa apwouve l.</strong>",
+        "es": "No alojamos anuncios ni los copiamos. Amazon contrata a socios de entrega; cada uno es una empresa independiente que contrata, paga y organiza a sus propios conductores. Amazon re\u00fane sus vacantes en su p\u00e1gina oficial de conductores DSP, con b\u00fasqueda por ubicaci\u00f3n \u2014 es el enlace de abajo, y postulas ah\u00ed, directamente con el DSP. Lo que decimos sobre edad, licencia o salario se ley\u00f3 en una p\u00e1gina oficial o un portal de empleo en la fecha de abajo, y cada DSP fija sus condiciones: lee la oferta antes de fiarte de la nuestra. <strong>Driver360 es independiente y no est\u00e1 afiliado ni avalado por Amazon.</strong>",
+    },
+    "paye_t": {
+        "en": "What DSP driving pays", "fr": "Ce que paie la livraison en DSP",
+        "ht": "Konbyen travay chof\u00e8 DSP peye", "es": "Cu\u00e1nto paga conducir para un DSP",
+    },
+    "paye_d": {
+        "en": "In August 2026, DSP delivery van work was advertised at roughly $17 to $26 an hour. That is a range read on job boards, not a promise: the only figure that binds a DSP is the one in its own posting. Amazon's page says the DSP provides the van, gas and insurance, and that full-time and part-time schedules <em>may</em> be available \u2014 ask about hours, route length and which days you would work before you accept.",
+        "fr": "En ao\u00fbt 2026, la livraison en camionnette pour un DSP \u00e9tait affich\u00e9e autour de 17 \u00e0 26 dollars de l'heure. C'est une fourchette lue sur des sites d'emploi, pas une promesse : le seul chiffre qui engage un DSP est celui de sa propre offre. La page d'Amazon dit que le DSP fournit la camionnette, l'essence et l'assurance, et que des horaires \u00e0 temps plein ou partiel <em>peuvent</em> exister \u2014 demandez les heures, la longueur des tourn\u00e9es et les jours travaill\u00e9s avant d'accepter.",
+        "ht": "Nan mwa out 2026, travay livrezon nan kamyon\u00e8t pou yon DSP te afiche ant 17 ak 26 dola l\u00e8 a. Se yon ranje nou li sou sit travay, se pa yon pwom\u00e8s : s\u00e8l chif ki angaje yon DSP se sa ki nan pwòp \u00f2f pa l. Paj Amazon an di se DSP a ki bay kamyon\u00e8t la, gaz la ak asirans lan, epi or\u00e8 tan pl\u00e8n oswa tan pasy\u00e8l <em>ka</em> egziste \u2014 mande konbyen \u00e8dtan, longv\u00e8 wout yo ak ki jou w ap travay anvan w aksepte.",
+        "es": "En agosto de 2026, el reparto en furgoneta para un DSP se anunciaba entre 17 y 26 d\u00f3lares la hora. Es un rango le\u00eddo en portales de empleo, no una promesa: la \u00fanica cifra que compromete a un DSP es la de su propia oferta. La p\u00e1gina de Amazon dice que el DSP pone la furgoneta, la gasolina y el seguro, y que <em>puede</em> haber jornadas completas o parciales \u2014 pregunta por las horas, la duraci\u00f3n de las rutas y los d\u00edas de trabajo antes de aceptar.",
+    },
+    "pub_t": {
+        "en": "A DSP hiring? We publish your opening here \u2014 free",
+        "fr": "Un DSP qui recrute ? Nous publions votre offre ici \u2014 gratuitement",
+        "ht": "Yon DSP k ap anbochte ? N ap pibliye \u00f2f ou a isit la \u2014 gratis",
+        "es": "\u00bfUn DSP contratando? Publicamos tu oferta aqu\u00ed \u2014 gratis",
+    },
+    "pub_d": {
+        "en": "If you run or hire for an Amazon DSP in Massachusetts and have a driver opening, send it to us and it appears on this page. There is no charge. We check the posting, publish it, and link straight to your own application \u2014 you keep your process.",
+        "fr": "Si vous dirigez un DSP d'Amazon au Massachusetts, ou recrutez pour lui, et avez un poste de chauffeur ouvert, envoyez-le-nous et il para\u00eet sur cette page. C'est gratuit. Nous v\u00e9rifions l'offre, nous la publions, et nous renvoyons directement vers votre propre candidature \u2014 vous gardez votre proc\u00e9dure.",
+        "ht": "Si w dirije yon DSP Amazon nan Massachusetts, oswa w ap anbochte pou li, epi w gen yon p\u00f2s chof\u00e8 ki louvri, voye l ban nou epi l ap par\u00e8t sou paj sa a. Se gratis. Nou verifye \u00f2f la, nou pibliye l, epi nou voye moun dir\u00e8k sou pwòp fason pa w pou yo aplike \u2014 ou kenbe pwos\u00e8 pa w.",
+        "es": "Si diriges un DSP de Amazon en Massachusetts, o contratas para uno, y tienes una vacante de conductor, env\u00edanosla y aparecer\u00e1 en esta p\u00e1gina. Es gratis. Verificamos la oferta, la publicamos y enlazamos directo a tu propio proceso de solicitud \u2014 conservas tu proceso.",
+    },
+    "alerte_d": {
+        "en": "Tick one box when you join the driver pool and we will send you a WhatsApp message when a DSP opening appears near you \u2014 two a week at most, and STOP ends it. Right now those messages are written and sent by hand, by a person. We would rather say that than pretend we have an automated system we do not have yet.",
+        "fr": "Cochez une case en vous inscrivant au vivier et nous vous enverrons un message WhatsApp quand un poste DSP s'ouvre pr\u00e8s de chez vous \u2014 deux par semaine au maximum, et STOP y met fin. Aujourd'hui ces messages sont \u00e9crits et envoy\u00e9s \u00e0 la main, par une personne. Nous pr\u00e9f\u00e9rons le dire plut\u00f4t que de faire croire \u00e0 un syst\u00e8me automatique que nous n'avons pas encore.",
+        "ht": "Koche yon s\u00e8l kaz l\u00e8 w ap enskri nan vivye a epi n ap voye yon mesaj WhatsApp ba ou l\u00e8 yon p\u00f2s DSP louvri toupre lakay ou \u2014 de pa sem\u00e8n, pa plis, epi STOP f\u00e8 sa kanpe. Kounye a se yon moun ki ekri epi voye mesaj sa yo alamen. Nou pito di sa pase pou nou f\u00e8 kw\u00e8 nou gen yon sist\u00e8m otomatik nou poko genyen.",
+        "es": "Marca una casilla al inscribirte en el registro y te enviaremos un mensaje de WhatsApp cuando se abra una vacante DSP cerca de ti \u2014 dos por semana como m\u00e1ximo, y STOP lo termina. Hoy esos mensajes los escribe y los env\u00eda una persona, a mano. Preferimos decirlo antes que fingir un sistema autom\u00e1tico que todav\u00eda no tenemos.",
+    },
+    "permis_t": {
+        "en": "Already driving for a DSP?", "fr": "Vous livrez d\u00e9j\u00e0 pour un DSP ?",
+        "ht": "Ou deja ap kondwi pou yon DSP ?", "es": "\u00bfYa conduces para un DSP?",
+    },
+    "permis_d": {
+        "en": "Delivering for a DSP takes a regular <strong>Class D</strong> licence \u2014 no CDL \u2014 and you must be <strong>21 or over</strong> with a clean record. Amazon's own page lists <strong>advancement opportunities</strong> and the chance to obtain <strong>DOT certification</strong>. Driver Coach helps with what comes after the first job: putting your experience into words, getting ready for a new DSP, taking a break and coming back.",
+        "fr": "Livrer pour un DSP demande un permis <strong>Class D</strong> ordinaire \u2014 aucun CDL \u2014 et il faut avoir <strong>21 ans ou plus</strong> avec un dossier propre. La page d'Amazon cite elle-m\u00eame des <strong>possibilit\u00e9s d'\u00e9volution</strong> et la possibilit\u00e9 d'obtenir la <strong>certification DOT</strong>. Driver Coach vous aide pour la suite : mettre votre exp\u00e9rience en mots, vous pr\u00e9parer \u00e0 un nouveau DSP, faire une pause et revenir.",
+        "ht": "Livre pou yon DSP mande yon p\u00e8mi <strong>Class D</strong> n\u00f2mal \u2014 pa bezwen CDL \u2014 epi f\u00f2k ou gen <strong>21 an oswa plis</strong> ak yon dosye pw\u00f2p. Paj Amazon an li menm pale de <strong>chans pou monte</strong> ak posiblite pou jwenn <strong>s\u00e8tifikasyon DOT</strong>. Driver Coach ede w pou sa ki vini apre premye travay la : mete eksperyans ou an mo, prepare w pou yon l\u00f2t DSP, pran yon poz epi retounen.",
+        "es": "Repartir para un DSP pide una licencia <strong>Class D</strong> normal \u2014 sin CDL \u2014 y hay que tener <strong>21 a\u00f1os o m\u00e1s</strong> con historial limpio. La propia p\u00e1gina de Amazon menciona <strong>oportunidades de ascenso</strong> y la posibilidad de obtener la <strong>certificaci\u00f3n DOT</strong>. Driver Coach te ayuda con lo que viene despu\u00e9s del primer empleo: poner tu experiencia en palabras, prepararte para un nuevo DSP, tomar una pausa y volver.",
+    },
+    "permis_b": {
+        "en": "Work on my career with Driver Coach \u2192", "fr": "Travailler ma carri\u00e8re avec Driver Coach \u2192",
+        "ht": "Travay sou kary\u00e8 m ak Driver Coach \u2192", "es": "Trabajar mi carrera con Driver Coach \u2192",
+    },
+    "manque_t": {
+        "en": "A DSP opening we have missed?", "fr": "Un poste DSP qui manque ?",
+        "ht": "Yon p\u00f2s DSP ki manke ?", "es": "\u00bfFalta una vacante DSP?",
+    },
+    "manque_d": {
+        "en": "If you know an Amazon DSP in Massachusetts that is hiring drivers, tell us \u2014 we check the posting and add it.",
+        "fr": "Si vous connaissez un DSP d'Amazon au Massachusetts qui recrute des chauffeurs, dites-le-nous : nous v\u00e9rifions l'offre et nous l'ajoutons.",
+        "ht": "Si w konnen yon DSP Amazon nan Massachusetts k ap ch\u00e8che chof\u00e8, di nou l : n ap verifye \u00f2f la epi n ap mete l.",
+        "es": "Si conoces un DSP de Amazon en Massachusetts que est\u00e9 contratando conductores, d\u00ednoslo: verificamos la oferta y la a\u00f1adimos.",
+    },
+    "manque_b": {
+        "en": "Tell us about a DSP opening", "fr": "Signaler un poste DSP",
+        "ht": "Siyale yon p\u00f2s DSP", "es": "Avisar de una vacante DSP",
+    },
+}
+
+
+import portee  # noqa: E402
+
+# Le perimetre decide quels textes s'affichent. Les textes d'avant ne bougent
+# pas : seules les cles presentes dans TX_DSP sont remplacees.
+if portee.dsp():
+    TX.update(TX_DSP)
+
+
+def montres():
+    """Les fiches reellement rendues, dans l'ordre des sections actives."""
+    return [e for g, _ in SECTIONS if portee.section_active(g)
+            for e in EMPLOYEURS if e["genre"] == g]
+
+
+def date_verification():
+    """⚠️ La plus ANCIENNE des fiches visibles, pas la date globale.
+
+    La page ecrit « chaque lien ci-dessous a ete verifie le … ». Afficher une
+    date plus recente que la verification de l'une des fiches montrees serait
+    une affirmation fausse sur un lien precis.
+    """
+    vus = [e.get("verifie", VERIFIE_LE) for e in montres()]
+    return min(vus) if vus else VERIFIE_LE
+
+
+_D = date_verification()
+TX["verifie"] = {
+    "en": "Every link below was opened and checked on %s." % _D,
+    "fr": "Chaque lien ci-dessous a \u00e9t\u00e9 ouvert et v\u00e9rifi\u00e9 le %s." % _D,
+    "ht": "Chak lyen anba a te louvri epi verifye nan dat %s." % _D,
+    "es": "Cada enlace de abajo fue abierto y verificado el %s." % _D,
 }
 
 MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20job%20posting"
@@ -396,12 +541,18 @@ def barre():
         '    </div>\n'
         '    <p class="jb-vide" id="jb-vide" data-t="f_rien" style="display:none">%s</p>'
         % (t("f_rech"), t("f_rech"), t("f_titre"), b,
-           len(EMPLOYEURS), t("f_compte"), t("f_rien")))
+           len(montres()), t("f_compte"), t("f_rien")))
 
 
 def construire():
-    corps = [barre()]
+    # ⚠️ PAS DE BARRE DE FILTRES EN PERIMETRE DSP. Sept filtres de permis
+    # (7D, CDL-B, CDL-A…) pour une seule section, c'est du bruit — et des
+    # boutons qui filtrent vers le vide. Le script de la page sort proprement
+    # quand la barre est absente (`if(!champ||...) return`).
+    corps = [] if portee.dsp() else [barre()]
     for genre, titres in SECTIONS:
+        if not portee.section_active(genre):
+            continue           # en pause : la fiche reste dans emplois.py
         gens = [e for e in EMPLOYEURS if e["genre"] == genre]
         if not gens:
             continue
@@ -421,7 +572,7 @@ PAGE = """<!DOCTYPE html>
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <title>Driving jobs in Massachusetts — Driver360</title>
-  <meta name="description" content="Who actually hires drivers in Massachusetts: school transport, regional transit authorities and the state job board. Checked links, straight to each employer's own openings. Free WhatsApp alerts when a new one opens." />
+  <meta name="description" content="%(descr)s" />
   <link rel="canonical" href="https://driver360.atmart.ltd/jobs.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
@@ -633,4 +784,5 @@ if __name__ == "__main__":
     if "--verifier" in sys.argv:
         sys.exit(1 if verifier() else 0)
     chemin, n = ecrire()
-    print("jobs.html ecrit : %d employeurs, %d octets" % (len(EMPLOYEURS), n))
+    print("jobs.html ecrit : %d employeur(s) montre(s) sur %d, perimetre %s, %d octets"
+          % (len(montres()), len(EMPLOYEURS), portee.PORTEE, n))

@@ -69,15 +69,24 @@ EMPLOYEURS = [
         },
     ),
     # ------------------------------------------- livraison (aucun CDL exige)
+    # ⚠️ DSP, PAS AMAZON. Chaque Delivery Service Partner est une entreprise
+    # INDEPENDANTE qui embauche, paie et planifie ses propres chauffeurs.
+    # L'ancienne adresse (hiring.amazon.com) menait au recrutement d'Amazon
+    # lui-meme — entrepots, bureaux — pas a ces postes-la.
+    # Page ouverte AU NAVIGATEUR le 15/09/2026 ; un robot recoit 403.
     dict(
-        genre="livraison", nom="Amazon", permis=['aucun'], forme=False, atouts=['21'], paye='$17–26/h', url="https://hiring.amazon.com",
-        zone={"en": "Depots across the state", "es": "Centros en todo el estado",
-              "ht": "Depo toupatou nan eta a", "fr": "Dépôts dans tout l'État"},
+        genre="dsp", nom="Amazon Delivery Service Partners", permis=['aucun'], forme=False, atouts=['21'], paye='$17–26/h',
+        url="https://hiring.amazon.com/job-opportunities/delivery-driver-jobs",
+        verifie="2026-09-15",
+        zone={"en": "Delivery stations across the state",
+              "es": "Estaciones de reparto en todo el estado",
+              "ht": "Estasyon livrezon toupatou nan eta a",
+              "fr": "Stations de livraison dans tout l'État"},
         quoi={
-            "en": "Delivery vans, through Amazon's partner companies. <strong>No CDL needed</strong> — but you must be <strong>21 or over</strong>, with a Class D licence and a clean record. It is the biggest single source of driving work in the state right now.",
-            "es": "Furgonetas de reparto, a través de las empresas socias de Amazon. <strong>No hace falta CDL</strong> — pero hay que tener <strong>21 años o más</strong>, licencia Class D e historial limpio. Es la mayor fuente de empleo de conductor del estado ahora mismo.",
-            "ht": "Kamyonèt livrezon, atravè konpayi patnè Amazon yo. <strong>Ou pa bezwen CDL</strong> — men fòk ou gen <strong>21 an oswa plis</strong>, yon pèmi Class D ak yon dosye pwòp. Se pi gwo sous travay chofè nan eta a kounye a.",
-            "fr": "Camionnettes de livraison, via les sociétés partenaires d'Amazon. <strong>Aucun CDL exigé</strong> — mais il faut avoir <strong>21 ans ou plus</strong>, un permis Class D et un dossier propre. C'est aujourd'hui la plus grosse source d'emplois de chauffeur de l'État.",
+            "en": "Amazon's official page for <strong>DSP delivery driver</strong> jobs, searchable by location. Each DSP is an <strong>independent company</strong> — you apply to it, and it is the one that hires you. A regular Class D licence, <strong>no CDL</strong>; you must be <strong>21 or over</strong> with a clean record. The DSP provides the van, gas and insurance.",
+            "es": "La página oficial de Amazon para empleos de <strong>conductor de reparto DSP</strong>, con búsqueda por ubicación. Cada DSP es una <strong>empresa independiente</strong> — postulas con ella, y es ella quien te contrata. Licencia Class D normal, <strong>sin CDL</strong>; hay que tener <strong>21 años o más</strong> e historial limpio. El DSP pone la furgoneta, la gasolina y el seguro.",
+            "ht": "Paj ofisyèl Amazon pou travay <strong>chofè livrezon DSP</strong>, ou ka chèche selon kote w ye. Chak DSP se yon <strong>konpayi endepandan</strong> — se nan li ou aplike, epi se li ki anbochte w. Yon pèmi Class D nòmal, <strong>pa bezwen CDL</strong> ; fòk ou gen <strong>21 an oswa plis</strong> ak yon dosye pwòp. Se DSP a ki bay kamyonèt la, gaz la ak asirans lan.",
+            "fr": "La page officielle d'Amazon pour les postes de <strong>chauffeur livreur DSP</strong>, avec recherche par lieu. Chaque DSP est une <strong>entreprise indépendante</strong> — c'est auprès d'elle que vous postulez, et c'est elle qui vous embauche. Un permis Class D ordinaire, <strong>aucun CDL</strong> ; il faut avoir <strong>21 ans ou plus</strong> et un dossier propre. Le DSP fournit la camionnette, l'essence et l'assurance.",
         },
     ),
     dict(
@@ -285,6 +294,10 @@ EMPLOYEURS = [
 ]
 
 SECTIONS = [
+    ("dsp", {"en": "Amazon Delivery Service Partners — delivery drivers",
+             "es": "Socios de entrega de Amazon (DSP) — conductores de reparto",
+             "ht": "Patnè livrezon Amazon yo (DSP) — chofè livrezon",
+             "fr": "Partenaires de livraison d'Amazon (DSP) — chauffeurs livreurs"}),
     ("board", {"en": "Start here — search every opening yourself",
                "es": "Empieza aquí — busca tú mismo en todas las ofertas",
                "ht": "Kòmanse la — chèche tèt ou nan tout òf yo",

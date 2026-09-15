@@ -292,6 +292,25 @@ def _entre(s, motif):
     return (m.group(1).strip() if m else "")
 
 
+def poser_pause(s, page):
+    """Une page mise en pause demande aux moteurs de ne pas l'indexer.
+
+    Perimetre DSP du 15/09/2026 : 7D Pro sort du perimetre. On ne SUPPRIME
+    pas la page — un inscrit qui a deja un code SETD- ne doit pas tomber sur
+    une erreur — mais elle ne doit plus attirer personne par un moteur.
+    Rallumee (portee.PORTEE = "tous"), la balise est retiree.
+    """
+    import portee
+    balise = '<meta name="robots" content="noindex" />'
+    ligne = "  " + balise + chr(10)
+    if not portee.en_pause(page):
+        return s.replace(ligne, "")
+    if balise in s:
+        return s
+    i = s.lower().find("</head>")
+    return s if i < 0 else s[:i] + ligne + s[i:]
+
+
 def poser_social(s, page):
     """Open Graph, Twitter et lien canonique — une seule fois par page.
 
@@ -444,7 +463,7 @@ def traiter(s, page=""):
     # pose la CSP. Inserer quoi que ce soit apres, et la CSP ne
     # correspondrait plus a la page.
     return poser_securite(poser_versions(poser_theme(
-        poser_donnees_structurees(poser_social(s, page), page))))
+        poser_donnees_structurees(poser_social(poser_pause(s, page), page), page))))
 
 
 RESTE = re.compile(r"#[0-9a-fA-F]{3,6}\b|rgba?\([0-9]")

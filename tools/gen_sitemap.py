@@ -67,8 +67,13 @@ def empreinte(nom):
 def xml(dates):
     l = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    import portee
     for nom, prio in PAGES:
         if empreinte(nom) is None:
+            continue
+        # ⚠️ UNE PAGE EN PAUSE N'EST PAS ANNONCEE AUX MOTEURS (perimetre
+        # DSP du 15/09/2026). Elle reste joignable pour qui a deja un code.
+        if portee.en_pause(nom):
             continue
         url = SITE + ("/" if nom == "index.html" else "/" + nom)
         l.append('  <url><loc>%s</loc><lastmod>%s</lastmod>'
