@@ -370,6 +370,10 @@ function appliquer(){
     e.setAttribute("placeholder", d ? (d[e.dataset.tp] || e.dataset.ph0) : e.dataset.ph0);
   });
   if (window.__camExos) window.__camExos((d && d.exos) || EXOS_EN);
+  /* ⚠️ un message pose par cle doit se retraduire a la bascule de langue
+     (J15) : « camera pas encore activee » restait en kreyol sur la page anglaise. */
+  var cs = document.getElementById("cam-st");
+  if (cs && cs.dataset.k) cs.textContent = tr(cs.dataset.k);
 }
 </script>
 <script src="assets/suite.js?v=6"></script>

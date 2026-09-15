@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-amyFoFs/71o8Lg0PQt0hgz+qYJeksndvM0v+aHoxUOw=' 'sha256-Z84y1O8569rD04kKZWn8xpahkW+77Ic++nbnRdPL7Dc=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c=' 'sha256-nbcgQxQFsQ1GVhn/CAA1hqLsuwdIOq8Kx2rHECwADXY=' 'sha256-txR0hkLmaMMVN8qq2j3d6Gnd4/9YcyII3KQlF2mQXwA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-amyFoFs/71o8Lg0PQt0hgz+qYJeksndvM0v+aHoxUOw=' 'sha256-fARMxtmb8d3yPzJhMGV6O0zJgko6/73mM8+4/FMhALU=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c=' 'sha256-nbcgQxQFsQ1GVhn/CAA1hqLsuwdIOq8Kx2rHECwADXY=' 'sha256-txR0hkLmaMMVN8qq2j3d6Gnd4/9YcyII3KQlF2mQXwA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
@@ -567,6 +567,10 @@ function appliquer(){
     e.setAttribute("placeholder", d ? (d[e.dataset.tp] || e.dataset.ph0) : e.dataset.ph0);
   });
   if (window.__camExos) window.__camExos((d && d.exos) || EXOS_EN);
+  /* ⚠️ un message pose par cle doit se retraduire a la bascule de langue
+     (J15) : « camera pas encore activee » restait en kreyol sur la page anglaise. */
+  var cs = document.getElementById("cam-st");
+  if (cs && cs.dataset.k) cs.textContent = tr(cs.dataset.k);
 }
 </script>
 <script src="assets/suite.js?v=6"></script>

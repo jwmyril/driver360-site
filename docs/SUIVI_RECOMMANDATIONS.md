@@ -231,6 +231,10 @@ qui suit a été corrigé avant publication.
 | J10 | Titre anglais de jobs.html figé dans le gabarit ; courriel de publication « Class D / 7D / CDL » | 🟠 | **vérifié** | `<title>%(ti)s</title>` ; `MAILTO_PUB_DSP` (DSP, station, poste) |
 | J11 | Le badge DSP-ready inclut l'autorisation de travail déclarée : à soumettre à l'avocat avec D14 (8 U.S.C. § 1324b) | 🔵 | **à arbitrer — humain** | `dspReadyOf` exige `auth === "yes"` ; la colonne a été retirée de la vue libre (C2) mais le booléen l'encode |
 | J12 | Kreyòl des nouvelles pages (accueil, offres, coach, vivier, portail, conditions) | 🔵 | **à relire — humain** | reformulations de la critique appliquées ; l'autorité reste l'utilisateur |
+| J13 | Worker : la valeur « dsp » du portail était rabattue sur « school » — un DSP ne voyait aucun chauffeur livreur | 🔴 | **vérifié** | `KINDS` accepte `dsp` (repli `other`), `sectorMatch` compte `dsp` comme `delivery`. Rejoué dans node : dsp × delivery = `sector` (prefer, only), `open` (any). Déployé 11a7f7fc, atmart-worker a6e3159 |
+| J14 | `etat_suivi.py` ne lisait que les sections A à I : J3 (bloquant) n'était ni compté ni mesuré | 🟠 | **vérifié** | règle `[A-J]` ; le script liste désormais J3, J11, J12 parmi ce qui attend un humain |
+| J15 | Le message « caméra pas encore activée » ne suivait pas la bascule de langue | 🟠 | **vérifié** | `appliquer()` retraduit `#cam-st` par sa clé `dataset.k` |
+| J16 | Vivier Class D (préparation route, Pèmi, résultats RMV) encore visible sur le portail ; clause « preparation not endorsed by the RMV » | 🟠 | **vérifié** | masqué par CSS en périmètre DSP ; clause : « Driver Coach is independent coaching, endorsed neither by Amazon nor by the Massachusetts RMV » (4 langues). « We do not guarantee you will pass an exam » est GARDÉ : des codes 7D restent valables |
 
 ## Ce que cette relecture a déjà appris
 

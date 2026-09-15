@@ -128,7 +128,8 @@ def _un(s, avant, apres, n=None, page=""):
 CSS_ANPLWAYE = """<style>/* perimetre DSP (15/09/2026) : le vivier 7D est hors perimetre. On le
    masque au lieu de le retirer — le script de la page cherche ses elements
    par identifiant et casserait s'ils disparaissaient. */
-#ep-h-7d,#ep-empty-7d,.ep-wrap:has(#ep-t-7d){display:none!important}</style>
+#ep-h-7d,#ep-empty-7d,.ep-wrap:has(#ep-t-7d),
+#ep-h-cd,#ep-empty-cd,.ep-wrap:has(#ep-t-cd){display:none!important}</style>
 """
 
 CSS_VIVYE = """<style>/* perimetre DSP (15/09/2026) : ni 7D, ni transport scolaire, medical ou
@@ -167,6 +168,7 @@ def appliquer(page, s):
         s = s.replace("</head>", CSS_ANPLWAYE + "</head>", 1)
     elif page == "vivye.html":
         s = _cles(s, page, VIVYE)
-        s = _un(s, '<input type="checkbox" value="delivery" />', '<input type="checkbox" value="delivery" checked />', n=1, page=page)
+        s = _un(s, '<label class="rj-chk"><input type="checkbox" value="delivery" />',
+                '<label class="rj-chk on"><input type="checkbox" value="delivery" checked />', n=1, page=page)
         s = s.replace("</head>", CSS_VIVYE + "</head>", 1)
     return s

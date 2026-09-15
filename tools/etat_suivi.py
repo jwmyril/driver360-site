@@ -615,7 +615,9 @@ def declares():
         raise SystemExit("registre introuvable : %s" % REGISTRE)
     out = {}
     for ligne in io.open(REGISTRE, encoding="utf-8"):
-        m = re.match(r"\|\s*([A-I]\d{1,2})\s*\|([^|]*)\|([^|]*)\|([^|]*)\|",
+        # ⚠️ [A-J], pas [A-I] : la section J (perimetre DSP, 15/09/2026) etait
+        # ignoree — le script annoncait « 1 ouverte » avec un bloquant ouvert.
+        m = re.match(r"\|\s*([A-J]\d{1,2})\s*\|([^|]*)\|([^|]*)\|([^|]*)\|",
                      ligne)
         if m:
             out[m.group(1)] = (m.group(2).strip(),
