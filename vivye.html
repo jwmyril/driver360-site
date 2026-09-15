@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-BB2Rp4q2wB+dvYR/KJmEZmXZdPRQfAKe5TeYE/pqyBs=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-QqENa2fmjOLnUWoaGUlFq/9+HJdbozsjulau0VYL0LU=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -10,8 +10,8 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Driver360 — Join the driver pool (free) | Atmart</title>
-  <meta name="description" content="Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree." />
+  <title>Driver360 — Join the Driver Pool for DSP delivery drivers (free)</title>
+  <meta name="description" content="Deliver, or want to deliver, for an Amazon DSP in Massachusetts? Join the Driver Pool free. DSPs contact you only if you agree. Independent — not affiliated with Amazon." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css?v=33" />
@@ -58,20 +58,25 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
     .rj-code .big{font-family:"Space Grotesk",sans-serif;font-size:1.8rem;font-weight:700;color:var(--d-accent);letter-spacing:0.06em;margin:0.5rem 0}
     .rj-note{font-size:0.8rem;color:var(--d-doux);line-height:1.5}
   </style>
+<style>/* perimetre DSP (15/09/2026) : ni 7D, ni transport scolaire, medical ou
+   regional. Masques plutot que retires : le script traduit ces libelles par
+   identifiant, et une case retiree casserait l'enregistrement du profil. */
+.rj-chk:has(input[value="7d"]),.rj-chk:has(input[value="school"]),
+.rj-chk:has(input[value="senior"]),.rj-chk:has(input[value="transit"]){display:none!important}</style>
 
   <link rel="canonical" href="https://driver360.atmart.ltd/vivye.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Driver360" />
   <meta property="og:url" content="https://driver360.atmart.ltd/vivye.html" />
-  <meta property="og:title" content="Driver360 — Join the driver pool (free) | Atmart" />
-  <meta property="og:description" content="Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree." />
+  <meta property="og:title" content="Driver360 — Join the Driver Pool for DSP delivery drivers (free)" />
+  <meta property="og:description" content="Deliver, or want to deliver, for an Amazon DSP in Massachusetts? Join the Driver Pool free. DSPs contact you only if you agree. Independent — not affiliated with Amazon." />
   <meta property="og:image" content="https://driver360.atmart.ltd/assets/brand/share-1200x630.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Driver360 — Join the driver pool (free) | Atmart" />
-  <meta name="twitter:description" content="Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree." />
+  <meta name="twitter:title" content="Driver360 — Join the Driver Pool for DSP delivery drivers (free)" />
+  <meta name="twitter:description" content="Deliver, or want to deliver, for an Amazon DSP in Massachusetts? Join the Driver Pool free. DSPs contact you only if you agree. Independent — not affiliated with Amazon." />
   <meta name="twitter:image" content="https://driver360.atmart.ltd/assets/brand/share-1200x630.jpg" />
 </head>
 <body>
@@ -93,7 +98,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   <div class="container">
     <p class="kreyol" id="rj-kicker">Already licensed? Join the pool — it's free.</p>
     <h1 id="rj-h1">Driver <em>Pool</em></h1>
-    <p class="lead" id="rj-lead">Do you already have your Class D license, 7D certificate or CDL? Register for free: Massachusetts employers are looking for drivers — school transport, package delivery, senior transport, regional transit (MART) and more.</p>
+    <p class="lead" id="rj-lead">Do you deliver, or want to deliver, for an Amazon DSP? Register for free: DSPs in Massachusetts can find you — and contact you only if you agree. Driver360 is independent and not affiliated with Amazon.</p>
     <p style="color:var(--d-doux);font-size:0.88rem" id="rj-note">Free, no commitment. Your name and phone stay hidden: an employer sees them only when they select you, and their number of selections is limited. You can withdraw anytime.</p>
   </div>
 </section>
@@ -147,7 +152,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
         <label id="L-seek">Types of transport that interest you</label>
         <div class="rj-checks" id="rj-seek">
           <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 School transport</span></label>
-          <label class="rj-chk"><input type="checkbox" value="delivery" /> <span id="S-delivery">📦 Package delivery</span></label>
+          <label class="rj-chk"><input type="checkbox" value="delivery" checked /> <span id="S-delivery">📦 Package delivery</span></label>
           <label class="rj-chk"><input type="checkbox" value="senior" /> <span id="S-senior">🧓 Seniors / medical</span></label>
           <label class="rj-chk"><input type="checkbox" value="transit" /> <span id="S-transit">🚍 Regional transit (MART, RTA)</span></label>
           <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span id="S-rideshare">🚕 Taxi / rideshare</span></label>
@@ -271,8 +276,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
 
   var L = {
     fr: { kicker:"Vous avez déjà votre licence ? Entrez dans le pool — c'est gratuit.",
-        descr:"Vous avez déjà votre licence Class D, 7D ou CDL ? Inscrivez-vous gratuitement au Driver Pool : livraison de colis, transport médical et de personnes âgées, circuits scolaires, transport régional. Des employeurs du Massachusetts vous contactent — seulement si vous êtes d'accord.",
-      lead:"Vous avez déjà votre licence Class D, votre certificat 7D ou votre CDL ? Inscrivez-vous gratuitement : des employeurs du Massachusetts cherchent des chauffeurs — transport scolaire, livraison de colis, transport de personnes âgées, transport régional (MART) et plus.",
+        descr:"Vous livrez, ou voulez livrer, pour un DSP d'Amazon au Massachusetts ? Rejoignez gratuitement le Driver Pool. Les DSP ne vous contactent que si vous êtes d'accord. Indépendant — non affilié à Amazon.",
+      lead:"Vous livrez, ou voulez livrer, pour un DSP d'Amazon ? Inscrivez-vous gratuitement : les DSP du Massachusetts peuvent vous trouver — et ne vous contactent que si vous êtes d'accord. Driver360 est indépendant et non affilié à Amazon.",
       note:"Gratuit et sans engagement. Votre nom et votre téléphone restent masqués : un employeur ne les voit qu'au moment où il vous sélectionne, et son nombre de sélections est limité. Vous pouvez vous retirer à tout moment.",
       t1:"1. Qui êtes-vous", t2:"2. Vos licences", t3:"3. Ce que vous cherchez", t4:"Modifier ou retirer mon inscription",
       name:"Votre nom complet", phone:"Téléphone (WhatsApp)",
@@ -290,7 +295,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       s_transit:"🚍 Transport régional (MART, RTA)",
       s_rideshare:"🚕 Taxi / VTC",
       s_other:"➕ Autre",
-      ti:"Driver360 — Inscrivez-vous au Driver Pool (gratuit) | Atmart",
+      ti:"Driver360 — Rejoindre le Driver Pool des chauffeurs livreurs DSP (gratuit)",
       t5:"4. Votre CV (optionnel)",
       cv:"Lien vers votre CV",
       cvs:"Un lien Google Drive, LinkedIn, Indeed… Un employeur ne le voit qu'après vous avoir sélectionné. Pas de CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--d-accent)\">Créez-en un gratuitement avec Entèvyou360</a>.",
@@ -333,8 +338,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       invalid:"Code introuvable. Vérifiez-le.", limit:"Trop d'inscriptions depuis cet appareil aujourd'hui. Réessayez demain.",
       err:"Petit souci technique. Réessayez.", save:"Enregistrer les modifications", flexT:"Jusqu'où êtes-vous ouvert ?", flexS:"C'est vous qui décidez qui peut vous voir.", fAny:"⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir", fPrefer:"↔️ J'ai des préférences, mais je reste ouvert aux autres offres", fOnly:"🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas", bAvail:"✅ Je suis disponible", bHired:"💼 J'ai trouvé un emploi", bPaused:"⏸ Mettre en pause", stNow:"Statut actuel : ", stA:"disponible — les employeurs vous voient", stH:"en emploi — vous êtes hors du pool", stP:"en pause — vous êtes hors du pool", stOk:"Statut mis à jour ✔" },
     ht: { kicker:"Ou gen lisans ou deja ? Antre nan pool la — se gratis.",
-        descr:"Ou gen lisans Class D, 7D oswa CDL deja ? Enskri gratis nan Driver Pool la : livrezon pake, transpò medikal ak granmoun, wout lekòl, transpò rejyonal. Anplwayè Massachusetts yo kontakte w — sèlman si ou dakò.",
-      lead:"Ou gen lisans Class D ou, sètifika 7D ou, oswa CDL ou deja ? Enskri gratis : gen anplwayè nan Massachusetts k ap chèche chofè — transpò lekòl, livrezon pake, transpò granmoun, transpò rejyonal (MART) ak plis toujou.",
+        descr:"W ap livre, oswa ou vle livre, pou yon DSP Amazon nan Massachusetts ? Antre gratis nan Driver Pool la. DSP yo kontakte w sèlman si w dakò. Endepandan — pa afilye ak Amazon.",
+      lead:"W ap livre, oswa ou vle livre, pou yon DSP Amazon ? Enskri gratis : DSP nan Massachusetts ka jwenn ou — epi yo kontakte w sèlman si w dakò. Driver360 endepandan epi li pa afilye ak Amazon.",
       note:"Gratis, san angajman. Non ou ak telefòn ou rete kache : yon anplwayè wè yo sèlman lè li chwazi w, epi li gen yon limit chwa. Ou ka retire w nenpòt lè.",
       t1:"1. Kilès ou ye", t2:"2. Lisans ou yo", t3:"3. Sa w ap chèche", t4:"Chanje oswa retire enskripsyon m",
       name:"Non konplè ou", phone:"Telefòn (WhatsApp)",
@@ -352,7 +357,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       s_transit:"🚍 Transpò rejyonal (MART, RTA)",
       s_rideshare:"🚕 Taksi / VTC",
       s_other:"➕ Lòt",
-      ti:"Driver360 — Enskri nan Driver Pool (gratis) | Atmart",
+      ti:"Driver360 — Antre nan Driver Pool chofè livrezon DSP yo (gratis)",
       t5:"4. CV ou (si w vle)",
       cv:"Lyen CV ou",
       cvs:"Yon lyen Google Drive, LinkedIn, Indeed… Yon anplwayè wè l sèlman aprè li chwazi w. Ou pa gen CV ? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--d-accent)\">Fè youn gratis ak Entèvyou360</a>.",
@@ -395,8 +400,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       invalid:"Nou pa jwenn kòd la. Verifye l.", limit:"Twòp enskripsyon depi aparèy sa a jodi a. Eseye demen.",
       err:"Yon ti pwoblèm teknik. Eseye ankò.", save:"Anrejistre chanjman yo", flexT:"Jiskaki pwen ou louvri ?", flexS:"Se ou menm ki deside kilès ki ka wè w.", fAny:"⚡ M ap pran nenpòt travay chofè — tout anplwayè ka wè m", fPrefer:"↔️ Mwen gen preferans, men mwen rete louvri pou lòt òf", fOnly:"🎯 Sèlman sektè mwen tcheke yo — lòt anplwayè yo pa wè m", bAvail:"✅ Mwen disponib", bHired:"💼 Mwen jwenn yon travay", bPaused:"⏸ Mete an pòz", stNow:"Estati aktyèl : ", stA:"disponib — anplwayè yo wè w", stH:"nan travay — ou pa nan pool la", stP:"an pòz — ou pa nan pool la", stOk:"Estati chanje ✔" },
     en: { kicker:"Already licensed? Join the pool — it's free.",
-        descr:"Already hold a Class D, 7D or CDL licence? Join the Driver Pool free: package delivery, medical and senior transport, school runs, regional transit. Massachusetts employers contact you — only if you agree.",
-      lead:"Do you already have your Class D license, 7D certificate or CDL? Register for free: Massachusetts employers are looking for drivers — school transport, package delivery, senior transport, regional transit (MART) and more.",
+        descr:"Deliver, or want to deliver, for an Amazon DSP in Massachusetts? Join the Driver Pool free. DSPs contact you only if you agree. Independent — not affiliated with Amazon.",
+      lead:"Do you deliver, or want to deliver, for an Amazon DSP? Register for free: DSPs in Massachusetts can find you — and contact you only if you agree. Driver360 is independent and not affiliated with Amazon.",
       note:"Free, no commitment. Your name and phone stay hidden: an employer sees them only when they select you, and their number of selections is limited. You can withdraw anytime.",
       t1:"1. About you", t2:"2. Your licenses", t3:"3. What you are looking for", t4:"Edit or withdraw my registration",
       name:"Your full name", phone:"Phone (WhatsApp)",
@@ -414,7 +419,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       s_transit:"🚍 Regional transit (MART, RTA)",
       s_rideshare:"🚕 Taxi / rideshare",
       s_other:"➕ Other",
-      ti:"Driver360 — Join the driver pool (free) | Atmart",
+      ti:"Driver360 — Join the Driver Pool for DSP delivery drivers (free)",
       t5:"4. Your CV (optional)",
       cv:"Link to your CV",
       cvs:"A Google Drive, LinkedIn or Indeed link… An employer sees it only after selecting you. No CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--d-accent)\">Make one free with Entèvyou360</a>.",
@@ -457,8 +462,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       invalid:"Code not found. Please check it.", limit:"Too many registrations from this device today. Try tomorrow.",
       err:"Small technical issue. Try again.", save:"Save changes", flexT:"How open are you?", flexS:"You decide who can see you.", fAny:"⚡ I'll take any driving job — every employer can see me", fPrefer:"↔️ I have preferences, but I stay open to other offers", fOnly:"🎯 Only the sectors I checked — other employers cannot see me", bAvail:"✅ I'm available", bHired:"💼 I found a job", bPaused:"⏸ Pause", stNow:"Current status: ", stA:"available — employers can see you", stH:"employed — you are out of the pool", stP:"paused — you are out of the pool", stOk:"Status updated ✔" },
     es: { kicker:"¿Ya tienes tu licencia? Entra al pool — es gratis.",
-        descr:"¿Ya tienes licencia Class D, 7D o CDL? Inscríbete gratis en el Driver Pool: reparto de paquetes, transporte médico y de mayores, rutas escolares, transporte regional. Empleadores de Massachusetts te contactan — solo si estás de acuerdo.",
-      lead:"¿Ya tienes tu licencia Class D, tu certificado 7D o tu CDL? Regístrate gratis: empleadores de Massachusetts buscan choferes — transporte escolar, entrega de paquetes, transporte de personas mayores, transporte regional (MART) y más.",
+        descr:"¿Repartes, o quieres repartir, para un DSP de Amazon en Massachusetts? Únete gratis al Driver Pool. Los DSP solo te contactan si estás de acuerdo. Independiente — sin afiliación con Amazon.",
+      lead:"¿Repartes, o quieres repartir, para un DSP de Amazon? Regístrate gratis: los DSP de Massachusetts pueden encontrarte — y solo te contactan si estás de acuerdo. Driver360 es independiente y no está afiliado a Amazon.",
       note:"Gratis y sin compromiso. Tu nombre y teléfono quedan ocultos: un empleador los ve solo cuando te selecciona, y su número de selecciones es limitado. Puedes retirarte cuando quieras.",
       t1:"1. Quién eres", t2:"2. Tus licencias", t3:"3. Lo que buscas", t4:"Editar o retirar mi registro",
       name:"Tu nombre completo", phone:"Teléfono (WhatsApp)",
@@ -476,7 +481,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       s_transit:"🚍 Transporte regional (MART, RTA)",
       s_rideshare:"🚕 Taxi / VTC",
       s_other:"➕ Otro",
-      ti:"Driver360 — Inscríbete en el Driver Pool (gratis) | Atmart",
+      ti:"Driver360 — Únete al Driver Pool de conductores de reparto DSP (gratis)",
       t5:"4. Tu CV (opcional)",
       cv:"Enlace a tu CV",
       cvs:"Un enlace de Google Drive, LinkedIn o Indeed… Un empleador solo lo ve después de seleccionarte. ¿No tienes CV? <a href=\"https://360.atmart.ltd/entevyou.html\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--d-accent)\">Crea uno gratis con Entèvyou360</a>.",
@@ -834,8 +839,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   });
 })();
 </script>
-<script src="/assets/mesure360.js" data-app="atmart" defer></script>
+
 <script src="assets/suite.js?v=6"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+  <script src="/assets/mesure360.js" data-app="driver360" defer></script>
 </body>
 </html>

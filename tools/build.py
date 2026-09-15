@@ -38,11 +38,17 @@ RACINE = os.path.dirname(ICI)
 ETAPES = [
     ("gen_logo.py", [], "logo et icones", True),
     ("regen.py", [], "pages derivees d'atmart.ltd + fichiers de donnees", True),
+    # Perimetre DSP (15/09/2026) : le coach carriere. Juste apres regen, qui
+    # ne derive plus wout.html dans ce perimetre.
+    ("gen_coach.py", [], "Driver Coach carriere (perimetre DSP)", True),
     ("gen_emplois.py", [], "page des offres", True),
     ("gen_legal.py", [], "conditions et confidentialite", True),
     # Apres regen (donc apres le passage a l'anglais) et AVANT
     # appliquer_theme : le balisage est deduit du texte VISIBLE.
     ("gen_faq.py", [], "FAQ et Course, deduits du visible", True),
+    # La mesure d'audience AVANT le theme et la CSP : la balise fait partie de
+    # la page que la CSP decrit. Le build la defaisait en silence (J4, 15/09/2026).
+    ("mesure_locale.py", [], "compteur d'audience sur les pages Driver360", True),
     ("appliquer_theme.py", [], "jetons de couleur, theme, CSP", True),
     # Le nom du cache se calcule APRES que tout est ecrit : il est l'empreinte
     # de ce qui sera reellement servi. Oublier de le changer, c'est publier
@@ -72,6 +78,7 @@ ETAPES = [
     # noter le « contact visuel » parait utile, et personne ne remarque que
     # ca revient a mesurer l'ecart d'un immigrant a une norme americaine.
     ("verif_camera.py", [], "la camera reste un miroir, pas un jury", True),
+    ("mesure_locale.py", ["--verifier"], "chaque page compte pour driver360", True),
 ]
 
 

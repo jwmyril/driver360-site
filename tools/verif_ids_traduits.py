@@ -115,6 +115,19 @@ def analyser(page):
                 return True
         return False
 
+    # ⚠️ LE SECOND MECANISME : `data-t`. L'accueil, les offres et, depuis le
+    # perimetre DSP (15/09/2026), le coach carriere traduisent par attribut :
+    # `querySelectorAll("[data-t]")` remplace le texte de tout element qui
+    # porte la cle. Ce detecteur ne connaissait que les identifiants ; il
+    # signalait donc comme figes des boutons parfaitement traduits.
+    #
+    # On ne l'accepte QUE si la page applique vraiment ce mecanisme — sinon un
+    # `data-t` orphelin, pose sans rien pour le lire, passerait pour traduit.
+    # La couverture des cles dans les quatre langues est controlee a part,
+    # par verif_langue.py.
+    applique_data_t = bool(re.search(r"""querySelectorAll\(\s*["']\[data-t\]["']\s*\)""", scripts))
+    PORTE_DATA_T = re.compile(r'<(\w+)\b[^>]*\bdata-t="[^"]*"[^>]*>.*?</\1>', re.S)
+
     out = []
     for m in re.finditer(r'<(%s)\b[^>]*\bid="([\w-]+)"[^>]*>(.*?)</\1>' % BALISES, s, re.S):
         balise, ident, dedans = m.group(1), m.group(2), m.group(3)
@@ -123,6 +136,14 @@ def analyser(page):
             continue
         if assigne(ident):
             continue
+        if applique_data_t:
+            ouverture = m.group(0)[:m.group(0).index(">") + 1]
+            if re.search(r'\bdata-t="[^"]+"', ouverture):
+                continue
+            # un conteneur dont TOUT le texte vient d'enfants porteurs de data-t
+            reste = texte_visible(PORTE_DATA_T.sub(" ", dedans))
+            if not reste or SANS_LANGUE.match(reste):
+                continue
         # Un enfant identifié et traduit suffit : le texte vient de lui.
         if any(assigne(e) for e in re.findall(r'\bid="([\w-]+)"', dedans)):
             continue

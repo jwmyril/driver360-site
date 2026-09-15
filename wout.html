@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-KFKXSyVBbHMnF3HC6TiaO5KxrBbc+j0sasUFLXRI7BQ=' 'sha256-rCe+lK2HC1coUkf3KXWZ0JZCX9cULJPONr6TF0P4Yjs=' 'sha256-ZSP+W5v67iO7u/8UKXmSC9+1u6W3fAi/tLUrrdi2z5c=' 'sha256-036Q0Tj1W15+4Gb7TrYXIFVgFwzmx2ZtIF1ObWqot5A=' 'sha256-qDa5gRA6/JyXpHBPwdxEprfdiIb/uPYYOaYYLTb2IGM=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-amyFoFs/71o8Lg0PQt0hgz+qYJeksndvM0v+aHoxUOw=' 'sha256-Z84y1O8569rD04kKZWn8xpahkW+77Ic++nbnRdPL7Dc=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c=' 'sha256-nbcgQxQFsQ1GVhn/CAA1hqLsuwdIOq8Kx2rHECwADXY=' 'sha256-txR0hkLmaMMVN8qq2j3d6Gnd4/9YcyII3KQlF2mQXwA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Road Test MA — Driver Coach: pass the Massachusetts road test | Atmart</title>
-  <meta name="description" content="Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV. La grille de fautes ci-dessous est <strong>la nôtre</strong> : le RMV ne publie aucun barème.." />
+  <title>Driver Coach — your career as a DSP delivery driver | Driver360</title>
+  <meta name="description" content="A career coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: put your experience into words, prepare for a new DSP or a return after a break, and think through your next step. Independent — not affiliated with Amazon." />
+  <link rel="canonical" href="https://driver360.atmart.ltd/wout.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -24,187 +25,79 @@ if(clair) document.documentElement.className += " clair";
 var m=document.querySelector('meta[name="theme-color"]');
 if(m) m.setAttribute("content", clair ? "#f4f8fb" : "#0e2240");})();
 </script>
-<script>/* langue auto : avant le 1er affichage, evite le clignotement */
-(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
-s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+<script>/* langue automatique, avant le premier affichage */
+(function(){var S={ht:1,fr:1,en:1,es:1},d=document.documentElement,s=null;
+try{s=localStorage.getItem("atmart_lang")}catch(e){}
 var l=s&&S[s]?s:null;
 if(!l){var n=navigator.languages||[navigator.language||""];
 for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
 if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
-window.__atmAuto=!s;window.__atmLang=l=l||"en";d.lang=l;
-if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i18n-wait")};document.addEventListener("DOMContentLoaded",function(){setTimeout(lev,0)});setTimeout(lev,900)}})();
+d.lang=l||"en";})();
 </script>
   <style>
-    .cf-app{max-width:860px;margin:0 auto}
-    .cf-card{background:var(--d-surface);border:1px solid var(--d-surface-2);border-radius:14px;padding:1.4rem;margin-bottom:1rem}
-    .cf-card label{display:block;font-weight:600;font-size:0.88rem;margin:0.9rem 0 0.3rem}
-    .cf-card label:first-of-type{margin-top:0}
-    .cf-card label small{display:block;font-weight:400;color:var(--d-doux);margin-top:0.15rem;line-height:1.4}
-    .cf-card input,.cf-card textarea{width:100%;background:var(--d-fond);color:var(--d-fort);border:1px solid var(--d-ligne);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:16px}
-    .cf-status{color:var(--d-alerte);font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
-    .cf-hide{display:none}
-    .cf-gauge{display:flex;align-items:center;gap:1rem;margin-bottom:0.6rem}
-    .cf-gauge .pct{font-family:"Space Grotesk",sans-serif;font-size:2.4rem;font-weight:700;color:var(--d-accent)}
-    .cf-bar{flex:1;height:12px;background:var(--d-ligne);border-radius:99px;overflow:hidden}
-    .cf-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--d-danger),var(--d-alerte),var(--d-accent));border-radius:99px;transition:width 0.6s}
-    .cf-actions{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.8rem}
-    .cf-phase{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.7rem;border-radius:99px;background:var(--d-accent-fond);color:var(--d-accent);text-transform:uppercase}
-    .cf-cmd{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;font-weight:700;color:var(--d-fort);margin:0.7rem 0 0.2rem;line-height:1.3}
-    .cf-tr{color:var(--d-accent);font-size:1rem;margin-bottom:0.9rem}
-    .cf-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.8rem 0}
-    .cf-chip{background:var(--d-fond);border:1px solid var(--d-alerte-fond);color:var(--d-fort);border-radius:99px;padding:0.5rem 0.9rem;font:inherit;font-size:0.85rem;cursor:pointer}
-    .cf-chip.on{background:var(--d-alerte-fond);border-color:var(--d-danger)}
-    .cf-chip .sev{font-weight:700}
-    .cf-chip .sev.F{color:var(--d-danger)}
-    .cf-chip .sev.m{color:var(--d-alerte)}
-    .cf-ok{background:var(--d-vert-fond);border:1px solid var(--d-accent);color:var(--d-fort);border-radius:10px;padding:0.7rem 1.4rem;font:inherit;font-size:1rem;font-weight:600;cursor:pointer}
-    .cf-fb{border-radius:10px;padding:0.8rem 1rem;margin-top:0.8rem;font-size:0.92rem;line-height:1.55;display:none}
-    .cf-fb.good{background:var(--d-accent-fond);border:1px solid var(--d-accent-bord)}
-    .cf-fb.bad{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-fond)}
-    .cf-prog{color:var(--d-doux);font-size:0.82rem}
-    /* La repetition filmee. */
-    .cf-cam{border:1px solid var(--d-ligne);border-radius:12px;padding:1rem 1.1rem;
-      background:var(--d-surface);margin-top:1.4rem}
-    .cf-cam h3{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;
-      color:var(--d-fort);margin:0 0 0.3rem}
-    .cf-cam .avert{background:var(--d-vert-fond);color:var(--d-vert);
-      border:1px solid var(--d-vert-bord);border-radius:8px;
-      padding:0.5rem 0.7rem;font-size:0.86rem;margin:0.5rem 0 0.9rem}
+    .co-cartes{display:grid;grid-template-columns:1fr;gap:.85rem;margin-top:1.4rem}
+    @media(min-width:760px){.co-cartes{grid-template-columns:1fr 1fr}}
+    .co-carte{background:var(--d-surface);border:1px solid var(--d-ligne);border-radius:14px;padding:1.1rem 1.25rem}
+    .co-carte h2{margin:0 0 .4rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem}
+    .co-carte p{margin:0;color:var(--d-doux);font-size:.9rem;line-height:1.6}
+    .co-note{background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:14px;
+      padding:1.1rem 1.3rem;margin-top:1.4rem;max-width:74ch}
+    .co-note h2{margin:0 0 .45rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.05rem}
+    .co-note p{margin:0;color:var(--d-texte);font-size:.92rem;line-height:1.7}
+    .co-bloc{background:var(--d-surface);border:1px solid var(--d-ligne);border-radius:16px;padding:1.3rem 1.4rem;margin-top:1.6rem}
+    .co-bloc>h2{margin:0 0 .8rem;font-family:'Space Grotesk',sans-serif;color:var(--d-fort);font-size:1.2rem}
+    .co-champ{width:100%;max-width:340px;background:var(--d-fond);color:var(--d-fort);border:1px solid var(--d-ligne);
+      border-radius:9px;padding:.6rem .8rem;font:inherit;font-size:16px;min-height:44px;text-transform:uppercase}
+    .co-aide{color:var(--d-doux);font-size:.85rem;margin:.4rem 0 0}
+    .co-aide a{color:var(--d-accent);text-decoration:underline}
+    .co-msgs{max-height:48vh;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem;margin:1rem 0 .8rem;padding:.2rem}
+    .co-m{max-width:88%;padding:.65rem .9rem;border-radius:13px;font-size:.95rem;line-height:1.6;white-space:pre-wrap}
+    .co-m.coach{align-self:flex-start;background:var(--d-surface-2);color:var(--d-texte)}
+    .co-m.user{align-self:flex-end;background:var(--d-accent-fond);color:var(--d-fort);border:1px solid var(--d-accent-bord)}
+    .co-rapides{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
+    .co-rapides button{background:var(--d-surface-2);color:var(--d-texte);border:1px solid var(--d-ligne);
+      border-radius:999px;padding:.45rem .85rem;font:inherit;font-size:.86rem;cursor:pointer;min-height:44px}
+    .co-rapides button:hover{border-color:var(--d-accent-bord)}
+    .co-saisie{display:flex;gap:.5rem;align-items:flex-end;flex-wrap:wrap}
+    .co-saisie textarea{flex:1 1 260px;min-height:64px;background:var(--d-fond);color:var(--d-fort);
+      border:1px solid var(--d-ligne);border-radius:10px;padding:.6rem .8rem;font:inherit;font-size:16px;resize:vertical}
+    .co-st{color:var(--d-alerte);font-size:.88rem;min-height:1.3em;margin:.5rem 0 0}
+    .co-bas{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between;margin-top:.8rem;
+      color:var(--d-doux);font-size:.84rem}
+    .co-lien{background:none;border:0;color:var(--d-accent);text-decoration:underline;font:inherit;font-size:.84rem;
+      cursor:pointer;padding:.4rem 0;min-height:44px}
     .cf-ex{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-    .cf-ex button{background:var(--d-fond);color:var(--d-texte);
-      border:1px solid var(--d-ligne);border-radius:999px;padding:0.45rem 0.85rem;
-      font:inherit;font-size:0.86rem;cursor:pointer;min-height:44px}
-    .cf-ex button[aria-pressed="true"]{background:var(--d-accent);
-      color:var(--d-accent-encre);border-color:var(--d-accent);font-weight:600}
-    .cf-consigne{background:var(--d-fond);border:1px solid var(--d-ligne);
-      border-radius:10px;padding:0.7rem 0.9rem;margin-bottom:0.8rem}
-    .cf-consigne .en{color:var(--d-fort);font-weight:600;font-size:1rem;
-      display:block;margin-bottom:0.25rem}
+    .cf-ex button{background:var(--d-surface-2);color:var(--d-texte);border:1px solid var(--d-ligne);
+      border-radius:999px;padding:.45rem .85rem;font:inherit;font-size:.86rem;cursor:pointer;min-height:44px}
+    .cf-ex button[aria-pressed="true"]{background:var(--d-accent);color:var(--d-accent-encre);border-color:var(--d-accent);font-weight:600}
+    .cf-consigne{margin:.2rem 0 .5rem}
+    .cf-consigne .en{display:block;color:var(--d-fort);font-weight:600;font-size:1.02rem;line-height:1.5}
     .cf-consigne .loc{color:var(--d-doux);font-size:0.88rem;line-height:1.6}
-    .cf-video{width:100%;max-width:460px;background:var(--d-video);border-radius:10px;
-      display:block;aspect-ratio:3/4;object-fit:cover}
+    .cam-liste{margin:.3rem 0 .8rem;padding-left:1.2rem;color:var(--d-texte);font-size:.9rem;line-height:1.7}
+    .cf-video{width:100%;max-width:480px;aspect-ratio:4/3;background:var(--d-fond-2);border-radius:12px;display:block;margin-top:.4rem}
     .cf-cam-btns{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.7rem}
-    .cf-liste{margin:0.9rem 0 0;padding-left:1.1rem;color:var(--d-texte);
-      line-height:1.8;font-size:0.9rem}
-    .cf-cam-st{color:var(--d-alerte);font-size:0.88rem;margin-top:0.6rem;
-      min-height:1.2em}
-    .faq-q{border:1px solid var(--d-ligne);border-radius:10px;padding:0.7rem 0.9rem;margin:0 0 0.5rem;background:var(--d-surface)}
-    .faq-q summary{cursor:pointer;font-weight:600;color:var(--d-fort);line-height:1.5}
-    .faq-q[open] summary{margin-bottom:0.5rem}
-    .faq-r{color:var(--d-texte);line-height:1.7;font-size:0.95rem}
-    .cf-msgs{max-height:45vh;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;padding:0.3rem 0.1rem}
-    .cf-m{max-width:88%;padding:0.65rem 0.9rem;border-radius:13px;font-size:0.93rem;line-height:1.55;white-space:pre-wrap}
-    .cf-m.user{align-self:flex-end;background:var(--d-surface-2)}
-    .cf-m.coach{align-self:flex-start;background:var(--d-accent-fond);border:1px solid var(--d-accent-bord)}
-    .cf-row{display:flex;gap:0.6rem;margin-top:0.8rem}
-    .cf-row textarea{flex:1;min-height:48px;resize:vertical}
-    .cf-out{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:0.5rem 0}
-    .cf-small{font-size:0.8rem;color:var(--d-doux)}
-    .cf-badge-note{font-size:0.78rem;color:var(--d-doux);border-top:1px dashed var(--d-ligne);margin-top:1rem;padding-top:0.7rem}
-    @media print{ header,footer,.no-print{display:none!important} body{background:#fff;color:#000} .print-only{display:block!important;color:#000} }
-    .print-only{display:none}
-    .cf-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem}
-    .cf-badge{background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);color:var(--d-texte);border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
-    .cf-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:0 0 1.6rem}
-    .cf-feat{background:var(--d-surface);border:1px solid var(--d-surface-2);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
-    .cf-feat:hover{border-color:var(--d-accent-bord)}
-    .cf-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
-    .cf-feat h2{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:var(--d-fort);font-size:1.02rem}
-    .cf-feat p{margin:0;font-size:0.87rem;color:var(--d-doux);line-height:1.55}
-    .cf-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:var(--d-fort);margin:0 0 0.3rem}
-    .cf-formsub{font-size:0.85rem;color:var(--d-doux);margin:0 0 1.2rem;line-height:1.5}
-  </style>
-  <!-- donnees structurees : gen_faq.py -->
-  <script type="application/ld+json">{
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
-  {
-   "@type": "Question",
-   "name": "Can I bring an interpreter to the road test?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Not as a right. The manual says an interpreter “may also be allowed” if the examiner so authorizes. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Who can be my sponsor?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. A foreign licence is not eligible — the manual is explicit. Without a sponsor you are not given a Class D road test."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What can stop the test before it even starts?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How many times can I take the road test?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No more than six in a 12-month period for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Does Driver Coach guarantee I will pass?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. It is independent preparation and it is not affiliated with the RMV. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears."
-   }
-  }
- ]
-}</script>
-  <script type="application/ld+json">{
- "@context": "https://schema.org",
- "@type": "Course",
- "name": "Driver Coach — Massachusetts Class D road test",
- "description": "Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV. La grille de fautes ci-dessous est <strong>la nôtre</strong> : le RMV ne publie aucun barème..",
- "url": "https://driver360.atmart.ltd/wout.html",
- "provider": {
-  "@type": "Organization",
-  "name": "Atmart LLC",
-  "url": "https://driver360.atmart.ltd/"
- },
- "teaches": [
-  "Massachusetts Class D road test",
-  "the examiner's English commands",
-  "the written permit exam"
- ],
- "inLanguage": [
-  "en",
-  "es",
-  "ht",
-  "fr"
- ],
- "isAccessibleForFree": true,
- "hasCourseInstance": {
-  "@type": "CourseInstance",
-  "courseMode": "online",
-  "courseWorkload": "PT30M"
- }
-}</script>
-  <!-- donnees structurees : gen_faq.py -->
+    /* ⚠️ .sr-only n'existe pas dans style.css : sans cette regle, l'etiquette du
+       champ de message s'affichait en double au-dessus du champ (mesure 15/09). */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Le gris par defaut des textes indicatifs mesurait 3,45:1 (sombre) et 4,31:1 (clair). */
+    .co-champ::placeholder,.co-saisie textarea::placeholder{color:var(--d-doux);opacity:1}
+    .co-avert{color:var(--d-texte);font-size:.9rem;line-height:1.7;background:var(--d-vert-fond);
+      border:1px solid var(--d-vert-bord);border-radius:10px;padding:.8rem 1rem;margin:0 0 .8rem}
+</style>
 
-  <link rel="canonical" href="https://driver360.atmart.ltd/wout.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Driver360" />
   <meta property="og:url" content="https://driver360.atmart.ltd/wout.html" />
-  <meta property="og:title" content="Road Test MA — Driver Coach: pass the Massachusetts road test | Atmart" />
-  <meta property="og:description" content="Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV. La grille de fautes ci-dessous est <strong>la nôtre</strong> : le RMV ne publie aucun barème.." />
+  <meta property="og:title" content="Driver Coach — your career as a DSP delivery driver | Driver360" />
+  <meta property="og:description" content="A career coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: put your experience into words, prepare for a new DSP or a return after a break, and think through your next step. Independent — not affiliated with Amazon." />
   <meta property="og:image" content="https://driver360.atmart.ltd/assets/brand/share-1200x630.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Road Test MA — Driver Coach: pass the Massachusetts road test | Atmart" />
-  <meta name="twitter:description" content="Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV. La grille de fautes ci-dessous est <strong>la nôtre</strong> : le RMV ne publie aucun barème.." />
+  <meta name="twitter:title" content="Driver Coach — your career as a DSP delivery driver | Driver360" />
+  <meta name="twitter:description" content="A career coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: put your experience into words, prepare for a new DSP or a return after a break, and think through your next step. Independent — not affiliated with Amazon." />
   <meta name="twitter:image" content="https://driver360.atmart.ltd/assets/brand/share-1200x630.jpg" />
 </head>
 <body>
@@ -222,224 +115,80 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   </nav>
 </header>
 
-<section class="hero" style="padding-bottom:1rem">
+<section class="hero" style="padding-bottom:.4rem">
   <div class="container">
-    <p class="kreyol" id="cf-kicker">Driving school teaches you to drive. We get you to PASS the test — in your language.</p>
-    <h1>Driver <em>Coach</em></h1>
-    <div class="aka"><b id="cf-aka">Road Test MA</b><small id="cf-aka-s">the name everyone uses</small></div>
-    <p id="cf-sponsor" style="background:var(--d-alerte-fond);border:1px solid var(--d-alerte-fond);border-radius:12px;padding:0.9rem 1.1rem;margin:0 auto 1.1rem;max-width:70ch;font-size:0.95rem;line-height:1.6;text-align:left">⚠️ <strong>Your sponsor must hold a U.S. licence</strong>, valid for at least one year, and be 21 or older. A Haitian, Canadian or French licence is not enough: the RMV refuses the test on the spot, and the fee is lost.</p>
-    <p id="cf-vers7d" style="margin:.2rem auto 1.1rem;max-width:70ch;font-size:.92rem;text-align:left">🚌 Aiming for school transport? The 7D certificate has its own written exam — <a href='setdi.html' style='color:var(--d-accent)'>prepare for it here</a>.</p>
-    <p class="lead" id="cf-lead">Independent preparation, with no guarantee you will pass. The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.</p>
-    <div class="cf-badges">
-      <span class="cf-badge" id="cf-bg1">🗣 4 languages</span>
-      <span class="cf-badge" id="cf-bg2">🎯 12 test maneuvers</span>
-      <span class="cf-badge" id="cf-bg3">📝 Written test included</span>
-      <span class="cf-badge" id="cf-bg4">🕒 90 days of access</span>
-    </div>
-    <p style="color:var(--d-doux);font-size:0.88rem;margin-top:1.1rem" id="cf-note">Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.</p>
+    <p class="kreyol" data-t="fil">For delivery drivers at Amazon's Delivery Service Partners</p>
+    <h1>Driver Coach</h1>
+    <p class="lead" data-t="lead">A delivery job is a start. This coach helps you turn it into a career that lasts longer than one DSP — in your language, at your pace.</p>
+    <p style="font-size:.84rem;color:var(--d-doux);margin-top:.6rem" data-t="indep">Driver360 is independent. It is not affiliated with Amazon, and Amazon does not endorse it.</p>
   </div>
 </section>
 
-<section style="padding-top:0.5rem">
+<section style="padding-top:.2rem;padding-bottom:2.6rem">
   <div class="container">
-    <div class="cf-app">
-
-      <div class="cf-feats">
-        <div class="cf-feat"><span class="ic">🚗</span>
-          <h2 id="cf-f1t">Session Mode</h2>
-          <p id="cf-f1d">The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.</p></div>
-        <div class="cf-feat"><span class="ic">💬</span>
-          <h2 id="cf-f2t">Personal coach</h2>
-          <p id="cf-f2d">It remembers your sessions, targets your weak points and gives you one short drill every day.</p></div>
-        <div class="cf-feat"><span class="ic">🖨</span>
-          <h2 id="cf-f3t">Sponsor's guide</h2>
-          <p id="cf-f3d">Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.</p></div>
-      <div class="cf-feat" style="grid-column:1/-1" id="cf-avant"><strong>Before you drive a single metre — what sends people home</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Arrive about <strong>15 minutes early</strong>. Late means no test.</li><li>A completed road test application — with the parental consent section filled in if you are under 18 — and your learner's permit.</li><li><strong>A qualified sponsor</strong>: 21 or over, one year of driving experience, and a valid licence from their own US state. <strong>A foreign licence is not eligible.</strong> No sponsor, no test.</li><li>A vehicle that passes the examiner's inspection: registered, inspected, safe, with a clean and adequate seat for the examiner and a rear seat for your sponsor.</li><li><strong>An accessible parking brake</strong> — the examiner must be able to stop the car. A centrally located one is safest; some minivans are rejected for this alone.</li><li>No <strong>donut</strong> spare tire. No repair plate. No dealer plate unless you are the dealer, their spouse, or a salesperson there.</li><li>Back-up camera, parking sensors, automatic parallel park, GPS-guided driving: <strong>turned off</strong>.</li><li>Out-of-state plates: proof of insurance at Massachusetts minimums ($20,000/$40,000 bodily injury, $5,000 property). A rental also needs the rental agreement and a letter from the company authorising a road test.</li><li><strong>No children, no pets.</strong> Service animals are allowed. Only you, the examiner and your sponsor are in the car, and you may not talk to your sponsor unless the examiner allows it.</li><li><strong>An interpreter is not a right.</strong> The manual says one may be allowed “if the examiner so authorizes”. Ask when you book — do not assume.</li><li>Under 18: a clean driving record for the <strong>six months</strong> before you apply, and it must stay clean until test day.</li><li>Six road tests maximum in 12 months. The <strong>$35</strong> is charged again if you fail, are unprepared, are refused over the vehicle, bring no sponsor, are late or absent, or cancel with less than 72 hours notice.</li></ul></div>
-      </div>
-
-      <!-- ecran 1 : onboarding -->
-      <form class="cf-card" id="cf-start">
-        <p class="cf-formhead" id="cf-fh">Get started</p>
-        <p class="cf-formsub" id="cf-fs">Enter your access code, or try 5 written-test questions first — free.</p>
-        <label for="cf-code" id="L-code">🔑 Your Driver360 code<small>Free (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Write to us</a></small></label>
-        <input type="text" id="cf-code" maxlength="24" autocomplete="off" placeholder="WOUT-XXXX-XXXX" />
-        <label for="cf-date" id="L-date">📅 Your road test date (if already booked)</label>
-        <input type="date" id="cf-date" />
-        <label id="L-pool" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;cursor:pointer">
-          <input type="checkbox" id="cf-pool" style="width:auto;margin-top:0.2rem" />
-          <span id="L-poolTxt">Once I pass, I want to join the <strong>Driver Pool</strong>: Massachusetts employers may contact me. (Optional — name and phone shared only if you check this.)</span>
-        </label>
-        <label id="L-share" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:0.6rem;cursor:pointer">
-          <input type="checkbox" id="cf-share" style="width:auto;margin-top:0.2rem" />
-          <span id="L-shareTxt">📊 And I want employers to see <strong>how far along I am</strong>: preparation, written-test score, exam results. Without this box they see none of it.</span>
-        </label>
-        <div id="cf-poolfields" class="cf-hide">
-          <label for="cf-name" id="L-name">Your name</label>
-          <input type="text" id="cf-name" maxlength="80" />
-          <label for="cf-phone" id="L-phone">Your phone (WhatsApp)</label>
-          <input type="text" id="cf-phone" maxlength="30" />
-          <label for="cf-city" id="L-city">Your city / area<small>E.g.: Fitchburg, Worcester — helps employers target their area.</small></label>
-          <input type="text" id="cf-city" maxlength="60" />
-          <label for="cf-nat" id="L-nat">Nationality (optional)<small>Visible only to an employer who selects you.</small></label>
-          <input type="text" id="cf-nat" maxlength="60" />
-        </div>
-        <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Open my coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Try 5 free questions</button></div>
-        <p class="cf-status" id="cf-st1" role="status" aria-live="polite"></p>
-      </form>
-
-      <!-- ecran 2 : tableau de bord -->
-      <div class="cf-card cf-hide" id="cf-dash">
-        <div class="cf-gauge">
-          <span class="pct" id="cf-pct">0%</span>
-          <div class="cf-bar"><span id="cf-barfill" style="width:0%"></span></div>
-        </div>
-        <p class="cf-small" id="cf-ready-label">Test readiness — based on sessions scored by your sponsor.</p>
-        <div class="cf-actions">
-          <button class="btn btn-primary" id="cf-session-btn">🚗 Session with sponsor</button>
-          <button class="btn btn-outline" id="cf-coach-btn">💬 Talk to the coach</button>
-          <button class="btn btn-outline" id="cf-guide-btn">🖨 Sponsor guide</button>
-          <button class="btn btn-outline" id="cf-quiz-btn">📝 Written test (Pèmi)</button>
-          <button class="btn btn-outline" id="cf-result-btn">🏁 Test result</button>
-        </div>
-        <p class="cf-badge-note" id="cf-erase-zone"><span id="cf-privacy">🔒 Anonymous file tied to your code.</span> <button type="button" id="cf-erase" style="background:none;border:none;color:var(--d-doux);text-decoration:underline;cursor:pointer;font:inherit">Erase my file</button></p>
-      </div>
-
-      <!-- ecran 3 : mode seance -->
-      <div class="cf-card cf-hide" id="cf-session">
-        <p class="cf-prog"><span id="cf-phase-badge" class="cf-phase"></span> <span id="cf-prog-txt"></span></p>
-        <p class="cf-cmd" id="cf-cmd"></p>
-        <p class="cf-tr" id="cf-tr"></p>
-        <div class="cf-actions no-print">
-          <button class="btn btn-outline" id="cf-speak">🔊 Examiner's voice</button>
-        </div>
-        <p class="cf-small" id="cf-sponsor-hint">Sponsor: read the command, let them execute, then score — vehicle stopped.</p>
-        <div class="cf-chips" id="cf-chips"></div>
-        <div class="cf-actions">
-          <button class="cf-ok" id="cf-okbtn">✅ Well done</button>
-          <button class="btn btn-outline" id="cf-nextbtn">Next ⏭</button>
-        </div>
-        <div class="cf-fb" id="cf-fb"></div>
-        <p class="cf-status" id="cf-st3" role="status" aria-live="polite"></p>
-      </div>
-
-      <!-- ecran 4 : chat coach -->
-      <div class="cf-card cf-hide" id="cf-chat">
-        <div class="cf-msgs" id="cf-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>
-        <div class="cf-row">
-          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…" aria-label="Votre message au coach"></textarea>
-          <button class="btn btn-primary" id="cf-send">Send</button>
-        </div>
-        <p class="cf-status" id="cf-st4" role="status" aria-live="polite"></p>
-      </div>
-
-      <!-- ecran 5 : resultats officiels -->
-      <div class="cf-card cf-hide" id="cf-outcome">
-        <h3 id="L-out-title" style="margin-top:0">🏁 Your official RMV results</h3>
-        <p class="cf-small" id="L-out-sub">Record your results — they feed your file and, if you agreed, the hiring pool.</p>
-        <div class="cf-out"><strong id="L-out-w">Written test:</strong>
-          <button class="btn btn-outline" data-k="written" data-r="pass">✅ Réussi</button>
-          <button class="btn btn-outline" data-k="written" data-r="fail">❌ Échoué</button>
-          <span class="cf-small" id="cf-out-w-state"></span></div>
-        <div class="cf-out"><strong id="L-out-r">Road test:</strong>
-          <button class="btn btn-outline" data-k="road" data-r="pass">✅ Réussi</button>
-          <button class="btn btn-outline" data-k="road" data-r="fail">❌ Échoué</button>
-          <span class="cf-small" id="cf-out-r-state"></span></div>
-        <p class="cf-status" id="cf-st5" role="status" aria-live="polite"></p>
-        <p id="cf-bridge" class="cf-hide" style="background:var(--d-accent-fond);border:1px solid var(--d-accent-bord);border-radius:10px;padding:0.8rem 1rem;font-size:0.9rem;line-height:1.6">🎉 <span id="cf-bridge-txt">Congratulations! Next step: your first 90 days on the job.</span> <a href="https://atmart.ltd/karye360.html" style="color:var(--d-accent);font-weight:600">Career360 →</a></p>
-      </div>
-
-      <!-- ecran quiz Pemi -->
-      <div class="cf-card cf-hide" id="cf-quiz">
-        <p class="cf-prog"><span class="cf-phase" id="qz-badge">PÈMI</span> <span id="qz-prog"></span></p>
-        <p class="cf-cmd" id="qz-q" style="font-size:1.15rem"></p>
-        <div class="cf-chips" id="qz-opts" style="flex-direction:column;align-items:stretch"></div>
-        <div class="cf-fb" id="qz-fb"></div>
-        <div class="cf-actions">
-          <button class="btn btn-primary cf-hide" id="qz-next">Next ⏭</button>
-        </div>
-        <p class="cf-status" id="qz-st" role="status" aria-live="polite"></p>
-      </div>
-
-      <!-- guide sponsor imprimable -->
-      <div class="cf-card cf-hide" id="cf-guide">
-        <h3 style="margin-top:0" id="g-title">🖨 Sponsor's guide</h3>
-        <div id="g-body" style="font-size:0.92rem;line-height:1.65;color:var(--d-texte)"></div>
-        <div class="cf-actions no-print"><button class="btn btn-primary" id="g-print">Print</button></div>
-      </div>
-
+    <div class="co-cartes">
+      <div class="co-carte"><h2 data-t="c1_t">Your experience, in words</h2><p data-t="c1_d">Roles, dates, vehicles, the kinds of routes you ran, the training you finished — written plainly, in a form you can take to the next DSP.</p></div>
+      <div class="co-carte"><h2 data-t="c2_t">A new DSP</h2><p data-t="c2_d">What to ask before you accept — pay, hours, days, station, commute, paid training — and what a first week is likely to look like.</p></div>
+      <div class="co-carte"><h2 data-t="c3_t">A break, and coming back</h2><p data-t="c3_d">What to keep while you are away, and how to come back without starting from zero. Only the DSP can say which checks or trainings start again — the coach helps you ask.</p></div>
+      <div class="co-carte"><h2 data-t="c4_t">Your next step</h2><p data-t="c4_d">Lead driver, trainer, dispatch, a different vehicle, a DOT certification: what the role involves and how to ask for it. Amazon's own page for DSP drivers mentions advancement and DOT certification.</p></div>
     </div>
-  </div>
-</section>
 
-<!-- MODULE : LES COMMANDES DE L'EXAMINATEUR EN ANGLAIS -->
-<section id="komand" style="padding-top:0">
-  <div class="container">
-    <div class="km-head">
-      <h2 id="km-title" style="margin:0 0 0.3rem">🗣 Les commandes de l'examinateur — en anglais</h2>
-      <p id="km-sub" style="color:var(--d-doux);margin:0;max-width:760px;font-size:0.93rem">L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.</p>
+    <div class="co-note">
+      <h2 data-t="h_t">What this coach is, and is not</h2>
+      <p data-t="h_d">It helps you think, write and rehearse. It does <strong>not</strong> store a professional record or send anything to a DSP — that part is not built yet. What you write together is yours to copy and keep. It will never give you a score, and it will never invent a pay rate or a requirement: when it does not know, it tells you to ask the DSP.</p>
     </div>
-    <div class="km-tabs" id="km-tabs"></div>
-    <div class="km-bar">
-      <button type="button" class="km-toggle" id="km-hide">👁 <span id="km-hide-t">Masquer les traductions</span></button>
-      <button type="button" class="km-toggle km-drillbtn" id="km-drill">🎯 <span id="km-drill-t">M'interroger</span></button>
-      <span class="km-count" id="km-count"></span>
-    </div>
-    <div class="km-list" id="km-list"></div>
-    <div class="km-drill" id="km-drillbox" hidden>
-      <p class="km-dprog" id="km-dprog"></p>
-      <p class="km-dcmd" id="km-dcmd"></p>
-      <button type="button" class="km-say km-dsay" id="km-dsay">🔈</button>
-      <p class="km-dask" id="km-dask"></p>
-      <div class="km-dreveal" id="km-dreveal" hidden>
-        <p class="km-tr" id="km-dtr"></p>
-        <p class="km-do" id="km-ddo"></p>
+
+    <div class="co-bloc">
+      <h2 data-t="chat_t">Talk to your coach</h2>
+      <label for="co-code" style="display:block;font-weight:600;color:var(--d-fort);margin-bottom:.3rem" data-t="code_l">Your coach code</label>
+      <input id="co-code" class="co-champ" type="text" autocomplete="off" spellcheck="false" placeholder="WOUT-XXXX-XXXX" />
+      <p class="co-aide" data-t="code_s">Free (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%20code&amp;body=Hello%2C%0A%0AI%20would%20like%20a%20free%20Driver%20Coach%20code.%0A%0AThank%20you.'>Request one — free</a></p>
+
+      <div class="co-msgs" id="co-msgs" role="log" aria-live="polite"></div>
+      <div class="co-rapides" id="co-rapides">
+        <button type="button" data-t="q1">Help me write down my experience</button>
+        <button type="button" data-t="q2">I'm starting at a new DSP — what should I ask?</button>
+        <button type="button" data-t="q3">I'm taking a break. What should I keep?</button>
+        <button type="button" data-t="q4">What could my next step be?</button>
       </div>
-      <div class="km-dacts">
-        <button type="button" class="btn btn-outline" id="km-dshow">Voir la réponse</button>
-        <button type="button" class="btn btn-primary km-hide2" id="km-dok">✅ Je savais</button>
-        <button type="button" class="btn btn-outline km-hide2" id="km-dko">❌ Je ne savais pas</button>
+      <div class="co-saisie">
+        <label for="co-input" class="sr-only" data-t="ph">Write to your coach…</label>
+        <textarea id="co-input" data-tp="ph" placeholder="Write to your coach…"></textarea>
+        <button type="button" class="btn btn-primary" id="co-send" data-t="send">Send</button>
       </div>
-      <p class="km-dend" id="km-dend" hidden></p>
+      <p class="co-st" id="co-st" role="status" aria-live="polite"></p>
+      <div class="co-bas">
+        <span data-t="priv">🔒 Your conversation is tied to your code, not to your name.</span>
+        <button type="button" class="co-lien" id="co-erase" data-t="erase">Erase everything tied to my code — the code keeps working</button>
+      </div>
     </div>
-    <p class="km-foot" id="km-foot">Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts.</p>
-  </div>
-</section>
 
-<!-- B2B : entreprises & ecoles -->
-<section>
-  <div class="container">
-    <div class="cta-band" style="background:var(--d-alerte-fond);border:1px solid var(--d-alerte-bord);border-radius:14px;padding:1.5rem;text-align:center">
-      <h2 style="margin-top:0;font-size:1.2rem" id="cf-b2b-t">🚌 Are you a transport company?</h2>
-      <p style="color:var(--d-texte);max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="cf-b2b-d">Recruit from the Driver360 pool: prepared candidates with verifiable results — and equip your new hires in their language.</p>
-      <a href="anplwaye.html" class="btn btn-outline" id="cf-b2b-c">Open the employer portal</a>
-      <p id="cf-b2b-lic" style="font-size:0.82rem;color:var(--d-doux);margin-top:0.8rem">Already licensed (Class D, 7D, CDL)? <a href='vivye.html' style='color:var(--d-accent)'>Join the pool for free →</a></p>
-    </div>
-  </div>
-</section>
-
-
-  <section style="padding:0.5rem 0 1.6rem"><div class="container"><div id="cf-faq" style="max-width:860px"><h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Questions people actually ask</h2><details class='faq-q'><summary>Can I bring an interpreter to the road test?</summary><div class='faq-r'>Not as a right. The manual says an interpreter “may also be allowed” <strong>if the examiner so authorizes</strong>. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it.</div></details><details class='faq-q'><summary>Who can be my sponsor?</summary><div class='faq-r'>Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. <strong>A foreign licence is not eligible</strong> — the manual is explicit. Without a sponsor you are not given a Class D road test.</div></details><details class='faq-q'><summary>What can stop the test before it even starts?</summary><div class='faq-r'>Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed.</div></details><details class='faq-q'><summary>How many times can I take the road test?</summary><div class='faq-r'>No more than <strong>six in a 12-month period</strong> for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice.</div></details><details class='faq-q'><summary>Does Driver Coach guarantee I will pass?</summary><div class='faq-r'>No. It is independent preparation and it is <strong>not affiliated with the RMV</strong>. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears.</div></details></div></div></section>
-  <section style="padding-top:0.5rem"><div class="container">
-    <div class="cf-cam" id="cf-cam">
-      <h3 id="cam-t">🎥 Film yourself to see yourself</h3>
-      <p class="avert" id="cam-priv">The video stays on your phone. It goes nowhere, we never see it, and there is no upload: it disappears when you close the page. And we do not score your face, your posture or your “confidence”. Those signals differ from one culture to the next: scoring them would mean measuring how far you sit from a norm. The camera is a mirror, not a jury.</p>
-      <p class="loc" id="cam-sub" style="color:var(--d-doux);font-size:0.9rem;margin:0 0 0.9rem">You do not rehearse driving in front of a camera. But three things rehearse exactly like this — and they are the ones people fail.</p>
+    <div class="co-bloc" id="cf-cam">
+      <h2 data-t="cam_t">🎥 Rehearse on camera</h2>
+      <p class="co-avert" data-t="cam_priv">The video stays on your phone. It goes nowhere, we never see it, and there is no upload: it disappears when you close the page. And we do not score your face, your posture or your “confidence”. Those signals differ from one culture to the next: scoring them would mean measuring how far you sit from a norm. The camera is a mirror, not a jury.</p>
+      <p style="color:var(--d-doux);font-size:.9rem;margin:0 0 .9rem" data-t="cam_sub">Say it out loud, then watch yourself. Hearing your own words is worth more than any tip.</p>
       <div class="cf-ex" id="cam-ex"></div>
       <div class="cf-consigne" id="cam-consigne"></div>
+      <p style="margin:.2rem 0 0;font-weight:600;color:var(--d-fort);font-size:.9rem" data-t="cam_lt">What to cover</p>
+      <ul class="cam-liste" id="cam-liste"></ul>
       <video class="cf-video" id="cam-video" playsinline muted></video>
       <div class="cf-cam-btns">
-        <button class="btn" type="button" id="cam-go">Turn on the camera</button>
-        <button class="btn" type="button" id="cam-rec" style="display:none">● Record</button>
-        <button class="btn" type="button" id="cam-stop" style="display:none">■ Stop</button>
-        <button class="btn" type="button" id="cam-del" style="display:none">Delete</button>
+        <button class="btn" type="button" id="cam-go" data-t="cam_go">Turn on the camera</button>
+        <button class="btn" type="button" id="cam-rec" style="display:none" data-t="cam_rec">● Record</button>
+        <button class="btn" type="button" id="cam-stop" style="display:none" data-t="cam_stop">■ Stop</button>
+        <button class="btn" type="button" id="cam-del" style="display:none" data-t="cam_del">Delete the recording</button>
       </div>
-      <p class="cf-cam-st" id="cam-st"></p>
-      <p style="color:var(--d-fort);font-weight:600;margin:1rem 0 0" id="cam-lt">What to look for when you play it back</p>
-      <ul class="cf-liste" id="cam-liste"></ul>
+      <p class="co-st" id="cam-st" role="status" aria-live="polite"></p>
     </div>
-  </div></section>
 
-  <footer>
+    <div class="co-note" style="background:var(--d-accent-fond);border-color:var(--d-accent-bord)">
+      <h2 data-t="pool_t">Ready to be found by DSPs?</h2>
+      <p style="margin-top:.6rem"><a class="btn btn-primary" href="vivye.html" data-t="pool_b">Join the Driver Pool — free →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
   <div class="container">
     <p style="font-size:.85rem;color:var(--d-doux)"><span data-d3="f_service">Driver360 — a service by <a href="https://atmart.ltd" style="color:var(--d-accent)">Atmart LLC</a>.</span><br />
     <span data-d3="f_question">A question</span>: <a href="mailto:sales@atmart.ltd" style="color:var(--d-accent)">sales@atmart.ltd</a></p>
@@ -449,732 +198,507 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   </div>
 </footer>
 
-<script src="assets/script.js?v=2"></script>
 <script>
-(function () {
-  "use strict";
-  var EP = "https://atmart-chat.atmartllc.workers.dev/wout";
-
-  // ---------- manoeuvres : 3 phases, commandes reelles, grilles d'erreurs ----------
-  // sev "F" = echec automatique au vrai test · "m" = erreur mineure (points)
-  var M = [
-    { id:"a1", ph:"A", en:"Get ready to drive.",
-      t:{ht:"Prepare w pou kondwi.",fr:"Préparez-vous à conduire.",es:"Prepárate para conducir.",en:"Get ready to drive."},
-      errs:[{id:"belt",sev:"F",t:{ht:"Pa mete senti AVAN tout bagay",fr:"Ceinture non mise en premier",es:"Sin cinturón primero",en:"No seatbelt first"}},
-            {id:"mir",sev:"m",t:{ht:"Pa regle sèj/retrovizè yo",fr:"Siège/rétros non réglés",es:"Asiento/espejos sin ajustar",en:"Seat/mirrors not adjusted"}},
-            {id:"ctl",sev:"m",t:{ht:"Pa konn ekipman yo (limyè, klaksòn…)",fr:"Commandes inconnues",es:"No conoce los controles",en:"Doesn't know controls"}}] },
-    { id:"a2", ph:"A", en:"Show me the hand signals: stop, left turn, right turn.",
-      t:{ht:"Montre m siyal men yo : kanpe, vire agoch, vire adwat.",fr:"Montrez-moi les signaux de la main : stop, gauche, droite.",es:"Muéstrame las señales de mano: alto, izquierda, derecha.",en:"Show me the hand signals."},
-      errs:[{id:"sig",sev:"F",t:{ht:"Siyal la pa kòrèk",fr:"Signal incorrect",es:"Señal incorrecta",en:"Wrong signal"}},
-            {id:"hes",sev:"m",t:{ht:"Twòp ezitasyon",fr:"Trop d'hésitation",es:"Demasiada duda",en:"Hesitation"}}] },
-    { id:"a3", ph:"A", en:"Pull away from the curb when it's safe.",
-      t:{ht:"Kite twotwa a lè li san danje.",fr:"Quittez le trottoir quand c'est sûr.",es:"Sal de la acera cuando sea seguro.",en:"Pull away from the curb."},
-      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (head check)",fr:"Pas de head check",es:"Sin girar la cabeza",en:"No head check"}},
-            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}},
-            {id:"jerk",sev:"m",t:{ht:"Demaraj brital",fr:"Départ brusque",es:"Arranque brusco",en:"Jerky start"}}] },
-    { id:"b1", ph:"B", en:"Come to a complete stop at the stop sign.",
-      t:{ht:"Kanpe NÈT devan siy STOP la.",fr:"Arrêt COMPLET au stop.",es:"Alto COMPLETO en el stop.",en:"Complete stop."},
-      errs:[{id:"roll",sev:"F",t:{ht:"Rolling stop (wou yo pa janm kanpe nèt)",fr:"Rolling stop",es:"Alto incompleto",en:"Rolling stop"}},
-            {id:"line",sev:"m",t:{ht:"Kanpe APRE liy lan",fr:"Arrêt après la ligne",es:"Parado tras la línea",en:"Stopped past line"}},
-            {id:"look",sev:"m",t:{ht:"Pa gade de bò yo",fr:"Pas regardé des deux côtés",es:"No miró ambos lados",en:"Didn't look both ways"}}] },
-    { id:"b2", ph:"B", en:"Pull over and back up in a straight line.",
-      t:{ht:"Rete sou kote a epi fè bak an liy dwat.",fr:"Arrêtez-vous et reculez en ligne droite.",es:"Detente y retrocede en línea recta.",en:"Back up straight."},
-      errs:[{id:"look",sev:"F",t:{ht:"Pa gade DÈYÈ nan vit la",fr:"Pas regardé derrière (vitre)",es:"No miró atrás",en:"Didn't look back"}},
-            {id:"line",sev:"m",t:{ht:"Kite liy dwat la",fr:"Sorti de la ligne",es:"Salió de la línea",en:"Left the line"}},
-            {id:"fast",sev:"m",t:{ht:"Twò vit",fr:"Trop vite",es:"Muy rápido",en:"Too fast"}}] },
-    { id:"b3", ph:"B", en:"Make a 3-point turn.",
-      t:{ht:"Fè yon 3-point turn.",fr:"Faites un demi-tour en 3 temps.",es:"Haz un giro de 3 puntos.",en:"3-point turn."},
-      errs:[{id:"curb",sev:"F",t:{ht:"Monte/frape twotwa a",fr:"Trottoir touché",es:"Golpeó la acera",en:"Hit the curb"}},
-            {id:"look",sev:"F",t:{ht:"Pa gade anvan CHAK manèv",fr:"Pas regardé avant chaque manœuvre",es:"No miró antes de cada movimiento",en:"No look each move"}},
-            {id:"many",sev:"m",t:{ht:"Plis pase 3 manèv",fr:"Plus de 3 manœuvres",es:"Más de 3 movimientos",en:"Too many moves"}},
-            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
-    { id:"b4", ph:"B", en:"Parallel park behind that vehicle.",
-      t:{ht:"Fè parallel parking dèyè machin sa a.",fr:"Stationnement parallèle derrière ce véhicule.",es:"Estaciona en paralelo detrás de ese vehículo.",en:"Parallel park."},
-      errs:[{id:"hit",sev:"F",t:{ht:"Frape kòn/twotwa/machin",fr:"Cône/trottoir touché",es:"Golpeó cono/acera",en:"Hit cone/curb"}},
-            {id:"far",sev:"m",t:{ht:"Twò lwen twotwa a (plis pase 12 pous)",fr:"Trop loin du trottoir (>12 po)",es:"Muy lejos de la acera",en:">12 in from curb"}},
-            {id:"many",sev:"m",t:{ht:"Twòp manèv",fr:"Trop de manœuvres",es:"Demasiados movimientos",en:"Too many moves"}}] },
-    { id:"b5", ph:"B", en:"Turn left at the next intersection.",
-      t:{ht:"Vire agoch nan pwochen entèseksyon an.",fr:"Tournez à gauche à la prochaine intersection.",es:"Gira a la izquierda en la próxima intersección.",en:"Turn at intersection."},
-      errs:[{id:"yield",sev:"F",t:{ht:"Pa sede pasaj",fr:"Priorité non cédée",es:"No cedió el paso",en:"Didn't yield"}},
-            {id:"lane",sev:"m",t:{ht:"Vire nan move liy",fr:"Mauvaise voie",es:"Carril equivocado",en:"Wrong lane"}},
-            {id:"sig",sev:"m",t:{ht:"Siyal twò ta",fr:"Clignotant tardif",es:"Señal tardía",en:"Late signal"}}] },
-    { id:"b6", ph:"B", en:"Continue straight and watch your speed.",
-      t:{ht:"Kontinye tou dwat, veye vitès ou (zòn 20/30 mph).",fr:"Continuez tout droit, surveillez la vitesse (zones 20/30 mph).",es:"Sigue recto, cuida tu velocidad.",en:"Watch your speed."},
-      errs:[{id:"speed",sev:"F",t:{ht:"Depase limit vitès la",fr:"Excès de vitesse",es:"Exceso de velocidad",en:"Over the limit"}},
-            {id:"slow",sev:"m",t:{ht:"Twò dousman",fr:"Trop lent",es:"Muy lento",en:"Too slow"}},
-            {id:"close",sev:"m",t:{ht:"Twò pre machin devan an",fr:"Distance trop courte",es:"Muy pegado",en:"Following too close"}}] },
-    { id:"b7", ph:"B", en:"Change lanes when it's safe.",
-      t:{ht:"Chanje liy lè li san danje.",fr:"Changez de voie quand c'est sûr.",es:"Cambia de carril cuando sea seguro.",en:"Change lanes."},
-      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (angle mò)",fr:"Angle mort non vérifié",es:"Punto ciego sin revisar",en:"No head check"}},
-            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
-    { id:"b8", ph:"B", en:"Start, stop and turn on the hill.",
-      t:{ht:"Kanpe, epi redemare ak vire nan mòn nan.",fr:"Arrêtez-vous, redémarrez et tournez dans la côte.",es:"Deténgase, arranque y gire en la cuesta.",en:"Stop, start again and turn on the hill."},
-      errs:[{id:"roll",sev:"F",t:{ht:"Machin nan rekile",fr:"Le véhicule recule",es:"El vehículo retrocede",en:"Vehicle rolls backward"}},
-            {id:"stall",sev:"m",t:{ht:"Motè a mouri / demarai sakade",fr:"Calé / démarrage saccadé",es:"Se cala / arranque brusco",en:"Stalls or jerky start"}},
-            {id:"gas",sev:"m",t:{ht:"Twòp gaz, wou yo patinen",fr:"Trop de gaz, les roues patinent",es:"Demasiado acelerador",en:"Too much gas, wheels spin"}}] },
-    { id:"c1", ph:"C", en:"Head back to the lot.",
-      t:{ht:"Retounen nan pakin lan — tès la POKO fini !",fr:"Retour au parking — le test n'est PAS fini !",es:"Regresa al estacionamiento — ¡el examen NO terminó!",en:"Head back — test not over!"},
-      errs:[{id:"relax",sev:"F",t:{ht:"Vijilans tonbe (stop rate, vitès…)",fr:"Relâchement (stop raté, vitesse…)",es:"Se relajó (alto/velocidad)",en:"Vigilance dropped"}},
-            {id:"lot",sev:"m",t:{ht:"Twò vit nan pakin lan",fr:"Trop vite dans le parking",es:"Rápido en el lote",en:"Fast in lot"}}] },
-    { id:"c2", ph:"C", en:"Park in that spot and secure the vehicle.",
-      t:{ht:"Pakin nan plas sa a epi sekirize machin nan.",fr:"Garez-vous et sécurisez le véhicule.",es:"Estaciona y asegura el vehículo.",en:"Park and secure."},
-      errs:[{id:"belt",sev:"F",t:{ht:"Retire senti pandan machin nan ap woule",fr:"Ceinture détachée en roulant",es:"Cinturón quitado en marcha",en:"Unbuckled while moving"}},
-            {id:"brake",sev:"m",t:{ht:"Pa mete fren pakin lan",fr:"Frein de stationnement oublié",es:"Sin freno de mano",en:"No parking brake"}},
-            {id:"eng",sev:"m",t:{ht:"Motè a rete limen",fr:"Moteur laissé allumé",es:"Motor encendido",en:"Engine left on"}}] }
-  ];
-  var PHASES = {
-    A:{ht:"ANVAN W DEMARE",fr:"AVANT DE DÉMARRER",es:"ANTES DE ARRANCAR",en:"BEFORE YOU DRIVE"},
-    B:{ht:"SOU WOUT LA",fr:"SUR LA ROUTE",es:"EN LA RUTA",en:"ON THE ROAD"},
-    C:{ht:"CHEMEN RETOU",fr:"LE RETOUR",es:"EL REGRESO",en:"THE WAY BACK"}
-  };
-
-  // ---------- interface 4 lang ----------
-  var L = {
-    fr:{ti:"Road Test MA — Driver Coach : réussir le test de conduite du Massachusetts | Atmart",kicker:"L'école vous montre à conduire. Nous, on vous fait PASSER le test — dans votre langue.",
-        sponsorWarn:"⚠️ <strong>Votre accompagnateur doit détenir un permis AMÉRICAIN</strong>, valide depuis un an au moins, et avoir 21 ans ou plus. Un permis haïtien, canadien ou français ne suffit pas : le RMV refuse le test sur place, et les frais sont perdus.",
-        vers7d:"🚌 Vous visez le transport scolaire ? Le certificat 7D a son propre examen écrit — <a href='setdi.html' style='color:var(--d-accent)'>préparez-le ici</a>.",
-        descr:"Driver Coach : préparez le test de conduite Class D du Massachusetts. Les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour, et votre accompagnateur guidé pas à pas. Non affilié à la RMV.",
-        lead:"Préparation indépendante, sans garantie de réussite. Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas.",
-        note:"Dossier anonyme par code. Non affilié à la RMV — préparation indépendante, aucune garantie de réussite. Le téléphone reste dans les mains de l'accompagnateur, véhicule à l'arrêt.",
-        ready:"Préparation au test — basée sur vos séances notées par votre accompagnateur.",
-        sess:"🚗 Séance avec sponsor",coach:"💬 Parler au coach",guide:"🖨 Guide du sponsor",res:"🏁 Résultat du test",
-        ok:"✅ Bien fait",next:"Suivant ⏭",speak:"🔊 Voix de l'examinateur",
-        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",confirmDel:"Effacer définitivement votre dossier ? Cette action ne s'annule pas.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Les questions qu'on nous pose vraiment</h2><details class='faq-q'><summary>Puis-je amener un interprète au test de conduite ?</summary><div class='faq-r'>Pas de plein droit. Le manuel dit qu'un interprète « peut être admis » <strong>si l'examinateur l'autorise</strong>. Demandez-le en réservant, et ne le supposez pas — travaillez les commandes anglaises tous les jours pour ne pas en dépendre.</div></details><details class='faq-q'><summary>Qui peut être mon accompagnateur ?</summary><div class='faq-r'>Quelqu'un de 21 ans ou plus, avec au moins un an d'expérience, titulaire d'un permis valide de son propre État américain. <strong>Un permis étranger n'est pas accepté</strong> — le manuel est explicite. Sans accompagnateur, on ne vous fait pas passer le test Class D.</div></details><details class='faq-q'><summary>Qu'est-ce qui peut arrêter le test avant même qu'il commence ?</summary><div class='faq-r'>Arriver en retard. Une demande de test incomplète, ou l'absence d'autorisation parentale si vous avez moins de 18 ans. Un véhicule refusé par l'examinateur : frein à main inaccessible, roue galette, plaque « repair », ou aides à la conduite qu'on ne peut pas désactiver. Des enfants ou des animaux dans la voiture — les chiens d'assistance sont admis.</div></details><details class='faq-q'><summary>Combien de fois puis-je passer le test de conduite ?</summary><div class='faq-r'>Pas plus de <strong>six fois sur 12 mois</strong> pour un permis Class D. Les 35 $ sont redus si vous échouez, êtes mal préparé, êtes refusé pour le véhicule, venez sans accompagnateur, arrivez en retard ou pas du tout, ou annulez à moins de 72 heures.</div></details><details class='faq-q'><summary>Driver Coach garantit-il que je vais réussir ?</summary><div class='faq-r'>Non. C'est une préparation indépendante, <strong>non affiliée au RMV</strong>. Le RMV ne publie aucun barème : personne ne peut vous dire exactement ce que compte l'examinateur — notre grille de fautes est la nôtre, et nous l'écrivons partout où elle apparaît.</div></details>",
-        good:"Parfait ! Manœuvre propre — on la refixera pour la stabilité.",
-        badF:"⛔ Éliminatoire dans notre grille : ",badm:"⚠️ Erreur mineure dans notre grille : ",
-        redo:"Corrigez et refaites-la maintenant, puis passez à la suite.",
-        fin:"Séance terminée — envoi au coach…",invalid:"Code invalide. Vérifiez-le, ou écrivez-nous.",
-        expired:"Accès expiré. Écrivez-nous pour un nouveau code gratuit — sales@atmart.ltd.",limit:"Limite du jour atteinte — le coach revient demain.",
-        err:"Petit souci technique. Réessayez.",hello:"Bonjou ! 👋 Je suis votre Driver Coach. Dites-moi où vous en êtes, ou lancez une séance avec votre accompagnateur.",
-        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code.",qzTitle:"Test écrit (Pèmi) — 25 questions, 18 pour réussir",qzRight:"✅ Correct ! ",qzWrong:"❌ Incorrect. ",qzScore:"Votre score : ",qzPass:"RÉUSSI 🎉 — vous êtes prêt pour le vrai test écrit.",qzFail:"Pas encore — révisez et recommencez demain.",qzFree:"Essai gratuit terminé (5 questions/jour). Le code Driver360 débloque les 25 questions + le coach.",qzNext:"Suivant ⏭",camT:"🎥 Se filmer pour se voir",camPriv:"La vidéo reste dans votre téléphone. Elle ne part nulle part, nous ne la voyons jamais, et il n'y a aucun envoi : elle disparaît quand vous fermez la page. Et nous ne notons ni votre visage, ni votre posture, ni votre « confiance ». Ces signaux changent d'une culture à l'autre : les noter reviendrait à mesurer votre écart à une norme. La caméra est un miroir, pas un jury.",camSub:"On ne répète pas la conduite devant une caméra. Mais trois choses se répètent exactement comme ça — et ce sont celles qu'on rate.",camLt:"À regarder en vous revoyant",camGo:"Allumer la caméra",camRec:"● Enregistrer",camStop:"■ Arrêter",camDel:"Supprimer",camDeny:"Le navigateur a refusé la caméra. Autorisez-la dans la barre d'adresse, puis réessayez. Si vous n'avez vu aucune demande, c'est le site qui la bloque — écrivez-nous.",camNo:"Ce navigateur ne sait pas enregistrer. Essayez Chrome ou Safari à jour.",camRun:"Enregistrement…",camDone:"Revoyez-vous, puis supprimez. Rien n'a quitté votre téléphone.",camExos:[["sig", "Signes du bras", "Show me your hand signals.", "Produisez les trois : bras tendu = à gauche ; avant-bras vers le haut = à droite ; avant-bras vers le bas = ralentir ou s'arrêter. Sans hésiter, et sans les chercher.", ["Le bras sort-il vraiment par la fenêtre, ou reste-t-il dans l'habitacle ?", "Les trois gestes s'enchaînent-ils sans temps mort ?", "Un examinateur derrière vous verrait-il le geste, ou votre épaule le cache-t-elle ?", "Hésitez-vous avant l'un des trois ? C'est celui à retravailler."]], ["rit", "Rituel d'avant départ", "Adjust your mirrors and fasten your seat belt.", "Le manuel demande que l'examinateur VOIE le geste. Fait « dans sa tête », il ne compte pas. Touchez les trois rétroviseurs, puis la ceinture.", ["Touchez-vous les trois rétroviseurs, visiblement ?", "La ceinture vient-elle après les rétroviseurs, ou l'avez-vous oubliée ?", "Cherchez-vous les commandes des phares et des essuie-glaces ? Trouvez-les avant le jour du test.", "Combien de secondes ? Au-delà de vingt, vous cherchez au lieu de savoir."]], ["cmd", "Commandes anglaises", "At the stop sign, take a right.", "L'examinateur parle anglais. Écoutez la phrase, puis dites à voix haute, dans votre langue, ce que vous feriez. Le coach vous en donne d'autres dans la conversation.", ["Avez-vous compris la phrase du premier coup, ou l'avez-vous devinée ?", "Combien de temps avant de répondre ? Dans la voiture, ce délai est du silence.", "Dites-vous le geste complet — arrêt complet, céder, puis tourner — ou seulement « tourner à droite » ?", "Réécoutez-vous : entendez-vous une hésitation que vous ne sentiez pas ?"]]],bg1:"🗣 4 langues",bg2:"🎯 13 manœuvres de notre grille",bg3:"📝 Test écrit inclus",bg4:"🕒 90 jours d'accès",f1t:"Mode Séance",f1d:"Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.",f2t:"Coach personnel",f2d:"Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.",f3t:"Guide de l'accompagnateur",avantTxt:"<strong>Avant d'avoir roulé un mètre — ce qui renvoie les gens chez eux</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Arrivez environ <strong>15 minutes en avance</strong>. En retard, pas de test.</li><li>Une demande de test remplie — avec la section d'autorisation parentale si vous avez moins de 18 ans — et votre permis d'apprenti.</li><li><strong>Un accompagnateur qualifié</strong> : 21 ans ou plus, un an d'expérience, et un permis valide de son propre État américain. <strong>Un permis étranger n'est pas accepté.</strong> Sans accompagnateur, pas de test.</li><li>Un véhicule qui passe l'inspection de l'examinateur : immatriculé, contrôlé, sûr, avec un siège propre et convenable pour l'examinateur et une place arrière pour votre accompagnateur.</li><li><strong>Un frein à main accessible</strong> — l'examinateur doit pouvoir arrêter la voiture. Un frein central est le plus sûr ; certains monospaces sont refusés pour cela seul.</li><li>Pas de roue de secours <strong>galette</strong>. Pas de plaque « repair ». Pas de plaque « dealer », sauf si vous êtes le concessionnaire, son conjoint, ou vendeur chez lui.</li><li>Caméra de recul, capteurs, créneau automatique, conduite guidée par GPS : <strong>désactivés</strong>.</li><li>Plaque d'un autre État : preuve d'assurance aux minimums du Massachusetts (20 000 / 40 000 $ dommages corporels, 5 000 $ matériels). Une location exige en plus le contrat et une lettre de l'agence autorisant un test de conduite.</li><li><strong>Ni enfants, ni animaux.</strong> Les chiens d'assistance sont admis. Seuls vous, l'examinateur et votre accompagnateur êtes dans la voiture, et vous n'avez pas le droit de parler à votre accompagnateur sans autorisation.</li><li><strong>L'interprète n'est pas un droit.</strong> Le manuel dit qu'il peut être admis « si l'examinateur l'autorise ». Demandez-le en réservant — ne le supposez pas.</li><li>Moins de 18 ans : un dossier de conduite propre pendant les <strong>six mois</strong> précédant la demande, et il doit le rester jusqu'au jour du test.</li><li>Six tests au maximum sur 12 mois. Les <strong>35 $</strong> sont redus si vous échouez, êtes mal préparé, êtes refusé pour le véhicule, venez sans accompagnateur, arrivez en retard ou pas du tout, ou annulez à moins de 72 heures.</li></ul>",f3d:"Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.",fh:"Commencer",fs:"Entrez votre code d'accès, ou essayez d'abord 5 questions du test écrit — gratuitement.",code:"🔑 Votre code Driver360",codeS:"Gratuit (WOUT-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Écrivez-nous</a>",date:"📅 Date de votre test routier (si déjà fixée)",shareTxt:"📊 Et je veux que les employeurs voient <strong>où j'en suis</strong> : préparation, score au test écrit, résultats d'examen. Sans cette case, ils ne voient rien de tout cela.",poolTxt:"Quand j'aurai réussi, je veux entrer dans le <strong>Driver Pool</strong> : des employeurs du Massachusetts pourront me contacter. (Optionnel — nom et téléphone partagés seulement si vous cochez.)",name:"Votre nom",phone:"Votre téléphone (WhatsApp)",city:"Votre ville / zone",cityS:"Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.",langs:"Langues que vous parlez",langsS:"Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.",nat:"Nationalité (optionnel)",natS:"Visible seulement par un employeur qui vous sélectionne.",go:"Ouvrir mon coach",tryb:"📝 Essayer 5 questions gratuites",quizBtn:"📝 Test écrit (Pèmi)",privacy:"🔒 Dossier anonyme lié à votre code.",erase:"Effacer mon dossier",send:"Envoyer",inputP:"Écrivez à votre coach…",outTitle:"🏁 Vos résultats officiels RMV",outSub:"Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.",outW:"Test écrit :",outR:"Test routier :",bpass:"✅ Réussi",bfail:"❌ Échoué",guideT:"🖨 Guide de l'accompagnateur (sponsor)",guideP:"Imprimer",b2bT:"🚌 Vous êtes une compagnie de transport ?",b2bD:"Recrutez dans le Driver Pool : des candidats préparés, avec résultats vérifiables — et équipez vos recrues dans leur langue.",b2bC:"Ouvrir le portail employeurs",b2bLic:"Déjà licencié (Class D, 7D, CDL) ? <a href='vivye.html' style='color:var(--d-accent)'>Inscrivez-vous gratuitement au pool →</a>",bridge:"Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.",aka:"Road Test MA",akaS:"le nom que tout le monde utilise"},
-    ht:{ti:"Road Test MA — Driver Coach : pase tès kondwi Massachusetts la | Atmart",kicker:"Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.",
-        sponsorWarn:"⚠️ <strong>Akonpayatè w la dwe gen yon lisans AMERIKEN</strong>, ki valid depi omwen yon ane, epi li dwe gen 21 an oswa plis. Yon lisans ayisyen, kanadyen oswa franse pa ase : RMV la ap refize tès la sou plas, epi lajan an pèdi.",
-        vers7d:"🚌 Ou vize transpò lekòl ? Sètifika 7D a gen pwòp egzamen ekri pa l — <a href='setdi.html' style='color:var(--d-accent)'>prepare l isit la</a>.",
-        descr:"Driver Coach : prepare tès kondwi Class D Massachusetts la. Vrè kòmand egzaminatè a an angle, pèlen anvan ou pati, sou wout la ak nan retou a, epi akonpayatè w gide etap pa etap. Nou pa afilye ak RMV. Gril erè anba a se <strong>pa nou</strong> : RMV la pa pibliye okenn barèm. la.",
-        lead:"Preparasyon endepandan, san garanti pou w pase. Coach preparasyon pou tès kondwi Class D Massachusetts la : vrè kòmand egzaminatè a an angle, pèlen yo anvan w demare, sou wout la ak sou chemen retou a — epi moun k ap akonpaye w la gide etap pa etap.",
-        note:"Dosye anonim ak kòd. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Telefòn nan rete nan men akonpayatè a, machin nan kanpe.",
-        ready:"Nivo preparasyon ou — baze sou seyans akonpayatè ou note yo.",
-        sess:"🚗 Seyans ak sponsor",coach:"💬 Pale ak coach la",guide:"🖨 Gid sponsor a",res:"🏁 Rezilta tès la",
-        ok:"✅ Byen fèt",next:"Pwochen ⏭",speak:"🔊 Vwa egzaminatè a",
-        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",confirmDel:"Efase dosye w nèt ? Ou pa ka defèt aksyon sa a.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Kesyon moun poze nou tout bon</h2><details class='faq-q'><summary>Ès ke m ka vini ak yon entèprèt nan tès kondwi a ?</summary><div class='faq-r'>Se pa yon dwa. Manyèl la di yon entèprèt « ka aksepte » <strong>si egzaminatè a otorize l</strong>. Mande sa lè w ap pran randevou, epi pa sipoze l — travay kòmand angle yo chak jou pou w pa depann de li.</div></details><details class='faq-q'><summary>Kilès ki ka akonpaye m ?</summary><div class='faq-r'>Yon moun 21 an oswa plis, ak omwen yon ane eksperyans, ki gen yon pèmi valid nan pwòp Eta ameriken li. <strong>Yon pèmi etranje pa aksepte</strong> — manyèl la di l klè. San akonpayatè, yo p ap fè w pase tès Class D a.</div></details><details class='faq-q'><summary>Kisa ki ka kanpe tès la anvan menm li kòmanse ?</summary><div class='faq-r'>Rive an reta. Yon demann tès ki pa konplè, oswa san otorizasyon paran si w anba 18 an. Yon machin egzaminatè a refize : fren a men ki pa aksesib, yon kawotchou ti galèt, yon plak « repair », oswa èd kondwit ou pa ka dezaktive. Timoun oswa bèt nan machin nan — chen asistans aksepte.</div></details><details class='faq-q'><summary>Konbien fwa m ka pase tès kondwi a ?</summary><div class='faq-r'>Pa plis pase <strong>sis fwa nan 12 mwa</strong> pou yon pèmi Class D. 35 $ yo peye ankò si w echwe, si w pa prepare, si yo refize machin nan, si w vini san akonpayatè, si w an reta oswa ou pa vini, oswa si w anile a mwens pase 72 è.</div></details><details class='faq-q'><summary>Ès ke Driver Coach garanti m ap pase ?</summary><div class='faq-r'>Non. Se yon preparasyon endepandan, <strong>li pa afilye ak RMV la</strong>. RMV la pa pibliye okenn barèm : pèsòn pa ka di w egzakteman sa egzaminatè a konte — gril erè pa nou an se pa nou, epi nou di sa tout kote li parèt.</div></details>",
-        good:"Bravo ! Manèv la pwòp — n ap refè l pou li vin solid.",
-        badF:"⛔ Eliminatwa nan gril pa nou an : ",badm:"⚠️ Ti erè nan gril pa nou an : ",
-        redo:"Korije epi refè l kounye a, apre sa pase sou pwochen an.",
-        fin:"Seyans fini — n ap voye bay coach la…",invalid:"Kòd la pa bon. Verifye l, oswa ekri nou.",
-        expired:"Aksè a fini. Ekri nou pou yon nouvo kòd gratis — sales@atmart.ltd.",limit:"Limit jou a rive — coach la ap tounen demen.",
-        err:"Yon ti pwoblèm teknik. Eseye ankò.",hello:"Bonjou ! 👋 Mwen se Driver Coach ou. Di m kote ou ye, oswa kòmanse yon seyans ak akonpayatè ou.",
-        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou.",qzTitle:"Tès ekri (Pèmi) — 25 kesyon, 18 pou pase",qzRight:"✅ Kòrèk ! ",qzWrong:"❌ Pa sa. ",qzScore:"Nòt ou : ",qzPass:"OU PASE 🎉 — ou pare pou vrè tès ekri a.",qzFail:"Poko — revize epi rekòmanse demen.",qzFree:"Esè gratis la fini (5 kesyon pa jou). Kòd gratis Driver360 a debloke tout 25 kesyon yo + coach la.",qzNext:"Pwochen ⏭",camT:"🎥 Filme tèt ou pou w wè tèt ou",camPriv:"Videyo a rete nan telefòn ou. Li pa ale okenn kote, nou pa janm wè l, epi pa gen okenn voye : li disparèt lè w fèmen paj la. Epi nou pa bay nòt ni pou figi w, ni pou posti w, ni pou « konfyans » ou. Siy sa yo chanje depi yon kilti rive nan yon lòt : bay yo nòt ta vle di mezire distans ki genyen ant ou ak yon nòm. Kamera a se yon glas, se pa yon jiri.",camSub:"Ou pa repete kondwi devan yon kamera. Men twa bagay repete egzakteman konsa — epi se yo moun rate.",camLt:"Sa pou w gade lè w ap rekoute w",camGo:"Limen kamera a",camRec:"● Anrejistre",camStop:"■ Kanpe",camDel:"Efase",camDeny:"Navigatè a refize kamera a. Otorize l nan ba adrès la, epi eseye ankò. Si w pa t wè okenn demann, se sit la k ap bloke l — ekri nou.",camNo:"Navigatè sa a pa ka anrejistre. Eseye yon Chrome oswa Safari ajou.",camRun:"Ap anrejistre…",camDone:"Gade tèt ou, apre sa efase. Anyen pa t kite telefòn ou.",camExos:[["sig", "Siy ak bra", "Show me your hand signals.", "Fè tou lè twa : bra lonje = agoch ; avanbra anlè = adwat ; avanbra anba = ralanti oswa kanpe. San ezite, epi san chèche yo.", ["Èske bra a soti tout bon nan fenèt la, oswa li rete anndan machin nan ?", "Èske twa siy yo swiv youn lòt san rete ?", "Èske yon egzaminatè bò kote w ta wè jès la, oswa zepòl ou kache l ?", "Èske w ezite anvan youn nan twa yo ? Se sa a pou w travay."]], ["rit", "Ritèl anvan w pati", "Adjust your mirrors and fasten your seat belt.", "Manyèl la mande pou egzaminatè a WÈ jès la. Si w fè l nan tèt ou, li pa konte. Manyen twa retwovizè yo, apre sa senti a.", ["Èske w manyen twa retwovizè yo, kote moun wè ?", "Èske senti a vini apre retwovizè yo, oswa ou bliye l ?", "Èske w ap chèche bouton limyè ak esui-glas yo ? Jwenn yo anvan jou tès la.", "Konbyen segonn ? Pi lwen pase ven, ou ap chèche olye ou konnen."]], ["cmd", "Kòmand an angle", "At the stop sign, take a right.", "Egzaminatè a pale angle. Koute fraz la, apre sa di byen fò, nan lang ou, sa ou ta fè. Coach la ba w lòt yo nan konvèsasyon an.", ["Èske w konprann li premye fwa a, oswa ou devine l ?", "Konbyen tan anvan w reponn ? Nan machin nan, reta sa a se silans.", "Èske w di jès la nèt — kanpe nèt, bay pasaj, apre sa vire — oswa sèlman « vire adwat » ?", "Rekoute w : èske w tande yon ezitasyon ou pa t santi ?"]]],bg1:"🗣 4 lang",bg2:"🎯 13 manèv nan gril pa nou an",bg3:"📝 Tès ekri enkli",bg4:"🕒 90 jou aksè",f1t:"Mòd Seyans",f1d:"Vrè kòmand egzaminatè a, an angle ak nan lang ou. Akonpayatè ou note, coach la korije menm kote a.",f2t:"Coach pèsonèl",f2d:"Li sonje seyans ou yo, vize pwen fèb ou yo epi ba ou yon ti egzèsis chak jou.",f3t:"Gid akonpayatè a",avantTxt:"<strong>Anvan menm ou woule yon mèt — sa ki voye moun tounen lakay yo</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Rive apeprè <strong>15 minit davans</strong>. Si w an reta, pa gen tès.</li><li>Yon demann tès ki ranpli — ak seksyon otorizasyon paran an si w anba 18 an — epi pèmi aprantisaj ou.</li><li><strong>Yon akonpayatè kalifye</strong> : 21 an oswa plis, yon ane eksperyans, ak yon pèmi valid nan pwòp Eta ameriken li. <strong>Yon pèmi etranje pa aksepte.</strong> San akonpayatè, pa gen tès.</li><li>Yon machin ki pase enspeksyon egzaminatè a : anrejistre, enspekte, an sekirite, ak yon syèj pwòp pou egzaminatè a ak yon plas dèyè pou akonpayatè w.</li><li><strong>Yon fren a men aksesib</strong> — egzaminatè a dwe ka kanpe machin nan. Yon fren nan mitan an pi sû ; gen minivan yo refize pou sa sèlman.</li><li>Pa gen kawotchou sekou <strong>ti galèt</strong>. Pa gen plak « repair ». Pa gen plak « dealer », sof si se ou menm ki konsesyonè a, mari/madanm li, oswa vandè lakay li.</li><li>Kamera rekil, kaptè, kreno otomatik, kondwit gide pa GPS : <strong>dezaktive</strong>.</li><li>Plak yon lòt Eta : prèv asirans nan minimòm Massachusetts yo (20 000 / 40 000 $ domaj kòpòrèl, 5 000 $ materyèl). Yon machin lwe mande kontra a plis yon lèt ajans lan ki otorize yon tès kondwi.</li><li><strong>Ni timoun, ni bèt.</strong> Chen asistans aksepte. Se sèlman ou, egzaminatè a ak akonpayatè w ki nan machin nan, epi ou pa gen dwa pale ak akonpayatè w san otorizasyon.</li><li><strong>Entèprèt la se pa yon dwa.</strong> Manyèl la di yo ka aksepte youn « si egzaminatè a otorize l ». Mande sa lè w ap pran randevou — pa sipoze l.</li><li>Anba 18 an : yon dosye kondwi pwòp pandan <strong>sis mwa</strong> anvan demann nan, epi li dwe rete pwòp jiska jou tès la.</li><li>Sis tès maksimòm nan 12 mwa. <strong>35 $</strong> yo peye ankò si w echwe, si w pa prepare, si yo refize machin nan, si w vini san akonpayatè, si w an reta oswa ou pa vini, oswa si w anile a mwens pase 72 è.</li></ul>",f3d:"Sis seyans byen ranje pou enprime : sponsò w vin yon vrè enstriktè, san li pa t bezwen konnen anyen davans.",fh:"Kòmanse",fs:"Mete kòd aksè ou, oswa eseye 5 kesyon tès ekri a anvan — gratis.",code:"🔑 Kòd Driver360 ou",codeS:"Gratis (WOUT-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Ekri nou</a>",date:"📅 Dat tès wout ou (si li fikse deja)",shareTxt:"📊 Epi mwen vle anplwayè yo wè <strong>kote m rive</strong> : preparasyon, nòt nan tès ekri a, rezilta egzamen yo. San kaz sa a, yo pa wè anyen nan sa.",poolTxt:"Lè m pase tès la, mwen vle antre nan <strong>pool chofè Driver360 la</strong> : anplwayè nan Massachusetts ap ka kontakte m. (Opsyonèl — non ak telefòn pataje sèlman si w tcheke.)",name:"Non ou",phone:"Telefòn ou (WhatsApp)",city:"Vil / zòn ou",cityS:"Egz. : Fitchburg, Worcester — sa ede anplwayè yo vize sektè yo.",langs:"Lang ou pale",langsS:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou jwenn travay.",nat:"Nasyonalite (opsyonèl)",natS:"Sèlman yon anplwayè ki chwazi w ki wè l.",go:"Ouvri coach mwen",tryb:"📝 Eseye 5 kesyon gratis",quizBtn:"📝 Tès ekri (Pèmi)",privacy:"🔒 Dosye anonim ki mare ak kòd ou.",erase:"Efase dosye m",send:"Voye",inputP:"Ekri coach ou a…",outTitle:"🏁 Rezilta ofisyèl RMV ou yo",outSub:"Anrejistre rezilta ou yo — yo nouri dosye w, epi si w te dakò, pool anbochaj la.",outW:"Tès ekri :",outR:"Tès wout :",bpass:"✅ Pase",bfail:"❌ Echwe",guideT:"🖨 Gid akonpayatè a (sponsor)",guideP:"Enprime",b2bT:"🚌 Ou se yon konpayi transpò ?",b2bD:"Rekrite nan Driver Pool la : kandida ki prepare, ak rezilta ou ka verifye — epi ekipe nouvo anplwaye w yo nan lang yo.",b2bC:"Ouvri pòtay anplwayè a",b2bLic:"Ou gen lisans deja (Class D, 7D, CDL) ? <a href='vivye.html' style='color:var(--d-accent)'>Enskri gratis nan pool la →</a>",bridge:"Felisitasyon ! Pwochen etap : 90 premye jou ou nan yon nouvo travay.",aka:"Road Test MA",akaS:"non tout moun itilize a"},
-    en:{ti:"Road Test MA — Driver Coach: pass the Massachusetts road test | Atmart",kicker:"Driving school teaches you to drive. We get you to PASS the test — in your language.",
-        sponsorWarn:"⚠️ <strong>Your sponsor must hold a U.S. licence</strong>, valid for at least one year, and be 21 or older. A Haitian, Canadian or French licence is not enough: the RMV refuses the test on the spot, and the fee is lost.",
-        vers7d:"🚌 Aiming for school transport? The 7D certificate has its own written exam — <a href='setdi.html' style='color:var(--d-accent)'>prepare for it here</a>.",
-        descr:"Driver Coach: prepare for the Massachusetts Class D road test. The examiner's real commands in English, the traps before you start, on the road and on the way back, and your sponsor guided step by step. Not affiliated with the RMV. The fault grid below is <strong>ours</strong>: the RMV publishes no scoring sheet..",
-        lead:"Independent preparation, with no guarantee you will pass. The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.",
-        note:"Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.",
-        ready:"Test readiness — based on sessions scored by your sponsor.",
-        sess:"🚗 Session with sponsor",coach:"💬 Talk to the coach",guide:"🖨 Sponsor guide",res:"🏁 Test result",
-        ok:"✅ Well done",next:"Next ⏭",speak:"🔊 Examiner's voice",
-        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",confirmDel:"Permanently erase your file? This cannot be undone.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Questions people actually ask</h2><details class='faq-q'><summary>Can I bring an interpreter to the road test?</summary><div class='faq-r'>Not as a right. The manual says an interpreter “may also be allowed” <strong>if the examiner so authorizes</strong>. Ask when you book your test, and do not assume — drill the English commands daily so you are not depending on it.</div></details><details class='faq-q'><summary>Who can be my sponsor?</summary><div class='faq-r'>Someone 21 or over, with at least one year of driving experience, holding a valid licence from their own US state. <strong>A foreign licence is not eligible</strong> — the manual is explicit. Without a sponsor you are not given a Class D road test.</div></details><details class='faq-q'><summary>What can stop the test before it even starts?</summary><div class='faq-r'>Arriving late. An incomplete road-test application, or no parental consent if you are under 18. A vehicle the examiner rejects: parking brake not reachable, a “donut” spare tire, a repair plate, or driver aids that cannot be turned off. Children or pets in the car — service animals are allowed.</div></details><details class='faq-q'><summary>How many times can I take the road test?</summary><div class='faq-r'>No more than <strong>six in a 12-month period</strong> for a Class D licence. The $35 fee is charged again if you fail, are unprepared, are refused over the vehicle, come without a sponsor, are late or absent, or cancel with less than 72 hours notice.</div></details><details class='faq-q'><summary>Does Driver Coach guarantee I will pass?</summary><div class='faq-r'>No. It is independent preparation and it is <strong>not affiliated with the RMV</strong>. The RMV publishes no scoring sheet, so nobody can tell you exactly what the examiner counts — our fault grid is ours, and we say so on every screen where it appears.</div></details>",
-        good:"Great! Clean maneuver — we'll repeat it for stability.",
-        badF:"⛔ Disqualifying in our grid: ",badm:"⚠️ Minor error in our grid: ",
-        redo:"Correct it and redo it now, then move on.",
-        fin:"Session finished — sending to the coach…",invalid:"Invalid code. Check it, or write to us.",
-        expired:"Access expired. Write to us for a new free code — sales@atmart.ltd.",limit:"Daily limit reached — the coach returns tomorrow.",
-        err:"Small technical issue. Try again.",hello:"Hello! 👋 I'm your Driver Coach. Tell me where you are, or start a session with your sponsor.",
-        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code.",qzTitle:"Written test (Pèmi) — 25 questions, 18 to pass",qzRight:"✅ Correct! ",qzWrong:"❌ Not quite. ",qzScore:"Your score: ",qzPass:"PASSED 🎉 — you are ready for the real written test.",qzFail:"Not yet — review and try again tomorrow.",qzFree:"Free trial done (5 questions/day). The Driver360 code unlocks all 25 + the coach.",qzNext:"Next ⏭",camT:"🎥 Film yourself to see yourself",camPriv:"The video stays on your phone. It goes nowhere, we never see it, and there is no upload: it disappears when you close the page. And we do not score your face, your posture or your “confidence”. Those signals differ from one culture to the next: scoring them would mean measuring how far you sit from a norm. The camera is a mirror, not a jury.",camSub:"You do not rehearse driving in front of a camera. But three things rehearse exactly like this — and they are the ones people fail.",camLt:"What to look for when you play it back",camGo:"Turn on the camera",camRec:"● Record",camStop:"■ Stop",camDel:"Delete",camDeny:"The browser refused the camera. Allow it from the address bar, then try again. If you saw no prompt at all, the site is blocking it — write to us.",camNo:"This browser cannot record. Try an up-to-date Chrome or Safari.",camRun:"Recording…",camDone:"Play it back, then delete. Nothing left your phone.",camExos:[["sig", "Hand signals", "Show me your hand signals.", "Produce all three: arm straight out = left; forearm up = right; forearm down = slow or stop. Without hesitating, and without hunting for them.", ["Does the arm actually go out of the window, or stay inside the car?", "Do the three signals follow one another with no dead time?", "Would an examiner beside you see the gesture, or does your shoulder hide it?", "Do you hesitate before one of the three? That is the one to work on."]], ["rit", "Pre-drive ritual", "Adjust your mirrors and fasten your seat belt.", "The manual asks that the examiner SEE the gesture. Done in your head, it does not count. Touch all three mirrors, then the belt.", ["Do you touch all three mirrors, visibly?", "Does the belt come after the mirrors, or did you forget it?", "Are you hunting for the headlight and wiper controls? Find them before test day.", "How many seconds? Past twenty, you are searching rather than knowing."]], ["cmd", "English commands", "At the stop sign, take a right.", "The examiner speaks English. Listen to the sentence, then say out loud, in your language, what you would do. The coach gives you more in the conversation.", ["Did you understand it first time, or did you guess it?", "How long before you answered? In the car, that delay is silence.", "Do you say the whole action — complete stop, yield, then turn — or only 'turn right'?", "Play it back: do you hear a hesitation you could not feel?"]]],bg1:"🗣 4 languages",bg2:"🎯 12 test maneuvers",bg3:"📝 Written test included",bg4:"🕒 90 days of access",f1t:"Session Mode",f1d:"The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.",f2t:"Personal coach",f2d:"It remembers your sessions, targets your weak points and gives you one short drill every day.",f3t:"Sponsor's guide",avantTxt:"<strong>Before you drive a single metre — what sends people home</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Arrive about <strong>15 minutes early</strong>. Late means no test.</li><li>A completed road test application — with the parental consent section filled in if you are under 18 — and your learner's permit.</li><li><strong>A qualified sponsor</strong>: 21 or over, one year of driving experience, and a valid licence from their own US state. <strong>A foreign licence is not eligible.</strong> No sponsor, no test.</li><li>A vehicle that passes the examiner's inspection: registered, inspected, safe, with a clean and adequate seat for the examiner and a rear seat for your sponsor.</li><li><strong>An accessible parking brake</strong> — the examiner must be able to stop the car. A centrally located one is safest; some minivans are rejected for this alone.</li><li>No <strong>donut</strong> spare tire. No repair plate. No dealer plate unless you are the dealer, their spouse, or a salesperson there.</li><li>Back-up camera, parking sensors, automatic parallel park, GPS-guided driving: <strong>turned off</strong>.</li><li>Out-of-state plates: proof of insurance at Massachusetts minimums ($20,000/$40,000 bodily injury, $5,000 property). A rental also needs the rental agreement and a letter from the company authorising a road test.</li><li><strong>No children, no pets.</strong> Service animals are allowed. Only you, the examiner and your sponsor are in the car, and you may not talk to your sponsor unless the examiner allows it.</li><li><strong>An interpreter is not a right.</strong> The manual says one may be allowed “if the examiner so authorizes”. Ask when you book — do not assume.</li><li>Under 18: a clean driving record for the <strong>six months</strong> before you apply, and it must stay clean until test day.</li><li>Six road tests maximum in 12 months. The <strong>$35</strong> is charged again if you fail, are unprepared, are refused over the vehicle, bring no sponsor, are late or absent, or cancel with less than 72 hours notice.</li></ul>",f3d:"Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.",fh:"Get started",fs:"Enter your access code, or try 5 written-test questions first — free.",code:"🔑 Your Driver360 code",codeS:"Free (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Write to us</a>",date:"📅 Your road test date (if already booked)",shareTxt:"📊 And I want employers to see <strong>how far along I am</strong>: preparation, written-test score, exam results. Without this box they see none of it.",poolTxt:"Once I pass, I want to join the <strong>Driver Pool</strong>: Massachusetts employers may contact me. (Optional — name and phone shared only if you check this.)",name:"Your name",phone:"Your phone (WhatsApp)",city:"Your city / area",cityS:"E.g.: Fitchburg, Worcester — helps employers target their area.",langs:"Languages you speak",langsS:"E.g.: Kreyòl, English, Spanish — a real hiring advantage.",nat:"Nationality (optional)",natS:"Visible only to an employer who selects you.",go:"Open my coach",tryb:"📝 Try 5 free questions",quizBtn:"📝 Written test (Pèmi)",privacy:"🔒 Anonymous file tied to your code.",erase:"Erase my file",send:"Send",inputP:"Write to your coach…",outTitle:"🏁 Your official RMV results",outSub:"Record your results — they feed your file and, if you agreed, the hiring pool.",outW:"Written test:",outR:"Road test:",bpass:"✅ Passed",bfail:"❌ Failed",guideT:"🖨 Sponsor's guide",guideP:"Print",b2bT:"🚌 Are you a transport company?",b2bD:"Recruit from the Driver360 pool: prepared candidates with verifiable results — and equip your new hires in their language.",b2bC:"Open the employer portal",b2bLic:"Already licensed (Class D, 7D, CDL)? <a href='vivye.html' style='color:var(--d-accent)'>Join the pool for free →</a>",bridge:"Congratulations! Next step: your first 90 days on the job.",aka:"Road Test MA",akaS:"the name everyone uses"},
-    es:{ti:"Road Test MA — Driver Coach: aprueba el examen de manejo de Massachusetts | Atmart",kicker:"La escuela te enseña a conducir. Nosotros te hacemos PASAR el examen — en tu idioma.",
-        sponsorWarn:"⚠️ <strong>Tu acompañante debe tener una licencia ESTADOUNIDENSE</strong>, vigente desde hace al menos un año, y tener 21 años o más. Una licencia haitiana, canadiense o francesa no basta: el RMV rechaza el examen en el acto y se pierde la tarifa.",
-        vers7d:"🚌 ¿Apuntas al transporte escolar? El certificado 7D tiene su propio examen escrito — <a href='setdi.html' style='color:var(--d-accent)'>prepáralo aquí</a>.",
-        descr:"Driver Coach: prepara el examen de manejo Class D de Massachusetts. Las órdenes reales del examinador en inglés, las trampas antes de arrancar, en ruta y al regreso, y tu acompañante guiado paso a paso. No afiliado al RMV. La tabla de faltas de abajo es <strong>nuestra</strong>: el RMV no publica ningún baremo..",
-        lead:"Preparación independiente, sin garantía de aprobar. El coach de preparación para el examen de manejo Class D de Massachusetts: las órdenes reales del examinador en inglés, las trampas antes de arrancar, en la ruta y al regreso — con tu acompañante guiado paso a paso.",
-        note:"Expediente anónimo por código. No afiliado al RMV — preparación independiente, sin garantía. El teléfono queda en manos del acompañante, vehículo detenido.",
-        ready:"Preparación para el examen — según las sesiones calificadas por tu acompañante.",
-        sess:"🚗 Sesión con sponsor",coach:"💬 Hablar con el coach",guide:"🖨 Guía del sponsor",res:"🏁 Resultado del examen",
-        ok:"✅ Bien hecho",next:"Siguiente ⏭",speak:"🔊 Voz del examinador",
-        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",confirmDel:"¿Borrar definitivamente tu expediente? Esto no se puede deshacer.",faqTxt:"<h2 style='font-size:1.15rem;margin:0 0 0.6rem'>Las preguntas que de verdad nos hacen</h2><details class='faq-q'><summary>¿Puedo llevar un intérprete al examen de manejo?</summary><div class='faq-r'>No como derecho. El manual dice que un intérprete « puede ser admitido » <strong>si el examinador lo autoriza</strong>. Pregúntalo al reservar, y no lo des por hecho — practica las órdenes en inglés a diario para no depender de él.</div></details><details class='faq-q'><summary>¿Quién puede ser mi acompañante?</summary><div class='faq-r'>Alguien de 21 años o más, con al menos un año de experiencia y licencia válida de su propio estado. <strong>Una licencia extranjera no sirve</strong> — el manual es explícito. Sin acompañante no te hacen el examen Class D.</div></details><details class='faq-q'><summary>¿Qué puede parar el examen antes de empezar?</summary><div class='faq-r'>Llegar tarde. Una solicitud incompleta, o sin consentimiento parental si eres menor de 18. Un vehículo que el examinador rechaza: freno de mano inaccesible, rueda de galleta, placa « repair », o ayudas a la conducción que no se pueden desactivar. Niños o mascotas en el coche — los animales de servicio sí.</div></details><details class='faq-q'><summary>¿Cuántas veces puedo presentar el examen?</summary><div class='faq-r'>No más de <strong>seis en 12 meses</strong> para una licencia Class D. Los $35 se cobran otra vez si suspendes, no estás preparado, te rechazan el vehículo, vienes sin acompañante, llegas tarde o no vienes, o cancelas con menos de 72 horas.</div></details><details class='faq-q'><summary>¿Driver Coach garantiza que voy a aprobar?</summary><div class='faq-r'>No. Es una preparación independiente y <strong>no está afiliada al RMV</strong>. El RMV no publica ningún baremo: nadie puede decirte exactamente qué cuenta el examinador — nuestra tabla de faltas es nuestra, y lo decimos en cada pantalla donde aparece.</div></details>",
-        good:"¡Perfecto! Maniobra limpia — la repetiremos para afianzarla.",
-        badF:"⛔ Eliminatorio en nuestra tabla: ",badm:"⚠️ Error menor en nuestra tabla: ",
-        redo:"Corrígelo y repítelo ahora, luego sigue.",
-        fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
-        expired:"Acceso vencido. Escríbenos para un nuevo código gratis — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
-        err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu Driver Coach. Dime dónde estás, o inicia una sesión con tu acompañante.",
-        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 25 preguntas, 18 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Driver360 desbloquea las 25 + el coach.",qzNext:"Siguiente ⏭",camT:"🎥 Grábate para verte",camPriv:"El vídeo se queda en tu teléfono. No va a ninguna parte, nunca lo vemos y no hay ninguna subida: desaparece al cerrar la página. Y no puntuamos ni tu cara, ni tu postura, ni tu «confianza». Esas señales cambian de una cultura a otra: puntuarlas sería medir cuánto te alejas de una norma. La cámara es un espejo, no un jurado.",camSub:"No se ensaya conducir frente a una cámara. Pero tres cosas se ensayan exactamente así — y son las que se fallan.",camLt:"Qué mirar al volver a verte",camGo:"Encender la cámara",camRec:"● Grabar",camStop:"■ Parar",camDel:"Borrar",camDeny:"El navegador rechazó la cámara. Permítela desde la barra de direcciones y vuelve a intentarlo. Si no viste ninguna petición, es el sitio quien la bloquea — escríbenos.",camNo:"Este navegador no puede grabar. Prueba con Chrome o Safari actualizados.",camRun:"Grabando…",camDone:"Míralo y luego bórralo. Nada salió de tu teléfono.",camExos:[["sig", "Señales con el brazo", "Show me your hand signals.", "Haz las tres: brazo extendido = izquierda; antebrazo arriba = derecha; antebrazo abajo = reducir o parar. Sin dudar y sin buscarlas.", ["¿El brazo sale de verdad por la ventana, o se queda dentro del coche?", "¿Las tres señales se encadenan sin tiempo muerto?", "¿Un examinador a tu lado vería el gesto, o lo tapa tu hombro?", "¿Dudas antes de alguna de las tres? Esa es la que hay que trabajar."]], ["rit", "Ritual antes de arrancar", "Adjust your mirrors and fasten your seat belt.", "El manual pide que el examinador VEA el gesto. Hecho mentalmente, no cuenta. Toca los tres espejos y después el cinturón.", ["¿Tocas los tres espejos, de forma visible?", "¿El cinturón viene después de los espejos, o se te olvidó?", "¿Buscas los mandos de luces y limpiaparabrisas? Encuéntralos antes del día del examen.", "¿Cuántos segundos? Pasados veinte, estás buscando en vez de saber."]], ["cmd", "Órdenes en inglés", "At the stop sign, take a right.", "El examinador habla inglés. Escucha la frase y di en voz alta, en tu idioma, qué harías. El coach te da más en la conversación.", ["¿La entendiste a la primera, o la adivinaste?", "¿Cuánto tardaste en responder? En el coche, ese retraso es silencio.", "¿Dices la acción completa — alto total, ceder, y luego girar — o solo « girar a la derecha »?", "Vuelve a escucharte: ¿oyes una duda que no sentías?"]]],bg1:"🗣 4 idiomas",bg2:"🎯 13 maniobras de nuestra tabla",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",avantTxt:"<strong>Antes de conducir un solo metro — lo que manda a la gente a casa</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Llega unos <strong>15 minutos antes</strong>. Si llegas tarde, no hay examen.</li><li>Una solicitud de examen completa — con la sección de consentimiento parental si eres menor de 18 — y tu permiso de aprendiz.</li><li><strong>Un acompañante cualificado</strong>: 21 años o más, un año de experiencia y licencia válida de su propio estado. <strong>Una licencia extranjera no sirve.</strong> Sin acompañante, no hay examen.</li><li>Un vehículo que pase la inspección del examinador: matriculado, inspeccionado, seguro, con un asiento limpio y adecuado para el examinador y plaza trasera para tu acompañante.</li><li><strong>Un freno de mano accesible</strong> — el examinador debe poder detener el coche. Uno central es lo más seguro; algunas minivans se rechazan solo por esto.</li><li>Nada de rueda de repuesto <strong>de galleta</strong>. Ninguna placa « repair ». Ninguna placa « dealer », salvo que seas el concesionario, su cónyuge o vendedor allí.</li><li>Cámara de marcha atrás, sensores, aparcamiento automático, conducción guiada por GPS: <strong>desactivados</strong>.</li><li>Placa de otro estado: prueba de seguro con los mínimos de Massachusetts ($20,000/$40,000 daños corporales, $5,000 materiales). Un alquiler exige además el contrato y una carta de la empresa autorizando el examen.</li><li><strong>Ni niños ni mascotas.</strong> Se admiten animales de servicio. Solo van en el coche tú, el examinador y tu acompañante, y no puedes hablar con tu acompañante sin permiso.</li><li><strong>El intérprete no es un derecho.</strong> El manual dice que puede admitirse « si el examinador lo autoriza ». Pregúntalo al reservar — no lo des por hecho.</li><li>Menor de 18: historial de conducción limpio durante los <strong>seis meses</strong> previos a la solicitud, y debe seguir limpio hasta el día del examen.</li><li>Seis exámenes máximo en 12 meses. Los <strong>$35</strong> se cobran otra vez si suspendes, no estás preparado, te rechazan el vehículo, vienes sin acompañante, llegas tarde o no vienes, o cancelas con menos de 72 horas.</li></ul>",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Driver360",codeS:"Gratis (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20code%20gratuit' style='color:var(--d-accent)'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",shareTxt:"📊 Y quiero que los empleadores vean <strong>en qué punto estoy</strong>: preparación, puntuación del examen escrito, resultados. Sin esta casilla no ven nada de eso.",poolTxt:"Cuando apruebe, quiero entrar al <strong>Driver Pool</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del Driver Pool: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='vivye.html' style='color:var(--d-accent)'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo.",aka:"Road Test MA",akaS:"el nombre que todos usan"}
-  };
-
-  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"en";return L[l]?l:"en";}
-  function T(){return L[lang()];}
-  var applied="";
-  function applyLang(){
-    var l=lang(); if(l===applied) return; applied=l; var t=L[l];
-    /* le titre de l'onglet fait partie de la page : sans lui,
-       l'onglet reste en francais quand la page ne l'est plus. */
-    if(t.ti) document.title=t.ti;
-    var md=document.querySelector('meta[name="description"]'); if(md&&t.descr) md.setAttribute("content",t.descr);
-    document.getElementById("cf-kicker").textContent=t.kicker;
-    document.getElementById("cf-lead").textContent=t.lead;
-  var pr=document.getElementById("g-print");
-  if(pr && !pr.dataset.lie){ pr.dataset.lie="1"; pr.addEventListener("click", function(){ window.print(); }); }
-    var v7=document.getElementById("cf-vers7d"); if(v7&&t.vers7d) v7.innerHTML=t.vers7d;
-    var sw=document.getElementById("cf-sponsor"); if(sw&&t.sponsorWarn) sw.innerHTML=t.sponsorWarn;
-    document.getElementById("cf-note").textContent=t.note;
-    var av=document.getElementById("cf-avant");
-    var fq=document.getElementById("cf-faq"); if(fq&&t.faqTxt) fq.innerHTML=t.faqTxt; if(av&&t.avantTxt) av.innerHTML=t.avantTxt;
-    document.getElementById("cf-ready-label").textContent=t.ready;
-    document.getElementById("cf-session-btn").textContent=t.sess;
-    document.getElementById("cf-coach-btn").textContent=t.coach;
-    document.getElementById("cf-guide-btn").textContent=t.guide;
-    document.getElementById("cf-result-btn").textContent=t.res;
-    document.getElementById("cf-okbtn").textContent=t.ok;
-    document.getElementById("cf-nextbtn").textContent=t.next;
-    // Le bouton « Suivant » du TEST ECRIT. La cle qzNext existait dans les
-    // quatre dictionnaires depuis le debut, mais personne ne l'avait branchee :
-    // le code se contentait de montrer et cacher le bouton, qui gardait donc le
-    // francais ecrit dans le HTML, sur les quatre langues. Trouve le 30/08/2026
-    // en jouant vraiment le test — un defaut qui n'existe qu'APRES avoir
-    // repondu a une question, donc invisible pour un controle sur page a l'arret.
-    setTxt("qz-next", t.qzNext);
-    document.getElementById("cf-speak").textContent=t.speak;
-    document.getElementById("cf-sponsor-hint").textContent=t.hint;
-    // --- traduction complete (formulaire, boutons, sections) ---
-    function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-    function setH(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
-    function setLabel(id,m,sub){var e=document.getElementById(id);if(e)e.innerHTML=m+(sub?"<small>"+sub+"</small>":"");}
-    ["bg1","bg2","bg3","bg4","f1t","f1d","f2t","f2d","f3t","f3d","fh","fs"].forEach(function(k){
-      setTxt("cf-"+k,t[k]);});
-    setLabel("L-code",t.code,t.codeS); setLabel("L-date",t.date);
-    setH("L-poolTxt",t.poolTxt); var sh=document.getElementById("L-shareTxt"); if(sh&&t.shareTxt) sh.innerHTML=t.shareTxt;
-    setLabel("L-name",t.name); setLabel("L-phone",t.phone);
-    setLabel("L-city",t.city,t.cityS);   // ⚠️ pas de L-langs : le champ « langues parlees » a ete retire
-    setLabel("L-nat",t.nat,t.natS);
-    setTxt("cf-go",t.go); setTxt("cf-try",t.tryb); setTxt("cf-quiz-btn",t.quizBtn);
-    setTxt("cf-privacy",t.privacy); setTxt("cf-erase",t.erase); setTxt("cf-send",t.send);
-    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP; if(ip&&t.inputP) ip.setAttribute("aria-label",t.inputP);
-    setTxt("L-out-title",t.outTitle); setTxt("L-out-sub",t.outSub);
-    setTxt("L-out-w",t.outW); setTxt("L-out-r",t.outR);
-    document.querySelectorAll("#cf-outcome button[data-r=pass]").forEach(function(b){b.textContent=t.bpass;});
-    document.querySelectorAll("#cf-outcome button[data-r=fail]").forEach(function(b){b.textContent=t.bfail;});
-    setTxt("g-title",t.guideT); setTxt("g-print",t.guideP);
-    setTxt("cf-aka",t.aka); setTxt("cf-aka-s",t.akaS);
-    setTxt("cf-b2b-t",t.b2bT); setTxt("cf-b2b-d",t.b2bD); setTxt("cf-b2b-c",t.b2bC);
-    setH("cf-b2b-lic",t.b2bLic); setTxt("cf-bridge-txt",t.bridge);
-    setTxt("cam-t",t.camT); setH("cam-priv",t.camPriv); setTxt("cam-sub",t.camSub); setTxt("cam-lt",t.camLt);
-    setTxt("cam-go",t.camGo); setTxt("cam-rec",t.camRec); setTxt("cam-stop",t.camStop); setTxt("cam-del",t.camDel);
-    if(window.__camExos && t.camExos) window.__camExos(t.camExos);
-  }
-  applyLang();
-  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
-
-  // ---------- etat ----------
-  var codeEl=document.getElementById("cf-code");
-  codeEl.value=localStorage.getItem("chofe360_code")||"";
-  var busy=false, results=[], idx=0, feedbacks=0;
-
-  function post(body){
-    body.language=lang(); body.code=codeEl.value.trim().toUpperCase();
-    return fetch(EP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
-      .then(function(r){return r.json().then(function(b){return {ok:r.ok,body:b};});});
-  }
-  function emsg(c){var t=T();return c==="wout_invalid"?t.invalid:c==="wout_expired"?t.expired:c==="rate_limited"?t.limit:t.err;}
-  function show(id){["cf-dash","cf-session","cf-chat","cf-outcome","cf-guide","cf-quiz"].forEach(function(x){
-    document.getElementById(x).classList.toggle("cf-hide",x!==id&&x!=="cf-dash");});
-    if(id!=="cf-dash")document.getElementById(id).classList.remove("cf-hide");}
-  function setReadiness(p){document.getElementById("cf-pct").textContent=p+"%";
-    document.getElementById("cf-barfill").style.width=p+"%";}
-
-  // ---------- onboarding ----------
-  document.getElementById("cf-pool").addEventListener("change",function(){
-    document.getElementById("cf-poolfields").classList.toggle("cf-hide",!this.checked);});
-  document.getElementById("cf-start").addEventListener("submit",function(e){
-    e.preventDefault(); if(busy)return; var t=T();
-    if(!codeEl.value.trim()){document.getElementById("cf-st1").textContent=t.needCode;return;}
-    busy=true; document.getElementById("cf-st1").textContent=t.think;
-    post({action:"start",profile:{testDate:document.getElementById("cf-date").value,
-      pool:{optin:document.getElementById("cf-pool").checked,shareResults:document.getElementById("cf-share").checked,
-            name:document.getElementById("cf-name").value,
-            phone:document.getElementById("cf-phone").value,
-            city:document.getElementById("cf-city").value,
-            lang:(document.documentElement.lang||"en"),
-            nat:document.getElementById("cf-nat").value}}})
-    .then(function(res){busy=false;
-      if(!res.ok){document.getElementById("cf-st1").textContent=emsg(res.body&&res.body.error);return;}
-      document.getElementById("cf-st1").textContent="";
-      localStorage.setItem("chofe360_code",codeEl.value.trim().toUpperCase());
-      document.getElementById("cf-start").classList.add("cf-hide");
-      document.getElementById("cf-dash").classList.remove("cf-hide");
-      setReadiness(res.body.readiness||0);
-    }).catch(function(){busy=false;document.getElementById("cf-st1").textContent=t.err;});
+var T = {
+ "en": {
+  "ti": "Driver Coach — your career as a DSP delivery driver | Driver360",
+  "descr": "A career coach for delivery drivers at Amazon's Delivery Service Partners in Massachusetts: put your experience into words, prepare for a new DSP or a return after a break, and think through your next step. Independent — not affiliated with Amazon.",
+  "fil": "For delivery drivers at Amazon's Delivery Service Partners",
+  "lead": "A delivery job is a start. This coach helps you turn it into a career that lasts longer than one DSP — in your language, at your pace.",
+  "indep": "Driver360 is independent. It is not affiliated with Amazon, and Amazon does not endorse it.",
+  "c1_t": "Your experience, in words",
+  "c1_d": "Roles, dates, vehicles, the kinds of routes you ran, the training you finished — written plainly, in a form you can take to the next DSP.",
+  "c2_t": "A new DSP",
+  "c2_d": "What to ask before you accept — pay, hours, days, station, commute, paid training — and what a first week is likely to look like.",
+  "c3_t": "A break, and coming back",
+  "c3_d": "What to keep while you are away, and how to come back without starting from zero. Only the DSP can say which checks or trainings start again — the coach helps you ask.",
+  "c4_t": "Your next step",
+  "c4_d": "Lead driver, trainer, dispatch, a different vehicle, a DOT certification: what the role involves and how to ask for it. Amazon's own page for DSP drivers mentions advancement and DOT certification.",
+  "h_t": "What this coach is, and is not",
+  "h_d": "It helps you think, write and rehearse. It does <strong>not</strong> store a professional record or send anything to a DSP — that part is not built yet. What you write together is yours to copy and keep. It will never give you a score, and it will never invent a pay rate or a requirement: when it does not know, it tells you to ask the DSP.",
+  "code_l": "Your coach code",
+  "code_s": "Free (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%20code&amp;body=Hello%2C%0A%0AI%20would%20like%20a%20free%20Driver%20Coach%20code.%0A%0AThank%20you.'>Request one — free</a>",
+  "chat_t": "Talk to your coach",
+  "hello": "Hi — I'm your Driver Coach. We can work on your experience, a new DSP, a break, or your next step. Where would you like to start?",
+  "q1": "Help me write down my experience",
+  "q2": "I'm starting at a new DSP — what should I ask?",
+  "q3": "I'm taking a break. What should I keep?",
+  "q4": "What could my next step be?",
+  "ph": "Write to your coach…",
+  "send": "Send",
+  "think": "Your coach is thinking…",
+  "need": "Enter your coach code first.",
+  "e_inv": "That code is not recognised. Check it, or request a free one.",
+  "e_exp": "This code has expired. Write to us for a new one.",
+  "e_lim": "You have reached today's limit. Come back tomorrow.",
+  "e_err": "Something went wrong. Try again in a moment.",
+  "priv": "🔒 Your conversation is tied to your code, not to your name.",
+  "erase": "Erase everything tied to my code — the code keeps working",
+  "erased": "Erased. Your code still works.",
+  "cam_t": "🎥 Rehearse on camera",
+  "cam_priv": "The video stays on your phone. It goes nowhere, we never see it, and there is no upload: it disappears when you close the page. And we do not score your face, your posture or your “confidence”. Those signals differ from one culture to the next: scoring them would mean measuring how far you sit from a norm. The camera is a mirror, not a jury.",
+  "cam_sub": "Say it out loud, then watch yourself. Hearing your own words is worth more than any tip.",
+  "cam_lt": "What to cover",
+  "cam_go": "Turn on the camera",
+  "cam_rec": "● Record",
+  "cam_stop": "■ Stop",
+  "cam_del": "Delete the recording",
+  "cam_run": "Recording…",
+  "cam_done": "Done. Watch it back — it is only on this device.",
+  "cam_no": "This browser cannot record video.",
+  "cam_off": "Camera rehearsal is not switched on for this site yet. Everything else on this page works.",
+  "cam_deny": "The camera was not allowed. You can allow it in your browser settings — or skip this part.",
+  "pool_t": "Ready to be found by DSPs?",
+  "pool_b": "Join the Driver Pool — free →",
+  "exos": [
+   [
+    "exp",
+    "60 seconds",
+    "Tell a DSP about your experience in 60 seconds.",
+    "Roles, dates, vehicles — and one thing you are proud of.",
+    [
+     "How long you have delivered, and where",
+     "The vehicles and kinds of routes you know",
+     "One day that went well because of you"
+    ]
+   ],
+   [
+    "pause",
+    "A break",
+    "Explain a break in your work history.",
+    "Plainly, without apologising.",
+    [
+     "That you took a break, and roughly when",
+     "What you did during it",
+     "Why you are ready now"
+    ]
+   ],
+   [
+    "dur",
+    "A hard day",
+    "Describe a hard day on a route and what you did.",
+    "No customer names or addresses — ever.",
+    [
+     "What happened",
+     "What you did, following your DSP's rules",
+     "What you would do the same way again"
+    ]
+   ]
+  ]
+ },
+ "fr": {
+  "ti": "Driver Coach — votre carrière de chauffeur livreur DSP | Driver360",
+  "descr": "Un coach de carrière pour les chauffeurs livreurs des partenaires de livraison d'Amazon au Massachusetts : mettre son expérience en mots, préparer un nouveau DSP ou un retour après une pause, réfléchir à l'étape suivante. Indépendant — non affilié à Amazon.",
+  "fil": "Pour les chauffeurs livreurs des partenaires de livraison d'Amazon",
+  "lead": "Un emploi de livreur, c'est un début. Ce coach vous aide à en faire une carrière qui dure plus longtemps qu'un seul DSP — dans votre langue, à votre rythme.",
+  "indep": "Driver360 est indépendant. Il n'est pas affilié à Amazon, et Amazon ne l'approuve pas.",
+  "c1_t": "Votre expérience, en mots",
+  "c1_d": "Postes, dates, véhicules, types de tournées, formations terminées — écrit simplement, sous une forme que vous emportez au prochain DSP.",
+  "c2_t": "Un nouveau DSP",
+  "c2_d": "Ce qu'il faut demander avant d'accepter — salaire, heures, jours, station, trajet, formation payée — et à quoi ressemble souvent une première semaine.",
+  "c3_t": "Une pause, et le retour",
+  "c3_d": "Ce qu'il faut garder pendant votre absence, et comment revenir sans repartir de zéro. Seul le DSP peut dire quels contrôles ou formations sont à refaire — le coach vous aide à le demander.",
+  "c4_t": "L'étape suivante",
+  "c4_d": "Chauffeur référent, formateur, répartition, un autre véhicule, une certification DOT : ce que le poste demande et comment le demander. La page d'Amazon pour les chauffeurs DSP mentionne elle-même l'évolution et la certification DOT.",
+  "h_t": "Ce qu'est ce coach, et ce qu'il n'est pas",
+  "h_d": "Il vous aide à réfléchir, écrire et répéter. Il ne conserve <strong>pas</strong> de dossier professionnel et n'envoie rien à aucun DSP — cette partie n'est pas encore construite. Ce que vous écrivez ensemble vous appartient : copiez-le et gardez-le. Il ne vous donnera jamais de note, et il n'inventera jamais un salaire ou une condition : quand il ne sait pas, il vous dit de demander au DSP.",
+  "code_l": "Votre code du coach",
+  "code_s": "Gratuit (WOUT-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%20code&amp;body=Hello%2C%0A%0AI%20would%20like%20a%20free%20Driver%20Coach%20code.%0A%0AThank%20you.'>Demandez-le — gratuit</a>",
+  "chat_t": "Parler à votre coach",
+  "hello": "Bonjour — je suis votre Driver Coach. Nous pouvons travailler votre expérience, un nouveau DSP, une pause, ou l'étape suivante. Par où voulez-vous commencer ?",
+  "q1": "Aidez-moi à écrire mon expérience",
+  "q2": "Je commence dans un nouveau DSP — que dois-je demander ?",
+  "q3": "Je fais une pause. Que dois-je garder ?",
+  "q4": "Quelle pourrait être mon étape suivante ?",
+  "ph": "Écrivez à votre coach…",
+  "send": "Envoyer",
+  "think": "Votre coach réfléchit…",
+  "need": "Entrez d'abord votre code du coach.",
+  "e_inv": "Ce code n'est pas reconnu. Vérifiez-le, ou demandez-en un gratuit.",
+  "e_exp": "Ce code a expiré. Écrivez-nous pour en obtenir un nouveau.",
+  "e_lim": "Vous avez atteint la limite du jour. Revenez demain.",
+  "e_err": "Un problème est survenu. Réessayez dans un instant.",
+  "priv": "🔒 Votre conversation est liée à votre code, pas à votre nom.",
+  "erase": "Effacer tout ce qui est lié à mon code — le code reste valable",
+  "erased": "Effacé. Votre code fonctionne toujours.",
+  "cam_t": "🎥 Répéter devant la caméra",
+  "cam_priv": "La vidéo reste dans votre téléphone. Elle ne part nulle part, nous ne la voyons jamais, et il n'y a aucun envoi : elle disparaît quand vous fermez la page. Et nous ne notons ni votre visage, ni votre posture, ni votre « confiance ». Ces signaux changent d'une culture à l'autre : les noter reviendrait à mesurer votre écart à une norme. La caméra est un miroir, pas un jury.",
+  "cam_sub": "Dites-le à voix haute, puis regardez-vous. Entendre vos propres mots vaut plus que tous les conseils.",
+  "cam_lt": "Ce qu'il faut dire",
+  "cam_go": "Allumer la caméra",
+  "cam_rec": "● Enregistrer",
+  "cam_stop": "■ Arrêter",
+  "cam_del": "Supprimer l'enregistrement",
+  "cam_run": "Enregistrement…",
+  "cam_done": "C'est fait. Regardez — c'est uniquement sur cet appareil.",
+  "cam_no": "Ce navigateur ne peut pas enregistrer de vidéo.",
+  "cam_off": "La répétition devant la caméra n'est pas encore activée sur ce site. Tout le reste de la page fonctionne.",
+  "cam_deny": "La caméra n'a pas été autorisée. Vous pouvez l'autoriser dans les réglages du navigateur — ou passer cette partie.",
+  "pool_t": "Prêt à être trouvé par des DSP ?",
+  "pool_b": "Rejoindre le Driver Pool — gratuit →",
+  "exos": [
+   [
+    "exp",
+    "60 secondes",
+    "Présentez votre expérience à un DSP en 60 secondes.",
+    "Postes, dates, véhicules — et une chose dont vous êtes fier.",
+    [
+     "Depuis combien de temps vous livrez, et où",
+     "Les véhicules et les types de tournées que vous connaissez",
+     "Une journée qui s'est bien passée grâce à vous"
+    ]
+   ],
+   [
+    "pause",
+    "Une pause",
+    "Expliquez une pause dans votre parcours.",
+    "Simplement, sans vous excuser.",
+    [
+     "Que vous avez fait une pause, et à peu près quand",
+     "Ce que vous avez fait pendant",
+     "Pourquoi vous êtes prêt maintenant"
+    ]
+   ],
+   [
+    "dur",
+    "Une journée difficile",
+    "Racontez une journée difficile sur une tournée et ce que vous avez fait.",
+    "Jamais de nom ni d'adresse de client.",
+    [
+     "Ce qui s'est passé",
+     "Ce que vous avez fait, en suivant les règles de votre DSP",
+     "Ce que vous referiez de la même façon"
+    ]
+   ]
+  ]
+ },
+ "ht": {
+  "ti": "Driver Coach — karyè w kòm chofè livrezon DSP | Driver360",
+  "descr": "Yon coach karyè pou chofè livrezon patnè livrezon Amazon yo nan Massachusetts : mete eksperyans ou an mo, prepare yon nouvo DSP oswa yon retou apre yon poz, reflechi sou pwochen etap la. Endepandan — pa afilye ak Amazon.",
+  "fil": "Pou chofè livrezon patnè livrezon Amazon yo",
+  "lead": "Yon travay livrezon se yon kòmansman. Coach sa a ede w fè l tounen yon karyè ki dire pi lontan pase yon sèl DSP — nan lang pa w, san prese.",
+  "indep": "Driver360 endepandan. Li pa afilye ak Amazon, epi Amazon pa apwouve l.",
+  "c1_t": "Eksperyans ou, an mo",
+  "c1_d": "Pòs, dat, machin, kalite wout ou te fè, fòmasyon ou te fini — ekri senp, yon fason ou ka pote l bay pwochen DSP a.",
+  "c2_t": "Yon nouvo DSP",
+  "c2_d": "Kisa pou w mande anvan w aksepte — salè, èdtan, jou, estasyon, trajè, fòmasyon ki peye — ak kijan yon premye semèn souvan pase.",
+  "c3_t": "Yon poz, epi retou a",
+  "c3_d": "Kisa pou w kenbe pandan w pa la, ak kijan pou w retounen san w pa rekòmanse a zewo. Se sèlman DSP a ki ka di ki kontwòl oswa fòmasyon ki pou refèt — coach la ede w mande sa.",
+  "c4_t": "Pwochen etap ou",
+  "c4_d": "Chofè lidè, fòmatè, dispatch, yon lòt machin, yon sètifikasyon DOT : sa pòs la mande ak kijan pou w mande l. Paj Amazon an pou chofè DSP yo li menm pale de monte ak sètifikasyon DOT.",
+  "h_t": "Sa coach sa a ye, ak sa li pa ye",
+  "h_d": "Li ede w reflechi, ekri epi repete. Li <strong>pa</strong> kenbe okenn dosye pwofesyonèl epi li pa voye anyen bay okenn DSP — pati sa a poko bati. Sa nou ekri ansanm se pou ou : kopye l epi kenbe l. Li p ap janm ba w yon nòt, epi li p ap janm envante yon salè oswa yon kondisyon : lè li pa konnen, li di w mande DSP a.",
+  "code_l": "Kòd coach ou",
+  "code_s": "Gratis (WOUT-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%20code&amp;body=Hello%2C%0A%0AI%20would%20like%20a%20free%20Driver%20Coach%20code.%0A%0AThank%20you.'>Mande l — gratis</a>",
+  "chat_t": "Pale ak coach ou",
+  "hello": "Bonjou — se mwen ki Driver Coach ou. Nou ka travay sou eksperyans ou, yon nouvo DSP, yon poz, oswa pwochen etap ou. Kote ou vle kòmanse ?",
+  "q1": "Ede m ekri eksperyans mwen",
+  "q2": "M ap kòmanse nan yon nouvo DSP — kisa pou m mande ?",
+  "q3": "M ap pran yon poz. Kisa pou m kenbe ?",
+  "q4": "Ki pwochen etap mwen ta ka ye ?",
+  "ph": "Ekri coach ou…",
+  "send": "Voye",
+  "think": "Coach ou ap reflechi…",
+  "need": "Mete kòd coach ou an premye.",
+  "e_inv": "Kòd sa a pa rekonèt. Tcheke l, oswa mande youn gratis.",
+  "e_exp": "Kòd sa a ekspire. Ekri nou pou w jwenn yon lòt.",
+  "e_lim": "Ou rive nan limit jodi a. Tounen demen.",
+  "e_err": "Gen yon pwoblèm. Eseye ankò talè.",
+  "priv": "🔒 Konvèsasyon ou mare ak kòd ou, pa ak non w.",
+  "erase": "Efase tout sa ki mare ak kòd mwen — kòd la ap kontinye mache",
+  "erased": "Efase. Kòd ou toujou mache.",
+  "cam_t": "🎥 Repete devan kamera",
+  "cam_priv": "Videyo a rete nan telefòn ou. Li pa ale okenn kote, nou pa janm wè l, epi pa gen anyen ki voye : li disparèt lè w fèmen paj la. Epi nou pa bay nòt ni pou figi w, ni pou posti w, ni pou « konfyans » ou. Siy sa yo pa menm nan chak kilti : bay yo nòt ta vle di mezire distans ki genyen ant ou ak yon nòm. Kamera a se yon glas, se pa yon jiri.",
+  "cam_sub": "Di l fò, epi gade tèt ou. Tande pwòp mo pa w vo plis pase nenpòt konsèy.",
+  "cam_lt": "Sa pou w di",
+  "cam_go": "Limen kamera a",
+  "cam_rec": "● Anrejistre",
+  "cam_stop": "■ Kanpe",
+  "cam_del": "Efase anrejistreman an",
+  "cam_run": "L ap anrejistre…",
+  "cam_done": "Fini. Gade l — li sèlman sou aparèy sa a.",
+  "cam_no": "Navigatè sa a pa ka anrejistre videyo.",
+  "cam_off": "Repetisyon devan kamera a poko aktive sou sit sa a. Tout rès paj la mache.",
+  "cam_deny": "Kamera a pa te otorize. Ou ka otorize l nan reglaj navigatè a — oswa sote pati sa a.",
+  "pool_t": "Ou pare pou DSP yo jwenn ou ?",
+  "pool_b": "Antre nan Driver Pool la — gratis →",
+  "exos": [
+   [
+    "exp",
+    "60 segonn",
+    "Prezante eksperyans ou bay yon DSP nan 60 segonn.",
+    "Pòs, dat, machin — ak yon bagay ki fè w fyè.",
+    [
+     "Depi konbyen tan w ap livre, ak ki kote",
+     "Machin ak kalite wout ou konnen",
+     "Yon jou ki te pase byen gras a ou"
+    ]
+   ],
+   [
+    "pause",
+    "Yon poz",
+    "Esplike yon poz nan pakou travay ou.",
+    "Senp, san w pa mande eskiz.",
+    [
+     "Ou te pran yon poz, ak apeprè kilè",
+     "Kisa w te fè pandan tan an",
+     "Poukisa w pare kounye a"
+    ]
+   ],
+   [
+    "dur",
+    "Yon jou difisil",
+    "Rakonte yon jou difisil sou yon wout ak kisa w te fè.",
+    "Pa janm bay non oswa adrès yon kliyan.",
+    [
+     "Kisa ki te pase",
+     "Kisa w te fè, dapre règ DSP ou",
+     "Kisa w ta refè menm jan an"
+    ]
+   ]
+  ]
+ },
+ "es": {
+  "ti": "Driver Coach — tu carrera como conductor de reparto DSP | Driver360",
+  "descr": "Un coach de carrera para conductores de reparto de los socios de entrega de Amazon en Massachusetts: poner tu experiencia en palabras, prepararte para un nuevo DSP o para volver tras una pausa, y pensar tu siguiente paso. Independiente — sin afiliación con Amazon.",
+  "fil": "Para conductores de reparto de los socios de entrega de Amazon",
+  "lead": "Un empleo de repartidor es un comienzo. Este coach te ayuda a convertirlo en una carrera que dure más que un solo DSP — en tu idioma, a tu ritmo.",
+  "indep": "Driver360 es independiente. No está afiliado a Amazon, y Amazon no lo avala.",
+  "c1_t": "Tu experiencia, en palabras",
+  "c1_d": "Puestos, fechas, vehículos, tipos de rutas, formación terminada — escrito con sencillez, de una forma que puedas llevar al próximo DSP.",
+  "c2_t": "Un nuevo DSP",
+  "c2_d": "Qué preguntar antes de aceptar — pago, horas, días, estación, trayecto, formación pagada — y cómo suele ser una primera semana.",
+  "c3_t": "Una pausa, y la vuelta",
+  "c3_d": "Qué conservar mientras estás fuera, y cómo volver sin empezar de cero. Solo el DSP puede decir qué comprobaciones o formaciones se repiten — el coach te ayuda a preguntarlo.",
+  "c4_t": "Tu siguiente paso",
+  "c4_d": "Conductor líder, formador, despacho, otro vehículo, una certificación DOT: qué exige el puesto y cómo pedirlo. La propia página de Amazon para conductores DSP menciona el ascenso y la certificación DOT.",
+  "h_t": "Lo que es este coach, y lo que no es",
+  "h_d": "Te ayuda a pensar, escribir y ensayar. <strong>No</strong> guarda un expediente profesional ni envía nada a ningún DSP — esa parte todavía no está construida. Lo que escribimos juntos es tuyo: cópialo y guárdalo. Nunca te pondrá una nota, y nunca se inventará un salario o un requisito: cuando no lo sabe, te dice que se lo preguntes al DSP.",
+  "code_l": "Tu código del coach",
+  "code_s": "Gratis (WOUT-XXXX-XXXX). ¿Aún sin código? <a href='mailto:sales@atmart.ltd?subject=Driver360%20-%20Driver%20Coach%20code&amp;body=Hello%2C%0A%0AI%20would%20like%20a%20free%20Driver%20Coach%20code.%0A%0AThank%20you.'>Pídelo — gratis</a>",
+  "chat_t": "Habla con tu coach",
+  "hello": "Hola — soy tu Driver Coach. Podemos trabajar tu experiencia, un nuevo DSP, una pausa o tu siguiente paso. ¿Por dónde quieres empezar?",
+  "q1": "Ayúdame a escribir mi experiencia",
+  "q2": "Empiezo en un nuevo DSP — ¿qué debo preguntar?",
+  "q3": "Me tomo una pausa. ¿Qué debo conservar?",
+  "q4": "¿Cuál podría ser mi siguiente paso?",
+  "ph": "Escribe a tu coach…",
+  "send": "Enviar",
+  "think": "Tu coach está pensando…",
+  "need": "Escribe primero tu código del coach.",
+  "e_inv": "Ese código no se reconoce. Revísalo, o pide uno gratis.",
+  "e_exp": "Este código ha caducado. Escríbenos para conseguir uno nuevo.",
+  "e_lim": "Has llegado al límite de hoy. Vuelve mañana.",
+  "e_err": "Algo salió mal. Inténtalo de nuevo en un momento.",
+  "priv": "🔒 Tu conversación está ligada a tu código, no a tu nombre.",
+  "erase": "Borrar todo lo ligado a mi código — el código sigue valiendo",
+  "erased": "Borrado. Tu código sigue funcionando.",
+  "cam_t": "🎥 Ensaya ante la cámara",
+  "cam_priv": "El vídeo se queda en tu teléfono. No va a ninguna parte, nunca lo vemos y no hay envío: desaparece cuando cierras la página. Y no puntuamos ni tu cara, ni tu postura, ni tu «confianza». Esas señales cambian de una cultura a otra: puntuarlas sería medir cuánto te alejas de una norma. La cámara es un espejo, no un jurado.",
+  "cam_sub": "Dilo en voz alta y luego mírate. Oír tus propias palabras vale más que cualquier consejo.",
+  "cam_lt": "Qué decir",
+  "cam_go": "Encender la cámara",
+  "cam_rec": "● Grabar",
+  "cam_stop": "■ Detener",
+  "cam_del": "Borrar la grabación",
+  "cam_run": "Grabando…",
+  "cam_done": "Listo. Míralo — solo está en este dispositivo.",
+  "cam_no": "Este navegador no puede grabar vídeo.",
+  "cam_off": "El ensayo ante la cámara aún no está activado en este sitio. Todo lo demás de la página funciona.",
+  "cam_deny": "No se permitió la cámara. Puedes permitirla en los ajustes del navegador — o saltarte esta parte.",
+  "pool_t": "¿Listo para que te encuentren los DSP?",
+  "pool_b": "Unirme al Driver Pool — gratis →",
+  "exos": [
+   [
+    "exp",
+    "60 segundos",
+    "Presenta tu experiencia a un DSP en 60 segundos.",
+    "Puestos, fechas, vehículos — y algo de lo que estés orgulloso.",
+    [
+     "Cuánto tiempo llevas repartiendo, y dónde",
+     "Los vehículos y tipos de rutas que conoces",
+     "Un día que salió bien gracias a ti"
+    ]
+   ],
+   [
+    "pause",
+    "Una pausa",
+    "Explica una pausa en tu trayectoria.",
+    "Con sencillez, sin disculparte.",
+    [
+     "Que te tomaste una pausa, y más o menos cuándo",
+     "Qué hiciste durante ella",
+     "Por qué estás listo ahora"
+    ]
+   ],
+   [
+    "dur",
+    "Un día difícil",
+    "Cuenta un día difícil en una ruta y qué hiciste.",
+    "Nunca nombres ni direcciones de clientes.",
+    [
+     "Qué pasó",
+     "Qué hiciste, siguiendo las reglas de tu DSP",
+     "Qué volverías a hacer igual"
+    ]
+   ]
+  ]
+ }
+};
+var EXOS_EN = [["exp", "60 seconds", "Tell a DSP about your experience in 60 seconds.", "Roles, dates, vehicles — and one thing you are proud of.", ["How long you have delivered, and where", "The vehicles and kinds of routes you know", "One day that went well because of you"]], ["pause", "A break", "Explain a break in your work history.", "Plainly, without apologising.", ["That you took a break, and roughly when", "What you did during it", "Why you are ready now"]], ["dur", "A hard day", "Describe a hard day on a route and what you did.", "No customer names or addresses — ever.", ["What happened", "What you did, following your DSP's rules", "What you would do the same way again"]]];
+var TITRE0 = document.title;   /* le titre anglais, ecrit dans le <title> */
+function lg(){ var l=document.documentElement.lang; return T[l] ? l : "en"; }
+/* ⚠️ T PORTE AUSSI L'ANGLAIS. Les messages du chat (erreurs, salutation,
+   « entrez votre code ») n'existent dans aucun element du balisage : sans
+   T.en, ils sortaient VIDES pour un visiteur anglophone. */
+function tr(k){ return (T[lg()] && T[lg()][k]) || T.en[k] || ""; }
+function appliquer(){
+  var d = T[document.documentElement.lang];   /* en = ce qui est ecrit dans le HTML */
+  document.title = (d && d.ti) ? d.ti : TITRE0;
+  /* la description suit la langue, comme le titre (ligne B3 du registre) */
+  var md = document.querySelector('meta[name="description"]');
+  if (md && d && d.descr) md.setAttribute("content", d.descr);
+  document.querySelectorAll("[data-t]").forEach(function(e){
+    if(!e.dataset.original) e.dataset.original = e.innerHTML;
+    e.innerHTML = d ? (d[e.dataset.t] || e.dataset.original) : e.dataset.original;
   });
-
-  // ---------- mode seance ----------
-  function chipHTML(er){var l=lang();
-    return '<button type="button" class="cf-chip" data-e="'+er.id+'" data-s="'+er.sev+'">'+
-      '<span class="sev '+er.sev+'">'+(er.sev==="F"?"⛔":"⚠️")+'</span> '+er.t[l]+'</button>';}
-  function renderStep(){
-    var m=M[idx], l=lang(), t=T();
-    document.getElementById("cf-phase-badge").textContent=PHASES[m.ph][l];
-    document.getElementById("cf-prog-txt").textContent=(idx+1)+" / "+M.length;
-    document.getElementById("cf-cmd").textContent="“"+m.en+"”";
-    document.getElementById("cf-tr").textContent=m.t[l];
-    document.getElementById("cf-chips").innerHTML=m.errs.map(chipHTML).join("");
-    var fb=document.getElementById("cf-fb"); fb.style.display="none"; fb.textContent="";
-  }
-  document.getElementById("cf-session-btn").addEventListener("click",function(){
-    results=[]; idx=0; show("cf-session"); renderStep();});
-  document.getElementById("cf-chips").addEventListener("click",function(e){
-    var b=e.target.closest(".cf-chip"); if(!b)return;
-    b.classList.toggle("on");
-    var t=T(), m=M[idx];
-    var er=m.errs.filter(function(x){return x.id===b.dataset.e;})[0];
-    var fb=document.getElementById("cf-fb");
-    if(b.classList.contains("on")){
-      fb.className="cf-fb bad"; fb.style.display="block";
-      fb.textContent=(er.sev==="F"?t.badF:t.badm)+er.t[lang()]+". "+t.redo;
-    }
+  document.querySelectorAll("[data-tp]").forEach(function(e){
+    if(!e.dataset.ph0) e.dataset.ph0 = e.getAttribute("placeholder") || "";
+    e.setAttribute("placeholder", d ? (d[e.dataset.tp] || e.dataset.ph0) : e.dataset.ph0);
   });
-  document.getElementById("cf-speak").addEventListener("click",function(){
-    try{var u=new SpeechSynthesisUtterance(M[idx].en);u.lang="en-US";u.rate=0.95;
-      speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}
-  });
-  function record(okOnly){
-    var m=M[idx];
-    var on=[].slice.call(document.querySelectorAll("#cf-chips .cf-chip.on"));
-    var errs=on.map(function(b){return b.dataset.e;});
-    var fail=on.some(function(b){return b.dataset.s==="F";});
-    if(okOnly){errs=[];fail=false;
-      var t=T(),fb=document.getElementById("cf-fb");
-      fb.className="cf-fb good";fb.style.display="block";fb.textContent=t.good;}
-    results.push({m:m.id,errs:errs,fail:fail});
-  }
-  function advance(){
-    idx++;
-    if(idx>=M.length){finishSession();return;}
-    renderStep();
-  }
-  document.getElementById("cf-okbtn").addEventListener("click",function(){record(true);setTimeout(advance,700);});
-  document.getElementById("cf-nextbtn").addEventListener("click",function(){record(false);advance();});
-  function finishSession(){
-    var t=T(); document.getElementById("cf-st3").textContent=t.fin;
-    post({action:"log",results:results}).then(function(res){
-      document.getElementById("cf-st3").textContent="";
-      if(res.ok){setReadiness(res.body.readiness||0);}
-      show("cf-dash");
-      openChatWith(t.hello);
-    }).catch(function(){document.getElementById("cf-st3").textContent=t.err;});
-  }
-
-  // ---------- chat coach ----------
-  function addMsg(role,text){var d=document.createElement("div");
-    d.className="cf-m "+(role==="user"?"user":"coach");d.textContent=text;
-    var ms=document.getElementById("cf-msgs");ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
-  function openChatWith(greet){show("cf-chat");
-    if(!document.querySelector("#cf-msgs .cf-m"))addMsg("coach",greet);}
-  document.getElementById("cf-coach-btn").addEventListener("click",function(){openChatWith(T().hello);});
-  function send(){
-    if(busy)return;var inp=document.getElementById("cf-input");var v=inp.value.trim();if(!v)return;
-    var t=T();busy=true;addMsg("user",v);inp.value="";
-    document.getElementById("cf-st4").textContent=t.think;
-    post({message:v}).then(function(res){busy=false;
-      document.getElementById("cf-st4").textContent="";
-      if(!res.ok){document.getElementById("cf-st4").textContent=emsg(res.body&&res.body.error);return;}
-      addMsg("coach",res.body.reply);
-    }).catch(function(){busy=false;document.getElementById("cf-st4").textContent=t.err;});
-  }
-  document.getElementById("cf-send").addEventListener("click",send);
-  document.getElementById("cf-input").addEventListener("keydown",function(e){
-    if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}});
-
-  // ---------- resultats officiels ----------
-  document.getElementById("cf-result-btn").addEventListener("click",function(){show("cf-outcome");});
-  document.getElementById("cf-outcome").addEventListener("click",function(e){
-    var b=e.target.closest("button[data-k]");if(!b)return;var t=T();
-    post({action:"outcome",kind:b.dataset.k,result:b.dataset.r}).then(function(res){
-      if(res.ok){document.getElementById("cf-out-"+(b.dataset.k==="written"?"w":"r")+"-state").textContent=t.saved;
-        if(b.dataset.k==="road"&&b.dataset.r==="pass"){document.getElementById("cf-bridge").classList.remove("cf-hide");}}
-      else{document.getElementById("cf-st5").textContent=emsg(res.body&&res.body.error);}
-    });
-  });
-
-  // ---------- guide sponsor ----------
-  var GUIDE = {
-    fr:'<p><strong>Votre rôle :</strong> vous êtes les yeux ; l\'app est le cerveau. Vous lisez les commandes en anglais (comme l\'examinateur), vous observez, vous notez — téléphone en main SEULEMENT véhicule à l\'arrêt. Loi MA : accompagnateur 21 ans+, titulaire d\'un permis AMÉRICAIN valide depuis 1 an+. Un permis étranger — haïtien, canadien, français — ne peut PAS accompagner : le test est refusé sur place.</p><p><strong>Les 6 séances :</strong> 1) Parking vide — installation, arrêts, marche arrière droite. 2) 3-point turn + marche arrière. 3) Parallel parking avec cônes. 4) Rues résidentielles — stops complets, head checks, zones 20/30 mph. 5) Parcours type autour du centre RMV. 6) Examen blanc complet, chronométré, sans aide.</p><p><strong>La règle des 3 phases :</strong> avant de démarrer (ceinture, rétros, signaux de la main), sur la route (commandes), et LE RETOUR — le test finit au frein de stationnement, pas avant.</p><p><strong>Le jour J :</strong> le candidat a droit à un interprète — demandez-le à la prise de rendez-vous si besoin.</p>',
-    ht:'<p><strong>Wòl ou :</strong> ou se je yo ; app la se sèvo a. Ou li kòmand yo an angle (menm jan ak egzaminatè a), ou gade, ou note — telefòn nan men w SÈLMAN lè machin nan kanpe. Lwa MA : akonpayatè 21 an+, ki gen yon lisans AMERIKEN valid depi 1 an+. Yon lisans etranje — ayisyen, kanadyen, franse — PA ka akonpaye w : y ap refize tès la sou plas.</p><p><strong>6 seyans yo :</strong> 1) Pakin vid — enstalasyon, kanpe, bak an liy dwat. 2) 3-point turn + bak. 3) Parallel parking ak kòn. 4) Ri rezidansyèl — stop konplè, head checks, zòn 20/30 mph. 5) Parkou tip bò sant RMV la. 6) Egzamen blan konplè, san èd.</p><p><strong>Règ 3 faz yo :</strong> anvan w demare (senti, retrovizè, siyal men), sou wout la (kòmand yo), ak RETOU A — tès la fini lè fren pakin lan mete, pa anvan.</p><p><strong>Jou tès la :</strong> kandida a gen dwa ak yon entèprèt — mande l lè w ap pran randevou a si w bezwen.</p>',
-    en:'<p><strong>Your role:</strong> you are the eyes; the app is the brain. You read the commands in English (like the examiner), watch, and score — phone in hand ONLY when the vehicle is stopped. MA law: sponsor 21+, holding a valid U.S. licence for 1+ year. A foreign licence — Haitian, Canadian, French — canNOT sponsor you: the test is refused on the spot.</p><p><strong>The 6 sessions:</strong> 1) Empty lot — setup ritual, stops, straight backing. 2) 3-point turn + backing. 3) Parallel parking with cones. 4) Residential streets — full stops, head checks, 20/30 mph zones. 5) Typical route near the RMV site. 6) Full mock test, timed, no help.</p><p><strong>The 3-phase rule:</strong> before driving (seatbelt, mirrors, hand signals), on the road (commands), and THE RETURN — the test ends at the parking brake, not before.</p><p><strong>Test day:</strong> the candidate has the right to an interpreter — request it when booking if needed.</p>',
-    es:'<p><strong>Tu papel:</strong> tú eres los ojos; la app es el cerebro. Lees las órdenes en inglés (como el examinador), observas y calificas — teléfono en mano SOLO con el vehículo detenido. Ley de MA: acompañante 21+, con licencia ESTADOUNIDENSE vigente desde hace 1+ año. Una licencia extranjera — haitiana, canadiense, francesa — NO puede acompañarte: el examen se rechaza en el acto.</p><p><strong>Las 6 sesiones:</strong> 1) Lote vacío — ritual de instalación, altos, retroceso recto. 2) Giro de 3 puntos + retroceso. 3) Estacionamiento paralelo con conos. 4) Calles residenciales — altos completos, head checks, zonas 20/30 mph. 5) Ruta típica cerca del RMV. 6) Examen simulado completo, sin ayuda.</p><p><strong>La regla de las 3 fases:</strong> antes de arrancar (cinturón, espejos, señales de mano), en la ruta (órdenes), y EL REGRESO — el examen termina con el freno de mano, no antes.</p><p><strong>El día del examen:</strong> el candidato tiene derecho a un intérprete — pídelo al reservar si lo necesita.</p>'
-  };
-  document.getElementById("cf-guide-btn").addEventListener("click",function(){
-    document.getElementById("g-body").innerHTML=GUIDE[lang()];show("cf-guide");});
-
-  // ---------- quiz Pemi ----------
-  var QZ=null,qzIdx=0,qzScore=0,qzOrder=[],qzFreeMode=false,qzPass=18;
-  var qzPos=[];
-  // ⚠️ LA JOURNEE DU VISITEUR, PAS CELLE DE GREENWICH.
-  // `toISOString()` donne la date UTC : le quota gratuit se remettait a
-  // zero a minuit UTC, c'est-a-dire a 20 h au Massachusetts. Quelqu'un
-  // qui revise apres le diner recevait cinq questions « du lendemain »
-  // a 20 h, puis plus rien de sa vraie soiree.
-  function jourLocal(){var d=new Date();return d.getFullYear()+"-"
-    +String(d.getMonth()+1).padStart(2,"0")+"-"
-    +String(d.getDate()).padStart(2,"0");}
-  function qzFreeLeft(){var k="pemi_free_"+jourLocal();
-    return Math.max(0,5-parseInt(localStorage.getItem(k)||"0",10));}
-  function qzUseFree(){var k="pemi_free_"+jourLocal();
-    localStorage.setItem(k,String(parseInt(localStorage.getItem(k)||"0",10)+1));}
-  function qzHasCode(){return !!localStorage.getItem("chofe360_code");}
-  function startQuiz(free){
-    qzFreeMode=free;
-    fetch("assets/pemi-questions.json").then(function(r){return r.json();}).then(function(data){
-      QZ=data.questions.slice();
-      qzOrder=QZ.map(function(_,i){return i;});
-      for(var i=qzOrder.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=qzOrder[i];qzOrder[i]=qzOrder[j];qzOrder[j]=tmp;}
-      if(free)qzOrder=qzOrder.slice(0,Math.min(5,qzFreeLeft()||0));
-      // Le VRAI examen du RMV tire 25 questions et en demande 18. La banque en
-      // compte davantage pour que deux passages ne soient pas identiques : on
-      // n'en sert donc que 25. Le seuil vient du fichier, pas d'une constante
-      // ecrite ici — sinon les deux se desynchronisent au premier ajout.
-      else qzOrder=qzOrder.slice(0,data.total||25);
-      qzPass=data.pass||18;
-      qzIdx=0;qzScore=0;
-      document.getElementById("cf-start").classList.add("cf-hide");
-      document.getElementById("cf-dash").classList.toggle("cf-hide",free);
-      show("cf-quiz");
-      if(free)document.getElementById("cf-dash").classList.add("cf-hide");
-      qzRender();
-    });
-  }
-  function qzRender(){
-    var t=T(),l=lang();
-    if(qzIdx>=qzOrder.length){qzFinish();return;}
-    var q=QZ[qzOrder[qzIdx]];
-    document.getElementById("qz-prog").textContent=(qzIdx+1)+" / "+qzOrder.length+" · "+t.qzTitle;
-    document.getElementById("qz-q").textContent=q.q[l]||q.q.fr;
-    var letters=["A","B","C","D"];
-    // melanger les options en gardant la bonne reponse tracee
-    var order=[0,1,2,3];
-    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tm=order[i];order[i]=order[j];order[j]=tm;}
-    qzPos=order;
-    document.getElementById("qz-opts").innerHTML=order.map(function(oi,k){
-      var o=q.opts[oi];
-      // ⚠️ PAS D'INDEX DANS LE DOM. On ecrivait `data-oi` — l'index
-      // d'ORIGINE de l'option — sur chaque bouton : melanger l'affichage ne
-      // servait alors a rien, il suffisait d'ouvrir l'inspecteur pour voir
-      // laquelle repondre. La correspondance reste en memoire, dans qzPos.
-      return '<button type="button" class="cf-chip" style="text-align:left"><strong>'+letters[k]+'.</strong> '+(o[l]||o.fr)+'</button>';
-    }).join("");
-    var fb=document.getElementById("qz-fb");fb.style.display="none";fb.textContent="";
-    document.getElementById("qz-next").classList.add("cf-hide");
-  }
-  document.getElementById("qz-opts").addEventListener("click",function(e){
-    var b=e.target.closest(".cf-chip");if(!b||document.getElementById("qz-next").classList.contains("cf-hide")===false)return;
-    var t=T(),l=lang(),q=QZ[qzOrder[qzIdx]];
-    // la position du bouton clique donne l'index d'origine, via qzPos
-    var pos=Array.prototype.indexOf.call(b.parentNode.children,b);
-    var good=qzPos[pos]===q.a;
-    if(good)qzScore++;
-    if(qzFreeMode)qzUseFree();
-    var fb=document.getElementById("qz-fb");
-    fb.className="cf-fb "+(good?"good":"bad");fb.style.display="block";
-    fb.textContent=(good?t.qzRight:t.qzWrong)+(q.ex[l]||q.ex.fr);
-    document.getElementById("qz-next").classList.remove("cf-hide");
-  });
-  document.getElementById("qz-next").addEventListener("click",function(){qzIdx++;qzRender();});
-  function qzFinish(){
-    var t=T();
-    var fb=document.getElementById("qz-fb");
-    var passed=!qzFreeMode&&qzScore>=qzPass;
-    fb.className="cf-fb "+(qzScore>=Math.ceil(qzOrder.length*0.75)?"good":"bad");
-    fb.style.display="block";
-    fb.textContent=t.qzScore+qzScore+" / "+qzOrder.length+". "+(qzFreeMode?t.qzFree:(passed?t.qzPass:t.qzFail));
-    document.getElementById("qz-q").textContent="";
-    document.getElementById("qz-opts").innerHTML="";
-    document.getElementById("qz-next").classList.add("cf-hide");
-    if(!qzFreeMode&&qzHasCode()){post({action:"quiz",score:qzScore,total:qzOrder.length});}
-    if(qzFreeMode){setTimeout(function(){document.getElementById("cf-start").classList.remove("cf-hide");},400);}
-  }
-  document.getElementById("cf-try").addEventListener("click",function(){
-    var t=T();
-    if(qzFreeLeft()<=0){document.getElementById("cf-st1").textContent=t.qzFree;return;}
-    startQuiz(true);
-  });
-  document.getElementById("cf-quiz-btn").addEventListener("click",function(){startQuiz(false);});
-
-  // ---------- efase ----------
-  document.getElementById("cf-erase").addEventListener("click",function(){
-    if(!window.confirm(T().confirmDel))return;
-    post({action:"delete"}).then(function(){location.reload();});
-  });
-})();
+  if (window.__camExos) window.__camExos((d && d.exos) || EXOS_EN);
+}
 </script>
+<script src="assets/suite.js?v=6"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+
 <script>
-/* ---- Driver360 : commandes de l'examinateur en anglais ---- */
-(function(){
-  "use strict";
-  var T={
-    fr:{title:"🗣 Les commandes de l'examinateur — en anglais",
-      sub:"L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.",
-      hide:"Masquer les traductions",show:"Afficher les traductions",
-      count:function(n){return n+" commandes";},todo:"À faire :",
-      say:"Écouter en anglais",noVoice:"Voix anglaise indisponible sur cet appareil",
-      foot:"Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts."},
-    ht:{title:"🗣 Kòmandman egzaminatè a — an angle",
-      sub:"Egzaminatè a pale angle. Menm ak yon entèprèt, se ou menm k ap kondwi : tande fraz la, konprann li nan lang ou, konnen sa pou w fè. Gratis, san kòd.",
-      hide:"Kache tradiksyon yo",show:"Montre tradiksyon yo",
-      count:function(n){return n+" kòmandman";},todo:"Sa pou w fè :",
-      say:"Koute an angle",noVoice:"Vwa angle a pa disponib sou aparèy sa a",
-      foot:"Se fason yo konn pale, Atmart rekri yo — se pa kopi yon tès ofisyèl. Nou pa afilye ak RMV Massachusetts la."},
-    en:{title:"🗣 The examiner's commands — in English",
-      sub:"The examiner speaks English. Even with an interpreter, you are the one driving: hear the sentence, understand it in your language, know what to do. Free, no code needed.",
-      hide:"Hide translations",show:"Show translations",
-      count:function(n){return n+" commands";},todo:"What to do:",
-      say:"Listen in English",noVoice:"English voice not available on this device",
-      foot:"Common phrasings, rewritten by Atmart — not a reproduction of an official test. Not affiliated with the Massachusetts RMV."},
-    es:{title:"🗣 Las órdenes del examinador — en inglés",
-      sub:"El examinador habla inglés. Incluso con intérprete, usted es quien conduce: escuche la frase, entiéndala en su idioma, sepa qué hacer. Gratis, sin código.",
-      hide:"Ocultar las traducciones",show:"Mostrar las traducciones",
-      count:function(n){return n+" órdenes";},todo:"Qué hacer:",
-      say:"Escuchar en inglés",noVoice:"Voz en inglés no disponible en este dispositivo",
-      foot:"Formulaciones habituales, reescritas por Atmart — no es la reproducción de un examen oficial. No afiliado al RMV de Massachusetts."}
-  };
-  function lg(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"en";return T[l]?l:"fr";}
-  var DATA=null, phase=null, hidden=false;
-  var elList=document.getElementById("km-list"), elTabs=document.getElementById("km-tabs");
-  if(!elList) return;
-
-  var canSpeak = "speechSynthesis" in window;
-  function say(txt,btn){
-    if(!canSpeak) return;
-    try{
-      window.speechSynthesis.cancel();
-      var u=new SpeechSynthesisUtterance(txt);
-      u.lang="en-US"; u.rate=0.85;
-      var vs=window.speechSynthesis.getVoices()||[];
-      for(var i=0;i<vs.length;i++){ if(/^en[-_]US/i.test(vs[i].lang)){u.voice=vs[i];break;} }
-      if(!u.voice){ for(var j=0;j<vs.length;j++){ if(/^en/i.test(vs[j].lang)){u.voice=vs[j];break;} } }
-      if(btn){ btn.textContent="🔊"; u.onend=u.onerror=function(){btn.textContent="🔈";}; }
-      window.speechSynthesis.speak(u);
-    }catch(e){}
-  }
-
-  function paint(){
-    if(!DATA) return;
-    var l=lg(), t=T[l];
-    document.getElementById("km-title").textContent=t.title;
-    document.getElementById("km-sub").textContent=t.sub;
-    document.getElementById("km-foot").textContent=t.foot;
-    document.getElementById("km-hide-t").textContent=hidden?t.show:t.hide;
-    if(typeof paintDrillChrome==="function") paintDrillChrome();
-    if(drilling && queue.length && qi<queue.length) showQ();
-    elTabs.innerHTML="";
-    DATA.phases.forEach(function(p){
-      var b=document.createElement("button");
-      b.type="button"; b.className="km-tab"+(p.id===phase?" on":"");
-      b.textContent=p[l]||p.fr;
-      b.addEventListener("click",function(){phase=p.id;paint();});
-      elTabs.appendChild(b);
+  // ----------------------------------------------------------- le chat
+  // ⚠️ mode:"carriere" — le Worker choisit alors le prompt CARRIERE
+  // (tools/gen_doctrine.py) et un historique separe. Le coach du test de
+  // route d'atmart.ltd appelle la meme route sans ce parametre.
+  (function(){
+    var EP = "https://atmart-chat.atmartllc.workers.dev/wout";
+    var codeEl = document.getElementById("co-code");
+    var msgs = document.getElementById("co-msgs");
+    var st = document.getElementById("co-st");
+    var inp = document.getElementById("co-input");
+    var occupe = false;
+    try { codeEl.value = localStorage.getItem("chofe360_code") || ""; } catch(e) {}
+    codeEl.addEventListener("change", function(){
+      try { localStorage.setItem("chofe360_code", codeEl.value.trim().toUpperCase()); } catch(e) {}
     });
-    var list=DATA.commands.filter(function(c){return c.p===phase;});
-    document.getElementById("km-count").textContent=t.count(list.length);
-    elList.innerHTML="";
-    elList.className="km-list"+(hidden?" km-hidden":"");
-    list.forEach(function(c){
-      var d=document.createElement("div"); d.className="km-item";
-      var row=document.createElement("div"); row.className="km-en";
-      var btn=document.createElement("button");
-      btn.type="button"; btn.className="km-say"; btn.textContent="🔈";
-      btn.setAttribute("aria-label",t.say); btn.title=canSpeak?t.say:t.noVoice;
-      if(!canSpeak) btn.disabled=true;
-      btn.addEventListener("click",function(){say(c.en,btn);});
-      var b=document.createElement("b"); b.textContent=c.en;
-      row.appendChild(btn); row.appendChild(b); d.appendChild(row);
-      if(l!=="en"){ // en anglais la traduction repeterait la commande
-        var tr=document.createElement("p"); tr.className="km-tr"; tr.textContent=c[l]||c.fr; d.appendChild(tr);
-      }
-      var doo=document.createElement("p"); doo.className="km-do";
-      doo.innerHTML="<b>"+t.todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
-      d.appendChild(doo);
-      elList.appendChild(d);
-    });
-  }
 
-  document.getElementById("km-hide").addEventListener("click",function(){hidden=!hidden;paint();});
-
-  // ---------- mode drill ----------
-  var D={fr:{btn:"M'interroger",stop:"Arrêter",ask:"Que faites-vous ? Répondez à voix haute, puis vérifiez.",
-      show:"Voir la réponse",ok:"✅ Je savais",ko:"❌ Je ne savais pas",prog:function(a,b){return "Commande "+a+" sur "+b;},
-      end:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Votre coach reprendra celles que vous avez ratées.";},
-      endFree:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Avec un code Driver360, votre coach garde la liste et vous réinterroge.";}},
-    ht:{btn:"Poze m kesyon",stop:"Kanpe",ask:"Kisa w ap fè ? Reponn awotvwa, apre sa tcheke.",
-      show:"Wè repons lan",ok:"✅ Mwen te konnen",ko:"❌ Mwen pa t konnen",prog:function(a,b){return "Kòmandman "+a+" sou "+b;},
-      end:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Coach ou a ap repran sa w rate yo.";},
-      endFree:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Ak yon kòd Driver360, coach ou a kenbe lis la epi li poze w kesyon ankò.";}},
-    en:{btn:"Quiz me",stop:"Stop",ask:"What do you do? Say it out loud, then check.",
-      show:"Show the answer",ok:"✅ I knew it",ko:"❌ I didn't know",prog:function(a,b){return "Command "+a+" of "+b;},
-      end:function(n,t){return "Done: "+n+" of "+t+" mastered. Your coach will drill the ones you missed.";},
-      endFree:function(n,t){return "Done: "+n+" of "+t+" mastered. With a Driver360 code, your coach keeps the list and re-drills you.";}},
-    es:{btn:"Pregúntame",stop:"Parar",ask:"¿Qué hace usted? Dígalo en voz alta, luego verifique.",
-      show:"Ver la respuesta",ok:"✅ Lo sabía",ko:"❌ No lo sabía",prog:function(a,b){return "Orden "+a+" de "+b;},
-      end:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Su coach repasará las que falló.";},
-      endFree:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Con un código Driver360, su coach guarda la lista y le vuelve a preguntar.";}}};
-  var drilling=false, queue=[], qi=0, answers=[], score=0;
-  var box=document.getElementById("km-drillbox");
-
-  function dT(){return D[lg()];}
-  function paintDrillChrome(){
-    var t=dT();
-    document.getElementById("km-drill-t").textContent=drilling?t.stop:t.btn;
-    document.getElementById("km-dshow").textContent=t.show;
-    document.getElementById("km-dok").textContent=t.ok;
-    document.getElementById("km-dko").textContent=t.ko;
-    document.getElementById("km-dask").textContent=t.ask;
-  }
-  function startDrill(){
-    if(!DATA) return;
-    queue=DATA.commands.slice();
-    // priorite aux commandes deja ratees (memorisees par le coach)
-    var weak=null;
-    try{ weak=JSON.parse(localStorage.getItem("chofe360_weakcmds")||"null"); }catch(e){}
-    if(weak && weak.length) queue.sort(function(a,b){return (weak.indexOf(b.id)>-1?1:0)-(weak.indexOf(a.id)>-1?1:0);});
-    qi=0; answers=[]; score=0; drilling=true;
-    document.getElementById("km-list").hidden=true;
-    document.getElementById("km-dend").hidden=true;
-    box.hidden=false; paintDrillChrome(); showQ();
-  }
-  function stopDrill(){
-    drilling=false; box.hidden=true;
-    document.getElementById("km-list").hidden=false;
-    paintDrillChrome();
-  }
-  function showQ(){
-    var t=dT(), c=queue[qi], l=lg();
-    document.getElementById("km-dprog").textContent=t.prog(qi+1,queue.length);
-    document.getElementById("km-dcmd").textContent=c.en;
-    document.getElementById("km-dtr").textContent=(l==="en"?"":(c[l]||c.fr));
-    document.getElementById("km-ddo").innerHTML="<b>"+T[l].todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
-    document.getElementById("km-dreveal").hidden=true;
-    document.getElementById("km-dshow").hidden=false;
-    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=true;});
-  }
-  function reveal(){
-    document.getElementById("km-dreveal").hidden=false;
-    document.getElementById("km-dshow").hidden=true;
-    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=false;});
-  }
-  function answer(good){
-    var c=queue[qi];
-    answers.push({k:c.id,m:c.m||"",ok:good});
-    if(good) score++;
-    qi++;
-    if(qi<queue.length){ showQ(); return; }
-    finish();
-  }
-  function finish(){
-    var t=dT(), total=queue.length;
-    document.getElementById("km-dcmd").textContent="";
-    document.getElementById("km-dask").textContent="";
-    document.getElementById("km-dsay").hidden=true;
-    document.getElementById("km-dprog").textContent="";
-    document.getElementById("km-dreveal").hidden=true;
-    document.querySelectorAll(".km-dacts button").forEach(function(b){b.hidden=true;});
-    var end=document.getElementById("km-dend");
-    end.hidden=false;
-    // memorise localement les ratees (sert a prioriser le prochain drill)
-    var weak=answers.filter(function(a){return !a.ok;}).map(function(a){return a.k;});
-    try{ localStorage.setItem("chofe360_weakcmds",JSON.stringify(weak)); }catch(e){}
-    var code=(localStorage.getItem("chofe360_code")||"").trim();
-    if(code){
-      end.textContent=t.end(score,total);
-      fetch("https://atmart-chat.atmartllc.workers.dev/wout",
-        {method:"POST",headers:{"Content-Type":"application/json"},
-         body:JSON.stringify({code:code,language:lg(),action:"komand",results:answers})}).catch(function(){});
-    } else {
-      end.textContent=t.endFree(score,total);
+    function ajouter(role, texte){
+      var d = document.createElement("div");
+      d.className = "co-m " + (role === "user" ? "user" : "coach");
+      d.textContent = texte;             /* jamais innerHTML : c'est le texte d'un modele */
+      msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
     }
-  }
-  document.getElementById("km-drill").addEventListener("click",function(){drilling?stopDrill():startDrill();});
-  document.getElementById("km-dshow").addEventListener("click",reveal);
-  document.getElementById("km-dok").addEventListener("click",function(){answer(true);});
-  document.getElementById("km-dko").addEventListener("click",function(){answer(false);});
-  document.getElementById("km-dsay").addEventListener("click",function(){
-    if(queue[qi]) say(queue[qi].en,document.getElementById("km-dsay"));});
-
-  if(canSpeak && window.speechSynthesis.onvoiceschanged!==undefined)
-    window.speechSynthesis.onvoiceschanged=function(){};
-
-  document.getElementById("km-drill").disabled=true; // reactive une fois les donnees chargees
-  fetch("assets/komand.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(j){
-    DATA=j; phase=j.phases[0].id; paint();
-    document.getElementById("km-drill").disabled=false;
-    new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
-  }).catch(function(){
-    elList.innerHTML='<p style="color:var(--d-doux)">—</p>';
-  });
-})();
+    function erreur(c){
+      return c === "wout_invalid" || c === "trop_essais" ? tr("e_inv")
+           : c === "wout_expired" ? tr("e_exp")
+           : c === "rate_limited" ? tr("e_lim") : tr("e_err");
+    }
+    function poster(corps){
+      corps.language = lg(); corps.code = codeEl.value.trim().toUpperCase();
+      return fetch(EP, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(corps)})
+        .then(function(r){ return r.json().then(function(b){ return {ok:r.ok, body:b}; }); });
+    }
+    function envoyer(texte){
+      if (occupe) return;
+      texte = (texte || "").trim(); if (!texte) return;
+      if (!codeEl.value.trim()) { st.textContent = tr("need"); codeEl.focus(); return; }
+      if (!msgs.querySelector(".co-m")) ajouter("coach", tr("hello"));
+      occupe = true; ajouter("user", texte); inp.value = ""; st.textContent = tr("think");
+      poster({message: texte, mode: "carriere"}).then(function(res){
+        occupe = false;
+        if (!res.ok) { st.textContent = erreur(res.body && res.body.error); return; }
+        st.textContent = ""; ajouter("coach", res.body.reply);
+      }).catch(function(){ occupe = false; st.textContent = tr("e_err"); });
+    }
+    document.getElementById("co-send").addEventListener("click", function(){ envoyer(inp.value); });
+    inp.addEventListener("keydown", function(e){
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); envoyer(inp.value); }
+    });
+    document.getElementById("co-rapides").addEventListener("click", function(e){
+      var b = e.target.closest("button"); if (b) envoyer(b.textContent);
+    });
+    document.getElementById("co-erase").addEventListener("click", function(){
+      if (!codeEl.value.trim()) { st.textContent = tr("need"); return; }
+      poster({action: "delete"}).then(function(res){
+        if (!res.ok) { st.textContent = erreur(res.body && res.body.error); return; }
+        msgs.innerHTML = ""; st.textContent = tr("erased");
+      }).catch(function(){ st.textContent = tr("e_err"); });
+    });
+    new MutationObserver(appliquer).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+  })();
 </script>
+
 <script>
   // ------------------------------------------------- la repetition filmee
   // ⚠️ RIEN NE SORT DU TELEPHONE. L'enregistrement vit dans un Blob local ;
-  // aucune ligne ici n'appelle le reseau, et `connect-src` de la CSP
-  // n'autorise de toute facon qu'un seul interlocuteur. Sur un site dont une
-  // partie du public est immigree, envoyer la video de quelqu'un serait le
-  // contraire exact de ce que ce produit promet.
+  // aucune ligne ici n'appelle le reseau. tools/verif_camera.py le controle.
   (function () {
-    var EXO = {}, courant = "sig", flux = null, rec = null, morceaux = [], url = null;
+    var EXO = {}, courant = "exp", flux = null, rec = null, morceaux = [], url = null;
     var v = document.getElementById("cam-video");
     var st = document.getElementById("cam-st");
     var bGo = document.getElementById("cam-go"), bRec = document.getElementById("cam-rec");
     var bStop = document.getElementById("cam-stop"), bDel = document.getElementById("cam-del");
     if (!v) return;
+    function esc(x){ return String(x).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
     window.__camExos = function (liste) { EXO = {}; liste.forEach(function (e) { EXO[e[0]] = e; }); peindre(liste); };
-
     function peindre(liste) {
-      var z = document.getElementById("cam-ex");
-      z.innerHTML = liste.map(function (e) {
-        return '<button type="button" data-ex="' + e[0] + '" aria-pressed="'
-          + (e[0] === courant ? "true" : "false") + '">' + e[1] + "</button>";
+      document.getElementById("cam-ex").innerHTML = liste.map(function (e) {
+        return '<button type="button" data-ex="' + esc(e[0]) + '" aria-pressed="' + (e[0] === courant ? "true" : "false") + '">' + esc(e[1]) + "</button>";
       }).join("");
       consigne();
     }
     function consigne() {
       var e = EXO[courant]; if (!e) return;
-      document.getElementById("cam-consigne").innerHTML =
-        '<span class="en">« ' + e[2] + ' »</span><span class="loc">' + e[3] + "</span>";
-      document.getElementById("cam-liste").innerHTML =
-        e[4].map(function (x) { return "<li>" + x + "</li>"; }).join("");
+      document.getElementById("cam-consigne").innerHTML = '<span class="en">' + esc(e[2]) + '</span><span class="loc">' + esc(e[3]) + "</span>";
+      document.getElementById("cam-liste").innerHTML = e[4].map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
     }
     document.getElementById("cam-ex").addEventListener("click", function (ev) {
       var b = ev.target.closest("button[data-ex]"); if (!b) return;
       courant = b.dataset.ex;
-      [].slice.call(this.querySelectorAll("button")).forEach(function (x) {
-        x.setAttribute("aria-pressed", x === b ? "true" : "false");
-      });
+      [].slice.call(this.querySelectorAll("button")).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
       consigne();
     });
-
-    function nettoyer() {
-      if (url) { URL.revokeObjectURL(url); url = null; }
+    function nettoyer() { if (url) { URL.revokeObjectURL(url); url = null; } }
+    // ⚠️ LA CAMERA PEUT ETRE INTERDITE PAR LE SITE, pas par le visiteur : l'en-tete
+    // Permissions-Policy de driver360 disait camera=() (releve le 15/09/2026). Dans ce
+    // cas, le message « autorisez-la dans votre navigateur » serait faux — rien dans
+    // ses reglages ne peut la rendre. On le detecte et on dit la verite.
+    function interdite() {
+      var fp = document.permissionsPolicy || document.featurePolicy;
+      return !!(fp && fp.allowsFeature && !fp.allowsFeature("camera"));
     }
+    if (interdite()) { bGo.style.display = "none"; st.dataset.k = "cam_off"; st.textContent = tr("cam_off"); }
     bGo.addEventListener("click", function () {
-      if (!navigator.mediaDevices || !window.MediaRecorder) { st.textContent = T().camNo; return; }
+      if (!navigator.mediaDevices || !window.MediaRecorder) { st.textContent = tr("cam_no"); return; }
       navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: true })
         .then(function (f) {
           flux = f; v.srcObject = f; v.muted = true; v.controls = false; v.play();
           bGo.style.display = "none"; bRec.style.display = ""; st.textContent = "";
         })
-        .catch(function () { st.textContent = T().camDeny; });
+        .catch(function () { st.textContent = tr("cam_deny"); });
     });
     bRec.addEventListener("click", function () {
       nettoyer(); morceaux = [];
-      try { rec = new MediaRecorder(flux); } catch (e) { st.textContent = T().camNo; return; }
+      try { rec = new MediaRecorder(flux); } catch (e) { st.textContent = tr("cam_no"); return; }
       rec.ondataavailable = function (e) { if (e.data && e.data.size) morceaux.push(e.data); };
       rec.onstop = function () {
         var b = new Blob(morceaux, { type: morceaux[0] ? morceaux[0].type : "video/webm" });
         url = URL.createObjectURL(b);
         v.srcObject = null; v.src = url; v.muted = false; v.controls = true; v.loop = true; v.play();
         bStop.style.display = "none"; bRec.style.display = ""; bDel.style.display = "";
-        st.textContent = T().camDone;
+        st.textContent = tr("cam_done");
       };
       rec.start();
       bRec.style.display = "none"; bStop.style.display = ""; bDel.style.display = "none";
-      st.textContent = T().camRun;
+      st.textContent = tr("cam_run");
     });
     bStop.addEventListener("click", function () { if (rec && rec.state !== "inactive") rec.stop(); });
     bDel.addEventListener("click", function () {
@@ -1189,9 +713,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       if (flux) flux.getTracks().forEach(function (t) { t.stop(); });
     });
   })();
+  appliquer();
 </script>
-  <script src="/assets/mesure360.js" data-app="atmart" defer></script>
-<script src="assets/suite.js?v=6"></script>
-<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+  <script src="/assets/mesure360.js" data-app="driver360" defer></script>
 </body>
 </html>

@@ -157,7 +157,11 @@ def main():
     verifier = "--verifier" in sys.argv
     total, retard = 0, []
 
-    for page in ("wout.html", "setdi.html"):
+    import portee
+    # En perimetre DSP, wout.html est le coach CARRIERE : il n'a pas la FAQ
+    # du test de route, et lui en deduire un balisage serait un faux.
+    pages = ("setdi.html",) if portee.dsp() else ("wout.html", "setdi.html")
+    for page in pages:
         p = os.path.join(RACINE, page)
         if not os.path.exists(p):
             continue

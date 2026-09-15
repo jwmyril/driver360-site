@@ -1,7 +1,7 @@
 {
-  "name": "Driver360 — driving jobs and licences in Massachusetts",
+  "name": "Driver360 — for Amazon DSP delivery drivers and the DSPs that hire them",
   "short_name": "Driver360",
-  "description": "Who is hiring drivers in Massachusetts, a free driver pool, and preparation for the Class D road test and the 7D exam.",
+  "description": "A driver pool, a portal for DSPs and a career coach for Amazon DSP delivery drivers in Massachusetts. Independent — not affiliated with Amazon.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "/",

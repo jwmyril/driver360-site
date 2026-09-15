@@ -75,7 +75,11 @@ def main():
                                % (page, cle, ", ".join(manquantes)))
 
     # --- 3 : les dictionnaires inline de l'accueil et de jobs ------------
-    for page in ("index.html", "jobs.html", "terms.html", "privacy.html", "404.html"):
+    import portee
+    inline = ["index.html", "jobs.html", "terms.html", "privacy.html", "404.html"]
+    if portee.dsp():
+        inline.append("wout.html")   # le coach carriere porte son dictionnaire
+    for page in inline:
         s = lire(page)
         posees = set(re.findall(r'data-t="(\w+)"', s))
         for lg in ("fr", "ht", "es"):

@@ -210,6 +210,28 @@ ferme P1).
 | I7 | Déployer le Worker (`npx wrangler deploy`) puis pousser le site | 🟠 | **fait** 04/09 | Worker déployé (version c51807ed) AVANT de pousser les pages, dans cet ordre : tant qu'il ignore `dsp` et `slots` par liste blanche, la page collecte pour rien. Les 4 suites de tests vertes et le build vert avant le déploiement. Les trois dépôts poussés |
 ---
 
+## J — Périmètre DSP (décision et relecture critique du 15/09/2026)
+
+Décision de l'utilisateur, la veille de la rencontre avec Ryan Rappoport : Driver360
+seulement pour les DSP d'Amazon ; offres des autres chauffeurs en pause ; coach
+orienté carrière. Première relecture critique : **BLOQUÉ** (3 bloquants). Tout ce
+qui suit a été corrigé avant publication.
+
+| # | Recommandation | Gravité | État | Preuve |
+|---|---|---|---|---|
+| J1 | Retirer « Coach progress too » de l'accueil (o2_4, 4 langues) : le coach carrière n'envoie rien à un DSP | 🔴 | **vérifié** | o2_4 = « Nothing from Driver Coach is ever shared with a DSP » ; la politique nomme désormais « le coach du test de route d'atmart.ltd » pour la progression partagée |
+| J2 | Convertir le vivier, le portail, le manifeste, trois clauses des conditions et les courriels au périmètre DSP | 🔴 | **vérifié** | `tools/perimetre_pages.py` (appelé par regen avant le rendu anglais) : 17 clés x 4 langues, liste « You are » DSP d'abord, vivier 7D et cases école/médical/régional masqués par CSS (le script cherche leurs identifiants), « results you can check » et « nothing to check before you call » retirés. Rescan du visible : plus aucun reste hors « no CDL » (fait DSP), cases CDL (étape de carrière) et la mention de la pause du 7D |
+| J3 | Caméra : l'en-tête Cloudflare `camera=()` l'interdit ; le message accusait les réglages du visiteur | 🔴 | **à faire — humain** | la page détecte désormais l'interdiction (`permissionsPolicy.allowsFeature`) et dit « pas encore activée sur ce site ». Reste à passer la règle Cloudflare à `camera=(self), microphone=(self)` |
+| J4 | Le build défaisait la mesure d'audience (pages dérivées en `atmart`, pages générées sans balise) | 🟠 | **vérifié** | `tools/mesure_locale.py` au build (pose + vérification) ; 8 pages sur « driver360 ». Preuve par la panne : vivye repassée en `atmart` → code 1 |
+| J5 | Dire sur l'accueil la limite du vivier (45 j sans reconfirmation, effacement 90 j après la dernière mise à jour) | 🟠 | **vérifié** | w1_d, 4 langues ; `POOL_DORMANT_DAYS = 45`, `PROFIL_GRACE_JOURS = 90` relus dans le Worker |
+| J6 | Ne plus attribuer à la page Amazon « 21+ », « clean record », « Class D » ; dater et sourcer le salaire | 🟠 | **vérifié** | fiche : « Amazon's page says no CDL… DSP postings commonly ask for 21 or over… » ; chapeau : âge et permis = offres des DSP, salaire = sites d'emploi en août 2026 |
+| J7 | Commiter le Worker (worker.js, doctrine.js déjà déployés) et suivre `tools/gen_coach.py` | 🟠 | **vérifié** | commits des deux dépôts |
+| J8 | `.sr-only` absent de wout.html ; textes indicatifs à 3,45:1 et 4,31:1 | 🟠 | **vérifié** | règle `.sr-only` et `::placeholder{color:var(--d-doux)}` dans gen_coach.py |
+| J9 | `gen_emplois.py --help` réécrivait jobs.html sans thème ni CSP | 🟠 | **vérifié** | option inconnue → sortie 1 sans écrire ; relancé : la CSP de jobs.html est intacte |
+| J10 | Titre anglais de jobs.html figé dans le gabarit ; courriel de publication « Class D / 7D / CDL » | 🟠 | **vérifié** | `<title>%(ti)s</title>` ; `MAILTO_PUB_DSP` (DSP, station, poste) |
+| J11 | Le badge DSP-ready inclut l'autorisation de travail déclarée : à soumettre à l'avocat avec D14 (8 U.S.C. § 1324b) | 🔵 | **à arbitrer — humain** | `dspReadyOf` exige `auth === "yes"` ; la colonne a été retirée de la vue libre (C2) mais le booléen l'encode |
+| J12 | Kreyòl des nouvelles pages (accueil, offres, coach, vivier, portail, conditions) | 🔵 | **à relire — humain** | reformulations de la critique appliquées ; l'autorité reste l'utilisateur |
+
 ## Ce que cette relecture a déjà appris
 
 **Les contrôles verts mesuraient moins que ce qu'ils laissaient croire.**

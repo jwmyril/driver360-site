@@ -143,6 +143,16 @@ def m_a4():
     Reste la moitié qui vaut : setdi.html n'était liée de nulle part.
     """
     lie, _ = compter(r"setdi\.html", [f for f in TOUTES if f != "setdi.html"])
+    # /!\ SAUF DECISION DE PAUSE (perimetre DSP du 15/09/2026). 7D Pro est hors
+    # du perimetre : ne le lier de nulle part est alors l'etat VOULU. La mesure
+    # verifie dans ce cas l'inverse — que plus rien n'y mene — sinon elle
+    # accuserait un site conforme a la decision de l'utilisateur.
+    import sys as _s, os as _o
+    _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
+    import portee
+    if portee.en_pause("setdi.html"):
+        return (not lie), ("setdi.html en pause (perimetre %s) : liee depuis %d page(s)"
+                           % (portee.PORTEE, lie))
     return bool(lie), ("setdi.html liée depuis %d page(s)" % lie if lie
                        else "setdi.html n'est liée depuis aucune page")
 

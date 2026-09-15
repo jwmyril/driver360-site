@@ -104,6 +104,14 @@ l'alerte WhatsApp (« Toujours disponible ? Oui → 3 créneaux »).
 
 ## 5. Le score de fiabilité — mesuré, jamais déclaré
 
+> ⚠️ **CONTREDIT PAR LA DÉCISION DU 15/09/2026 — NE PAS CONSTRUIRE EN L'ÉTAT.**
+> La présentation à Ryan Rappoport (« Driver360 Professional Continuity »,
+> 16/09/2026) écrit : *« Aucun score de fiabilité, classement de personnes »*
+> (diapo 5) et *« We propose no shared blacklist or opaque driver score »*
+> (diapo 9). Le score n'a jamais été codé (vérifié dans le Worker le 15/09) ;
+> le site dit désormais « No score, no ranking ». Toute reprise de ce
+> paragraphe demande une décision explicite de l'utilisateur.
+
 C'est l'actif que ni Indeed ni personne n'a, et il ne coûte qu'un champ de
 plus dans le flux qui existe déjà.
 

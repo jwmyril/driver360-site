@@ -351,8 +351,26 @@ def copier_donnees():
 
 
 if __name__ == "__main__":
+    import portee
+    # ⚠️ EN PERIMETRE DSP, wout.html N'EST PLUS DERIVEE du coach du test de
+    # route : tools/gen_coach.py fabrique le coach carriere. La deriver quand
+    # meme, puis l'ecraser, laisserait un piege : lancer regen.py seul
+    # remettrait le coach de route en ligne sans que personne s'en apercoive.
+    SAUTEES = {"wout.html"} if portee.dsp() else set()
     for src, dst, cote, nom, _ in PAGES:
+        if dst in SAUTEES:
+            print("%-20s -> %-16s saute (perimetre %s : gen_coach.py)" % (src, dst, portee.PORTEE))
+            continue
         n = transformer(src, dst, cote)
+        # Perimetre DSP : le vivier et le portail passent aux DSP AVANT le rendu
+        # anglais, qui rejoue leur dictionnaire (voir tools/perimetre_pages.py).
+        import perimetre_pages
+        _p = os.path.join(RACINE, dst)
+        _av = io.open(_p, encoding="utf-8").read()
+        _ap = perimetre_pages.appliquer(dst, _av)
+        if _ap != _av:
+            io.open(_p, "w", encoding="utf-8", newline="\n").write(_ap)
+            print("%-20s    %-16s perimetre %s applique" % ("", dst, portee.PORTEE))
         print("%-20s -> %-16s %-10s %7d octets" % (src, dst, "(" + cote + ")", n))
     faits, manquants = copier_donnees()
     for ligne in faits:
@@ -383,4 +401,6 @@ if __name__ == "__main__":
     print("balisage en anglais")
     import rendre_en
     for _src, dst, _cote, _nom, _ in PAGES:
+        if dst in SAUTEES:
+            continue       # deja en anglais : gen_coach.py l'ecrit ainsi
         rendre_en.rendre(os.path.join(RACINE, dst))

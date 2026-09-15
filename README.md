@@ -1,5 +1,26 @@
 # Driver360 — driver360.atmart.ltd
 
+## ⚠️ Périmètre DSP — décidé le 15/09/2026
+
+**Pour le moment, Driver360 ne sert que les DSP d'Amazon** (Delivery Service
+Partners) et leurs chauffeurs livreurs. Le site fait trois choses : le
+**Driver Pool** (DSP-ready), **Driver Employer** (le portail des DSP) et
+**Driver Coach**, réorienté vers la **carrière** du chauffeur.
+
+- Un seul interrupteur : `tools/portee.py` (`PORTEE = "dsp"`). `"tous"` rétablit
+  le périmètre d'avant — rien n'a été supprimé.
+- Offres : 1 fiche montrée sur 20 (la page officielle Amazon DSP driver jobs).
+- 7D Pro : en pause — hors plan du site, `noindex`, joignable par code.
+- `wout.html` n'est plus dérivée du coach du test de route : `tools/gen_coach.py`
+  la fabrique ; son prompt vit dans `tools/gen_doctrine.py` (`CARRIERE`).
+- Le vivier et le portail passent au périmètre par `tools/perimetre_pages.py`.
+- **Driver360 est indépendant, ni affilié à Amazon ni approuvé par lui**, et le
+  site l'écrit partout. Tout profil est **déclaré** ; seul le numéro est confirmé.
+
+Ce qui suit décrit le périmètre « tous publics » d'avant, toujours dans le code.
+
+---
+
 La suite conduite d'Atmart **pour tous les résidents du Massachusetts** :
 trouver un emploi de chauffeur, obtenir le permis qu'il demande, et recruter.
 

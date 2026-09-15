@@ -239,10 +239,10 @@ TX_DSP = {
         "es": "Cada DSP es su propio empleador. Amazon re\u00fane sus vacantes en un solo lugar \u2014 empieza ah\u00ed, cerca de donde vives.",
     },
     "lead": {
-        "en": "We do not host job adverts and we do not copy them. Amazon contracts with Delivery Service Partners; each one is an independent company that hires, pays and schedules its own drivers. Amazon lists their openings on its official DSP driver page, searchable by location \u2014 that is the link below, and you apply there, directly with the DSP. Anything we say about age, licence or pay was read on an official page or a job board on the date below, and each DSP sets its own terms: read the posting before you count on ours. <strong>Driver360 is independent and is not affiliated with or endorsed by Amazon.</strong>",
-        "fr": "Nous n'h\u00e9bergeons pas d'annonces et nous n'en recopions aucune. Amazon sous-traite \u00e0 des partenaires de livraison ; chacun est une entreprise ind\u00e9pendante qui embauche, paie et planifie ses propres chauffeurs. Amazon liste leurs postes sur sa page officielle des chauffeurs DSP, avec recherche par lieu \u2014 c'est le lien ci-dessous, et c'est l\u00e0 que vous postulez, directement aupr\u00e8s du DSP. Ce que nous disons d'un \u00e2ge, d'un permis ou d'un salaire a \u00e9t\u00e9 lu sur une page officielle ou un site d'emploi \u00e0 la date ci-dessous, et chaque DSP fixe ses conditions : lisez l'offre avant de compter sur la n\u00f4tre. <strong>Driver360 est ind\u00e9pendant, ni affili\u00e9 \u00e0 Amazon ni approuv\u00e9 par Amazon.</strong>",
-        "ht": "Nou pa gen anons lakay nou epi nou pa kopye okenn. Amazon bay patn\u00e8 livrezon yo kontra ; chak se yon konpayi endepandan ki anbochte, peye epi f\u00e8 or\u00e8 pwòp chof\u00e8 pa l. Amazon mete p\u00f2s yo sou paj ofisy\u00e8l chof\u00e8 DSP li a, ou ka ch\u00e8che selon kote w ye \u2014 se lyen ki anba a, epi se la ou aplike, dir\u00e8k ak DSP a. Sa nou di sou laj, p\u00e8mi oswa sal\u00e8 nou li l sou yon paj ofisy\u00e8l oswa yon sit travay nan dat ki anba a, epi chak DSP mete pwòp kondisyon pa l : li \u00f2f la anvan w konte sou pa nou. <strong>Driver360 endepandan, li pa afilye ak Amazon epi Amazon pa apwouve l.</strong>",
-        "es": "No alojamos anuncios ni los copiamos. Amazon contrata a socios de entrega; cada uno es una empresa independiente que contrata, paga y organiza a sus propios conductores. Amazon re\u00fane sus vacantes en su p\u00e1gina oficial de conductores DSP, con b\u00fasqueda por ubicaci\u00f3n \u2014 es el enlace de abajo, y postulas ah\u00ed, directamente con el DSP. Lo que decimos sobre edad, licencia o salario se ley\u00f3 en una p\u00e1gina oficial o un portal de empleo en la fecha de abajo, y cada DSP fija sus condiciones: lee la oferta antes de fiarte de la nuestra. <strong>Driver360 es independiente y no est\u00e1 afiliado ni avalado por Amazon.</strong>",
+        "en": 'We do not host job adverts and we do not copy them. Amazon contracts with Delivery Service Partners; each one is an independent company that hires, pays and schedules its own drivers. Amazon lists their openings on its official DSP driver page, searchable by location — that is the link below, and you apply there, directly with the DSP. What we say about age and licence comes from DSP job postings, and the pay range from job boards in August 2026; the date below is when we last opened the link. Each DSP sets its own terms: read the posting before you count on ours. <strong>Driver360 is independent and is not affiliated with or endorsed by Amazon.</strong>',
+        "fr": "Nous n'hébergeons pas d'annonces et nous n'en recopions aucune. Amazon sous-traite à des partenaires de livraison ; chacun est une entreprise indépendante qui embauche, paie et planifie ses propres chauffeurs. Amazon liste leurs postes sur sa page officielle des chauffeurs DSP, avec recherche par lieu — c'est le lien ci-dessous, et c'est là que vous postulez, directement auprès du DSP. Ce que nous disons de l'âge et du permis vient des offres publiées par les DSP, et la fourchette de salaire de sites d'emploi en août 2026 ; la date ci-dessous est celle où nous avons ouvert le lien pour la dernière fois. Chaque DSP fixe ses conditions : lisez l'offre avant de compter sur la nôtre. <strong>Driver360 est indépendant, ni affilié à Amazon ni approuvé par Amazon.</strong>",
+        "ht": 'Nou pa mete anons sou sit nou epi nou pa kopye okenn. Amazon bay patnè livrezon yo kontra ; chak se yon konpayi endepandan ki anbochte, peye epi fè orè pwòp chofè pa l. Amazon mete pòs yo sou paj ofisyèl chofè DSP li a, ou ka chèche selon kote w ye — se lyen ki anba a, epi se la ou aplike, dirèk ak DSP a. Sa nou di sou laj ak pèmi soti nan òf DSP yo pibliye, epi ranje salè a soti nan sit travay nan mwa out 2026 ; dat ki anba a se dènye fwa nou te louvri lyen an. Chak DSP mete pwòp kondisyon pa l : li òf la anvan w konte sou pa nou. <strong>Driver360 endepandan, li pa afilye ak Amazon epi Amazon pa apwouve l.</strong>',
+        "es": 'No alojamos anuncios ni los copiamos. Amazon contrata a socios de entrega; cada uno es una empresa independiente que contrata, paga y organiza a sus propios conductores. Amazon reúne sus vacantes en su página oficial de conductores DSP, con búsqueda por ubicación — es el enlace de abajo, y postulas ahí, directamente con el DSP. Lo que decimos sobre edad y licencia viene de las ofertas publicadas por los DSP, y el rango de salario de portales de empleo en agosto de 2026; la fecha de abajo es la última vez que abrimos el enlace. Cada DSP fija sus condiciones: lee la oferta antes de fiarte de la nuestra. <strong>Driver360 es independiente y no está afiliado ni avalado por Amazon.</strong>',
     },
     "paye_t": {
         "en": "What DSP driving pays", "fr": "Ce que paie la livraison en DSP",
@@ -336,8 +336,13 @@ TX["verifie"] = {
     "es": "Cada enlace de abajo fue abierto y verificado el %s." % _D,
 }
 
-MAILTO_PUB = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20job%20posting"
+MAILTO_PUB_TOUS = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20job%20posting"
               "&amp;body=" + "Employer%3A%0ATown%20or%20area%3A%0ARole%3A%0ALicence%20required%20%28Class%20D%20/%207D%20/%20CDL%29%3A%0AFull%20or%20part%20time%3A%0AAdvertised%20pay%3A%0ALink%20to%20your%20own%20application%20page%3A%0A%0AThank%20you.")
+
+# ⚠️ En perimetre DSP, le courriel demande une station et un poste, plus
+# « Class D / 7D / CDL ».
+MAILTO_PUB_DSP = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20DSP%20opening"
+                  "&amp;body=" + "DSP%20name%3A%0AStation%20or%20area%3A%0ARole%3A%0AFull%20or%20part%20time%3A%0AAdvertised%20pay%3A%0ALink%20to%20your%20own%20application%20page%3A%0A%0AThank%20you.")
 
 MAILTO = ("mailto:sales@atmart.ltd?subject=Driver360%20-%20an%20employer%20who%20hires"
           "&amp;body=" + "Employer%20name%3A%0ATown%3A%0ALink%20to%20their%20jobs%20page%3A%0A%0AThank%20you.")
@@ -571,7 +576,7 @@ PAGE = """<!DOCTYPE html>
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Driving jobs in Massachusetts — Driver360</title>
+  <title>%(ti)s</title>
   <meta name="description" content="%(descr)s" />
   <link rel="canonical" href="https://driver360.atmart.ltd/jobs.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -727,7 +732,8 @@ new MutationObserver(appliquer).observe(document.documentElement,
 def ecrire():
     import json
     champs = {k: t(k) for k in TX}
-    champs.update(mailto_pub=MAILTO_PUB, css=CSS, entete=entete("jobs.html"), pied=PIED,
+    import portee as _p
+    champs.update(mailto_pub=MAILTO_PUB_DSP if _p.dsp() else MAILTO_PUB_TOUS, css=CSS, entete=entete("jobs.html"), pied=PIED,
                   corps=construire(), mailto=MAILTO,
                   dico=json.dumps(dictionnaire(), ensure_ascii=False, indent=1))
     html = PAGE % champs
@@ -781,6 +787,12 @@ def verifier():
 
 
 if __name__ == "__main__":
+    # ⚠️ UNE OPTION INCONNUE NE DOIT JAMAIS ECRIRE LA PAGE. `--help` reecrivait
+    # jobs.html sans theme ni CSP (relecture critique du 15/09/2026). La page
+    # ne se fabrique que par tools/build.py, qui pose ensuite theme et CSP.
+    inconnues = [x for x in sys.argv[1:] if x not in ("--verifier",)]
+    if inconnues:
+        sys.exit("option inconnue : %s — lancer tools/build.py" % " ".join(inconnues))
     if "--verifier" in sys.argv:
         sys.exit(1 if verifier() else 0)
     chemin, n = ecrire()
