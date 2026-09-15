@@ -17,6 +17,10 @@ Partners) et leurs chauffeurs livreurs. Le site fait trois choses : le
 - **Driver360 est indépendant, ni affilié à Amazon ni approuvé par lui**, et le
   site l'écrit partout. Tout profil est **déclaré** ; seul le numéro est confirmé.
 
+**Ce dépôt est public, et le site ne publie ni `docs/` ni `tools/`** (`_config.yml`).
+Les documents internes — argumentaires, spécifications, notes sur des personnes —
+vivent dans `Atmart_business/driver360/`, jamais ici (`tools/verif_publication.py`).
+
 Ce qui suit décrit le périmètre « tous publics » d'avant, toujours dans le code.
 
 ---

@@ -1,0 +1,13 @@
+# GitHub Pages construit ce site avec Jekyll. Ce fichier ne sert qu'à une chose :
+# NE PAS PUBLIER ce qui n'est pas le site.
+#
+# Le dépôt est public sur GitHub, mais le site n'a pas à servir les outils de
+# fabrication ni le registre interne. Jusqu'au 15/09/2026, docs/ et tools/
+# étaient lisibles à une adresse directe du site.
+#
+# ⚠️ Ne pas ajouter de .nojekyll : il désactiverait ce fichier, et donc cette
+# exclusion, sans aucun message. tools/verif_publication.py le contrôle.
+exclude:
+  - docs
+  - tools
+  - README.md

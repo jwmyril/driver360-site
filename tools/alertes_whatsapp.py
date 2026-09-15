@@ -328,7 +328,7 @@ def action_stop(fiches, code):
 
 def action_tel_ok(fiches, quoi):
     """Le telephone repond : c'est R7 de DSP-ready, la seule mesure que pose
-    l'operateur (Driver360_site/docs/SPEC_DSP_READY.md).
+    l'operateur (Atmart_business/driver360/SPEC_DSP_READY.md (hors depot public)).
 
     POURQUOI PAR ICI ET PAS PAR LA PAGE. `phoneOk` est le seul critere
     DSP-ready qui soit MESURE plutot que declare — et il ne vaut quelque chose

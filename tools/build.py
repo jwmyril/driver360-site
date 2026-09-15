@@ -79,6 +79,7 @@ ETAPES = [
     # ca revient a mesurer l'ecart d'un immigrant a une norme americaine.
     ("verif_camera.py", [], "la camera reste un miroir, pas un jury", True),
     ("mesure_locale.py", ["--verifier"], "chaque page compte pour driver360", True),
+    ("verif_publication.py", [], "docs/ et tools/ hors du site, documents internes hors du depot", True),
 ]
 
 
