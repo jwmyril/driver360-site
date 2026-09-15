@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-uoAQW8jczcqXtqaFReW9ut7kkeqcxcYHCiss8vOyvYM=' 'sha256-CyWJ5+ByXAOPLSR2WxcI98z4f6zvEXCwnbr0wf+x4dY=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-RwdAchX4sra2ZXqVfzpks0HoMTeVLnfGZjJG0jg0CpQ=' 'sha256-0W1gwH0WgBhRLKkUOYJJ9d6oQFz0XhV/NDD0NNgbKUQ=' 'sha256-42fa4itQPVjyz8BdFWSXU8deooSpKRJvIxbmh3d5G38=' 'sha256-ycVVPR8OhlPIZRCbLaxmrIY29h4+9RZWliMKfR1ymJk=' 'sha256-rkoxwJzknIcjMLUhQAWMSra8p72UGStndSQneHb7w9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://atmart-chat.atmartllc.workers.dev https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -546,8 +546,8 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   document.getElementById("ep-dash").addEventListener("click", function (e) {
     var b = e.target.closest(".ep-sel");
     if (!b || busy) return;
-    // ⚠️ uid=197609(USUARIO) gid=197121 groups=197121 n'existe pas dans cette portee : seul le bouton la porte. La
-    // version d'origine appelait , ce qui levait une
+    // ⚠️ La variable id n'existe pas dans cette portee : seul le bouton la porte,
+    // dans b.dataset.id. La version d'origine l'utilisait quand meme, ce qui levait une
     // ReferenceError AVANT la confirmation — le bouton « Selectionner »,
     // celui qui rapporte, ne faisait donc rien du tout, et le mecanisme
     // d'accord prealable du chauffeur n'avait jamais tourne une seule fois.
@@ -567,9 +567,9 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
   document.getElementById("ep-start").addEventListener("submit", function (e) {
     e.preventDefault();
     if (busy) return;
-    if (!codeEl.value.trim()) { document.getElementById("ep-st1").textContent = "Entrez votre code."; return; }
+    if (!codeEl.value.trim()) { document.getElementById("ep-st1").textContent = EPT("eNeedCode"); return; }
     busy = true;
-    document.getElementById("ep-st1").textContent = "Vérification…";
+    document.getElementById("ep-st1").textContent = EPT("eChecking");
     post({ action: "start", profile: {
       org: document.getElementById("ep-org").value,
       kind: document.getElementById("ep-kind").value,
@@ -674,6 +674,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       thcv: "Ville / zone", thc2: "Action",
       emptyCd: "Aucun candidat Class D dans le pool pour l'instant.",
       foot: "Vous voyez tout le pool, mais le nom et le contact d'un candidat n'apparaissent qu'au moment où vous le <strong>sélectionnez</strong> — et une sélection est <strong>définitive</strong>. Chaque personne a accepté de figurer dans ce vivier. Certaines ont demandé à donner leur accord AVANT tout contact : la pastille 🔒 le signale, et votre sélection leur envoie alors une demande. Merci de la traiter avec respect : ce pool vit de leur confiance. Vous connaissez des chauffeurs déjà licenciés ? Envoyez-leur le lien d'<a href=\"vivye.html\" style=\"color:var(--d-accent)\">inscription gratuite au pool</a>.",
+      eNeedCode: "Entrez votre code.", eChecking: "Vérification…",
       eInvalid: "Code invalide — demandez un code fondateur à sales@atmart.ltd.",
       eExpired: "Accès expiré — sales@atmart.ltd.",
       eRate: "Limite du jour atteinte — réessayez demain.",
@@ -746,6 +747,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       thcv: "City / area", thc2: "Action",
       emptyCd: "No Class D candidate in the pool yet.",
       foot: "You see the whole pool, but a candidate's name and contact details appear only when you <strong>select</strong> them — and a selection is <strong>final</strong>. Everyone here agreed to appear in this pool. Some asked to give their agreement BEFORE any contact: the 🔒 badge shows it, and your selection then sends them a request. Please treat them with respect: this pool lives on their trust. To equip your recruits in their own language: <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:var(--d-accent)\">code packs</a>. Do you know drivers who are already licensed? Send them the <a href=\"vivye.html\" style=\"color:var(--d-accent)\">free pool registration link</a>.",
+      eNeedCode: "Enter your code.", eChecking: "Checking…",
       eInvalid: "Invalid code — ask for a founder code at sales@atmart.ltd.",
       eExpired: "Access expired — sales@atmart.ltd.",
       eRate: "Daily limit reached — try again tomorrow.",
@@ -818,6 +820,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       thcv: "Vil / zòn", thc2: "Aksyon",
       emptyCd: "Poko gen kandida Class D nan vivye a.",
       foot: "Ou wè tout vivye a, men non ak kontak yon kandida parèt sèlman lè ou <strong>chwazi</strong> li — epi yon seleksyon <strong>final</strong>. Tout moun isit la te dakò pou yo parèt nan vivye sa a. Gen ladan yo ki mande pou yo bay otorizasyon AVAN nenpòt kontak : ti mak 🔒 la endike sa, epi seleksyon w lan voye yon demann ba yo. Tanpri trete l ak respè : vivye sa a viv sou konfyans yo. Pou ekipe moun ou anboche yo nan lang pa yo : <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:var(--d-accent)\">pake kòd</a>. Ou konnen chofè ki gen pèmi deja ? Voye <a href=\"vivye.html\" style=\"color:var(--d-accent)\">lyen enskripsyon gratis la</a> ba yo.",
+      eNeedCode: "Mete kòd ou.", eChecking: "N ap verifye…",
       eInvalid: "Kòd la pa bon — mande yon kòd fondatè nan sales@atmart.ltd.",
       eExpired: "Aksè a fini — sales@atmart.ltd.",
       eRate: "Ou rive nan limit jounen an — eseye demen.",
@@ -890,6 +893,7 @@ if(l!=="en"){d.className+=" i18n-wait";var lev=function(){d.classList.remove("i1
       thcv: "Ciudad / zona", thc2: "Acción",
       emptyCd: "Todavía no hay candidatos Class D en el registro.",
       foot: "Ves todo el registro, pero el nombre y el contacto de un candidato solo aparecen cuando lo <strong>seleccionas</strong> — y una selección es <strong>definitiva</strong>. Cada persona aquí aceptó figurar en este registro. Algunas pidieron dar su acuerdo ANTES de cualquier contacto: la marca 🔒 lo indica, y tu selección les envía entonces una solicitud. Trátala con respeto: este registro vive de su confianza. Para equipar a tus contrataciones en su idioma: <a href=\"mailto:sales@atmart.ltd?subject=Driver360%20-%20pack%20recrues\" style=\"color:var(--d-accent)\">packs de códigos</a>. ¿Conoces conductores ya licenciados? Envíales el <a href=\"vivye.html\" style=\"color:var(--d-accent)\">enlace de inscripción gratuita</a>.",
+      eNeedCode: "Escribe tu código.", eChecking: "Verificando…",
       eInvalid: "Código no válido — pide un código fundador a sales@atmart.ltd.",
       eExpired: "Acceso vencido — sales@atmart.ltd.",
       eRate: "Límite diario alcanzado — inténtalo mañana.",

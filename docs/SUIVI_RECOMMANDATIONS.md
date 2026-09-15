@@ -235,6 +235,10 @@ qui suit a été corrigé avant publication.
 | J14 | `etat_suivi.py` ne lisait que les sections A à I : J3 (bloquant) n'était ni compté ni mesuré | 🟠 | **vérifié** | règle `[A-J]` ; le script liste désormais J3, J11, J12 parmi ce qui attend un humain |
 | J15 | Le message « caméra pas encore activée » ne suivait pas la bascule de langue | 🟠 | **vérifié** | `appliquer()` retraduit `#cam-st` par sa clé `dataset.k` |
 | J16 | Vivier Class D (préparation route, Pèmi, résultats RMV) encore visible sur le portail ; clause « preparation not endorsed by the RMV » | 🟠 | **vérifié** | masqué par CSS en périmètre DSP ; clause : « Driver Coach is independent coaching, endorsed neither by Amazon nor by the Massachusetts RMV » (4 langues). « We do not guarantee you will pass an exam » est GARDÉ : des codes 7D restent valables |
+| J17 | Deux messages en dur en français dans le portail (« Entrez votre code. », « Vérification… »), sur les 4 langues | 🟠 | **vérifié** | clés `eNeedCode` / `eChecking` dans les 4 dictionnaires de `anplwaye360.html`, lues par `EPT()` |
+| J18 | Worker : lecture `st.kind || "school"` incohérente avec le repli `other` | 🟠 | **vérifié** | 2 lectures alignées ; déployé |
+| J19 | Une sortie de shell (`uid=… (USUARIO)`) publiée dans un commentaire du portail | 🟠 | **vérifié** | des accents graves autour de « id » dans une commande shell avaient exécuté `id` ; commentaire réécrit à la source ; 0 occurrence dans la page construite |
+| J20 | Revérifier l'en-tête après la règle Cloudflare de J3 | 🔵 | **vérifié** | 15/09/2026 après propagation : `camera=(self)`, `microphone=(self)` sur driver360 ; aucun en-tête sur 360.atmart.ltd ni atmart.ltd |
 
 ## Ce que cette relecture a déjà appris
 
